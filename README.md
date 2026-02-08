@@ -180,3 +180,8 @@ Prenosi se red.
 
 Ovo je živi operativni dokument.  
 Ažurira se isključivo kada promjena povećava mir, stabilnost ili održivost sustava.
+
+---
+
+## Web stranica uživo
+Službena stranica Majstoraj-a “Uskoro” dostupna je na [https://majstoraj.hr](https://majstoraj.hr)
