@@ -7,6 +7,10 @@
 
     <meta name="description" content="Majstoraj pruža IT rješenja i mikro-logistiku za male tvrtke na području Matulja, Opatije i Rijeke.">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-main: #0b1d34;
@@ -22,7 +26,7 @@
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: "DM Sans", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
             background: radial-gradient(circle at top, #102544, var(--bg-main));
             color: var(--text-main);
             display: flex;
@@ -63,6 +67,8 @@
         h1 {
             margin: 0 0 10px;
             font-size: 2.3rem;
+            font-family: "DM Serif Display", serif;
+            font-weight: 400;
             letter-spacing: 0.02em;
             color: var(--accent);
         }
@@ -115,6 +121,11 @@
 			transform: none;
 			background: rgba(94, 234, 212, 0.05);
 		}
+
+        .card-icon {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
 
         .service-card h3 {
             margin: 0 0 10px;
@@ -187,30 +198,33 @@
         <h1>Majstoraj</h1>
 
         <div class="headline">
-            Digitalna rješenja i lokalna dostava za mala i srednja poduzeća
+            Digitalna rješenja i lokalna dostava za mala<br>
+            i srednja poduzeća Kvarnera.
         </div>
 
         <div class="section-title">Operativno područje</div>
         <div class="region">
-            Matulji, Opatija, Rijeka i okolica
+            Matulji · Opatija · Rijeka i okolica
         </div>
 
         <div class="section-title">Glavne djelatnosti</div>
 
         <div class="services">
             <div class="service-card">
+                <div class="card-icon">⌗</div>
                 <h3>IT & Digitalna rješenja</h3>
                 <p>
                     Razvoj softvera, automatizacija procesa
-                    i skalabilni digitalni alati.
+                    i skalabilni digitalni alati prilagođeni vašem poslovanju.
                 </p>
             </div>
 
             <div class="service-card">
+                <div class="card-icon">◎</div>
                 <h3>Mikro-logistika</h3>
                 <p>
                     Precizna, lokalna i personalizirana dostava
-                    prilagođena B2B potrebama.
+                    prilagođena B2B potrebama i vašem rasporedu.
                 </p>
             </div>
         </div>
@@ -222,7 +236,7 @@
 		
 		<div class="contact-text">
             Imate specifične potrebe ili prijedlog suradnje?<br>
-            Javite nam se izravno na:
+            Javite nam se izravno.
         </div>
 
         <a class="cta" href="mailto:info@majstoraj.hr">
