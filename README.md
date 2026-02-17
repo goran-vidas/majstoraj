@@ -1,7 +1,7 @@
 # MAJSTORAJ  
-**Mikro-dostava kao miran, zakonit i održiv obrt**
+**Mikro-logistika kao miran, zakonit i održiv obrt**
 
-Majstoraj je lokalni mikro-logistički obrt koji pruža pouzdanu, diskretnu i zakonitu dostavu na području Matulja, Opatije i okolnih naselja.
+Majstoraj je lokalni mikro-logistički obrt koji pruža pouzdanu, diskretnu i zakonitu dostavu na području Matulja, Opatije i okolice Rijeke.
 
 Ovo nije projekt brzine, rasta ni kaosa.  
 Ovo je sustav reda, mjere i dugoročne održivosti — za klijente i za osobu koja ga vodi.
@@ -70,7 +70,8 @@ Vozilo je produžetak profesionalnosti:
 - uredno
 - bez improvizacija
 
-Klijent koji vidi vozilo vidi karakter.
+Klijent koji vidi vozilo vidi karakter.  
+Primarno se koriste **osobni automobili, karavani ili manja vozila**.
 
 ---
 
@@ -101,7 +102,7 @@ Izbjegavaju se klijenti koji traže:
 
 ## V. FINANCIJSKI MODEL
 
-- mikro-dostava: 7–10 €
+- mikro-logistika: 7–10 €
 - bez spuštanja cijene
 - bez opravdavanja
 
@@ -131,7 +132,15 @@ Dugoročna suradnja znači mir za obje strane.
 
 ---
 
-## VII. DOLAZAK DO KLIJENATA
+## VII. PRISTUP
+
+- Ne jurimo volumen; gradimo dugoročne suradnje
+- profesionalno i diskretno
+- poštivanje pravila i zakona
+
+---
+
+## VIII. DOLAZAK DO KLIJENATA
 
 - diskretno
 - bez nagovaranja
@@ -142,7 +151,7 @@ Ako se ne jave — ništa nije izgubljeno.
 
 ---
 
-## VIII. KALENDAR I SUSTAVI
+## IX. KALENDAR I SUSTAVI
 
 - kalendar nije javan
 - pristup imaju samo stalni klijenti
@@ -152,7 +161,7 @@ Sustav služi čovjeku, ne obrnuto.
 
 ---
 
-## IX. TIJELO I RITAM
+## X. TIJELO I RITAM
 
 Rad je dio oporavka, ne izgaranja.
 
@@ -164,7 +173,7 @@ Cilj je dugoročna snaga, a ne kratkoročna izdržljivost.
 
 ---
 
-## X. SMISAO
+## XI. SMISAO
 
 Majstoraj postoji kako bi:
 - posao bio čist
@@ -184,4 +193,4 @@ Ažurira se isključivo kada promjena povećava mir, stabilnost ili održivost s
 ---
 
 ## Web stranica uživo
-Službena stranica Majstoraj-a “Uskoro” dostupna je na [https://majstoraj.hr](https://majstoraj.hr)
+Službena stranica Majstoraj-a dostupna je na [https://majstoraj.hr](https://majstoraj.hr)
