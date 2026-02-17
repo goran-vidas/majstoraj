@@ -75,7 +75,21 @@ Primarno se koriste **osobni automobili, karavani ili manja vozila**.
 
 ---
 
-## IV. GEOGRAFSKI I POSLOVNI FOKUS
+## IV. GLAVNE DJELATNOSTI
+
+Majstoraj djeluje unutar konzistentnog ekosustava:
+
+- IT i digitalna rješenja  
+- Digitalni proizvodi i izdavaštvo  
+- Online prodaja i vlastita proizvodnja  
+- Mikro-dostava i lokalna logistika  
+- Edukacija i podrška klijentima  
+
+Osim mikro-logistike, Majstoraj pruža i diskretne operativne aktivnosti prilagođene potrebama klijenata.
+
+---
+
+## V. GEOGRAFSKI I POSLOVNI FOKUS
 
 ### Geografija
 - Matulji
@@ -100,7 +114,7 @@ Izbjegavaju se klijenti koji traže:
 
 ---
 
-## V. FINANCIJSKI MODEL
+## VI. FINANCIJSKI MODEL
 
 - mikro-logistika: 7–10 €
 - bez spuštanja cijene
@@ -116,7 +130,7 @@ Bez izgaranja.
 
 ---
 
-## VI. ODNOS S KLIJENTIMA
+## VIII. ODNOS S KLIJENTIMA
 
 ### Bez ugovora
 - viša cijena
@@ -132,7 +146,7 @@ Dugoročna suradnja znači mir za obje strane.
 
 ---
 
-## VII. PRISTUP
+## VIII. PRISTUP
 
 - Ne jurimo volumen; gradimo dugoročne suradnje
 - profesionalno i diskretno
@@ -140,7 +154,7 @@ Dugoročna suradnja znači mir za obje strane.
 
 ---
 
-## VIII. DOLAZAK DO KLIJENATA
+## IX. DOLAZAK DO KLIJENATA
 
 - diskretno
 - bez nagovaranja
@@ -151,7 +165,7 @@ Ako se ne jave — ništa nije izgubljeno.
 
 ---
 
-## IX. KALENDAR I SUSTAVI
+## X. KALENDAR I SUSTAVI
 
 - kalendar nije javan
 - pristup imaju samo stalni klijenti
@@ -161,7 +175,7 @@ Sustav služi čovjeku, ne obrnuto.
 
 ---
 
-## X. TIJELO I RITAM
+## XI. TIJELO I RITAM
 
 Rad je dio oporavka, ne izgaranja.
 
@@ -173,7 +187,7 @@ Cilj je dugoročna snaga, a ne kratkoročna izdržljivost.
 
 ---
 
-## XI. SMISAO
+## XII. SMISAO
 
 Majstoraj postoji kako bi:
 - posao bio čist
