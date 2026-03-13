@@ -1,255 +1,93 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Majstoraj | Digitalna rješenja i lokalna dostava</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Majstoraj pruža IT rješenja i mikro-logistiku za male tvrtke na području Matulja, Opatije i Rijeke.">
+<title>Majstoraj | Digitalna rješenja i lokalna dostava</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap6f1e9M1D7/..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta name="description" content="Majstoraj pruža IT rješenja i mikro-logistiku za male tvrtke na području Matulja, Opatije i Rijeke.">
 
-    <style>
-        :root {
-            --bg-main: #0b1d34;
-            --bg-card: #13294b;
-            --accent: #5eead4;
-            --text-main: #e5edff;
-            --text-muted: #9fb0d0;
-            --border: #1e3a5f;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        * { box-sizing: border-box; }
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&display=swap" rel="stylesheet">
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: "DM Sans", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            background: radial-gradient(circle at top, #102544, var(--bg-main));
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
+<link rel="stylesheet" href="/assets/css/style.css">
 
-        .container {
-            max-width: 760px;
-            width: 100%;
-            background: linear-gradient(180deg, #152f55, var(--bg-card));
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 48px 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.45);
-            animation: fadeUp 0.9s ease-out forwards;
-			text-align: center;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(18px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .badge {
-            display: inline-block;
-            margin-bottom: 24px;
-            padding: 6px 18px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            border-radius: 999px;
-            background: var(--accent);
-            color: #052e2b;
-        }
-
-        h1 {
-            margin: 0 0 10px;
-            font-size: 2.3rem;
-            font-family: "DM Serif Display", serif;
-            font-weight: 400;
-            letter-spacing: 0.02em;
-            color: var(--accent);
-        }
-
-        .headline {
-            font-size: 1.15rem;
-			margin: 0 auto 32px;
-			max-width: 350px;
-			color: var(--text-main);
-        }
-
-        .section-title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-
-        .region {
-            color: var(--text-muted);
-            margin-bottom: 36px;
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-			justify-items: center;
-            margin-bottom: 60px;
-        }
-		
-		@media (max-width: 720px) {
-			.services {
-				grid-template-columns: 1fr;
-			}
-		}
-
-        .service-card {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 22px;
-            background: rgba(255,255,255,0.02);
-            transition: all 0.25s ease;
-			max-width: 340px;
-        }
-
-		.service-card:hover {
-			border-color: var(--accent);
-			transform: none;
-			background: rgba(94, 234, 212, 0.05);
-		}
-
-        .card-icon {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .service-card h3 {
-            margin: 0 0 10px;
-            font-size: 1rem;
-            color: var(--accent);
-        }
-
-        .service-card p {
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-        }
-
-		.approach {
-			font-weight: 700;
-			letter-spacing: 0.5px;
-			font-size: 1.05rem;
-			color: var(--text-main);
-			margin-bottom: 40px;
-		}
-		
-		.contact-text {
-            margin-top: 24px;
-            margin-bottom: 14px;
-            color: var(--text-muted);
-        }
-
-        .cta {
-            display: inline-block;
-            padding: 13px 30px;
-            border-radius: 10px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.25s ease;
-        }
-
-        .cta:hover {
-            background: rgba(94, 234, 212, 0.12);
-			transform: none;
-			box-shadow: 0 4px 12px rgba(94, 234, 212, 0.35);
-        }
-
-        .footer {
-            margin-top: 42px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            text-align: center;
-        }
-
-        @media (max-width: 720px) {
-            .services {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 1.9rem; }
-            .container { padding: 32px 22px; }
-        }
-    </style>
 </head>
+
 <body>
-    <main class="container">
 
-        <div class="badge">TRENUTNO U RAZVOJU</div>
+<div id="header"></div>
 
-        <h1>Majstoraj</h1>
+<main class="main-content">
 
-        <div class="headline">
-            Digitalna rješenja i lokalna dostava za mala i srednja poduzeća Kvarnera.
-        </div>
+<div class="container">
 
-        <div class="section-title">Operativno područje</div>
-        <div class="region">
-            Matulji · Opatija · Rijeka i okolica
-        </div>
+<div class="badge">TRENUTNO U RAZVOJU</div>
 
-        <div class="section-title">Glavne djelatnosti</div>
+<h1>Majstoraj</h1>
 
-        <div class="services">
-            <div class="service-card">
-                <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>IT & Digitalna rješenja</h3>
-                <p>
-                    Razvoj softvera, automatizacija procesa
-                    i skalabilni digitalni alati prilagođeni vašem poslovanju.
-                </p>
-            </div>
+<div class="headline">
+Digitalna rješenja i lokalna dostava za mala i srednja poduzeća Kvarnera.
+</div>
 
-            <div class="service-card">
-                <div class="card-icon"><i class="fas fa-car-side"></i></div>
-                <h3>Mikro-logistika</h3>
-                <p>
-                    Precizna, lokalna i personalizirana dostava
-                    prilagođena B2B potrebama i vašem rasporedu.
-                </p>
-            </div>
-        </div>
+<div class="section-title">Operativno područje</div>
 
-        <div class="section-title">Naš pristup</div>
-        <div class="approach">
-            Ne jurimo volumen; gradimo dugoročne suradnje.
-        </div>
-		
-		<div class="contact-text">
-            Imate specifične potrebe ili prijedlog suradnje?<br>
-            Javite nam se izravno.
-        </div>
+<div class="region">
+Matulji · Opatija · Rijeka i okolica
+</div>
 
-        <a class="cta" href="mailto:info@majstoraj.hr">
-            info@majstoraj.hr
-        </a>
+<div class="section-title">Glavne djelatnosti</div>
 
-        <div class="footer">
-            &copy; 2026 Majstoraj · Sva prava pridržana<br>
-            Privatnost po dizajnu · Nema prikupljanja osobnih podataka
-        </div>
+<div class="services">
 
-    </main>
+<div class="service-card">
+<div class="card-icon">💻</div>
+
+<h3>IT & Digitalna rješenja</h3>
+
+<p>
+Razvoj softvera, automatizacija procesa
+i skalabilni digitalni alati prilagođeni vašem poslovanju.
+</p>
+</div>
+
+<div class="service-card">
+<div class="card-icon">🚗</div>
+
+<h3>Mikro-logistika</h3>
+
+<p>
+Precizna, lokalna i personalizirana dostava
+prilagođena B2B potrebama i vašem rasporedu.
+</p>
+</div>
+
+</div>
+
+<div class="section-title">Naš pristup</div>
+
+<div class="approach">
+Ne jurimo volumen; gradimo dugoročne suradnje.
+</div>
+
+<div class="contact-text">
+Imate specifične potrebe ili prijedlog suradnje?<br>
+Javite nam se izravno.
+</div>
+
+<a class="cta" href="mailto:info@majstoraj.hr">
+info@majstoraj.hr
+</a>
+
+</div>
+
+</main>
+
+<div id="footer"></div>
+
+<script src="/assets/js/components.js"></script>
 </body>
 </html>

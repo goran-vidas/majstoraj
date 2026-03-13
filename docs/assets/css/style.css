@@ -1,0 +1,217 @@
+/* ---------- Varijable boja i fontova ---------- */
+:root {
+    --bg-main: #0b1d34;
+    --bg-card: #13294b;
+    --accent: #5eead4;
+    --text-main: #e5edff;
+    --text-muted: #9fb0d0;
+    --border: #1e3a5f;
+    --font-main: "DM Sans", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: "DM Serif Display", serif;
+}
+
+/* ---------- Global resets ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-main);
+    background: radial-gradient(circle at top, #102544, var(--bg-main));
+}
+
+/* ---------- Header ---------- */
+.header-container {
+    width: 100%;
+    background: var(--bg-main);
+    color: var(--text-main);
+    padding: 16px 0;
+}
+
+.nav-main {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav-main a {
+    color: var(--accent);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.nav-main a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+.footer-container {
+    width: 100%;
+    background: var(--bg-main);
+    color: var(--text-muted);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* ---------- Main content ---------- */
+.main-content {
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 140px); /* Header + Footer visina */
+}
+
+/* ---------- Container ---------- */
+.container {
+    max-width: 760px;
+    width: 100%;
+    background: linear-gradient(180deg, #152f55, var(--bg-card));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px 40px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+    animation: fadeUp 0.9s ease-out forwards;
+    text-align: center;
+}
+
+/* ---------- Animacija ---------- */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Badge ---------- */
+.badge {
+    display: inline-block;
+    margin-bottom: 24px;
+    padding: 6px 18px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #052e2b;
+}
+
+/* ---------- Naslovi ---------- */
+h1 {
+    margin: 0 0 10px;
+    font-size: 2.3rem;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+}
+
+.headline {
+    font-size: 1.15rem;
+    margin: 0 auto 32px;
+    max-width: 350px;
+    color: var(--text-main);
+}
+
+.section-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.region {
+    color: var(--text-muted);
+    margin-bottom: 36px;
+}
+
+/* ---------- Services / kartice ---------- */
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 60px;
+}
+
+.service-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    background: rgba(255,255,255,0.02);
+    transition: all 0.25s ease;
+    max-width: 340px;
+}
+
+.service-card:hover {
+    border-color: var(--accent);
+    transform: none;
+    background: rgba(94, 234, 212, 0.05);
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.service-card h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.service-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* ---------- Pristup / slogan ---------- */
+.approach {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    margin-bottom: 40px;
+}
+
+/* ---------- Kontakt i CTA ---------- */
+.contact-text {
+    margin-top: 24px;
+    margin-bottom: 14px;
+    color: var(--text-muted);
+}
+
+.cta {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: 10px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.cta:hover {
+    background: rgba(94, 234, 212, 0.12);
+    transform: none;
+    box-shadow: 0 4px 12px rgba(94, 234, 212, 0.35);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+    .services {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.9rem; }
+    .container { padding: 32px 22px; }
+}
