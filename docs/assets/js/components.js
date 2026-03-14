@@ -1,17 +1,19 @@
-async function loadComponent(id, file) {
-    const element = document.getElementById(id);
-    const response = await fetch(file);
-    const html = await response.text();
-    element.innerHTML = html;
+/**
+ * Pomaže u učitavanju HTML fragmenata bez body/html tagova.
+ */
+async function injectComponent(id, url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Greška pri učitavanju: ${url}`);
+        const html = await response.text();
+        document.getElementById(id).innerHTML = html;
+    } catch (err) {
+        console.error(err);
+    }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const header = document.getElementById('header');
-    const footer = document.getElementById('footer');
-
-    const headerHTML = await fetch('/assets/includes/header.html').then(r => r.text());
-    const footerHTML = await fetch('/assets/includes/footer.html').then(r => r.text());
-
-    header.innerHTML = headerHTML;
-    footer.innerHTML = footerHTML;
+document.addEventListener('DOMContentLoaded', () => {
+    // Putanje su prilagođene tvojoj strukturi
+    injectComponent('header', '/assets/includes/header.html');
+    injectComponent('footer', '/assets/includes/footer.html');
 });
