@@ -94,6 +94,22 @@
     transform: scale(1.03);
 }
 
+.cta-wrapper {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.cta {
+    display: inline-block;
+    padding: 18px 45px;
+    background: var(--accent);
+    color: var(--bg-main) !important;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(94, 234, 212, 0.2);
+}
+
 .about-author {
     margin: 60px 0;
     padding: 30px;
@@ -120,4 +136,14 @@
     font-size: 0.9rem;
     letter-spacing: 2px;
     color: var(--accent);
+}
+
+.book-preview {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.book-preview .small-text {
+    font-size: 0.9rem;
+    color: #555;
 }
