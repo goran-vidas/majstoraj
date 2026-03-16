@@ -245,3 +245,56 @@ h1 {
         text-align: center;
     }
 }
+
+.featured-book {
+    margin: 30px 0 50px;
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.3s ease;
+}
+
+.featured-book:hover {
+    border-color: var(--accent);
+    background: rgba(94,234,212,0.07);
+    transform: translateY(-3px);
+}
+
+.featured-book-text h2 {
+    font-family: var(--font-heading);
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.featured-book-text p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.featured-book-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.featured-book-icon {
+    font-size: 2.2rem;
+}
+
+.book-cover {
+    width: 110px;
+    border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+    .featured-book-content {
+        flex-direction: column; /* Naslovnica ide iznad teksta na mobitelu */
+        text-align: center;
+    }
+    .book-cover {
+        width: 140px; /* Malo je povećamo kad je centrirana */
+        margin-bottom: 15px;
+    }
+}
