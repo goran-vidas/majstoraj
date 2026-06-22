@@ -1,88 +1,683 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Majstoraj - Razvoj softvera & IT konzalting</title>
-    
-    <!-- SEO & Google Snippet Optimizacija -->
-    <meta name="description" content="Majstoraj pruža profesionalne usluge razvoja softvera, napredne backend arhitekture i IT savjetovanja. Specijalizirani za automatizaciju i robusna digitalna rješenja.">
-    
-    <!-- Open Graph (za dijeljenje na LinkedInu i mrežama) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Majstoraj - Razvoj softvera & IT konzalting">
-    <meta property="og:description" content="Inženjerski razvoj softvera, optimizacija sustava i tehničko savjetovanje za B2B klijente.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAJSTORAJ — Softver po mjeri za vaše poslovanje · Rijeka</title>
+<meta name="description" content="Desktop aplikacije i automatizacija za male i srednje tvrtke u Rijeci i Kvarneru. Bez cloud pretplate, bez IT odjela. Fiksna cijena, isporuka 3–4 tjedna.">
+<meta name="keywords" content="razvoj softvera Rijeka, desktop aplikacije, automatizacija procesa, IT konzalting Kvarner, softver za obrtnike">
+<meta property="og:title" content="MAJSTORAJ — Softver po mjeri za vaše poslovanje">
+<meta property="og:description" content="Desktop aplikacije i automatizacija za tvrtke u Rijeci i Kvarneru. Bez clouda, bez pretplate, bez IT odjela.">
+<meta property="og:url" content="https://majstoraj.hr/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://majstoraj.hr/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "MAJSTORAJ",
+  "description": "Razvoj desktop softvera i automatizacija poslovnih procesa za male i srednje tvrtke u Rijeci i Kvarneru.",
+  "url": "https://majstoraj.hr",
+  "telephone": "+385 91 983 2370",
+  "email": "info@majstoraj.hr",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Tizianova 36",
+    "addressLocality": "Rijeka",
+    "postalCode": "51000",
+    "addressCountry": "HR"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00",
+    "closes": "16:00"
+  }],
+  "areaServed": ["Rijeka","Opatija","Kastav","Matulji","Kvarner"]
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:         #F6F5F2;
+    --surface:    #ECEAE6;
+    --ink:        #1A1A24;
+    --ink-soft:   #6B6B7A;
+    --accent:     #D4520A;
+    --accent-dim: rgba(212,82,10,0.10);
+    --rule:       #D8D6D0;
+    --white:      #FFFFFF;
+    --radius:     4px;
+    --font-head:  'Outfit', sans-serif;
+    --font-body:  'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ──────────────────────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 1.2rem; letter-spacing: 0.08em;
+    color: var(--ink); text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 1.75rem; }
+  .nav-links a:not(.nav-cta) {
+    font-size: 0.88rem; color: var(--ink-soft); text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:not(.nav-cta):hover { color: var(--ink); }
+  .nav-cta {
+    font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
+    color: var(--accent); text-decoration: none;
+    border: 1.5px solid var(--accent);
+    padding: 0.4rem 1rem; border-radius: var(--radius);
+    transition: background 0.18s, color 0.18s;
+  }
+  .nav-cta:hover { background: var(--accent); color: var(--white); }
+  @media (max-width: 600px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+
+  /* ── HERO ─────────────────────────────────────────────────── */
+  .hero {
+    padding: clamp(4rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    display: inline-block; font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+    border-left: 3px solid var(--accent); padding-left: 0.75rem;
+  }
+  h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.4rem,6vw,4.2rem);
+    font-weight: 900; line-height: 1.08;
+    letter-spacing: -0.02em; color: var(--ink);
+    margin-bottom: 1.75rem;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero-sub {
+    font-size: clamp(1rem,2vw,1.2rem); font-weight: 300;
+    color: var(--ink-soft); max-width: 560px;
+    margin-bottom: 2.5rem; line-height: 1.7;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+  }
+  .btn-primary {
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+    background: var(--accent); color: var(--white); border: none;
+    padding: 0.8rem 1.8rem; border-radius: var(--radius);
+    text-decoration: none;
+    transition: opacity 0.18s, transform 0.18s; cursor: pointer;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-whatsapp {
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+    color: var(--ink-soft); text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    border: 1.5px solid var(--rule); padding: 0.75rem 1.2rem;
+    border-radius: var(--radius);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-whatsapp:hover { border-color: #25D366; color: #1A6632; }
+  .btn-secondary {
+    font-size: 0.95rem; color: var(--ink-soft);
+    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+  }
+  .btn-secondary:hover { color: var(--ink); }
+
+  /* ── DIVIDER ──────────────────────────────────────────────── */
+  .divider {
+    height: 1px; background: var(--rule);
+    margin: 0 clamp(1.5rem,5vw,4rem);
+  }
+
+  /* ── SECTION WRAPPER ──────────────────────────────────────── */
+  section {
+    padding: clamp(3.5rem,8vw,6rem) clamp(1.5rem,5vw,4rem);
+    max-width: 1100px; margin: 0 auto;
+  }
+  .section-label {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.7rem,3.5vw,2.6rem);
+    font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.015em; margin-bottom: 1rem;
+  }
+  .section-intro {
+    color: var(--ink-soft); font-size: 1.05rem;
+    max-width: 520px; margin-bottom: 3rem; line-height: 1.7;
+  }
+
+  /* ── PROBLEMI ──────────────────────────────────────────────── */
+  .problems-grid {
+    display: grid;
+    /* Na mobitelima i manjim ekranima slaže se fleksibilno */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5px; 
+    background: var(--rule);
+    border: 1.5px solid var(--rule); 
+    border-radius: 6px;
+    overflow: hidden; 
+    margin-top: 2.5rem;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Na stolnim računalima (ekrani širi od 900px) zaključavamo na točno 4 stupca */
+  @media (min-width: 900px) {
+    .problems-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .problem-card {
+    background: var(--white); 
+    padding: 2rem; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Gura narančasti "resolve" pravokutnik uvijek na dno kartice da sve bude u ravnini */
+  }
+  .problem-card::before {
+    content: ''; display: block;
+    width: 32px; height: 3px;
+    background: var(--accent); margin-bottom: 1.25rem;
+  }
+  .problem-card h3 {
+    font-family: var(--font-head); font-size: 1.05rem;
+    font-weight: 600; margin-bottom: 0.6rem; line-height: 1.3;
+  }
+  .problem-card p { 
+    font-size: 0.92rem; 
+    color: var(--ink-soft); 
+    line-height: 1.6;
+    margin-bottom: 1.5rem; /* Daje malo zraka prije rješenja */
+  }
+  .problem-card .resolve {
+    display: inline-block; 
+    margin-top: auto; /* Osigurava da je element savršeno poravnat na dnu */
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--accent); background: var(--accent-dim);
+    padding: 0.25rem 0.65rem; border-radius: 2px;
+    width: fit-content;
+  }
+
+  /* ── KAKO RADIM ──────────────────────────────────────────── */
+  .kako-bg { background: var(--surface); }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 2rem; margin-top: 2.5rem;
+  }
+  .step-num {
+    font-family: var(--font-head); font-size: 3rem;
+    font-weight: 900; color: var(--rule);
+    line-height: 1; margin-bottom: 0.75rem;
+    letter-spacing: -0.03em; user-select: none;
+  }
+  .step h3 {
+    font-family: var(--font-head); font-size: 1.05rem;
+    font-weight: 600; margin-bottom: 0.5rem;
+  }
+  .step p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
+
+  /* ── PAKETI ───────────────────────────────────────────────── */
+  .paketi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 1.5px; background: var(--rule);
+    border: 1.5px solid var(--rule); border-radius: 6px;
+    overflow: hidden;
+  }
+  .paket-card {
+    background: var(--white); padding: 2rem 2rem 2.25rem;
+    display: flex; flex-direction: column; gap: 0;
+    position: relative;
+  }
+  .paket-card.featured {
+    background: var(--ink); color: var(--white);
+  }
+  .paket-badge {
+    display: inline-block; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-dim);
+    padding: 0.2rem 0.6rem; border-radius: 2px;
+    margin-bottom: 1.25rem; width: fit-content;
+  }
+  .paket-card.featured .paket-badge {
+    color: #FFB347; background: rgba(255,179,71,0.15);
+  }
+  .paket-name {
+    font-family: var(--font-head); font-size: 1.4rem;
+    font-weight: 900; letter-spacing: 0.04em;
+    margin-bottom: 0.3rem; color: inherit;
+  }
+  .paket-price {
+    font-family: var(--font-head); font-size: 2.1rem;
+    font-weight: 900; line-height: 1.1;
+    color: var(--accent); margin-bottom: 0.5rem;
+  }
+  .paket-card.featured .paket-price { color: #FFB347; }
+  .paket-desc {
+    font-size: 0.9rem; color: var(--ink-soft);
+    margin-bottom: 1.5rem; line-height: 1.4;
+  }
+  .paket-card.featured .paket-desc { color: rgba(255,255,255,0.55); }
+  .paket-list {
+    list-style: none; display: flex; flex-direction: column; gap: 0.55rem;
+    margin-top: auto;
+  }
+  .paket-list li {
+    font-size: 0.9rem; color: var(--ink-soft);
+    padding-left: 1.2rem; position: relative;
+  }
+  .paket-list li::before {
+    content: '✓'; position: absolute; left: 0;
+    color: var(--accent); font-weight: 700;
+  }
+  .paket-card.featured .paket-list li { color: rgba(255,255,255,0.7); }
+  .paket-card.featured .paket-list li::before { color: #FFB347; }
+
+  .sla-strip {
+    display: flex; gap: 1.5rem; margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--surface); border-radius: 4px;
+    flex-wrap: wrap; align-items: center;
+  }
+  .sla-strip p { font-size: 0.9rem; color: var(--ink-soft); flex: 1; min-width: 200px; }
+  .sla-strip strong { color: var(--ink); }
+  .sla-pills { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .sla-pill {
+    font-size: 0.82rem; font-weight: 500;
+    background: var(--white); border: 1.5px solid var(--rule);
+    padding: 0.3rem 0.85rem; border-radius: 2px;
+    color: var(--ink-soft); white-space: nowrap;
+  }
+
+  /* ── BRZA RJEŠENJA ────────────────────────────────────────── */
+  .brza-inner {
+    display: flex; gap: 2.5rem; align-items: flex-start;
+    padding: 2rem 2.25rem;
+    background: var(--white);
+    border: 1.5px solid var(--rule); border-radius: 6px;
+    border-left: 4px solid var(--accent);
+  }
+  .brza-icon { font-size: 2rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .brza-inner h3 {
+    font-family: var(--font-head); font-size: 1.15rem;
+    font-weight: 700; margin-bottom: 0.5rem;
+  }
+  .brza-inner p {
+    font-size: 0.92rem; color: var(--ink-soft);
+    line-height: 1.65; margin-bottom: 1rem; max-width: 540px;
+  }
+  @media (max-width: 520px) {
+    .brza-inner { flex-direction: column; gap: 1rem; }
+  }
+
+  /* ── O MENI ──────────────────────────────────────────────── */
+  .about-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  @media (max-width: 680px) {
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  .about-stat-list {
+    list-style: none; margin-top: 2rem;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .about-stat-list li {
+    display: flex; flex-direction: column;
+    border-left: 2px solid var(--accent); padding-left: 1rem;
+  }
+  .about-stat-list .num {
+    font-family: var(--font-head); font-size: 2rem;
+    font-weight: 900; line-height: 1.1; color: var(--ink);
+  }
+  .about-stat-list .label { font-size: 0.85rem; color: var(--ink-soft); }
+  .about-text p {
+    color: var(--ink-soft); font-size: 1rem;
+    margin-bottom: 1rem; line-height: 1.7;
+  }
+  .about-text p strong { color: var(--ink); font-weight: 500; }
+
+  /* ── KONTAKT ──────────────────────────────────────────────── */
+  .kontakt-bg { background: var(--ink); }
+  .kontakt-bg .section-label { color: #E07040; }
+  .kontakt-bg h2 { color: var(--white); }
+  .kontakt-bg .section-intro { color: rgba(255,255,255,0.5); }
+  .kontakt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 2rem; align-items: start; margin-top: 2.5rem;
+  }
+  .contact-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .contact-item .cl {
+    font-size: 0.78rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.35); font-weight: 500;
+  }
+  .contact-item a {
+    font-family: var(--font-head); font-size: 1.1rem;
+    font-weight: 600; color: var(--white);
+    text-decoration: none; transition: color 0.15s;
+  }
+  .contact-item a:hover { color: #E07040; }
+  .contact-item .sub {
+    font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 0.1rem;
+  }
+  .kontakt-note {
+    font-size: 0.88rem; color: rgba(255,255,255,0.4);
+    margin-top: 2.5rem; padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    max-width: 500px;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────────────── */
+  footer {
+    background: #121218;
+    padding: 1.5rem clamp(1.5rem,5vw,4rem);
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .footer-logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 0.95rem; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-logo span { color: var(--accent); opacity: 0.7; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+
+  /* ── UTILITY ──────────────────────────────────────────────── */
+  .full-bleed { max-width: 100%; }
+  @media (max-width: 480px) { h1 { font-size: 2.1rem; } }
+</style>
 </head>
 <body>
-    <div id="header"></div>
-    
-    <main class="main-content">
-        <div class="container">
-            <div class="badge">B2B SURADNJA & KONZALTING</div>
-            <h1>Majstoraj</h1>
-            <div class="headline">
-                Inženjerski razvoj softvera, backend arhitektura i tehničko savjetovanje.
-            </div>
 
-            <!-- SEKCIJA 1: Glavne inženjerske djelatnosti -->
-            <div class="section-title">Primarna ekspertiza</div>
-            <div class="services">
-                <div class="service-card">
-                    <div class="card-icon">⚙️</div>
-                    <h3>Backend & Software Development</h3>
-                    <p>Izrada robusnih, asinkronih backend sustava, razvoj skalabilnih API-ja i napredna integracija podataka.</p>
-                </div>
-                <div class="service-card">
-                    <div class="card-icon">🧠</div>
-                    <h3>IT Savjetovanje & Arhitektura</h3>
-                    <p>Strateško planiranje sustava, revizija postojećeg koda (Code Audit) i optimizacija performansi baza podataka.</p>
-                </div>
-                <div class="service-card">
-                    <div class="card-icon">📊</div>
-                    <h3>Automatizacija & Logistika</h3>
-                    <p>Razvoj pametnih digitalnih alata za optimizaciju poslovnih procesa i upravljanje mikro-logistikom.</p>
-                </div>
-            </div>
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">MAJSTOR<span>AJ</span></a>
+  <div class="nav-links">
+    <a href="#paketi">Paketi</a>
+    <a href="#kako">Proces</a>
+    <a href="#omeni">O meni</a>
+    <a class="nav-cta" href="#kontakt">Razgovor besplatno</a>
+  </div>
+</nav>
 
-            <!-- SEKCIJA 2: Izdavaštvo / Istaknuti projekt -->
-            <div class="section-title">Istaknuto izdanje</div>
-            <div class="featured-book">
-                <div class="featured-book-content">
-                    <img src="/assets/img/knjiga-prestani-tonuti/naslovnica.jpg" alt="Prestani tonuti knjiga" class="book-cover">
-                    <div class="featured-book-text">
-                        <h2>Prestani tonuti</h2>
-                        <p>
-                            Kratka i direktna knjiga o stabilizaciji života kada osjećaš 
-                            da gubiš kontrolu nad energijom, novcem, odnosima i vremenom.
-                        </p>
-                        <a class="cta" href="/knjige/prestani-tonuti/">
-                            Pogledaj knjigu
-                        </a>
-                    </div>
-                </div>
-            </div>
+<!-- HERO -->
+<div style="max-width:1100px; margin:0 auto;">
+  <div class="hero">
+    <span class="hero-eyebrow">Rijeka &amp; Kvarner · Custom softver</span>
+    <h1>Vaši procesi.<br>Naše <em>rješenje.</em></h1>
+    <p class="hero-sub">
+      Razvijam desktop aplikacije koje digitaliziraju operativno poslovanje malih i 
+      srednjih tvrtki — bez cloud pretplate, bez IT odjela, bez ovisnosti o internetu.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#kontakt">Razgovarajmo besplatno</a>
+      <a class="btn-whatsapp" href="https://wa.me/385919832370" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn-secondary" href="#kako">Kako to izgleda →</a>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
 
-            <!-- SEKCIJA 3: Operativno područje i pristup -->
-            <div class="section-title">Model poslovanja</div>
-            <div class="region">Rijeka & Remote (B2B ugovori)</div>
-            
-            <div class="approach">Ne jurimo volumen; gradimo dugoročne i stabilne sustave kroz izravnu inženjersku suradnju.</div>
+<!-- PROBLEMI -->
+<section id="problemi">
+  <p class="section-label">Prepoznajete li se?</p>
+  <h2>Problemi koje rješavamo</h2>
+  <p class="section-intro">
+    Nije pitanje hoće li se problem pojaviti — pitanje je koliko dugo ćete tolerirati gubitak vremena i novca.
+  </p>
+  <div class="problems-grid">
+    <div class="problem-card">
+      <h3>Radni nalozi na papiru ili u Excelu</h3>
+      <p>Ručno prepisivanje, duple verzije, izgubljeni listovi — nitko ne zna tko što radi u ovom trenutku.</p>
+      <span class="resolve">→ Digitalni nalog, odmah vidljiv svima</span>
+    </div>
+    <div class="problem-card">
+      <h3>Terenske ekipe bez uvida u ured</h3>
+      <p>Dispečer zove mobitelom, majstor ne zna adresu, šef ne zna status. Koordinacija troši pola radnog dana.</p>
+      <span class="resolve">→ Dodjela, status i pregled — jednim klikom</span>
+    </div>
+    <div class="problem-card">
+      <h3>Izvještaji koji se rade sat vremena</h3>
+      <p>Copy-paste iz tablice u tablicu, ručno računanje sati, klijent čeka tjedan dana na fakturu.</p>
+      <span class="resolve">→ PDF izvještaj generira se automatski</span>
+    </div>
+    <div class="problem-card">
+      <h3>Skupi SaaS koji ne odgovara vašem procesu</h3>
+      <p>Platite pretplatu, utrošite tjedne na implementaciju, pa radite kao i prije — samo s novim problemima.</p>
+      <span class="resolve">→ Softver po mjeri, jednom, bez pretplate</span>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
 
-            <!-- Kontakt -->
-            <div class="contact-text">
-                Trebate tehničku reviziju sustava, razvoj arhitekture ili B2B partnera na projektu?<br>
-                Javite se izravno.
-            </div>
-            <a class="cta" href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>
-        </div>
-    </main>
+<!-- KAKO RADIM -->
+<section id="kako" class="full-bleed kako-bg" style="max-width:100%; background:var(--surface);">
+  <div style="max-width:1100px; margin:0 auto; padding:0 clamp(1.5rem,5vw,4rem);">
+    <p class="section-label">Proces</p>
+    <h2>Od razgovora do softvera<br>za 3–4 tjedna</h2>
+    <p class="section-intro">Nema dugih specifikacija, nema iznenađenja na kraju, nema skrivenih troškova.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Razgovor na kavi</h3>
+        <p>Dolazim k vama. Slušam. Procjenjujem stanje bez tehničkog žargona. Bez obveze, bez naplate.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Ponuda s fiksnom cijenom</h3>
+        <p>Dobivate preciznu ponudu — što ću napraviti, za koliko, i što se točno isporučuje. Bez iznenađenja.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Razvoj i predaja</h3>
+        <p>Razvijam lokalno, testiram s vama, instaliram na vaša računala. Obuka uključena u cijenu.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Podrška na dugi rok</h3>
+        <p>Uz fiksni <strong>mjesečni</strong> SLA ugovor — odziv do 24h, popravci, dorade i mir na duže staze.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
 
-    <div id="footer"></div>
-    <script src="/assets/js/components.js"></script>
+<!-- PAKETI -->
+<section id="paketi">
+  <p class="section-label">Transparentne cijene</p>
+  <h2>Fiksna cijena.<br>Nema iznenađenja.</h2>
+  <p class="section-intro">
+    Svaki projekt dobiva pisanu ponudu s točnom cijenom i rokom isporuke — 
+    prije nego što potpišemo išta.
+  </p>
+
+  <div class="paketi-grid">
+    <!-- START -->
+    <div class="paket-card">
+      <div class="paket-badge">Brz start</div>
+      <div class="paket-name">START</div>
+      <div class="paket-price">1.500 €</div>
+      <div class="paket-desc">Rješavamo jedan konkretan problem</div>
+      <ul class="paket-list">
+        <li>Automatizacija ponavljajućih zadataka</li>
+        <li>Povezivanje dva sustava koja trenutno nisu povezana</li>
+        <li>Mini-aplikacija ili skripta po mjeri</li>
+        <li>Isporuka za 5–10 radnih dana</li>
+      </ul>
+    </div>
+    <!-- PRO -->
+    <div class="paket-card featured">
+      <div class="paket-badge">Najpopularnije</div>
+      <div class="paket-name">PRO</div>
+      <div class="paket-price">3.500 – 4.500 €</div>
+      <div class="paket-desc">Vaša vlastita aplikacija, bez pretplate</div>
+      <ul class="paket-list">
+        <li>Desktop aplikacija krojena točno prema vašim procesima</li>
+        <li>Radi lokalno — nema clouda, nema interneta</li>
+        <li>Pratite naloge, materijal, troškove i sate</li>
+        <li>PDF izvještaji jednim klikom</li>
+        <li>Instalacija na vaša računala i obuka</li>
+        <li>Isporuka za 3–4 tjedna</li>
+      </ul>
+    </div>
+    <!-- ENTERPRISE -->
+    <div class="paket-card">
+      <div class="paket-badge">Više odjela</div>
+      <div class="paket-name">ENTERPRISE</div>
+      <div class="paket-price">Od 6.000 €</div>
+      <div class="paket-desc">Kompletan digitalni sustav za cijelu tvrtku</div>
+      <ul class="paket-list">
+        <li>Arhitektura cijelog sustava od temelja</li>
+        <li>Integracija više aplikacija i odjela</li>
+        <li>Automatski protok podataka kroz tvrtku</li>
+        <li>Cijena se utvrđuje nakon tehničke specifikacije</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SLA strip -->
+  <div class="sla-strip">
+    <p><strong>+ Održavanje i podrška:</strong> Nakon isporuke, brinem o softveru uz fiksni mjesečni paušal — odziv, popravci, backup i mir.</p>
+    <div class="sla-pills">
+      <span class="sla-pill">Osnovna podrška · 250 €/mj.</span>
+      <span class="sla-pill">Napredna podrška · 450 €/mj.</span>
+    </div>
+  </div>
+
+  <!-- Brza rješenja callout -->
+  <div style="margin-top: 1.5rem;">
+    <div class="brza-inner">
+      <div class="brza-icon">⚡</div>
+      <div>
+        <p class="section-label" style="margin-bottom:0.4rem;">Za male obrte i uslužne djelatnosti</p>
+        <h3>Trebate nešto brže i jednostavnije?</h3>
+        <p>
+          Automatizacija rezervacija, jednostavna web stranica, mali alat po mjeri — 
+          rješenja za frizerske salone, restorane i uslužne obrtnike koji nemaju 
+          vremena ni budžeta za dugotrajne projekte. Od <strong>300 €</strong>, isporuka u tjedan dana.
+        </p>
+        <a class="btn-secondary" href="#kontakt">Pitajte me →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- O MENI -->
+<section id="omeni">
+  <div class="about-inner">
+    <div>
+      <p class="section-label">O meni</p>
+      <h2>Goran Vidas</h2>
+      <ul class="about-stat-list">
+        <li>
+          <span class="num">25+</span>
+          <span class="label">godina programerskog iskustva</span>
+        </li>
+        <li>
+          <span class="num">Python · PySide6 · SQLite</span>
+          <span class="label">lokalni stack bez cloud ovisnosti</span>
+        </li>
+        <li>
+          <span class="num">Rijeka</span>
+          <span class="label">lokalni partner, ne anonimna agencija</span>
+        </li>
+      </ul>
+    </div>
+    <div class="about-text">
+      <p>
+        <strong>Nisam agencija.</strong> MAJSTORAJ je moj obrt — što znači da ćete uvijek 
+        razgovarati sa mnom, i ja ću osobno razviti vaše rješenje.
+      </p>
+      <p>
+        Radim s lokalnim tvrtkama jer vjerujem da mali i srednji poduzetnici u 
+        Rijeci i okolici zaslužuju isti kvalitet softvera kao i velika poduzeća — 
+        po cijeni koja ima smisla.
+      </p>
+      <p>
+        Ako imate operativni problem koji vam troši više od sat vremena tjedno, 
+        postoji velika šansa da ga možemo automatizirati. <strong>Pitajte me.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="full-bleed kontakt-bg" style="max-width:100%; background:var(--ink);">
+  <div style="max-width:1100px; margin:0 auto; padding:0 clamp(1.5rem,5vw,4rem);">
+    <p class="section-label">Kontakt</p>
+    <h2>Razgovor ne košta ništa.</h2>
+    <p class="section-intro">
+      Javite se — u roku 24 sata dogovaramo kavu, dolazim k vama, i vidimo ima li smisla surađivati.
+    </p>
+    <div class="kontakt-grid">
+      <div class="contact-item">
+        <span class="cl">Email</span>
+        <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>
+      </div>
+      <div class="contact-item">
+        <span class="cl">Mobitel</span>
+        <a href="tel:+385919832370">+385 91 983 2370</a>
+        <span class="sub">pon–pet · 08:00–16:00</span>
+      </div>
+      <div class="contact-item">
+        <span class="cl">WhatsApp</span>
+        <a href="https://wa.me/385919832370" target="_blank" rel="noopener">Pišite na WhatsApp</a>
+        <span class="sub">Odgovaram isti radni dan</span>
+      </div>
+      <div class="contact-item">
+        <span class="cl">Lokacija</span>
+        <span style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 600; color: var(--white);">Rijeka i Kvarner</span>
+        <span class="sub">Dolazim k vama</span>
+      </div>
+    </div>
+    <p class="kontakt-note">
+      Trenutno primam nove klijente. Razgovor je besplatan i bez obveze — 
+      cilj je vidjeti je li vaš problem nešto što možemo riješiti, i hoće li vam to financijski imati smisla.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <span class="footer-copy">© 2026 MAJSTORAJ · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
+</footer>
+
 </body>
 </html>
