@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politika privatnosti — MAJSTORAJ</title>
+<meta name="description" content="Politika privatnosti web stranice majstoraj.hr — koje podatke obrađujemo i zašto.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://majstoraj.hr/privatnost">
+
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/Outfit.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DMSans.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DMSans-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #F6F5F2;
+    --surface:    #ECEAE6;
+    --ink:        #1A1A24;
+    --ink-soft:   #6B6B7A;
+    --accent:     #D4520A;
+    --rule:       #D8D6D0;
+    --white:      #FFFFFF;
+    --radius:     4px;
+    --font-head:  'Outfit', system-ui, sans-serif;
+    --font-body:  'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 1.2rem; letter-spacing: 0.08em;
+    color: var(--ink); text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  .nav-back {
+    font-size: 0.88rem; color: var(--ink-soft);
+    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.15s;
+  }
+  .nav-back:hover { color: var(--ink); }
+
+  /* ── SADRŽAJ ── */
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .page-label {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    font-size: 0.85rem; color: var(--ink-soft);
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h2 {
+    font-family: var(--font-head);
+    font-size: 1.15rem; font-weight: 700;
+    margin-top: 2.5rem; margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+
+  p strong { color: var(--ink); font-weight: 500; }
+
+  ul {
+    list-style: none;
+    margin: 0.5rem 0 1rem 0;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  ul li {
+    font-size: 0.95rem; color: var(--ink-soft);
+    padding-left: 1.25rem; position: relative;
+    line-height: 1.65;
+  }
+  ul li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent); font-size: 0.85rem;
+  }
+
+  a {
+    color: var(--accent); text-decoration: none;
+  }
+  a:hover { text-decoration: underline; }
+
+  /* Kartica za treće strane */
+  .third-party {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--rule);
+    padding: 1.1rem 1.25rem;
+    margin: 0.75rem 0;
+  }
+  .third-party strong {
+    display: block;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.25rem;
+    font-family: var(--font-head);
+  }
+  .third-party p {
+    font-size: 0.88rem; color: var(--ink-soft);
+    margin: 0; line-height: 1.6;
+  }
+  .third-party a { font-size: 0.85rem; }
+
+  /* Blok bez kolačića */
+  .no-cookies {
+    background: var(--white);
+    border: 1.5px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    font-size: 0.92rem; color: var(--ink-soft);
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .no-cookies::before {
+    content: '✓';
+    font-size: 1rem; color: var(--accent); font-weight: 700; flex-shrink: 0;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #121218;
+    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .footer-logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 0.95rem; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-logo span { color: var(--accent); opacity: 0.7; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="/">MAJSTOR<span>AJ</span></a>
+  <a class="nav-back" href="/">← Povratak na glavnu stranicu</a>
+</nav>
+
+<!-- SADRŽAJ -->
+<div class="content">
+
+  <p class="page-label">Pravne informacije</p>
+  <h1>Politika privatnosti</h1>
+  <p class="meta">
+    MAJSTORAJ, obrt za razvoj softvera i savjetovanje · Goran Vidas<br>
+    Tizianova 36, 51000 Rijeka · OIB: 73470282385 ·
+    <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a><br>
+    Zadnja izmjena: lipanj 2026.
+  </p>
+
+  <p>
+    Ova politika privatnosti objašnjava što se događa s podacima posjetitelja
+    web stranice <strong>majstoraj.hr</strong>. Pisana je jasno i bez pravnog žargona
+    — jer vjerujemo da imate pravo znati što se događa s vašim podacima.
+  </p>
+
+  <h2>Što ova stranica ne radi</h2>
+
+  <div class="no-cookies">Nema kolačića za praćenje, analitiku ni oglašavanje.</div>
+  <div class="no-cookies">Nema kontaktnih obrazaca — ne unosite osobne podatke direktno na stranicu.</div>
+  <div class="no-cookies">Nema alata za praćenje posjetitelja (Google Analytics, Facebook Pixel ni slično).</div>
+  <div class="no-cookies">Fontovi su pohranjeni lokalno — nema zahtjeva prema vanjskim serverima pri učitavanju stranice.</div>
+
+  <h2>Tehničko hostiranje — GitHub Pages</h2>
+
+  <p>
+    Web stranica majstoraj.hr hostirana je na platformi
+    <strong>GitHub Pages</strong> (GitHub, Inc., 88 Colin P Kelly Jr St,
+    San Francisco, CA 94107, SAD). GitHub može automatski evidentirati
+    standardne tehničke podatke o posjetima — IP adresu, vrstu preglednika,
+    datum i vrijeme zahtjeva — kao dio operativnog rada platforme.
+    Ti podaci su pod kontrolom GitHuba, a ne MAJSTORAJ-a.
+  </p>
+
+  <div class="third-party">
+    <strong>GitHub, Inc. — politika privatnosti</strong>
+    <p>
+      <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+         target="_blank" rel="noopener">
+        docs.github.com — GitHub General Privacy Statement
+      </a>
+    </p>
+  </div>
+
+  <h2>Kontakt e-mailom</h2>
+
+  <p>
+    Ako nas kontaktirate na adresu <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>,
+    vaša poruka prolazi kroz e-mail sustav <strong>Zoho Mail</strong>
+    (Zoho Corporation Pvt. Ltd.). Poruka sadržava adresu e-pošte pošiljatelja
+    i sve podatke koje sami napišete u tekstu.
+  </p>
+  <p>
+    Te podatke koristimo isključivo za odgovor na vaš upit i, ako dođe do
+    poslovne suradnje, za njezino provođenje. Prepiske čuvamo do dvije godine
+    od zadnje komunikacije, a potom ih trajno brišemo.
+    Ne prosljeđujemo ih trećim stranama niti ih koristimo u marketinške svrhe.
+  </p>
+
+  <p><strong>Pravna osnova:</strong> izvršenje ugovora ili predugovorni zahtjevi
+  (čl. 6. st. 1. t. b) Uredbe (EU) 2016/679 — GDPR).</p>
+
+  <div class="third-party">
+    <strong>Zoho Corporation — politika privatnosti</strong>
+    <p>
+      <a href="https://www.zoho.com/privacy.html" target="_blank" rel="noopener">
+        zoho.com/privacy.html
+      </a>
+    </p>
+  </div>
+
+  <h2>Kontakt putem WhatsApp-a</h2>
+
+  <p>
+    Ako nam pišete putem WhatsApp-a, vaš broj telefona i sadržaj razgovora
+    obrađuje <strong>Meta Platforms Ireland Ltd.</strong> prema vlastitim uvjetima
+    korištenja. MAJSTORAJ koristi te poruke isključivo za poslovnu komunikaciju
+    s vama.
+  </p>
+
+  <div class="third-party">
+    <strong>WhatsApp / Meta — politika privatnosti</strong>
+    <p>
+      <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">
+        whatsapp.com/legal/privacy-policy
+      </a>
+    </p>
+  </div>
+
+  <h2>Kontakt telefonom</h2>
+
+  <p>
+    Ako nas nazovete na broj <a href="tel:+385919832370">+385 91 983 2370</a>,
+    vaš telefonski broj može biti vidljiv kao caller ID putem standardne
+    telefonske mreže. Taj broj koristimo isključivo za povratni kontakt
+    vezan uz vaš upit — ne pohranjujemo ga trajno niti ga prosljeđujemo
+    trećim stranama.
+  </p>
+
+  <h2>Kolačići (cookies)</h2>
+
+  <p>
+    Ova stranica ne postavlja vlastite kolačiće. Budući da ne koristimo
+    analitiku, oglašavanje ni integrirane treće strane koje zahtijevaju
+    suglasnost, <strong>banner za kolačiće nije potreban</strong>.
+  </p>
+
+  <h2>Vaša prava prema GDPR-u</h2>
+
+  <p>Kao ispitanik imate pravo na:</p>
+  <ul>
+    <li><strong>Pristup</strong> — uvid u osobne podatke koje obrađujemo o vama</li>
+    <li><strong>Ispravak</strong> — ispravljanje netočnih podataka</li>
+    <li><strong>Brisanje</strong> — zahtjev za trajnim brisanjem vaših podataka</li>
+    <li><strong>Ograničenje obrade</strong> — privremenu obustavu obrade</li>
+    <li><strong>Prigovor</strong> — prigovor obradi temeljenoj na legitimnom interesu</li>
+    <li><strong>Prenosivost</strong> — primanje podataka u strojno čitljivom obliku</li>
+  </ul>
+
+  <p>
+    Za ostvarivanje bilo kojeg od ovih prava pišite na
+    <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>.
+    Odgovaramo u roku od 30 dana.
+  </p>
+
+  <p>
+    Ako smatrate da vaša prava nisu poštovana, imate pravo podnijeti
+    pritužbu nadzornom tijelu — <strong>Agenciji za zaštitu osobnih podataka
+    (AZOP)</strong>, Selska cesta 136, 10000 Zagreb —
+    <a href="https://azop.hr" target="_blank" rel="noopener">azop.hr</a>.
+  </p>
+
+  <hr>
+
+  <h2>Izmjene ove politike</h2>
+
+  <p>
+    Ovu politiku ažuriramo ako se promijeni infrastruktura stranice ili
+    zakonski okvir. Svaka izmjena objavljuje se na ovoj stranici s
+    ažuriranim datumom. Starije verzije dostupne su na zahtjev.
+  </p>
+
+  <p style="margin-top: 2rem; font-size: 0.9rem;">
+    Pitanja o privatnosti?
+    Pišite na <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>
+    — odgovaramo isti radni dan.
+  </p>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <span class="footer-copy">© 2026 MAJSTORAJ · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
+</footer>
+
+</body>
+</html>
