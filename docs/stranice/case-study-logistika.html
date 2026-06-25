@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Logistička tvrtka, Kastav — MAJSTORAJ</title>
+<meta name="description" content="Kako smo logističkoj tvrtki s 12 vozača eliminirali 35 telefonskih poziva dnevno i ubrzali fakturiranje s 4 dana na isti dan.">
+<link rel="canonical" href="https://majstoraj.hr/case-study-logistika">
+
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DMSans-VariableFont_ital,wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DMSans-VariableFont_ital,wght.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #F6F5F2;
+    --surface:    #ECEAE6;
+    --ink:        #1A1A24;
+    --ink-soft:   #6B6B7A;
+    --accent:     #D4520A;
+    --accent-dim: rgba(212,82,10,0.10);
+    --rule:       #D8D6D0;
+    --white:      #FFFFFF;
+    --radius:     4px;
+    --font-head:  'Outfit', system-ui, sans-serif;
+    --font-body:  'DM Sans', system-ui, sans-serif;
+    --green:      #1A6632;
+    --green-dim:  rgba(26,102,50,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 1.2rem; letter-spacing: 0.08em;
+    color: var(--ink); text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  .nav-back {
+    font-size: 0.88rem; color: var(--ink-soft);
+    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.15s;
+  }
+  .nav-back:hover { color: var(--ink); }
+
+  /* ── LAYOUT ── */
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 2.5rem);
+  }
+  .wrap-wide {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
+  }
+  .case-tag {
+    display: inline-flex; gap: 0.5rem; align-items: center;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+  }
+  .case-tag span {
+    padding: 0.2rem 0.65rem;
+    background: var(--accent-dim);
+    border-radius: 2px;
+  }
+  .case-tag span.neutral {
+    background: var(--surface); color: var(--ink-soft);
+  }
+  h1 {
+    font-family: var(--font-head);
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    font-weight: 900; line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+  .hero-lead {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--ink-soft); font-weight: 300;
+    max-width: 620px; line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── SNAPSHOT STATS ── */
+  .snapshot {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .snap-item {
+    background: var(--white);
+    padding: 1.5rem 1.25rem;
+  }
+  .snap-item .snap-val {
+    font-family: var(--font-head);
+    font-size: 2rem; font-weight: 900;
+    line-height: 1; color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+  .snap-item .snap-val.good { color: var(--green); }
+  .snap-item .snap-label {
+    font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4;
+  }
+
+  /* ── SEKCIJE ── */
+  .section {
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .section-eyebrow {
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+    display: block;
+  }
+  h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700; line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.25rem;
+  }
+  p {
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    line-height: 1.8;
+  }
+  p strong { color: var(--ink); font-weight: 500; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── QUOTE ── */
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--surface);
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-family: var(--font-head);
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--ink); line-height: 1.5;
+    font-style: italic;
+    margin: 0;
+  }
+  .pull-quote cite {
+    display: block; margin-top: 0.5rem;
+    font-size: 0.82rem; color: var(--ink-soft);
+    font-style: normal;
+  }
+
+  /* ── DNEVNIK / TIMELINE ── */
+  .timeline {
+    margin: 2rem 0;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .tl-entry {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .tl-entry:last-child { border-bottom: none; }
+  .tl-date {
+    font-family: var(--font-head);
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-soft); line-height: 1.3;
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+  }
+  .tl-date .day {
+    font-size: 1.5rem; font-weight: 900;
+    color: var(--accent); display: block;
+    letter-spacing: -0.02em;
+  }
+  .tl-body h3 {
+    font-family: var(--font-head); font-size: 1.05rem;
+    font-weight: 700; margin-bottom: 0.5rem; color: var(--ink);
+  }
+  .tl-body p { font-size: 0.95rem; margin-bottom: 0.6rem; }
+  .tl-body p:last-child { margin-bottom: 0; }
+  @media (max-width: 520px) {
+    .tl-entry { grid-template-columns: 1fr; gap: 0.5rem; }
+    .tl-date .day { display: inline; font-size: 1.1rem; margin-right: 0.3rem; }
+  }
+
+  /* ── PROBLEM CHIPS ── */
+  .problem-list {
+    display: flex; flex-direction: column; gap: 0.6rem;
+    margin: 1.25rem 0;
+  }
+  .problem-chip {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    background: var(--white);
+    border: 1.5px solid var(--rule);
+    border-radius: var(--radius);
+    font-size: 0.92rem; color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .problem-chip::before {
+    content: '✗';
+    color: #C0392B; font-weight: 700;
+    flex-shrink: 0; margin-top: 0.05rem;
+    font-size: 0.9rem;
+  }
+  .problem-chip strong { color: var(--ink); }
+
+  /* ── KOMUNIKACIJSKA ARHITEKTURA ── */
+  .comm-arch {
+    background: var(--ink);
+    border-radius: 8px;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    margin: 2rem 0;
+  }
+  .comm-arch-title {
+    font-family: var(--font-head);
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-bottom: 1.5rem;
+  }
+  .comm-tiers {
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .comm-tier {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 0.75rem 1rem;
+    align-items: center;
+    padding: 1rem 1.1rem;
+    border-radius: 4px;
+    position: relative;
+  }
+  .comm-tier.t1 { background: rgba(26,102,50,0.25); border: 1px solid rgba(26,102,50,0.4); }
+  .comm-tier.t2 { background: rgba(44,71,112,0.4); border: 1px solid rgba(44,71,112,0.6); }
+  .comm-tier.t3 { background: rgba(212,82,10,0.2); border: 1px solid rgba(212,82,10,0.35); }
+  .comm-tier.t4 { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); }
+  .tier-num {
+    font-family: var(--font-head); font-size: 0.75rem; font-weight: 900;
+    color: rgba(255,255,255,0.35); text-align: center;
+  }
+  .tier-info {}
+  .tier-name {
+    font-family: var(--font-head); font-size: 0.92rem; font-weight: 700;
+    color: #FFFFFF; margin-bottom: 0.2rem;
+  }
+  .tier-desc {
+    font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.4;
+  }
+  .tier-badge {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.2rem 0.55rem; border-radius: 2px;
+    white-space: nowrap;
+  }
+  .t1 .tier-badge { background: rgba(26,102,50,0.5); color: #7CDB9A; }
+  .t2 .tier-badge { background: rgba(44,71,112,0.6); color: #8AAEDE; }
+  .t3 .tier-badge { background: rgba(212,82,10,0.35); color: #F4A47A; }
+  .t4 .tier-badge { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.4); }
+  .comm-note {
+    margin-top: 1.25rem;
+    font-size: 0.82rem; color: rgba(255,255,255,0.35);
+    line-height: 1.6; font-style: italic;
+  }
+  @media (max-width: 480px) {
+    .comm-tier { grid-template-columns: 20px 1fr; }
+    .tier-badge { display: none; }
+  }
+
+  /* ── REZULTATI BEFORE/AFTER ── */
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  @media (max-width: 560px) {
+    .results-grid { grid-template-columns: 1fr; }
+  }
+  .result-before, .result-after {
+    padding: 1.5rem;
+  }
+  .result-before { background: var(--white); }
+  .result-after  { background: #F0F8F2; }
+  .result-label {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .result-before .result-label { color: #C0392B; }
+  .result-after  .result-label { color: var(--green); }
+  .result-item {
+    display: flex; align-items: flex-start;
+    gap: 0.6rem; margin-bottom: 0.65rem;
+    font-size: 0.9rem; line-height: 1.5;
+  }
+  .result-item:last-child { margin-bottom: 0; }
+  .result-before .result-item { color: var(--ink-soft); }
+  .result-after  .result-item { color: #1A4A2A; }
+  .result-before .result-item::before { content: '→'; color: #C0392B; flex-shrink: 0; font-weight: 700; }
+  .result-after  .result-item::before { content: '✓'; color: var(--green); flex-shrink: 0; font-weight: 700; }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: var(--ink);
+    border-radius: 8px;
+    padding: clamp(2rem, 5vw, 3rem);
+    margin: clamp(2.5rem, 6vw, 4rem) 0;
+    display: flex; flex-direction: column; gap: 1.5rem;
+  }
+  .cta-block h2 { color: var(--white); margin-bottom: 0.25rem; }
+  .cta-block p { color: rgba(255,255,255,0.5); margin-bottom: 0; }
+  .cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+    background: var(--accent); color: #FFFFFF; border: none;
+    padding: 0.8rem 1.8rem; border-radius: var(--radius);
+    text-decoration: none;
+    transition: opacity 0.18s, transform 0.18s;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-ghost {
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+    color: rgba(255,255,255,0.5); text-decoration: none;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.15s;
+    padding: 0.8rem 0;
+  }
+  .btn-ghost:hover { color: rgba(255,255,255,0.85); }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    font-size: 0.8rem; color: var(--ink-soft);
+    font-style: italic; padding: 1rem 0;
+    border-top: 1px solid var(--rule);
+    margin-top: 1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #121218;
+    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .footer-logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 0.95rem; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-logo span { color: var(--accent); opacity: 0.7; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="/">MAJSTOR<span>AJ</span></a>
+  <a class="nav-back" href="/">← Povratak</a>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <div class="case-tag">
+      <span>Case Study</span>
+      <span class="neutral">Logistika</span>
+      <span class="neutral">Kastav</span>
+      <span class="neutral">Paket PRO</span>
+    </div>
+    <h1>35 telefonskih poziva dnevno.<br>Sveli smo ih na pet.</h1>
+    <p class="hero-lead">
+      Logistička tvrtka s 12 vozača na terenu, Excel tablicom koja nikad nije bila točna,
+      i dispečericom koja je cijeli dan provodila na telefonu. Evo kako je izgledalo
+      sve — od prvog poziva do trenutka kad je šef konačno vidio gdje mu je svaki vozač
+      u realnom vremenu.
+    </p>
+
+    <div class="snapshot">
+      <div class="snap-item">
+        <div class="snap-val">35→5</div>
+        <div class="snap-label">telefonskih poziva dnevno</div>
+      </div>
+      <div class="snap-item">
+        <div class="snap-val">4 dana→0</div>
+        <div class="snap-label">kašnjenje fakturiranja</div>
+      </div>
+      <div class="snap-item">
+        <div class="snap-val good">19</div>
+        <div class="snap-label">dana do isporuke (rok bio 21)</div>
+      </div>
+      <div class="snap-item">
+        <div class="snap-val good">15h</div>
+        <div class="snap-label">vraćeno timu svaki tjedan</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STANJE PRIJE -->
+<div class="wrap">
+  <div class="section">
+    <span class="section-eyebrow">Situacija</span>
+    <h2>Što se zapravo događalo svaki dan</h2>
+    <p>
+      Tvrtka postoji osam godina. Dvanaest vozača, pet kategorija dostave, pokrivaju Kastav,
+      Matulji, Viškovo i okolicu. Na papiru — dobro organizirana firma.
+      U stvarnosti — svaki radni dan počinjao je od nule.
+    </p>
+
+    <div class="problem-list">
+      <div class="problem-chip"><strong>Mirna, dispečerica:</strong> ujutro priprema raspored na papiru. Do 9:30 već je preraspoređivala tri puta jer se jedan vozač javio bolesnim, a drugi imao kvar.</div>
+      <div class="problem-chip"><strong>Svaki nalog:</strong> telefonski poziv vozaču, pa poruka na WhatsApp, pa čekanje potvrde. Netko ne odgovori — novi poziv. Ukupno: 35 poziva dnevno samo za koordinaciju.</div>
+      <div class="problem-chip"><strong>Excel tablica:</strong> Tomislav (vlasnik) ažurira je jednom dnevno, navečer. Do jutra je zastarjela. Nikad nije odražavala stvarno stanje.</div>
+      <div class="problem-chip"><strong>Fakturiranje:</strong> na kraju tjedna Mirna uspoređuje bilješke, vozačeve poruke i Excel. Taj posao traje pola dana. Fakture stižu klijentima 3–5 dana nakon isporuke.</div>
+      <div class="problem-chip"><strong>Šef u 14:00:</strong> ne zna gdje mu je koji vozač, koliko naloga je završeno, je li sve u redu. Zove Mirnu. Mirna ga stavlja na čekanje jer već razgovara s vozačem.</div>
+    </div>
+
+    <div class="pull-quote">
+      <p>"Svaki dan je gašenje požara. Nikad ne znam je li sve u redu dok me netko ne nazove da kaže da nije."</p>
+      <cite>— Tomislav, vlasnik tvrtke</cite>
+    </div>
+  </div>
+</div>
+
+<!-- PRIČA / TIMELINE -->
+<div class="wrap">
+  <div class="section">
+    <span class="section-eyebrow">Kako je počelo</span>
+    <h2>Od jednog telefonskog poziva</h2>
+    <p>
+      Nije bilo dugo traženja rješenja ni kompleksnog tendera.
+      Počelo je pozivom koji je trajao tri minute.
+    </p>
+
+    <div class="timeline">
+
+      <div class="tl-entry">
+        <div class="tl-date">
+          <span class="day">Pon</span>
+          tjedan 1
+        </div>
+        <div class="tl-body">
+          <h3>Telefonski poziv</h3>
+          <p>
+            "Nazovite me Tomislav. Imam problem s organizacijom rada — nalozi mi ne funkcioniraju kako treba.
+            Čuo sam da radite takve stvari za firme poput moje."
+          </p>
+          <p>
+            Tri minute razgovora. Dogovorimo kavu sutradan. Ništa više.
+          </p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date">
+          <span class="day">Uto</span>
+          tjedan 1
+        </div>
+        <div class="tl-body">
+          <h3>Kava u Kastvu — 47 minuta koje su promijenile sve</h3>
+          <p>
+            Sjedamo u kafić. Na zidu pored Tomislavovog stola primijetim tablicu s rutama —
+            ispisanu rukom, dijelom prekriženu, s novim imenima napisanim iznad starih.
+          </p>
+          <p>
+            Prije nego što sam popio prvi gutljaj, Mirna je s drugog stola već obavila dva poziva.
+          </p>
+          <p>
+            Pitam Tomislava da mi pokaže kako izgleda jedan tipičan radni dan.
+            Izvadi laptop. Excel s 340 redaka, boje označavaju statuse, ali neke su boje nejasne
+            — jer je kolega koji ih je definirao otišao godinu ranije.
+          </p>
+          <p>
+            <strong>Ključno pitanje koje sam postavio:</strong> "Koliko sati tjedno Mirna provede
+            na telefonu samo zbog koordinacije — ne zbog problema, nego samo da provjeri status?"
+          </p>
+          <p>
+            Tomislav i Mirna se pogledaju. "Ne znam," kaže Tomislav. Mirna: "Cijelo prijepodne, svaki dan."
+          </p>
+          <p>
+            Tu je postalo jasno: <strong>problem nije Excel. Problem je telefon.</strong>
+            Svaki poziv je simptom — signal da netko negdje nema informaciju koju bi trebao imati automatski.
+          </p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date">
+          <span class="day">Pet</span>
+          tjedan 1
+        </div>
+        <div class="tl-body">
+          <h3>Ponuda — jedna stranica, fiksna cijena</h3>
+          <p>
+            Četiri dana nakon kave šaljem ponudu. Jedna stranica A4. Što gradim,
+            što dobivaju, rok, cijena: <strong>4.200 €, isporuka za 21 dan.</strong>
+          </p>
+          <p>
+            Bez mogućnosti "dodatnih zahtjeva koji će se naplatiti naknadno."
+            Bez tajnih troškova. Ono što piše u ponudi — to i isporučujem.
+          </p>
+          <p>
+            Tomislav je odgovorio za dva sata. <em>"Kad možemo početi?"</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date">
+          <span class="day">Pon</span>
+          tjedan 2
+        </div>
+        <div class="tl-body">
+          <h3>Razvoj — 19 dana, ne 21</h3>
+          <p>
+            Potpisani ugovor. Počinjem razvoj.
+          </p>
+          <p>
+            <strong>Desktop aplikacija za ured</strong> (Python, PySide6, SQLite):
+            Mirna kreira nalog u 30 sekundi. Dodjeljuje vozaču. Vidi status u realnom vremenu.
+            Tomislav ima pregled svih aktualnih naloga bez da ikoga zove.
+          </p>
+          <p>
+            <strong>Mobilni pratilac za vozače</strong>: lagana web aplikacija na mobitelu.
+            Vozač vidi svoje naloge, potvrđuje preuzimanje, označava završetak.
+            Radi na svakom smartphoneu, bez instalacije aplikacije iz trgovine.
+          </p>
+          <p>
+            Na desetom danu naišao sam na pitanje koje nisam očekivao — i koje je projekt
+            učinilo boljim nego što je bio planiran.
+          </p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date">
+          <span class="day">Dan 10</span>
+          izazov
+        </div>
+        <div class="tl-body">
+          <h3>Pitanje koje je otvorilo bolju arhitekturu</h3>
+          <p>
+            Tomislav pita: <em>"A što ako vozač ulazi u zonu bez signala?
+            Imamo rutu prema Gorskom kotaru — tamo nema 4G."</em>
+          </p>
+          <p>
+            Dobro pitanje. Zaustavio sam razvoj na dan i razmislio o pravo rješenje.
+            Ono što smo napravili — bolje je od originalnog plana.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TEHNIČKI DIO -->
+<div style="background: var(--surface); padding: clamp(2.5rem, 6vw, 4rem) 0;">
+  <div class="wrap">
+    <span class="section-eyebrow">Tehničko rješenje</span>
+    <h2>Komunikacija koja ne pada — čak ni bez interneta</h2>
+
+    <p>
+      <strong>Česta zabluda o "local-first" softveru:</strong>
+      Kad kažem da aplikacija ne ovisi o internetu, to ne znači da vozač na terenu
+      komunicira putem dima i signalnih vatri. Znači nešto preciznije —
+      <strong>vaši podaci žive na vašim računalima, ne na tuđem serveru</strong>
+      za koji plaćate pretplatu i koji može promijeniti uvjete ili jednostavno nestati.
+    </p>
+    <p>
+      Komunikacija između ureda i vozača u pokretu — to je fizikalna realnost koja
+      zahtijeva vezu. Ali postoji pametan način da ta veza nikad ne postane
+      usko grlo. Ono što smo implementirali zove se
+      <strong>gradual degradation</strong> — sustav koji automatski bira
+      najboljidostupni kanal i ne pada potpuno ako jedan kanal ne radi.
+    </p>
+
+    <div class="comm-arch">
+      <div class="comm-arch-title">Komunikacijska arhitektura — redoslijed prioriteta</div>
+      <div class="comm-tiers">
+
+        <div class="comm-tier t1">
+          <div class="tier-num">1</div>
+          <div class="tier-info">
+            <div class="tier-name">Direktna WiFi sinkronizacija</div>
+            <div class="tier-desc">Kad je vozač u dvorištu ili garaži — automatska sinkronizacija bez mobilnih podataka. Brzo, besplatno, trenutno.</div>
+          </div>
+          <div class="tier-badge">Uvijek dostupno</div>
+        </div>
+
+        <div class="comm-tier t2">
+          <div class="tier-num">2</div>
+          <div class="tier-info">
+            <div class="tier-name">Mobilna aplikacija s 4G/LTE</div>
+            <div class="tier-desc">Na ruti s pokrivanjem — nalozi stižu u realnom vremenu, statusi se ažuriraju čim vozač potvrdi. Standardno, pouzdano.</div>
+          </div>
+          <div class="tier-badge">Na ruti</div>
+        </div>
+
+        <div class="comm-tier t3">
+          <div class="tier-num">3</div>
+          <div class="tier-info">
+            <div class="tier-name">SMS fallback</div>
+            <div class="tier-desc">Nema podatkovnog signala, ali postoji GSM? Sustav automatski šalje i prima kratke statusne poruke. Radi na svakom telefonu, u svakom terenu.</div>
+          </div>
+          <div class="tier-badge">Gorski kotar i sl.</div>
+        </div>
+
+        <div class="comm-tier t4">
+          <div class="tier-num">4</div>
+          <div class="tier-info">
+            <div class="tier-name">Store & Forward — offline način</div>
+            <div class="tier-desc">Nema apsolutno ničega? Aplikacija spremi sve lokalno na vozačev mobitel. Čim se veza vrati — automatski isporuči. Vozač ne mora ništa znati o tome.</div>
+          </div>
+          <div class="tier-badge">Posljednja linija</div>
+        </div>
+
+      </div>
+      <p class="comm-note">
+        Ured uvijek vidi zadnje poznato stanje. Aplikacija zna koji je kanal aktivan
+        i prebacuje se automatski — bez intervencije vozača ili dispečerice.
+        Tomislav u 14:00 vidi sve vozače, bez obzira gdje su.
+      </p>
+    </div>
+
+    <p>
+      Ova arhitektura nije bila u originalnoj ponudi. Nastala je kao odgovor na
+      Tomislavovo pitanje desetog dana razvoja. <strong>Nije koštala ni euro više —
+      ali je projekt učinila značajno vrednijim.</strong>
+      I to je razlika između firme koja isporuči specifikaciju i partnera koji
+      razmišlja zajedno s vama.
+    </p>
+  </div>
+</div>
+
+<!-- ISPORUKA -->
+<div class="wrap">
+  <div class="section">
+    <span class="section-eyebrow">Dan isporuke</span>
+    <h2>Sat obuke. I to je to.</h2>
+
+    <p>
+      Devetnaestog dana — dva dana ranije od dogovorenog roka — dolazim u Kastav.
+      Instaliram aplikaciju na tri računala: Tomislavovo, Mirnino i računovodstvo.
+      Vozači dobivaju link na mobitel — bez instalacije, otvore preglednik i sve radi.
+    </p>
+    <p>
+      Obuka traje sat vremena. Mirna prolazi kroz kreiranje naloga, dodjelu, praćenje.
+      Tomislav gleda pregled. Pitaju nekoliko pitanja. Nema tehničkog žargona —
+      razgovaramo o poslu, ne o softveru.
+    </p>
+
+    <div class="pull-quote">
+      <p>"Čekao sam da se nešto pokvari. Ništa se nije pokvarilo."</p>
+      <cite>— Tomislav, tjedan dana nakon isporuke</cite>
+    </div>
+
+    <p>
+      Prvog dana Mirna je napravila 18 poziva — navika se ne mijenja odmah.
+      Drugog dana 12. Trećeg 7. Do kraja prvog tjedna: <strong>pet poziva dnevno,
+      svi zbog stvarnih problema, a ne zbog provjere statusa.</strong>
+    </p>
+  </div>
+</div>
+
+<!-- REZULTATI -->
+<div class="wrap">
+  <div class="section">
+    <span class="section-eyebrow">Tri mjeseca kasnije</span>
+    <h2>Što se promijenilo</h2>
+    <p>
+      Nazvao sam Tomislava tri mjeseca nakon isporuke. Odgovorio je odmah —
+      što ranije nije bio slučaj, jer je uvijek bio "na drugoj liniji".
+    </p>
+
+    <div class="results-grid">
+      <div class="result-before">
+        <div class="result-label">Prije</div>
+        <div class="result-item">35 telefonskih poziva dnevno za koordinaciju</div>
+        <div class="result-item">Excel koji je zastarijevao do 9:00 svaki dan</div>
+        <div class="result-item">Fakture stižu klijentima 3–5 dana nakon isporuke</div>
+        <div class="result-item">Kreiranje naloga: 15–20 minuta papira i bilješki</div>
+        <div class="result-item">Šef ne zna status u realnom vremenu</div>
+        <div class="result-item">Mirna nedostupna za sve osim koordinacije</div>
+      </div>
+      <div class="result-after">
+        <div class="result-label">Nakon</div>
+        <div class="result-item">5 poziva dnevno — samo za stvarne probleme</div>
+        <div class="result-item">Pregled u realnom vremenu, uvijek točan</div>
+        <div class="result-item">Fakture isti dan — automatski iz naloga</div>
+        <div class="result-item">Kreiranje naloga: 90 sekundi</div>
+        <div class="result-item">Tomislav vidi sve vozače odjednom, bez poziva</div>
+        <div class="result-item">Mirna ima vremena za planiranje i klijente</div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>"Mirna mi je jutros rekla da konačno može obaviti posao umjesto razgovarati cijeli dan. To mi je bilo dovoljno da znam da se isplatilo."</p>
+      <cite>— Tomislav, tri mjeseca nakon isporuke</cite>
+    </div>
+
+    <p>
+      <strong>Petnaest sati tjedno</strong> vraćeno timu. Ne kroz otpuštanje,
+      ne kroz prekovremeni rad — nego kroz eliminaciju posla koji nikad nije trebao
+      postojati. Dispečerica koja je koordinirala telefonom sada planira.
+      Šef koji je gasio požare sada vidi unaprijed.
+    </p>
+    <p>
+      Aplikacija i dalje radi. Na istim računalima. Bez pretplate.
+      Bez ovisnosti o tuđem serveru koji bi mogao promijeniti uvjete.
+      <strong>Podaci su Tomislavovi — i ostaju njegovi.</strong>
+    </p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="wrap">
+  <div class="cta-block">
+    <div>
+      <h2>Prepoznajete li se u ovoj priči?</h2>
+      <p>
+        Nije važno je li to logistika, HVAC servis, građevina ili nešto sasvim drugo.
+        Ako vaš tim troši previše vremena na koordinaciju koja bi trebala biti automatska —
+        razgovarajmo. Kava ne košta ništa.
+      </p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn-primary" href="/#kontakt">Dogovorimo razgovor</a>
+      <a class="btn-ghost" href="/">← Natrag na početnu</a>
+    </div>
+  </div>
+
+  <p class="disclaimer">
+    Ovo je ilustrativni primjer projekta koji predstavlja tipičan angažman i rezultate
+    koje MAJSTORAJ isporučuje. Detalji (nazivi, lokacije, točni brojevi) su izmijenjeni
+    radi privatnosti. Stvarni rezultati ovise o specifičnostima svakog projekta.
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <span class="footer-copy">© 2026 MAJSTORAJ · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
+</footer>
+
+</body>
+</html>

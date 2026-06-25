@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo aplikacija — MAJSTORAJ</title>
+<meta name="description" content="Isprobajte MAJSTORAJ demo aplikaciju — preuzmi, pokreni dvostrukim klikom, nema instalacije. 25 MB. Radi bez interneta.">
+<link rel="canonical" href="https://majstoraj.hr/demo">
+
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DMSans-VariableFont_ital,wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DMSans-VariableFont_ital,wght.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #F6F5F2;
+    --surface:    #ECEAE6;
+    --ink:        #1A1A24;
+    --ink-soft:   #6B6B7A;
+    --accent:     #D4520A;
+    --accent-dim: rgba(212,82,10,0.10);
+    --rule:       #D8D6D0;
+    --white:      #FFFFFF;
+    --radius:     4px;
+    --font-head:  'Outfit', system-ui, sans-serif;
+    --font-body:  'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 1.2rem; letter-spacing: 0.08em;
+    color: var(--ink); text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  .nav-back {
+    font-size: 0.88rem; color: var(--ink-soft);
+    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.15s;
+  }
+  .nav-back:hover { color: var(--ink); }
+
+  /* ── LAYOUT ── */
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 2.5rem);
+  }
+  .wrap-wide {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: clamp(3.5rem, 9vw, 6rem) 0 clamp(2.5rem, 6vw, 4rem);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 680px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-usb { display: none; }
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-dim);
+    padding: 0.25rem 0.7rem; border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900; line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero-lead {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--ink-soft); font-weight: 300;
+    line-height: 1.75; margin-bottom: 2rem;
+    max-width: 520px;
+  }
+
+  /* ── USB ILUSTRACIJA ── */
+  .hero-usb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .usb-body {
+    width: 80px; height: 160px;
+    background: var(--ink);
+    border-radius: 8px 8px 4px 4px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(26,26,36,0.25);
+  }
+  .usb-body::before {
+    content: 'MAJSTORAJ';
+    font-family: var(--font-head);
+    font-size: 0.52rem; font-weight: 900;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+  .usb-connector {
+    width: 38px; height: 28px;
+    background: linear-gradient(180deg, #C0C0C0 0%, #A0A0A0 100%);
+    border-radius: 0 0 4px 4px;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2);
+  }
+  .usb-led {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #D4520A;
+    box-shadow: 0 0 8px #D4520A;
+    margin-top: 0.5rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px #D4520A; }
+    50%       { opacity: 0.5; box-shadow: 0 0 3px #D4520A; }
+  }
+  .usb-label {
+    font-size: 0.75rem; color: var(--ink-soft);
+    margin-top: 0.25rem;
+  }
+
+  /* ── SPEC STRIP ── */
+  .spec-strip {
+    display: flex; gap: 0;
+    border: 1.5px solid var(--rule);
+    border-radius: 6px; overflow: hidden;
+    background: var(--rule);
+    margin-bottom: 2rem;
+  }
+  .spec-item {
+    background: var(--white);
+    padding: 1rem 1.25rem;
+    flex: 1; min-width: 0;
+  }
+  .spec-val {
+    font-family: var(--font-head);
+    font-size: 1.3rem; font-weight: 900;
+    color: var(--accent); line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+  .spec-lbl {
+    font-size: 0.78rem; color: var(--ink-soft); line-height: 1.3;
+  }
+  @media (max-width: 500px) {
+    .spec-strip { flex-wrap: wrap; }
+    .spec-item { flex: 1 1 45%; }
+  }
+
+  /* ── DOWNLOAD BOX ── */
+  .download-box {
+    background: var(--ink);
+    border-radius: 8px;
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    display: flex; gap: 2rem; align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .download-info { flex: 1; min-width: 200px; }
+  .download-filename {
+    font-family: var(--font-head);
+    font-size: 1rem; font-weight: 700;
+    color: var(--white); margin-bottom: 0.25rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .download-filename .ext {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(212,82,10,0.25);
+    color: #F4A47A; padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+  }
+  .download-meta {
+    font-size: 0.82rem; color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+  }
+  .btn-download {
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+    background: var(--accent); color: #FFFFFF;
+    border: none; padding: 0.9rem 2rem;
+    border-radius: var(--radius); cursor: not-allowed;
+    opacity: 0.45; white-space: nowrap;
+    display: flex; align-items: center; gap: 0.6rem;
+    text-decoration: none;
+  }
+  .soon-badge {
+    display: inline-block;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.4);
+    padding: 0.2rem 0.65rem; border-radius: 2px;
+    margin-left: 0.5rem; vertical-align: middle;
+  }
+
+  /* ── SEKCIJE ── */
+  .section {
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .section-eyebrow {
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+    display: block;
+  }
+  h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700; line-height: 1.2;
+    letter-spacing: -0.015em; margin-bottom: 1rem;
+  }
+  p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem; line-height: 1.8;
+  }
+  p:last-child { margin-bottom: 0; }
+  p strong { color: var(--ink); font-weight: 500; }
+
+  /* ── KORACI ── */
+  .steps-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  @media (max-width: 560px) {
+    .steps-row { grid-template-columns: 1fr; }
+  }
+  .step-card {
+    background: var(--white);
+    padding: 2rem 1.75rem;
+  }
+  .step-num {
+    font-family: var(--font-head);
+    font-size: 3rem; font-weight: 900;
+    color: var(--rule); line-height: 1;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.03em;
+    user-select: none;
+  }
+  .step-card h3 {
+    font-family: var(--font-head);
+    font-size: 1rem; font-weight: 700;
+    margin-bottom: 0.4rem; color: var(--ink);
+  }
+  .step-card p {
+    font-size: 0.88rem; color: var(--ink-soft);
+    line-height: 1.6; margin: 0;
+  }
+  .step-card .step-cmd {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem; font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 0.25rem 0.65rem; border-radius: 2px;
+  }
+
+  /* ── ROLE KARTICE ── */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  @media (max-width: 600px) {
+    .roles-grid { grid-template-columns: 1fr; }
+  }
+  .role-card {
+    background: var(--white);
+    padding: 1.75rem;
+  }
+  .role-card.featured { background: var(--ink); }
+  .role-icon {
+    font-size: 1.75rem; margin-bottom: 0.75rem;
+    display: block;
+  }
+  .role-name {
+    font-family: var(--font-head);
+    font-size: 1rem; font-weight: 900;
+    color: var(--ink); margin-bottom: 0.1rem;
+    letter-spacing: 0.02em;
+  }
+  .role-card.featured .role-name { color: var(--white); }
+  .role-title {
+    font-size: 0.78rem; color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+  .role-card.featured .role-title { color: rgba(255,255,255,0.4); }
+  .role-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .role-list li {
+    font-size: 0.85rem; color: var(--ink-soft);
+    padding-left: 1.1rem; position: relative;
+    line-height: 1.4;
+  }
+  .role-list li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent); font-size: 0.8rem;
+  }
+  .role-card.featured .role-list li { color: rgba(255,255,255,0.6); }
+  .role-card.featured .role-list li::before { color: #FFB347; }
+
+  /* ── TECH DETALJI ── */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 540px) {
+    .tech-grid { grid-template-columns: 1fr; }
+  }
+  .tech-item {
+    background: var(--white);
+    border: 1.5px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+    display: flex; align-items: flex-start; gap: 0.75rem;
+  }
+  .tech-item .ti-icon {
+    font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem;
+  }
+  .tech-item .ti-label {
+    font-size: 0.88rem; font-weight: 600; color: var(--ink);
+    margin-bottom: 0.15rem;
+    font-family: var(--font-head);
+  }
+  .tech-item .ti-desc {
+    font-size: 0.8rem; color: var(--ink-soft); line-height: 1.5;
+  }
+
+  /* ── ŠTO JE VAŠE ── */
+  .ownership-block {
+    background: var(--surface);
+    border-radius: 6px;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--accent);
+  }
+  .ownership-block h3 {
+    font-family: var(--font-head);
+    font-size: 1.1rem; font-weight: 700;
+    margin-bottom: 0.75rem; color: var(--ink);
+  }
+  .ownership-block ul {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .ownership-block li {
+    font-size: 0.9rem; color: var(--ink-soft);
+    padding-left: 1.25rem; position: relative;
+    line-height: 1.5;
+  }
+  .ownership-block li::before {
+    content: '✓'; position: absolute; left: 0;
+    color: var(--accent); font-weight: 700;
+  }
+
+  /* ── CTA ── */
+  .cta-row {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    align-items: center; margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .btn-primary {
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+    background: var(--accent); color: #FFFFFF; border: none;
+    padding: 0.8rem 1.8rem; border-radius: var(--radius);
+    text-decoration: none;
+    transition: opacity 0.18s, transform 0.18s;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-secondary {
+    font-size: 0.92rem; color: var(--ink-soft);
+    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.15s;
+  }
+  .btn-secondary:hover { color: var(--ink); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #121218;
+    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 0.75rem;
+    margin-top: clamp(3rem, 6vw, 5rem);
+  }
+  .footer-logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 0.95rem; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-logo span { color: var(--accent); opacity: 0.7; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="/">MAJSTOR<span>AJ</span></a>
+  <a class="nav-back" href="/">← Povratak</a>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <span class="hero-tag">Demo aplikacija</span>
+      <h1>Cijeli softver.<br>U <em>džepu.</em></h1>
+      <p class="hero-lead">
+        Preuzmite, pokrenite dvostrukim klikom, aplikacija se otvori u browseru.
+        Nema instalacije. Nema interneta. Nema pretplate.
+        Sve što vidite u demu — to je ono što dobivate kao gotov produkt.
+      </p>
+
+      <div class="spec-strip">
+        <div class="spec-item">
+          <div class="spec-val">~25 MB</div>
+          <div class="spec-lbl">ukupna veličina</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-val">0</div>
+          <div class="spec-lbl">instalacija potrebno</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-val">0 €</div>
+          <div class="spec-lbl">pretplata, cloud, serveri</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-val">Windows</div>
+          <div class="spec-lbl">Mac i Linux uskoro</div>
+        </div>
+      </div>
+
+      <!-- DOWNLOAD BOX -->
+      <div class="download-box">
+        <div class="download-info">
+          <div class="download-filename">
+            majstoraj-demo.exe
+            <span class="ext">Windows</span>
+            <span class="soon-badge">Uskoro</span>
+          </div>
+          <div class="download-meta">
+            ~25 MB · Radi na Windows 10 i 11 · Bez instalacije<br>
+            Sadrži: aplikacija + baza podataka + server
+          </div>
+        </div>
+        <a class="btn-download" aria-disabled="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Preuzmi demo
+        </a>
+      </div>
+    </div>
+
+    <!-- USB ILUSTRACIJA -->
+    <div class="hero-usb" aria-hidden="true">
+      <div class="usb-body"></div>
+      <div class="usb-connector"></div>
+      <div class="usb-led"></div>
+      <span class="usb-label">majstoraj-demo.exe</span>
+    </div>
+  </div>
+</div>
+
+<!-- KAKO POKRENUTI -->
+<div class="wrap">
+  <div class="section">
+    <span class="section-eyebrow">Pokretanje</span>
+    <h2>Tri koraka. Dvadeset sekundi.</h2>
+    <p>Nema instalacijskih čarobnjaka, nema zahtjeva za administratorskim pravima, nema čekanja.</p>
+
+    <div class="steps-row">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Preuzmite ili kopirajte na USB</h3>
+        <p>Jedna datoteka. Stavite je gdje hoćete — USB stick, desktop, mrežni disk.</p>
+        <span class="step-cmd">majstoraj-demo.exe</span>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Dvostruki klik</h3>
+        <p>Aplikacija pokrene lokalni server i automatski otvori browser na pravoj adresi.</p>
+        <span class="step-cmd">localhost:8000</span>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Otvorite tri taba</h3>
+        <p>Odaberite ulogu u svakom tabu. Promjena u jednom odmah se vidi u drugima.</p>
+        <span class="step-cmd">Tri uloge · Jedan klik</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRI ULOGE -->
+<div style="background: var(--surface); padding: clamp(2.5rem,6vw,4rem) 0; border-top: 1px solid var(--rule);">
+  <div class="wrap">
+    <span class="section-eyebrow">Što vidite u demu</span>
+    <h2>Stvarni scenarij. Tri perspektive.</h2>
+    <p>
+      Demo prikazuje logističku tvrtku s 12 vozača —
+      isti scenarij opisan u <a href="/case-study-logistika.html" style="color:var(--accent);">case studyju</a>.
+      Svaka uloga ima drugačiji prikaz i drugačije ovlasti.
+    </p>
+
+    <div class="roles-grid">
+      <div class="role-card">
+        <span class="role-icon">📋</span>
+        <div class="role-name">MIRNA</div>
+        <div class="role-title">Dispečerica — puni pristup</div>
+        <ul class="role-list">
+          <li>Kreira novi nalog za 90 sekundi</li>
+          <li>Dodjeljuje vozaču iz padajućeg izbornika</li>
+          <li>Vidi status svih naloga u realnom vremenu</li>
+          <li>Označava hitne naloge</li>
+          <li>Generira dnevni izvještaj jednim klikom</li>
+        </ul>
+      </div>
+      <div class="role-card featured">
+        <span class="role-icon">🚚</span>
+        <div class="role-name">MARKO</div>
+        <div class="role-title">Vozač — mobilni prikaz</div>
+        <ul class="role-list">
+          <li>Vidi samo svoje naloge</li>
+          <li>Potvrđuje preuzimanje jednim klikom</li>
+          <li>Ažurira status: krenuo / završio</li>
+          <li>Optimizirano za mali ekran mobitela</li>
+          <li>Radi i s lošim signalom</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <span class="role-icon">👁️</span>
+        <div class="role-name">TOMISLAV</div>
+        <div class="role-title">Vlasnik — pregled bez izmjena</div>
+        <ul class="role-list">
+          <li>Dashboard svih vozača i naloga</li>
+          <li>Vidi tko je gdje u realnom vremenu</li>
+          <li>Statistike za tekući dan</li>
+          <li>Nema gumba — samo čita</li>
+          <li>Otvori na mobitelu, laptopu, bilo čemu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEHNIČKI DETALJI -->
+<div class="wrap">
+  <div class="section">
+    <span class="section-eyebrow">Što je unutra</span>
+    <h2>Jedna datoteka. Sve u njoj.</h2>
+    <p>
+      Nema ovisnosti koje trebate instalirati. Nema Pythona, nema Node.js,
+      nema ničega — sve je zapakrano unutar jedne izvršne datoteke.
+    </p>
+
+    <div class="tech-grid">
+      <div class="tech-item">
+        <span class="ti-icon">⚙️</span>
+        <div>
+          <div class="ti-label">Python + FastAPI</div>
+          <div class="ti-desc">Lokalni web server koji pokreće svu logiku. Identičan stack koji koristimo u stvarnim projektima za klijente.</div>
+        </div>
+      </div>
+      <div class="tech-item">
+        <span class="ti-icon">🗄️</span>
+        <div>
+          <div class="ti-label">SQLite baza podataka</div>
+          <div class="ti-desc">Lokalna baza koja se kreira automatski pri prvom pokretanju. Sve se sprema lokalno — nema podataka koji odlaze negdje.</div>
+        </div>
+      </div>
+      <div class="tech-item">
+        <span class="ti-icon">🔄</span>
+        <div>
+          <div class="ti-label">Real-time sinkronizacija</div>
+          <div class="ti-desc">Promjena u jednom tabu odmah se vidi u svima. Server šalje ažuriranja svim otvorenim browserima automatski.</div>
+        </div>
+      </div>
+      <div class="tech-item">
+        <span class="ti-icon">🔁</span>
+        <div>
+          <div class="ti-label">Automatski reset</div>
+          <div class="ti-desc">Demo se vraća na početno stanje svakih 60 minuta. Uvijek čist za sljedeću demonstraciju.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ownership-block">
+      <h3>Ovo nije demo — ovo je stvarni softver</h3>
+      <ul>
+        <li>Isti tehnološki stack kao aplikacija koju bismo razvili za vas</li>
+        <li>Podaci ostaju na vašem računalu — ne idu nigdje</li>
+        <li>Radi bez interneta, bez cloud servisa, bez pretplate</li>
+        <li>Možete ga pokrenuti na USB sticku, na mreži, na bilo čemu</li>
+        <li>Vaša prilagođena verzija bila bi krojena točno po vašim procesima</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="wrap">
+  <div class="cta-row">
+    <div style="flex: 1; min-width: 200px;">
+      <p style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem;">
+        Vidite potencijal za vaše poslovanje?
+      </p>
+      <p style="font-size: 0.9rem; margin: 0;">
+        Demo prikazuje logistiku — ali isti pristup primjenjujemo na HVAC servise,
+        građevinu, distribuciju i sve gdje postoje terenske ekipe i uredska koordinacija.
+      </p>
+    </div>
+    <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap; flex-shrink:0;">
+      <a class="btn-primary" href="/#kontakt">Razgovarajmo besplatno</a>
+      <a class="btn-secondary" href="/stranice/case-study-logistika.html">Pročitajte priču →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <span class="footer-copy">© 2026 MAJSTORAJ · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
+</footer>
+
+</body>
+</html>
