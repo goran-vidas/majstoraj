@@ -69,6 +69,12 @@
     font-size: 17px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    /* .full-bleed koristi width:100vw + negativne margine (-50vw) da probije
+       kontejner - na Windowsima gdje je scrollbar uvijek vidljiv, 100vw zna
+       biti šire od stvarnog vidljivog prostora, uzrokujući horizontalni
+       scroll od par piksela. Ova linija to sprječava bez utjecaja na
+       vertikalni scroll. (Nalaz iz vanjske recenzije, 16.07.2026.) */
+    overflow-x: hidden;
   }
 
   /* ── NAV ── */
@@ -548,6 +554,10 @@
         <li>Bez pretplate, bez isteka licence</li>
       </ul>
       <a class="btn-primary" href="#demo-forma">Zatražite zatvoreni demo</a>
+      <p class="trial-note" style="margin-top: 0.5rem;">
+        Rezervirajte svoje Early Bird mjesto slanjem upita za demo — mjesto se
+        broji od trenutka javljanja, ne od trenutka kupnje.
+      </p>
       <p class="trial-note">
         14-dnevni probni period uz osobno izdan aktivacijski ključ — javite se,
         dogovaramo unutar 24 sata.
@@ -679,5 +689,33 @@
   <span class="footer-copy">© 2026 MAJSTORAJ · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
 </footer>
 
+<script>
+(function () {
+  // Isti mehanizam kao index.html - config u dopust-config.json,
+  // XMLHttpRequest umjesto fetch() radi šire kompatibilnosti.
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/dopust-config.json', true);
+  xhr.onload = function () {
+    if (xhr.status !== 200) return;
+    try {
+      var config = JSON.parse(xhr.responseText);
+      var pocetak = new Date(config.pocetak);
+      var kraj = new Date(config.kraj);
+      var danas = new Date();
+      if (danas < pocetak || danas > kraj) return;
+
+      var banner = document.createElement('div');
+      banner.style.cssText =
+        'background:#1A1A24;color:#F6F5F2;text-align:center;' +
+        'padding:0.65rem 1.25rem;font-size:0.85rem;line-height:1.5;' +
+        'font-family:var(--font-body, sans-serif);';
+      banner.textContent = config.poruka;
+      document.body.insertBefore(banner, document.body.firstChild);
+    } catch (e) {}
+  };
+  xhr.onerror = function () {};
+  xhr.send();
+})();
+</script>
 </body>
 </html>

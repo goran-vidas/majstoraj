@@ -669,5 +669,41 @@
   <span class="footer-copy">© 2026 MAJSTORAJ · Rijeka · OIB: 73470282385 · majstoraj.hr · <a href="/stranice/privatnost.html">Politika privatnosti</a></span>
 </footer>
 
+<script>
+(function () {
+  // Datumi i tekst bannera žive u dopust-config.json - ne ovdje. Da se
+  // promijeni razdoblje ili poruka, uređuje se SAMO taj jedan fajl, ne
+  // ovaj kod, ni na jednoj stranici koja koristi ovaj mehanizam.
+  // XMLHttpRequest umjesto fetch() - podržano posvuda, uklj. jako stare
+  // preglednike (fetch je noviji API, nema ga svugdje).
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/dopust-config.json', true);
+  xhr.onload = function () {
+    if (xhr.status !== 200) return;
+    try {
+      var config = JSON.parse(xhr.responseText);
+      var pocetak = new Date(config.pocetak);
+      var kraj = new Date(config.kraj);
+      var danas = new Date();
+      if (danas < pocetak || danas > kraj) return;
+
+      var banner = document.createElement('div');
+      banner.style.cssText =
+        'background:#1A1A24;color:#F6F5F2;text-align:center;' +
+        'padding:0.65rem 1.25rem;font-size:0.85rem;line-height:1.5;' +
+        'font-family:var(--font-body, sans-serif);';
+      banner.textContent = config.poruka;
+      document.body.insertBefore(banner, document.body.firstChild);
+    } catch (e) {
+      // Tiho - pokvaren config ne smije srušiti stranicu.
+    }
+  };
+  xhr.onerror = function () {
+    // Tiho - ako config nedostaje ili se ne učita (npr. file:// umjesto
+    // http://), stranica jednostavno nema banner. Nikad ne ruši ništa.
+  };
+  xhr.send();
+})();
+</script>
 </body>
 </html>
