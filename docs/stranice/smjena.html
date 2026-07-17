@@ -259,6 +259,10 @@
     font-size: 0.8rem; color: rgba(255,255,255,0.4);
     margin-top: 1.25rem; text-align: center; line-height: 1.5;
   }
+  #rok-odgovora-note.dopust-istaknuto {
+    border-left: 3px solid var(--accent); padding-left: 0.85rem;
+    color: #FFB347; font-weight: 500; text-align: left;
+  }
 
   /* ── VLASNIŠTVO (ownership-block iz demo.html) ── */
   .ownership-block {
@@ -558,7 +562,7 @@
         Rezervirajte svoje Early Bird mjesto slanjem upita za demo — mjesto se
         broji od trenutka javljanja, ne od trenutka kupnje.
       </p>
-      <p class="trial-note">
+      <p class="trial-note" id="rok-odgovora-note">
         14-dnevni probni period uz osobno izdan aktivacijski ključ — javite se,
         dogovaramo unutar 24 sata.
       </p>
@@ -711,6 +715,17 @@
         'font-family:var(--font-body, sans-serif);';
       banner.textContent = config.poruka;
       document.body.insertBefore(banner, document.body.firstChild);
+
+      // Uskladi obećanje "dogovaramo unutar 24 sata" na cjenovnoj kartici -
+      // ciljano preko ID-a, ne klase, jer druga .trial-note na istoj
+      // kartici (Early Bird rezervacijska rečenica) mora ostati netaknuta.
+      if (config.kontakt_poruka) {
+        var rokNote = document.getElementById('rok-odgovora-note');
+        if (rokNote) {
+          rokNote.textContent = config.kontakt_poruka;
+          rokNote.classList.add('dopust-istaknuto');
+        }
+      }
     } catch (e) {}
   };
   xhr.onerror = function () {};
