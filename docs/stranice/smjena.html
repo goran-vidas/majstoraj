@@ -599,27 +599,27 @@
       <!-- Honeypot - ostaje prazno kod ljudi, botovi ga cesto automatski popune -->
       <div class="hp-field" aria-hidden="true">
         <label for="fi-website">Ostavite prazno</label>
-        <input type="text" id="fi-website" name="fi-website" tabindex="-1" autocomplete="off">
+        <input type="text" id="fi-website" name="fi-text-website" tabindex="-1" autocomplete="off">
       </div>
 
       <div class="form-row">
         <label for="fi-ime">Ime i prezime / Naziv obrta *</label>
-        <input type="text" id="fi-ime" name="fi-ime" placeholder="npr. Ivan Ivić / Konoba Kod Ivića" autocomplete="name" required>
+        <input type="text" id="fi-ime" name="fi-sender-firstName" placeholder="npr. Ivan Ivić / Konoba Kod Ivića" autocomplete="name" required>
       </div>
 
       <div class="form-row">
         <label for="fi-email">Poslovni email *</label>
-        <input type="email" id="fi-email" name="fi-email" placeholder="ivan@vasobrt.hr" autocomplete="email" required>
+        <input type="email" id="fi-email" name="fi-sender-email" placeholder="ivan@vasobrt.hr" autocomplete="email" required>
       </div>
 
       <div class="form-row">
         <label for="fi-telefon">Broj mobitela <span class="optional-note">(opcionalno)</span></label>
-        <input type="tel" id="fi-telefon" name="fi-telefon" placeholder="+385 9x xxx xxxx" autocomplete="tel">
+        <input type="tel" id="fi-telefon" name="fi-sender-phone" placeholder="+385 9x xxx xxxx" autocomplete="tel">
         <p class="form-hint">Za brži dogovor preko WhatsAppa — nije obavezno.</p>
       </div>
 
       <div class="consent-row">
-        <input type="checkbox" id="fi-privola" name="fi-privola" required value="da">
+        <input type="checkbox" id="fi-privola" name="fi-text-privola" required value="da">
         <label for="fi-privola">
           Pristajem da MAJSTORAJ obrađuje moje podatke isključivo u svrhu
           obavještavanja o lansiranju aplikacije Smjena i eventualnog poziva
