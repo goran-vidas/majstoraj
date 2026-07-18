@@ -247,6 +247,10 @@
     padding: 0.2rem 0.6rem; border-radius: 2px; margin-bottom: 1.25rem;
   }
   .price-name { font-family: var(--font-head); font-size: 1.5rem; font-weight: 900; letter-spacing: 0.02em; margin-bottom: 0.3rem; }
+  /* .price-value/.price-old trenutno se ne koriste u HTML-u (16.07.2026,
+     cijena uklonjena s javne stranice do lansiranja) - namjerno ostavljeno,
+     ne mrtav kod, spremno za ponovno umetanje u listopadu kad cijena
+     ponovno bude javna. Vidi 03_dnevnik_odluka.md. */
   .price-value { font-family: var(--font-head); font-size: 3rem; font-weight: 900; line-height: 1; color: #FFB347; margin-bottom: 0.25rem; }
   .price-value .unit { font-size: 1.1rem; font-weight: 500; color: rgba(255,255,255,0.5); }
   .price-value .price-old { font-size: 1.4rem; font-weight: 500; color: rgba(255,255,255,0.35); text-decoration: line-through; margin-right: 0.5rem; }
@@ -258,10 +262,6 @@
   .trial-note {
     font-size: 0.8rem; color: rgba(255,255,255,0.4);
     margin-top: 1.25rem; text-align: center; line-height: 1.5;
-  }
-  #rok-odgovora-note.dopust-istaknuto {
-    border-left: 3px solid var(--accent); padding-left: 0.85rem;
-    color: #FFB347; font-weight: 500; text-align: left;
   }
 
   /* ── VLASNIŠTVO (ownership-block iz demo.html) ── */
@@ -400,15 +400,16 @@
 
 <!-- HERO -->
 <div class="hero">
-  <span class="hero-eyebrow">Desktop aplikacija · Ugostiteljstvo i mali obrti</span>
+  <span class="hero-eyebrow">Desktop aplikacija · Ugostiteljstvo i mali obrti · Lansiranje jesen 2026</span>
   <h1>Raspored smjena.<br>Riješen za <em>dvije minute.</em></h1>
   <p class="hero-lead">
     Smjena je desktop aplikacija koja automatski slaže raspored radnih smjena —
     poštuje zakonski odmor, uzima u obzir uloge i želje radnika, i sve to radi
     lokalno na vašem računalu, bez interneta i bez mjesečne pretplate.
+    Trenutno u završnoj fazi razvoja, lansiranje planirano za jesen 2026.
   </p>
   <div class="hero-actions">
-    <a class="btn-primary" href="#demo-forma">Zatražite zatvoreni demo</a>
+    <a class="btn-primary" href="#demo-forma">Prijavite se za predbilježbu</a>
     <a class="btn-whatsapp" href="https://wa.me/385919546490" target="_blank" rel="noopener">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
@@ -537,19 +538,22 @@
 </section>
 <div class="divider"></div>
 
-<!-- CIJENA -->
+<!-- PREDBILJEŽBA -->
 <section id="cijena">
-  <p class="section-label">Jednostavna cijena</p>
-  <h2>Kupite jednom.<br>Koristite zauvijek.</h2>
+  <p class="section-label">Lansiranje jesen 2026</p>
+  <h2>Budite prvi koji saznaju<br>kad Smjena bude spremna.</h2>
   <p class="section-intro">
-    Bez mjesečne pretplate, bez skrivenih troškova. Jedna cijena, jedna licenca, vaše računalo.
+    Aplikacija je u završnoj fazi razvoja. Prijavite interes sad — javljam se
+    osobno čim krenem, prije službene objave.
   </p>
   <div class="pricing-wrap">
     <div class="price-card">
-      <span class="price-badge">Early Bird — prvih 20 kupaca</span>
+      <span class="price-badge">Predbilježba u tijeku</span>
       <div class="price-name">Smjena 2026</div>
-      <div class="price-value"><span class="price-old">149 €</span>89 € <span class="unit">jednokratno</span></div>
-      <p class="price-desc">Jedna licenca, jedno računalo, trajno pravo korištenja. Nakon prvih 20 kupaca, redovna cijena 149 €.</p>
+      <p class="price-desc" style="margin-top: 0.5rem;">
+        Jednokratna kupnja, bez mjesečne pretplate. Točna cijena objavljuje se
+        pri lansiranju — prijavljeni dobivaju ponudu prvi, prije javne objave.
+      </p>
       <ul class="price-list">
         <li>Neograničen broj radnika i rasporeda</li>
         <li>Oba tipa PDF izvještaja, bez ograničenja</li>
@@ -557,37 +561,37 @@
         <li>Dark i light tema</li>
         <li>Bez pretplate, bez isteka licence</li>
       </ul>
-      <a class="btn-primary" href="#demo-forma">Zatražite zatvoreni demo</a>
+      <a class="btn-primary" href="#demo-forma">Prijavite se za predbilježbu</a>
       <p class="trial-note" style="margin-top: 0.5rem;">
-        Rezervirajte svoje Early Bird mjesto slanjem upita za demo — mjesto se
-        broji od trenutka javljanja, ne od trenutka kupnje.
+        Prijavljeni dobivaju poziv za zatvoreno beta testiranje prije službenog
+        lansiranja — bez obveze kupnje.
       </p>
       <p class="trial-note" id="rok-odgovora-note">
-        14-dnevni probni period uz osobno izdan aktivacijski ključ — javite se,
-        dogovaramo unutar 24 sata.
+        Javljam se osobno na uneseni email čim krenem u jesen 2026.
       </p>
     </div>
   </div>
 
   <div class="ownership-block">
-    <h3>Ovo je gotov proizvod, ne projekt po narudžbi</h3>
+    <h3>Bit će gotov proizvod, ne projekt po narudžbi</h3>
     <ul>
-      <li>Radi odmah nakon instalacije — bez tjedana implementacije</li>
+      <li>Kad krene, radi odmah nakon instalacije — bez tjedana implementacije</li>
       <li>Podaci ostaju na vašem računalu, nikad na tuđem serveru</li>
       <li>Nema interneta potrebnog za svakodnevni rad</li>
-      <li>Trebate li nešto krojeno točno po vašim procesima, pogledajte i <a href="/#paketi" style="color:var(--accent);">PRO pakete</a></li>
+      <li>Trebate li nešto krojeno točno po vašim procesima već sad, pogledajte i <a href="/#paketi" style="color:var(--accent);">PRO pakete</a></li>
     </ul>
   </div>
 
   <!-- DEMO FORMA -->
   <div id="demo-forma" class="form-block">
-    <h3>Zatražite zatvoreni demo</h3>
+    <h3>Prijavite se za predbilježbu</h3>
     <p>
-      Javite se — unutar 24 sata dogovaramo detalje i, ako odgovara, šaljemo vam
-      osoban aktivacijski ključ za 14-dnevni probni period.
+      Ostavite kontakt i javit ću se osobno čim Smjena bude spremna za
+      jesen 2026 — prijavljeni prvi dobivaju priliku za zatvoreno beta
+      testiranje, bez obveze kupnje.
     </p>
 
-    <form id="smjenaDemoForm" action="https://forminit.com/f/PLACEHOLDER_FORM_ID" method="POST">
+    <form id="smjenaDemoForm" action="https://forminit.com/f/oh4yxdy23xr" method="POST">
       <!-- Honeypot - ostaje prazno kod ljudi, botovi ga cesto automatski popune -->
       <div class="hp-field" aria-hidden="true">
         <label for="fi-website">Ostavite prazno</label>
@@ -613,13 +617,14 @@
       <div class="consent-row">
         <input type="checkbox" id="fi-privola" name="fi-privola" required value="da">
         <label for="fi-privola">
-          Pristajem da MAJSTORAJ obrađuje moje podatke isključivo u svrhu organizacije
-          demo prezentacije aplikacije Smjena, u skladu s
+          Pristajem da MAJSTORAJ obrađuje moje podatke isključivo u svrhu
+          obavještavanja o lansiranju aplikacije Smjena i eventualnog poziva
+          na zatvoreno beta testiranje, u skladu s
           <a href="/stranice/privatnost.html" target="_blank" rel="noopener">Pravilima privatnosti</a>. *
         </label>
       </div>
 
-      <button type="submit" class="form-submit-btn">Pošaljite upit</button>
+      <button type="submit" class="form-submit-btn">Prijavite se</button>
 
       <div class="form-status" id="demoFormStatus" role="status" aria-live="polite"></div>
     </form>
@@ -658,12 +663,12 @@
       .then(function (odgovor) {
         if (!odgovor.ok) throw new Error('Slanje nije uspjelo');
         statusBox.className = 'form-status success';
-        statusBox.textContent = 'Hvala! Javit ćemo se unutar 24 sata na uneseni email.';
+        statusBox.textContent = 'Hvala! Zabilježio sam vaš interes — javljam se osobno čim Smjena bude spremna za jesen 2026.';
         forma.reset();
       })
       .catch(function () {
         statusBox.className = 'form-status error';
-        statusBox.textContent = 'Nešto nije u redu. Pišite nam izravno na info@majstoraj.hr.';
+        statusBox.textContent = 'Nešto nije u redu. Pišite mi izravno na info@majstoraj.hr.';
       })
       .finally(function () {
         submitBtn.disabled = false;
@@ -690,7 +695,7 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">MAJSTOR<span>AJ</span></span>
-  <span class="footer-copy">© 2026 MAJSTORAJ · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
 </footer>
 
 <script>
@@ -715,17 +720,6 @@
         'font-family:var(--font-body, sans-serif);';
       banner.textContent = config.poruka;
       document.body.insertBefore(banner, document.body.firstChild);
-
-      // Uskladi obećanje "dogovaramo unutar 24 sata" na cjenovnoj kartici -
-      // ciljano preko ID-a, ne klase, jer druga .trial-note na istoj
-      // kartici (Early Bird rezervacijska rečenica) mora ostati netaknuta.
-      if (config.kontakt_poruka) {
-        var rokNote = document.getElementById('rok-odgovora-note');
-        if (rokNote) {
-          rokNote.textContent = config.kontakt_poruka;
-          rokNote.classList.add('dopust-istaknuto');
-        }
-      }
     } catch (e) {}
   };
   xhr.onerror = function () {};
