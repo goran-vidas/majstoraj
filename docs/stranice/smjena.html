@@ -374,10 +374,6 @@
   .form-submit-btn:hover { opacity: 0.88; transform: translateY(-1px); }
   .form-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-  /* .form-status trenutno se ne koristi (16.07.2026, forma prebačena na
-     nativno slanje umjesto AJAX-a) - ostavljeno, lako vratiti ako se AJAX
-     ikad ponovno uključi (npr. kad se potvrdi da je domena whitelistana
-     na Forminitu). Vidi 03_dnevnik_odluka.md. */
   .form-status {
     margin-top: 1.25rem; padding: 0.9rem 1.1rem;
     border-radius: var(--radius); font-size: 0.9rem;
@@ -630,35 +626,64 @@
 
       <button type="submit" class="form-submit-btn">Prijavite se</button>
 
+      <div class="form-status" id="demoFormStatus" role="status" aria-live="polite"></div>
     </form>
   </div>
 </section>
 
 <script>
 (function () {
-  // 16.07.2026: prebačeno s AJAX (fetch) na nativno slanje forme, nakon
-  // potvrđenog CORS problema na Forminit strani (domena nije bila u
-  // "authorized domains" popisu). Nativno slanje (bez preventDefault)
-  // nije podložno CORS-u - preglednik se jednostavno navigira na Forminit,
-  // isto kao klik na link, bez JS čitanja odgovora koje CORS ograničava.
-  // Cijena: gubi se lijepa inline "Hvala" poruka (korisnik se preusmjeri
-  // na Forminitovu thank-you stranicu) - namjerna, svjesna zamjena za
-  // pouzdanost, dok se ne potvrdi da je domena whitelistana.
+  // 16.07.2026: hibridni pristup nakon što je i CORS-neovisno nativno
+  // slanje I ispravka fi-{tip}-{svojstvo} naziva polja bilo dio popravka -
+  // nije potpuno jasno je li CORS ikad bio zaseban problem ili je cijelo
+  // vrijeme bio samo pogrešan naziv polja. Umjesto nagađanja, sustav ne
+  // mora znati koji je slučaj točan: pokušaj AJAX (lijepa inline poruka),
+  // a ako IKAKO ne uspije (CORS, mreža, bilo što), automatski pad na
+  // nativno slanje (dokazano pouzdano, isti mehanizam kao maloprije).
   var forma = document.getElementById('smjenaDemoForm');
+  var statusBox = document.getElementById('demoFormStatus');
   if (!forma) return;
 
   forma.addEventListener('submit', function (e) {
-    // Honeypot - jedino što JS ovdje još radi: ako je skriveno polje
-    // popunjeno (vjerojatno bot), tiho spriječi slanje. Ljudi ga nikad
-    // ne popunjavaju jer ga ne vide.
+    // Honeypot - ako je popunjeno (vjerojatno bot), tiho spriječi
+    // slanje POTPUNO - ni AJAX ni nativni pad.
     var honeypot = forma.querySelector('#fi-website');
     if (honeypot && honeypot.value.trim() !== '') {
       e.preventDefault();
       return;
     }
-    // Inače - ništa se ne presreće, forma se šalje nativno na
-    // forma.action (Forminit), preglednik navigira na njihovu
-    // thank-you stranicu.
+
+    e.preventDefault(); // pokušaj AJAX prvo
+
+    var formData = new FormData(forma);
+    var submitBtn = forma.querySelector('.form-submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Šaljem…';
+    if (statusBox) { statusBox.className = 'form-status'; statusBox.textContent = ''; }
+
+    fetch(forma.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (odgovor) {
+        if (!odgovor.ok) throw new Error('AJAX slanje nije uspjelo');
+        if (statusBox) {
+          statusBox.className = 'form-status success';
+          statusBox.textContent = 'Hvala! Zabilježio sam vaš interes — javljam se osobno čim Smjena bude spremna za jesen 2026.';
+        }
+        forma.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Prijavite se';
+      })
+      .catch(function () {
+        // AJAX nije uspio iz BILO KOJEG razloga (CORS, mreža, itd.) -
+        // pad na nativno slanje. forma.submit() namjerno, NE
+        // forma.requestSubmit() - submit() ne okida ponovno ovaj isti
+        // 'submit' event listener (izbjegava beskonačnu petlju),
+        // requestSubmit() bi ga okinuo ponovno.
+        forma.submit();
+      });
   });
 })();
 </script>
