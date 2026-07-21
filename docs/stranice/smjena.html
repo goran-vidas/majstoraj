@@ -24,20 +24,20 @@
 <style>
   @font-face {
     font-family: 'Outfit';
-    src: url('/fonts/Outfit.ttf') format('truetype');
+    src: url('/assets/fonts/Outfit.ttf') format('truetype');
     font-weight: 100 900;
     font-display: swap;
   }
   @font-face {
     font-family: 'DM Sans';
-    src: url('/fonts/DMSans.ttf') format('truetype');
+    src: url('/assets/fonts/DMSans.ttf') format('truetype');
     font-style: normal;
     font-weight: 100 900;
     font-display: swap;
   }
   @font-face {
     font-family: 'DM Sans';
-    src: url('/fonts/DMSans-Italic.ttf') format('truetype');
+    src: url('/assets/fonts/DMSans-Italic.ttf') format('truetype');
     font-style: italic;
     font-weight: 100 900;
     font-display: swap;
@@ -69,15 +69,9 @@
     font-size: 17px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
-    /* .full-bleed koristi width:100vw + negativne margine (-50vw) da probije
-       kontejner - na Windowsima gdje je scrollbar uvijek vidljiv, 100vw zna
-       biti šire od stvarnog vidljivog prostora, uzrokujući horizontalni
-       scroll od par piksela. Ova linija to sprječava bez utjecaja na
-       vertikalni scroll. (Nalaz iz vanjske recenzije, 16.07.2026.) */
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
   nav {
     position: sticky; top: 0; z-index: 100;
     background: var(--bg);
@@ -99,7 +93,6 @@
   }
   .nav-back:hover { color: var(--ink); }
 
-  /* ── LAYOUT ── */
   .wrap { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
   .divider { height: 1px; background: var(--rule); margin: 0 clamp(1.5rem,5vw,4rem); }
   section { padding: clamp(3.5rem,8vw,6rem) clamp(1.5rem,5vw,4rem); max-width: 1100px; margin: 0 auto; }
@@ -119,7 +112,6 @@
     max-width: 560px; margin-bottom: 3rem; line-height: 1.7;
   }
 
-  /* ── HERO ── */
   .hero { padding: clamp(3.5rem,9vw,6rem) clamp(1.5rem,5vw,4rem) clamp(2.5rem,6vw,3.5rem); max-width: 900px; margin: 0 auto; }
   .hero-eyebrow {
     display: inline-block; font-size: 0.78rem; font-weight: 500;
@@ -165,7 +157,6 @@
   }
   .btn-secondary:hover { color: var(--ink); }
 
-  /* ── PROBLEMI (ponovno korišteno iz index.html) ── */
   .problems-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -194,8 +185,6 @@
     width: fit-content;
   }
 
-  /* ── FULL-BLEED (pozadina od ruba do ruba, sadržaj ostaje centriran čak
-     i na ultra-širokim monitorima — bez inline stila na elementu) ── */
   .full-bleed {
     width: 100vw;
     max-width: none;
@@ -204,14 +193,10 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    /* horizontalni padding poništen - unutarnji div preuzima centriranje
-       sadržaja, inače bi se udvostručio s paddingom baznog "section"
-       pravila i sadržaj bi bio uvučen više nego u ostalim sekcijama */
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* ── KAKO RADI (ponovno korišteno) ── */
   .kako-bg { background: var(--surface); }
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 2rem; margin-top: 2.5rem; }
   .step-num {
@@ -222,7 +207,6 @@
   .step h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
   .step p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
 
-  /* ── ZNAČAJKE (tech-grid iz demo.html) ── */
   .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
   @media (max-width: 620px) { .tech-grid { grid-template-columns: 1fr; } }
   .tech-item {
@@ -233,7 +217,6 @@
   .tech-item .ti-label { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; font-family: var(--font-head); }
   .tech-item .ti-desc { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.55; }
 
-  /* ── CIJENA — jedna istaknuta kartica ── */
   .pricing-wrap { display: flex; justify-content: center; margin-top: 2.5rem; }
   .price-card {
     background: var(--ink); color: var(--white);
@@ -252,10 +235,6 @@
     padding: 0.2rem 0.6rem; border-radius: 2px; margin-bottom: 1.25rem;
   }
   .price-name { font-family: var(--font-head); font-size: 1.5rem; font-weight: 900; letter-spacing: 0.02em; margin-bottom: 0.3rem; }
-  /* .price-value/.price-old trenutno se ne koriste u HTML-u (16.07.2026,
-     cijena uklonjena s javne stranice do lansiranja) - namjerno ostavljeno,
-     ne mrtav kod, spremno za ponovno umetanje u listopadu kad cijena
-     ponovno bude javna. Vidi 03_dnevnik_odluka.md. */
   .price-value { font-family: var(--font-head); font-size: 3rem; font-weight: 900; line-height: 1; color: #FFB347; margin-bottom: 0.25rem; }
   .price-value .unit { font-size: 1.1rem; font-weight: 500; color: rgba(255,255,255,0.5); }
   .price-value .price-old { font-size: 1.4rem; font-weight: 500; color: rgba(255,255,255,0.35); text-decoration: line-through; margin-right: 0.5rem; }
@@ -263,13 +242,12 @@
   .price-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
   .price-list li { font-size: 0.92rem; color: rgba(255,255,255,0.75); padding-left: 1.3rem; position: relative; line-height: 1.4; }
   .price-list li::before { content: '✓'; position: absolute; left: 0; color: #FFB347; font-weight: 700; }
-  .price-card .btn-primary { width: 100%; text-align: center; }
+  .price-card .btn-primary { width: 100%; text-align: center; box-shadow: 0 4px 14px rgba(212, 82, 10, 0.35); }
   .trial-note {
     font-size: 0.8rem; color: rgba(255,255,255,0.4);
     margin-top: 1.25rem; text-align: center; line-height: 1.5;
   }
 
-  /* ── VLASNIŠTVO (ownership-block iz demo.html) ── */
   .ownership-block {
     background: var(--surface); border-radius: 6px;
     padding: clamp(1.5rem, 4vw, 2.25rem); margin-top: 1.5rem;
@@ -280,7 +258,6 @@
   .ownership-block li { font-size: 0.9rem; color: var(--ink-soft); padding-left: 1.25rem; position: relative; line-height: 1.5; }
   .ownership-block li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 
-  /* ── CTA ── */
   .cta-row {
     display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
     margin-top: 2.5rem; padding: 2.5rem clamp(1.5rem,5vw,4rem);
@@ -297,7 +274,6 @@
   }
   .btn-ghost:hover { color: rgba(255,255,255,0.85); }
 
-  /* ── FOOTER ── */
   footer {
     background: #121218; padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
     display: flex; justify-content: space-between; align-items: center;
@@ -310,7 +286,6 @@
   @media (max-width: 700px) {
     .cta-row { flex-direction: column; align-items: flex-start; }
   }
-  /* ── DEMO FORMA ── */
   .form-block {
     background: var(--white);
     border: 1.5px solid var(--rule);
@@ -387,23 +362,36 @@
   .form-status.success { display: block; background: var(--green-dim); color: var(--green); }
   .form-status.error { display: block; background: rgba(192,57,43,0.1); color: #C0392B; }
 
-  /* Honeypot polje - skriveno od ljudi, vidljivo botovima koji ignoriraju CSS */
   .hp-field { position: absolute; left: -9999px; top: -9999px; }
 
   @media (max-width: 560px) {
-    .form-row input[type="text"], .form-row input[type="email"], .form-row input[type="tel"] { font-size: 16px; } /* sprječava auto-zoom na iOS */
+    .form-row input[type="text"], .form-row input[type="email"], .form-row input[type="tel"] { font-size: 16px; }
+
+    .hero-actions,
+    .cta-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-actions .btn-primary,
+    .hero-actions .btn-whatsapp,
+    .hero-actions .btn-secondary,
+    .cta-actions .btn-primary,
+    .cta-actions .btn-ghost {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="logo" href="/">MAJSTOR<span>AJ</span></a>
   <a class="nav-back" href="/">← Povratak</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <span class="hero-eyebrow">Desktop aplikacija · Ugostiteljstvo i mali obrti · Lansiranje jesen 2026</span>
   <h1>Raspored smjena.<br>Riješen za <em>dvije minute.</em></h1>
@@ -424,7 +412,6 @@
 </div>
 <div class="divider"></div>
 
-<!-- PROBLEMI -->
 <section id="problemi">
   <p class="section-label">Prepoznajete li se?</p>
   <h2>Zašto je raspored uvijek isti kaos</h2>
@@ -457,7 +444,6 @@
 </section>
 <div class="divider"></div>
 
-<!-- KAKO RADI -->
 <section id="kako" class="full-bleed kako-bg">
   <div style="max-width:1100px; margin:0 auto; padding:0 clamp(1.5rem,5vw,4rem);">
     <p class="section-label">Proces</p>
@@ -489,7 +475,6 @@
 </section>
 <div class="divider"></div>
 
-<!-- KAKO IZGLEDA - placeholder do stvarnog builda, vidi 03_dnevnik_odluka.md 16.07.2026 -->
 <section id="kako-izgleda">
   <p class="section-label">Kako izgleda</p>
   <h2>Screenshotovi stižu uskoro</h2>
@@ -504,7 +489,6 @@
 </section>
 <div class="divider"></div>
 
-<!-- ZNAČAJKE -->
 <section id="znacajke">
   <p class="section-label">Što je unutra</p>
   <h2>Napravljeno za stvaran teren,<br>ne za demo prezentaciju</h2>
@@ -558,7 +542,6 @@
 </section>
 <div class="divider"></div>
 
-<!-- PREDBILJEŽBA -->
 <section id="cijena">
   <p class="section-label">Lansiranje jesen 2026</p>
   <h2>Budite prvi koji saznaju<br>kad Smjena bude spremna.</h2>
@@ -602,7 +585,6 @@
     </ul>
   </div>
 
-  <!-- DEMO FORMA -->
   <div id="demo-forma" class="form-block">
     <h3>Prijavite se za predbilježbu</h3>
     <p>
@@ -612,7 +594,6 @@
     </p>
 
     <form id="smjenaDemoForm" action="https://forminit.com/f/oh4yxdy23xr" method="POST">
-      <!-- Honeypot - ostaje prazno kod ljudi, botovi ga cesto automatski popune -->
       <div class="hp-field" aria-hidden="true">
         <label for="fi-website">Ostavite prazno</label>
         <input type="text" id="fi-website" name="fi-text-website" tabindex="-1" autocomplete="off">
@@ -644,7 +625,7 @@
         </label>
       </div>
 
-      <button type="submit" class="form-submit-btn">Prijavite se</button>
+      <button type="submit" class="form-submit-btn">Zabilježi moju predbilježbu</button>
 
       <div class="form-status" id="demoFormStatus" role="status" aria-live="polite"></div>
     </form>
@@ -653,27 +634,18 @@
 
 <script>
 (function () {
-  // 16.07.2026: hibridni pristup nakon što je i CORS-neovisno nativno
-  // slanje I ispravka fi-{tip}-{svojstvo} naziva polja bilo dio popravka -
-  // nije potpuno jasno je li CORS ikad bio zaseban problem ili je cijelo
-  // vrijeme bio samo pogrešan naziv polja. Umjesto nagađanja, sustav ne
-  // mora znati koji je slučaj točan: pokušaj AJAX (lijepa inline poruka),
-  // a ako IKAKO ne uspije (CORS, mreža, bilo što), automatski pad na
-  // nativno slanje (dokazano pouzdano, isti mehanizam kao maloprije).
   var forma = document.getElementById('smjenaDemoForm');
   var statusBox = document.getElementById('demoFormStatus');
   if (!forma) return;
 
   forma.addEventListener('submit', function (e) {
-    // Honeypot - ako je popunjeno (vjerojatno bot), tiho spriječi
-    // slanje POTPUNO - ni AJAX ni nativni pad.
     var honeypot = forma.querySelector('#fi-website');
     if (honeypot && honeypot.value.trim() !== '') {
       e.preventDefault();
       return;
     }
 
-    e.preventDefault(); // pokušaj AJAX prvo
+    e.preventDefault();
 
     var formData = new FormData(forma);
     var submitBtn = forma.querySelector('.form-submit-btn');
@@ -694,21 +666,15 @@
         }
         forma.reset();
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Prijavite se';
+        submitBtn.textContent = 'Zabilježi moju predbilježbu';
       })
       .catch(function () {
-        // AJAX nije uspio iz BILO KOJEG razloga (CORS, mreža, itd.) -
-        // pad na nativno slanje. forma.submit() namjerno, NE
-        // forma.requestSubmit() - submit() ne okida ponovno ovaj isti
-        // 'submit' event listener (izbjegava beskonačnu petlju),
-        // requestSubmit() bi ga okinuo ponovno.
         forma.submit();
       });
   });
 })();
 </script>
 
-<!-- CTA -->
 <div class="wrap">
   <div class="cta-row">
     <div style="flex:1; min-width:220px;">
@@ -722,7 +688,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-logo">MAJSTOR<span>AJ</span></span>
   <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
@@ -730,8 +695,6 @@
 
 <script>
 (function () {
-  // Isti mehanizam kao index.html - config u dopust-config.json,
-  // XMLHttpRequest umjesto fetch() radi šire kompatibilnosti.
   var xhr = new XMLHttpRequest();
   xhr.open('GET', '/dopust-config.json', true);
   xhr.onload = function () {
