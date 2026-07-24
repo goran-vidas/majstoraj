@@ -384,7 +384,7 @@
     color: var(--ink-soft); white-space: nowrap;
   }
 
-  /* ── BRZA RJEŠENJA ────────────────────────────────────────── */
+  /* ── CALLOUT (reusable: "brza rješenja" i "OPG najava") ──────── */
   .brza-inner {
     display: flex; gap: 2.5rem; align-items: flex-start;
     padding: 2rem 2.25rem;
@@ -396,6 +396,13 @@
   .brza-inner h3 { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
   .brza-inner p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.65; margin-bottom: 1rem; max-width: 540px; }
   @media (max-width: 520px) { .brza-inner { flex-direction: column; gap: 1rem; } }
+
+  /* Suptilna varijanta callouta - manje uočljivo od accent border-lefta,
+     namjerno tiša vizualna težina za ranu, neimenovanu najavu (OPG). */
+  .callout-subtle {
+    border-left-color: var(--ink-soft);
+  }
+  .callout-subtle .brza-icon { opacity: 0.75; }
 
   /* ── O MENI ───────────────────────────────────────────────── */
   .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -733,6 +740,31 @@
       <a class="btn-primary" href="/stranice/smjena.html" style="flex-shrink:0;">
         Prijavite interes →
       </a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- OPG NAJAVA - suptilan, tih callout (NE puna sekcija kao Smjena):
+     - Bez konkretnog naziva proizvoda (nije još odlučeno)
+     - Bez datuma lansiranja, bez cijene
+     - Kratko objašnjava zašto je ovo iznimka od "bez interneta" poruke
+       ostatka stranice, umjesto da se šutke kosi s njom
+     - CTA vodi na postojeći #kontakt, ne na novu podstranicu (svjesno
+       minimalan zahvat dok Faza 1 direktnog outreacha nije završena) -->
+<section id="opg-najava" style="padding-top: clamp(2rem,4vw,3rem); padding-bottom: clamp(2rem,4vw,3rem);">
+  <div class="brza-inner callout-subtle">
+    <div class="brza-icon">🌱</div>
+    <div>
+      <p class="section-label" style="margin-bottom:0.4rem; color: var(--ink-soft);">U pripremi</p>
+      <h3>Gajba — nešto slično radim i za male poljoprivrednike (OPG)</h3>
+      <p>
+        Za OPG-ove koji dostavljaju domaće proizvode po Rijeci i Kvarneru priprema se
+        <strong>Gajba</strong> — poseban alat za narudžbe i logistiku dostave, jedini u mojoj
+        ponudi koji svjesno radi na internetu (poslužitelj u Hrvatskoj), jer narudžba mora
+        stići vlasniku dok je na terenu, ne tek kad se vrati za računalo.
+      </p>
+      <a class="btn-secondary" href="#kontakt">Vodite OPG i muči vas isto? Javite se →</a>
     </div>
   </div>
 </section>
