@@ -492,6 +492,7 @@
     <a href="#paketi">Paketi</a>
     <a href="#kako">Proces</a>
     <a href="/stranice/smjena.html">Smjena</a>
+    <a href="/stranice/lokalac.html">Lokalac</a>
     <a href="#omeni">O meni</a>
     <a class="nav-cta" href="#kontakt">Razgovor besplatno</a>
   </div>
@@ -745,27 +746,38 @@
 </section>
 <div class="divider"></div>
 
-<!-- OPG NAJAVA - suptilan, tih callout (NE puna sekcija kao Smjena):
-     - Bez konkretnog naziva proizvoda (nije još odlučeno)
-     - Bez datuma lansiranja, bez cijene
-     - Kratko objašnjava zašto je ovo iznimka od "bez interneta" poruke
-       ostatka stranice, umjesto da se šutke kosi s njom
-     - CTA vodi na postojeći #kontakt, ne na novu podstranicu (svjesno
-       minimalan zahvat dok Faza 1 direktnog outreacha nije završena) -->
-<section id="opg-najava" style="padding-top: clamp(2rem,4vw,3rem); padding-bottom: clamp(2rem,4vw,3rem);">
-  <div class="brza-inner callout-subtle">
-    <div class="brza-icon">🌱</div>
-    <div>
-      <p class="section-label" style="margin-bottom:0.4rem; color: var(--ink-soft);">U pripremi</p>
-      <h3>Gajba — nešto slično radim i za male poljoprivrednike (OPG)</h3>
-      <p>
-        Za OPG-ove koji dostavljaju domaće proizvode po Rijeci i Kvarneru priprema se
-        <strong>Gajba</strong> — poseban alat za narudžbe i logistiku dostave, jedini u mojoj
-        ponudi koji svjesno radi na internetu (poslužitelj u Hrvatskoj), jer narudžba mora
-        stići vlasniku dok je na terenu, ne tek kad se vrati za računalo.
+<!-- LOKALAC - 19.8.2026., zamjena zastarjele "OPG NAJAVA" sekcije.
+     Prijašnja verzija je spominjala "Gajbu" kao OPG-fokusiran alat za
+     narudžbe/dostavu - to se pokazalo netočnim opisom kako se projekt
+     razvijao: Gajba je ostala opći B2B SaaS (dostavne rute/narudžbe za
+     bilo koju malu tvrtku), a Lokalac je postao stvaran, besplatan,
+     javni alat za OPG-ove specifično. Puna sekcija (isti vizualni
+     naglasak kao Smjena), ne suptilan callout - Lokalac MVP je gotov,
+     ovo nije najava nego gotova stvar. -->
+<section id="lokalac-proizvod">
+  <p class="section-label">Već dostupno</p>
+  <h2>Besplatan alat za OPG-ove i domaće proizvođače</h2>
+  <p class="section-intro">
+    Za male poljoprivrednike koji prodaju domaće proizvode u Rijeci i Kvarneru napravio
+    sam <strong>Lokalac</strong> — besplatnu tražilicu koja spaja kupce izravno s
+    proizvođačima, bez posrednika i bez provizije.
+  </p>
+
+  <div style="background:var(--white); border:1.5px solid var(--rule); border-radius:6px;
+              padding:2rem 2.25rem; display:flex; gap:2rem; align-items:center;
+              flex-wrap:wrap; justify-content:space-between;">
+    <div style="flex:1; min-width:260px;">
+      <div style="font-family:var(--font-head); font-weight:900; font-size:1.3rem;
+                  margin-bottom:0.4rem;">Lokalac</div>
+      <p style="font-size:0.92rem; color:var(--ink-soft); line-height:1.6; margin-bottom:0;">
+        Pretraga po artiklu i datumu dostupnosti, oznake povjerenja, prijava ponude bez
+        izrade korisničkog računa. Web aplikacija se nalazi na poslužitelju u Hrvatskoj i
+        omogućuje javno pretraživanje baze ponuda domaćih proizvođača.
       </p>
-      <a class="btn-secondary" href="#kontakt">Vodite OPG i muči vas isto? Javite se →</a>
     </div>
+    <a class="btn-primary" href="/stranice/lokalac.html" style="flex-shrink:0;">
+      Pogledajte Lokalac →
+    </a>
   </div>
 </section>
 <div class="divider"></div>

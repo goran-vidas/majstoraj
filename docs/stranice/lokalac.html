@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lokalac — Domaći proizvodi izravno od OPG-ova, Rijeka i Kvarner | MAJSTORAJ</title>
+<meta name="description" content="Besplatna tražilica domaćih proizvođača u Rijeci i Kvarneru. Pronađite tko danas nudi svježe povrće, med, sir ili rakiju u vašoj blizini — i nazovite izravno, bez posrednika. Bez naknada, bez registracije.">
+<link rel="canonical" href="https://majstoraj.hr/stranice/lokalac.html">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lokalac — Domaći proizvodi izravno od OPG-ova, Rijeka i Kvarner">
+<meta property="og:description" content="Besplatna tražilica domaćih proizvođača u Rijeci i Kvarneru. Pronađite tko danas nudi svježe povrće, med, sir ili rakiju u vašoj blizini — i nazovite izravno, bez posrednika.">
+<meta property="og:image" content="https://majstoraj.hr/lokalac-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://majstoraj.hr/stranice/lokalac.html">
+<meta property="og:locale" content="hr_HR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lokalac — Domaći proizvodi izravno od OPG-ova">
+<meta name="twitter:description" content="Besplatna tražilica domaćih proizvođača u Rijeci i Kvarneru. Bez naknada, bez posrednika.">
+<meta name="twitter:image" content="https://majstoraj.hr/lokalac-og.jpg">
+
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/assets/fonts/DMSans.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/assets/fonts/DMSans-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #F6F5F2;
+    --surface:    #ECEAE6;
+    --ink:        #1A1A24;
+    --ink-soft:   #6B6B7A;
+    --accent:     #D4520A;
+    --accent-dim: rgba(212,82,10,0.10);
+    --rule:       #D8D6D0;
+    --white:      #FFFFFF;
+    --radius:     4px;
+    --font-head:  'Outfit', system-ui, sans-serif;
+    --font-body:  'DM Sans', system-ui, sans-serif;
+    --green:      #1A6632;
+    --green-dim:  rgba(26,102,50,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 1.2rem; letter-spacing: 0.08em;
+    color: var(--ink); text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  .nav-back {
+    font-size: 0.88rem; color: var(--ink-soft);
+    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.15s;
+  }
+  .nav-back:hover { color: var(--ink); }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
+  .divider { height: 1px; background: var(--rule); margin: 0 clamp(1.5rem,5vw,4rem); }
+  section { padding: clamp(3.5rem,8vw,6rem) clamp(1.5rem,5vw,4rem); max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.7rem,3.5vw,2.6rem);
+    font-weight: 800; line-height: 1.15;
+    letter-spacing: -0.015em; margin-bottom: 1rem;
+  }
+  .section-intro {
+    color: var(--ink-soft); font-size: 1.05rem; font-weight: 300;
+    max-width: 560px; margin-bottom: 3rem; line-height: 1.7;
+  }
+
+  .hero { padding: clamp(3.5rem,9vw,6rem) clamp(1.5rem,5vw,4rem) clamp(2.5rem,6vw,3.5rem); max-width: 900px; margin: 0 auto; }
+  .hero-eyebrow {
+    display: inline-block; font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+    border-left: 3px solid var(--accent); padding-left: 0.75rem;
+  }
+  h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.3rem,6vw,4rem);
+    font-weight: 900; line-height: 1.08;
+    letter-spacing: -0.02em; color: var(--ink);
+    margin-bottom: 1.75rem;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero-lead {
+    font-size: clamp(1rem,2vw,1.15rem); font-weight: 300;
+    color: var(--ink-soft); max-width: 620px;
+    margin-bottom: 2.5rem; line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+    background: var(--accent); color: var(--white); border: none;
+    padding: 0.8rem 1.8rem; border-radius: var(--radius);
+    text-decoration: none;
+    transition: opacity 0.18s, transform 0.18s; cursor: pointer;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-whatsapp {
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+    color: var(--ink-soft); text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    border: 1.5px solid var(--rule); padding: 0.75rem 1.2rem;
+    border-radius: var(--radius);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-whatsapp:hover { border-color: #25D366; color: #1A6632; }
+  .btn-secondary {
+    font-size: 0.95rem; color: var(--ink-soft);
+    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+  }
+  .btn-secondary:hover { color: var(--ink); }
+
+  .free-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.85rem; font-weight: 600; color: var(--green);
+    background: var(--green-dim); padding: 0.4rem 0.9rem;
+    border-radius: var(--radius); margin-top: 1.5rem;
+  }
+
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem; margin-top: 2.5rem;
+  }
+  @media (min-width: 900px) { .problems-grid { grid-template-columns: repeat(4, 1fr); } }
+  .problem-card {
+    background: var(--white); padding: 2rem; position: relative;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(26,26,36,0.06), 0 1px 2px rgba(26,26,36,0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .problem-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26,26,36,0.09), 0 2px 6px rgba(26,26,36,0.06);
+  }
+  .problem-card::before { content: ''; display: block; width: 32px; height: 3px; background: var(--accent); margin-bottom: 1.25rem; }
+  .problem-card h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.6rem; line-height: 1.3; }
+  .problem-card p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 1.5rem; }
+  .problem-card .resolve {
+    display: block; margin-top: auto;
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--accent); background: var(--accent-dim);
+    padding: 0.25rem 0.65rem; border-radius: 2px;
+    width: fit-content;
+  }
+
+  .full-bleed {
+    width: 100vw; max-width: none; position: relative;
+    left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;
+    padding-left: 0; padding-right: 0;
+  }
+
+  .kako-bg { background: var(--surface); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 2rem; margin-top: 2.5rem; }
+  .step-num {
+    font-family: var(--font-head); font-size: 3rem; font-weight: 900;
+    color: var(--rule); line-height: 1; margin-bottom: 0.75rem;
+    letter-spacing: -0.03em; user-select: none;
+  }
+  .step h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
+
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  @media (max-width: 620px) { .tech-grid { grid-template-columns: 1fr; } }
+  .tech-item {
+    background: var(--white); border: 1.5px solid var(--rule); border-radius: var(--radius);
+    padding: 1.1rem 1.2rem; display: flex; align-items: flex-start; gap: 0.85rem;
+  }
+  .tech-item .ti-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .tech-item .ti-label { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; font-family: var(--font-head); }
+  .tech-item .ti-desc { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.55; }
+
+  /* ── PREGLED SUČELJA - čist CSS mockup tražilice, ne fotorealizam,
+     isti jezik kao index.html hero maketa (mockup-window). Bez ovisnosti
+     o stvarnom screenshotu - stranica je odmah spremna, screenshot se
+     može zamijeniti kasnije bez lomljenja layouta. ── */
+  .app-preview-window {
+    background: var(--white); border-radius: 10px; border: 1px solid var(--rule);
+    box-shadow: 0 24px 55px rgba(26,26,36,0.13), 0 8px 20px rgba(26,26,36,0.07);
+    overflow: hidden; max-width: 640px; margin: 0 auto;
+  }
+  .app-preview-titlebar {
+    background: var(--surface); padding: 0.7rem 1rem;
+    display: flex; align-items: center; gap: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .app-preview-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .app-preview-dot.red { background: #FF5F57; }
+  .app-preview-dot.yellow { background: #FEBC2E; }
+  .app-preview-dot.green { background: #28C840; }
+  .app-preview-url {
+    margin-left: 0.6rem; font-size: 0.72rem; color: var(--ink-soft);
+    background: var(--white); border: 1px solid var(--rule); border-radius: 3px;
+    padding: 0.15rem 0.6rem; flex: 1; max-width: 220px;
+  }
+  .app-preview-body { padding: 1.25rem; }
+  .app-preview-search {
+    display: flex; gap: 0.5rem; margin-bottom: 0.9rem;
+  }
+  .app-preview-search-input {
+    flex: 1; height: 34px; border-radius: 4px; background: var(--surface);
+    display: flex; align-items: center; padding: 0 0.75rem;
+    font-size: 0.82rem; color: var(--ink-soft);
+  }
+  .app-preview-chips { display: flex; gap: 0.4rem; margin-bottom: 1.1rem; flex-wrap: wrap; }
+  .app-preview-chip {
+    font-size: 0.72rem; padding: 0.3rem 0.7rem; border-radius: 999px;
+    border: 1px solid var(--rule); color: var(--ink-soft);
+  }
+  .app-preview-chip.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
+  .app-preview-card {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.85rem 0; border-bottom: 1px solid var(--surface);
+  }
+  .app-preview-card:last-child { border-bottom: none; }
+  .app-preview-card-lines { display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
+  .app-preview-line { height: 9px; border-radius: 4px; background: var(--surface); }
+  .app-preview-line.short { height: 7px; width: 45%; background: rgba(107,107,122,0.14); }
+  .app-preview-badge {
+    font-size: 0.62rem; font-weight: 600; color: var(--green);
+    background: var(--green-dim); padding: 0.15rem 0.5rem; border-radius: 3px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+
+  .pricing-wrap { display: flex; justify-content: center; margin-top: 2.5rem; }
+  .price-card {
+    background: var(--ink); color: var(--white);
+    border-radius: 8px; padding: clamp(2rem,5vw,3rem);
+    max-width: 460px; width: 100%;
+    position: relative; overflow: hidden;
+  }
+  .price-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--green);
+  }
+  .price-badge {
+    display: inline-block; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: #6FCF97; background: rgba(111,207,151,0.15);
+    padding: 0.2rem 0.6rem; border-radius: 2px; margin-bottom: 1.25rem;
+  }
+  .price-name { font-family: var(--font-head); font-size: 1.5rem; font-weight: 900; letter-spacing: 0.02em; margin-bottom: 0.3rem; }
+  .price-value { font-family: var(--font-head); font-size: 2.6rem; font-weight: 900; line-height: 1; color: #6FCF97; margin-bottom: 0.5rem; }
+  .price-desc { font-size: 0.92rem; color: rgba(255,255,255,0.55); margin-bottom: 1.75rem; line-height: 1.5; }
+  .price-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
+  .price-list li { font-size: 0.92rem; color: rgba(255,255,255,0.75); padding-left: 1.3rem; position: relative; line-height: 1.4; }
+  .price-list li::before { content: '✓'; position: absolute; left: 0; color: #6FCF97; font-weight: 700; }
+  .price-card .btn-primary { width: 100%; text-align: center; box-shadow: 0 4px 14px rgba(212, 82, 10, 0.35); }
+  .trial-note {
+    font-size: 0.8rem; color: rgba(255,255,255,0.4);
+    margin-top: 1.25rem; text-align: center; line-height: 1.5;
+  }
+
+  .ownership-block {
+    background: var(--surface); border-radius: 6px;
+    padding: clamp(1.5rem, 4vw, 2.25rem); margin-top: 1.5rem;
+    border-left: 4px solid var(--accent);
+  }
+  .ownership-block h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--ink); }
+  .ownership-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .ownership-block li { font-size: 0.9rem; color: var(--ink-soft); padding-left: 1.25rem; position: relative; line-height: 1.5; }
+  .ownership-block li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  .cta-row {
+    display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+    margin-top: 2.5rem; padding: 2.5rem clamp(1.5rem,5vw,4rem);
+    background: var(--ink); border-radius: 8px;
+  }
+  .cta-row p:first-child { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+  .cta-row p:not(:first-child) { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin: 0; }
+  .cta-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; flex-shrink: 0; }
+  .btn-ghost {
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+    color: rgba(255,255,255,0.5); text-decoration: none;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.15s;
+  }
+  .btn-ghost:hover { color: rgba(255,255,255,0.85); }
+
+  footer {
+    background: #121218; padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 0.75rem; margin-top: clamp(3rem, 6vw, 5rem);
+  }
+  .footer-logo { font-family: var(--font-head); font-weight: 900; font-size: 0.95rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.25); }
+  .footer-logo span { color: var(--accent); opacity: 0.7; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+
+  @media (max-width: 700px) {
+    .cta-row { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* 19.8.2026. - pristupačan tekst-ekvivalent za dekorativnu CSS maketu
+     sučelja (#kako-izgleda) - maketa ostaje aria-hidden (desetci
+     dekorativnih div-ova bi bili šum za čitač ekrana), ali sadržaj koji
+     stvarno prenosi informaciju (oznake povjerenja) dobiva kratak,
+     vizualno skriven, ali čitljiv opis. */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  @media (max-width: 560px) {
+    .hero-actions, .cta-actions { flex-direction: column; width: 100%; }
+    .hero-actions .btn-primary, .hero-actions .btn-whatsapp, .hero-actions .btn-secondary,
+    .cta-actions .btn-primary, .cta-actions .btn-ghost {
+      width: 100%; justify-content: center; text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">MAJSTOR<span>AJ</span></a>
+  <a class="nav-back" href="/">← Povratak</a>
+</nav>
+
+<div class="hero">
+  <span class="hero-eyebrow">Besplatna tražilica · Rijeka i Kvarner · Već dostupno</span>
+  <h1>Domaći proizvodi.<br>Pronađeni za <em>par sekundi.</em></h1>
+  <p class="hero-lead">
+    Lokalac je besplatna tražilica koja spaja kupce izravno s domaćim proizvođačima —
+    OPG-ovima, obiteljskim gospodarstvima i malim proizvođačima u Rijeci i Kvarneru.
+    Utipkate što tražite, vidite tko to danas nudi u vašoj blizini, i nazovete izravno.
+    Bez posrednika, bez naknada, bez registracije.
+  </p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://lokalac.majstoraj.hr" target="_blank" rel="noopener">Otvorite Lokalac →</a>
+    <a class="btn-whatsapp" href="https://wa.me/385919546490" target="_blank" rel="noopener" aria-label="Kontaktirajte putem WhatsAppa ako vodite OPG">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Vodite OPG? Pišite mi
+    </a>
+    <a class="btn-secondary" href="#kako">Kako radi →</a>
+  </div>
+  <span class="free-badge">✓ Potpuno besplatno — za kupce i za proizvođače</span>
+</div>
+<div class="divider"></div>
+
+<section id="problemi">
+  <p class="section-label">Prepoznajete li se?</p>
+  <h2>Domaće se teško pronalazi</h2>
+  <p class="section-intro">
+    Svježa hrana s tržnice ili izravno od proizvođača postoji svuda oko nas —
+    problem nikad nije ponuda, nego to što se ne zna gdje tražiti.
+  </p>
+  <div class="problems-grid">
+    <div class="problem-card">
+      <h3>Rasuto po desetak Facebook grupa</h3>
+      <p>Ponude domaćih proizvoda objavljuju se svuda i nigdje — teško je pratiti sve grupe, još teže naći baš ono što vam treba danas.</p>
+      <span class="resolve">→ Jedna tražilica, sve na jednom mjestu</span>
+    </div>
+    <div class="problem-card">
+      <h3>Ne znate je li ponuda još aktualna</h3>
+      <p>Objava od prije mjesec dana može značiti da je sve odavno rasprodano — zovete uzalud, ili odustanete unaprijed.</p>
+      <span class="resolve">→ Ponude ističu, prikazuje se samo dostupno</span>
+    </div>
+    <div class="problem-card">
+      <h3>OPG-ovi nemaju vremena za web stranicu</h3>
+      <p>Mali proizvođač zna uzgajati, ne zna graditi web shop — a plaćena reklama ili skupa platforma jednostavno se ne isplati za par klijenata tjedno.</p>
+      <span class="resolve">→ Prijava ponude traje par minuta</span>
+    </div>
+    <div class="problem-card">
+      <h3>Platforme koje uzimaju proviziju</h3>
+      <p>Web shopovi i dostavne aplikacije uzimaju postotak od svake prodaje — i proizvođaču i kupcu na kraju ostane manje.</p>
+      <span class="resolve">→ Bez provizije na prodaju</span>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="kako" class="full-bleed kako-bg">
+  <div style="max-width:1100px; margin:0 auto; padding:0 clamp(1.5rem,5vw,4rem);">
+    <p class="section-label">Proces</p>
+    <h2>Od pretrage do dogovora<br>za manje od minute</h2>
+    <p class="section-intro">Bez računa, bez prijave, bez koraka koji nisu potrebni.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Utipkajte što tražite</h3>
+        <p>Med, jaja, rakija, sir — ili samo pretražite sve što je danas dostupno u vašoj blizini.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Filtrirajte po danu</h3>
+        <p>"Danas", "Ovaj vikend" ili konkretan dan — vidite samo ponude koje su stvarno dostupne kad vama odgovara.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Nazovete izravno proizvođača</h3>
+        <p>Kontakt je odmah vidljiv na kartici — nema poruka kroz platformu, nema čekanja na potvrdu.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Dogovorite se izravno</h3>
+        <p>Cijena, količina, preuzimanje ili dostava — dogovarate se s proizvođačem, Lokalac se u to ne miješa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="kako-izgleda">
+  <p class="section-label">Kako izgleda</p>
+  <h2>Jednostavno sučelje,<br>bez suvišnog</h2>
+  <p class="section-intro">
+    Nema registracije, nema reklama, nema beskonačnog skrolanja — pretraga, filter, kontakt.
+  </p>
+  <p class="sr-only">
+    Prikaz sučelja: tražilica s poljem za upit (npr. "med, jaja, rakija"), filterima po
+    danu dostupnosti (Bilo kada, Danas, Ovaj vikend, ili konkretan dan), i rezultatima
+    koji uz svakog proizvođača prikazuju oznaku povjerenja poput "Vlastita proizvodnja",
+    "Provjeren na tržnici" ili "Potvrđena kućna dostava".
+  </p>
+  <div class="app-preview-window" aria-hidden="true">
+    <div class="app-preview-titlebar">
+      <span class="app-preview-dot red"></span>
+      <span class="app-preview-dot yellow"></span>
+      <span class="app-preview-dot green"></span>
+      <span class="app-preview-url">lokalac.majstoraj.hr</span>
+    </div>
+    <div class="app-preview-body">
+      <div class="app-preview-search">
+        <div class="app-preview-search-input">🔍 med, jaja, rakija...</div>
+      </div>
+      <div class="app-preview-chips">
+        <span class="app-preview-chip active">Bilo kada</span>
+        <span class="app-preview-chip">Danas</span>
+        <span class="app-preview-chip">Ovaj vikend</span>
+        <span class="app-preview-chip">Pet</span>
+        <span class="app-preview-chip">Sub</span>
+      </div>
+      <div class="app-preview-card">
+        <div class="app-preview-card-lines">
+          <div class="app-preview-line" style="width: 60%;"></div>
+          <div class="app-preview-line short"></div>
+        </div>
+        <span class="app-preview-badge">✓ Vlastita proizvodnja</span>
+      </div>
+      <div class="app-preview-card">
+        <div class="app-preview-card-lines">
+          <div class="app-preview-line" style="width: 50%;"></div>
+          <div class="app-preview-line short"></div>
+        </div>
+        <span class="app-preview-badge">✓ Provjeren na tržnici</span>
+      </div>
+      <div class="app-preview-card">
+        <div class="app-preview-card-lines">
+          <div class="app-preview-line" style="width: 68%;"></div>
+          <div class="app-preview-line short"></div>
+        </div>
+        <span class="app-preview-badge">✓ Potvrđena kućna dostava</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="znacajke">
+  <p class="section-label">Što je unutra</p>
+  <h2>Napravljeno da radi za oboje,<br>kupca i proizvođača</h2>
+  <p class="section-intro">
+    Svaka značajka postoji jer rješava stvaran problem, ne jer "tako svi rade".
+  </p>
+  <div class="tech-grid">
+    <div class="tech-item">
+      <span class="ti-icon">🔍</span>
+      <div>
+        <div class="ti-label">Pretraga koja razumije hrvatski</div>
+        <div class="ti-desc">Traži "secer" i nađe "šećer" — dijakritici i pravopisne varijante nisu prepreka.</div>
+      </div>
+    </div>
+    <div class="tech-item">
+      <span class="ti-icon">📅</span>
+      <div>
+        <div class="ti-label">Filter po stvarnoj dostupnosti</div>
+        <div class="ti-desc">Ponuda koja je istekla jednostavno se ne prikazuje — nema poziva uzalud.</div>
+      </div>
+    </div>
+    <div class="tech-item">
+      <span class="ti-icon">✓</span>
+      <div>
+        <div class="ti-label">Oznake povjerenja</div>
+        <div class="ti-desc">"Vlastita proizvodnja", "Provjeren na tržnici" — jasno se vidi što je osobno potvrđeno, ne samo tvrdnja.</div>
+      </div>
+    </div>
+    <div class="tech-item">
+      <span class="ti-icon">🔗</span>
+      <div>
+        <div class="ti-label">Prijava ponude bez računa</div>
+        <div class="ti-desc">Proizvođač ispuni kratku formu, dobije osobni link za status — bez lozinke, bez pamćenja korisničkog imena.</div>
+      </div>
+    </div>
+    <div class="tech-item">
+      <span class="ti-icon">👁️</span>
+      <div>
+        <div class="ti-label">Svaka prijava ručno pregledana</div>
+        <div class="ti-desc">Ništa se ne objavljuje automatski — netočni ili sumnjivi unosi se ne propuštaju.</div>
+      </div>
+    </div>
+    <div class="tech-item">
+      <span class="ti-icon">🔒</span>
+      <div>
+        <div class="ti-label">Bez praćenja, bez kolačića</div>
+        <div class="ti-desc">Nema Google Analyticsa, nema Facebook Pixela, nema izrade profila posjetitelja.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="besplatno">
+  <p class="section-label">Poslovni model</p>
+  <h2>Besplatno za kupce.<br>Besplatno za proizvođače.</h2>
+  <p class="section-intro">
+    Lokalac nije startup koji traži izlaznu strategiju — to je alat koji sam napravio
+    da olakšam nešto što je meni osobno trebalo. Osnovna pretraga i prijava ponude
+    ostaju besplatne.
+  </p>
+  <div class="pricing-wrap">
+    <div class="price-card">
+      <span class="price-badge">Besplatno</span>
+      <div class="price-name">Lokalac</div>
+      <div class="price-value">0 €</div>
+      <p class="price-desc">Za kupce i za proizvođače, bez iznimke.</p>
+      <ul class="price-list">
+        <li>Neograničena pretraga, bez limita upita</li>
+        <li>Prijava ponude bez naknade, bez provizije na prodaju</li>
+        <li>Osnovna objava, bez obveznih dodatnih troškova</li>
+        <li>Bez računa — ni kupac ni proizvođač se ne moraju registrirati</li>
+      </ul>
+      <a class="btn-primary" href="https://lokalac.majstoraj.hr" target="_blank" rel="noopener">Otvorite Lokalac →</a>
+      <p class="trial-note">
+        Vodite OPG, obrt ili malu proizvodnju? Prijava ponude traje par minuta —
+        <a href="https://lokalac.majstoraj.hr/prijavi" target="_blank" rel="noopener" style="color:#6FCF97;">otvorite formu ovdje</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="ownership-block">
+    <h3>Napravljeno u Rijeci, za Rijeku i Kvarner</h3>
+    <ul>
+      <li>Podaci se čuvaju na poslužitelju u Hrvatskoj</li>
+      <li>Lokalac ne posreduje u kupoprodaji — dogovor je uvijek izravno s proizvođačem</li>
+      <li>Svaka prijava prolazi kroz osobni pregled, ne automatsku objavu</li>
+      <li>Za veće, poslovno rješenje po mjeri, pogledajte i <a href="/#paketi" style="color:var(--accent);">PRO pakete</a></li>
+    </ul>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cta-row">
+    <div style="flex:1; min-width:220px;">
+      <p>Poznajete OPG koji bi trebao biti na Lokalcu?</p>
+      <p>Pošaljite im link — prijava traje par minuta, i uvijek je besplatna.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn-primary" href="https://lokalac.majstoraj.hr/prijavi" target="_blank" rel="noopener">Otvorite formu za prijavu</a>
+      <a class="btn-ghost" href="/">← Natrag na početnu</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
+</footer>
+
+<script>
+(function () {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/dopust-config.json', true);
+  xhr.onload = function () {
+    if (xhr.status !== 200) return;
+    try {
+      var config = JSON.parse(xhr.responseText);
+      var pocetak = new Date(config.pocetak);
+      var kraj = new Date(config.kraj);
+      var danas = new Date();
+      if (danas < pocetak || danas > kraj) return;
+
+      var banner = document.createElement('div');
+      banner.style.cssText =
+        'background:#1A1A24;color:#F6F5F2;text-align:center;' +
+        'padding:0.65rem 1.25rem;font-size:0.85rem;line-height:1.5;' +
+        'font-family:var(--font-body, sans-serif);';
+      banner.textContent = config.poruka;
+      document.body.insertBefore(banner, document.body.firstChild);
+    } catch (e) {}
+  };
+  xhr.onerror = function () {};
+  xhr.send();
+})();
+</script>
+</body>
+</html>
