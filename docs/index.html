@@ -115,6 +115,11 @@
   @media (max-width: 600px) {
     .nav-links a:not(.nav-cta) { display: none; }
   }
+  /* Autorski rad je najniži prioritet u izborniku - nestaje prvi,
+     prije ostalih linkova, na srednje uskim ekranima. */
+  @media (max-width: 900px) {
+    .nav-links a.nav-secondary { display: none; }
+  }
 
   /* ── HERO ─────────────────────────────────────────────────── */
   .hero {
@@ -414,6 +419,40 @@
   .about-text p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 1rem; line-height: 1.7; }
   .about-text p strong { color: var(--ink); font-weight: 500; }
 
+  /* ── AUTORSKI RAD ─────────────────────────────────────────────
+     Vlastiti objavljeni radovi - knjiga i otvorena dokumentacija.
+     Namjerno tiša od svih komercijalnih sekcija: providna pozadina
+     umjesto bijele kartice, bez sjene, bez accent trake, siva oznaka
+     umjesto narančaste. Treba postojati, ne natjecati se s Paketima. ── */
+  .autorski-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .autorski-card {
+    display: block; text-decoration: none; color: inherit;
+    border: 1.5px solid var(--rule); border-radius: 6px;
+    padding: 1.65rem 1.75rem 1.5rem;
+    background: transparent;
+    transition: border-color 0.18s, background 0.18s;
+  }
+  .autorski-card:hover { border-color: var(--ink-soft); background: var(--white); }
+  .autorski-kind {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft); display: block; margin-bottom: 0.65rem;
+  }
+  .autorski-card h3 {
+    font-family: var(--font-head); font-size: 1.2rem;
+    font-weight: 700; line-height: 1.3; margin-bottom: 0.5rem;
+  }
+  .autorski-card p {
+    font-size: 0.91rem; color: var(--ink-soft);
+    line-height: 1.6; margin-bottom: 1rem;
+  }
+  .autorski-more { font-size: 0.86rem; color: var(--accent); font-weight: 500; }
+
   /* ── KONTAKT ──────────────────────────────────────────────── */
   .kontakt-bg { background: var(--ink); }
   .kontakt-bg .section-label { color: #E07040; }
@@ -493,6 +532,7 @@
     <a href="#kako">Proces</a>
     <a href="/stranice/smjena.html">Smjena</a>
     <a href="#omeni">O meni</a>
+    <a href="#autorski-rad" class="nav-secondary">Autorski rad</a>
     <a class="nav-cta" href="#kontakt">Razgovor besplatno</a>
   </div>
 </nav>
@@ -813,6 +853,33 @@
         <strong>javite se.</strong> Kratak razgovor i kava ne koštaju ništa.
       </p>
     </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- AUTORSKI RAD - vlastite objave, nisu usluga i ne prodaju se.
+     Smješteno nakon "O meni" jer je prirodan nastavak te priče, a
+     prije "Kontakta" da ne prekida prodajni tok iznad. -->
+<section id="autorski-rad" style="padding-top: clamp(2.5rem,5vw,3.5rem); padding-bottom: clamp(2.5rem,5vw,4rem);">
+  <p class="section-label" style="color: var(--ink-soft);">Autorski rad</p>
+  <h2>Knjiga i otvorena dokumentacija</h2>
+  <p class="section-intro">
+    Dvije stvari koje sam dovršio i objavio pod svojim imenom. Nisu usluga koju nudim —
+    stoje ovdje ako vas zanima kako razmišljam kad nitko ne naručuje.
+  </p>
+  <div class="autorski-grid">
+    <a class="autorski-card" href="/stranice/prestani-tonuti.html">
+      <span class="autorski-kind">Knjiga</span>
+      <h3>Prestani tonuti</h3>
+      <p>O važnosti temelja, čuvanju vrijednosti i putu koji gradimo za one koji dolaze.</p>
+      <span class="autorski-more">Pogledajte →</span>
+    </a>
+    <a class="autorski-card" href="/stranice/hydrocore.html">
+      <span class="autorski-kind">Otvoreni projekt</span>
+      <h3>HydroCore</h3>
+      <p>Projektirao sam hidroponski sustav za stan i zapisao svaku odluku. Cijela dokumentacija je besplatna.</p>
+      <span class="autorski-more">Pogledajte →</span>
+    </a>
   </div>
 </section>
 
