@@ -446,24 +446,53 @@
   /* ── FOOTER ───────────────────────────────────────────────── */
   footer {
     background: #121218;
-    padding: 1.5rem clamp(1.5rem,5vw,4rem);
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    flex-wrap: wrap; gap: 0.8rem; text-align: center;
+    padding: 2rem clamp(1.5rem, 5vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    text-align: center;
   }
-  .footer-logo { font-family: var(--font-head); font-weight: 900; font-size: 0.95rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.25); }
-  .footer-logo span { color: var(--accent); opacity: 0.7; }
-  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+  .footer-logo {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-logo span {
+    color: var(--accent);
+    opacity: 0.7;
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  .footer-copy a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: underline;
+  }
   .b2b-disclaimer {
-    font-size: 0.75rem; color: rgba(255,255,255,0.35);
-    line-height: 1.5; max-width: 650px; margin-top: 0.2rem;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.5;
+    max-width: 650px;
+    margin-top: 0.2rem;
   }
   .pricing-note {
-    font-size: 0.82rem; color: var(--ink-soft);
-    line-height: 1.6; font-style: italic;
-    text-align: center; max-width: 700px; margin: 1.75rem auto 0;
-    border: 1px dashed var(--rule); padding: 0.6rem 1rem;
-    background: rgba(0,0,0,0.02); border-radius: 4px;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    font-style: italic;
+    text-align: center;
+    max-width: 700px;
+    margin: 1.75rem auto 0;
+    border: 1px dashed var(--rule);
+    padding: 0.6rem 1rem;
+    background: var(--bg-subtle, rgba(0,0,0,0.02));
+    border-radius: var(--radius, 4px);
   }
 
   /* ── DEVICE MOCKUP (Smjena screenshot) ───────────────────────
@@ -871,7 +900,7 @@
 <footer>
   <span class="footer-logo">MAJSTOR<span>AJ</span></span>
   <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385 · majstoraj.hr · <a href="/stranice/privatnost.html">Politika privatnosti</a></span>
-  <p class="b2b-disclaimer">Usluge i softverska rješenja pružamo isključivo poslovnim subjektima (B2B — pravnim osobama, tvrtkama i obrtima). Ne pružamo usluge fizičkim osobama / potrošačima.</p>
+  <p class="b2b-disclaimer">Usluge i softverska rješenja pružamo isključivo poslovnim subjektima (B2B — tvrtkama, obrtima, OPG-ovima, slobodnim zanimanjima i udrugama). Ne pružamo usluge fizičkim osobama / potrošačima.</p>
 </footer>
 
 <script>
