@@ -167,6 +167,25 @@
   }
   .third-party a { font-size: 0.85rem; }
 
+  /* Kartica za vlastitu (prve strane) obradu */
+  .own-processing {
+    background: var(--white);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--accent);
+    padding: 1.1rem 1.25rem;
+    margin: 0.75rem 0;
+  }
+  .own-processing strong {
+    display: block;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.25rem;
+    font-family: var(--font-head);
+  }
+  .own-processing p {
+    font-size: 0.88rem; color: var(--ink-soft);
+    margin: 0; line-height: 1.6;
+  }
+
   /* Blok bez kolačića */
   .no-cookies {
     background: var(--white);
@@ -221,7 +240,7 @@
     MAJSTORAJ, obrt za razvoj softvera i savjetovanje · Goran Vidas<br>
     Tizianova 36, 51000 Rijeka · OIB: 73470282385 ·
     <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a><br>
-    Zadnja izmjena: 16. srpnja 2026.
+    Zadnja izmjena: 26. rujna 2026.
   </p>
 
   <p>
@@ -256,6 +275,44 @@
       </a>
     </p>
   </div>
+
+  <h2>Zahtjev za licencu za aplikaciju Sidro</h2>
+
+  <p>
+    Ako putem obrasca na stranici aplikacije <strong>Sidro</strong> zatražite
+    izdavanje licence, unosite: OIB, naziv obrta/tvrtke, adresu, mjesto i
+    poslovnu email adresu. Ovi podaci šalju se izravno
+    <strong>vlastitom serverskom sustavu MAJSTORAJ-a</strong> (licencni
+    backend na licenca.majstoraj.hr) — za razliku od demo-forme opisane
+    niže, ovdje MAJSTORAJ nije samo naručitelj obrade preko vanjskog
+    izvršitelja, nego sam obrađuje podatke na vlastitoj infrastrukturi.
+    Isti podaci, pod jednakim pravilima, prikupljaju se i ako zahtjev za
+    licencu podnesete izravno iz same aplikacije umjesto putem ove stranice.
+  </p>
+
+  <div class="own-processing">
+    <strong>Svrha i pravna osnova</strong>
+    <p>
+      Podaci se obrađuju radi izdavanja i aktivacije licencnog ključa,
+      generiranja HUB3 bar-koda za uplatu na poslovni račun te izdavanja
+      računa — na temelju izvršenja ugovora (kupoprodaja licence) i
+      zakonske obveze (računovodstveni propisi RH), a ne na temelju
+      privole/marketinga. Ako automatska online aktivacija nije moguća,
+      licencni ključ (kriptografski potpisan tekstualni niz koji sadrži
+      OIB, naziv obrta i datum aktivacije) može vam biti dostavljen i
+      e-poštom, za ručni unos u aplikaciju.
+    </p>
+  </div>
+
+  <p>
+    <strong>Rok čuvanja:</strong> podaci potrebni za izdavanje računa
+    čuvaju se sukladno zakonskim rokovima za knjigovodstvenu dokumentaciju
+    (trenutačno 11 godina); zahtjevi koji ne rezultiraju izdanom licencom
+    čuvaju se najdulje 12 mjeseci, potom se brišu. Puni detalji obrade —
+    uključujući popis primatelja podataka i vaša prava — opisani su u
+    Izjavi o privatnosti same aplikacije Sidro, dostupnoj unutar aplikacije
+    (Postavke → O aplikaciji → Izjava o privatnosti).
+  </p>
 
   <h2>Kontakt putem demo-forme (stranica "Smjena")</h2>
 
