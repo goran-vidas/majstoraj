@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://majstoraj.hr/stranice/sidro.html">
 <meta property="og:locale" content="hr_HR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sidro — Zakonski cjenik za obrtnike">
+<meta name="twitter:title" content="Sidro — Zakonski cjenik za sve poslovne subjekte">
 <meta name="twitter:description" content="NN 101/2026 riješen za dvije minute. Besplatno do 10 artikala, bez clouda, bez pretplate.">
 <meta name="twitter:image" content="https://majstoraj.hr/favicon.png">
 
@@ -459,6 +459,23 @@
 
   .hp-field { position: absolute; left: -9999px; top: -9999px; }
 
+  .uplata-blok {
+    margin-top: 2rem; padding-top: 2rem; border-top: 1.5px solid var(--rule);
+  }
+  .uplata-blok h4 {
+    font-family: var(--font-head); font-size: 1.05rem; font-weight: 700;
+    margin-bottom: 0.5rem; color: var(--ink);
+  }
+  .uplata-blok > p {
+    font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.5rem; line-height: 1.6;
+  }
+  .uplata-podaci {
+    display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1rem;
+    max-width: 360px; margin: 0 auto; font-size: 0.92rem;
+  }
+  .uplata-podaci dt { color: var(--ink-soft); font-weight: 600; }
+  .uplata-podaci dd { color: var(--ink); font-family: var(--font-head); word-break: break-all; }
+
   @media (max-width: 560px) {
     .form-row input[type="text"], .form-row input[type="email"], .form-row input[type="tel"] { font-size: 16px; }
 
@@ -488,17 +505,18 @@
 </nav>
 
 <div class="hero">
-  <span class="hero-eyebrow">Desktop aplikacija · Obveza po Pravilniku NN 101/2026 · Dostupno za preuzimanje</span>
+  <span class="hero-eyebrow">Desktop aplikacija za sve poslovne subjekte · Obveza po Pravilniku NN 101/2026</span>
   <div class="urgency-badge">
     <span>⏳</span>
     <span>Pravilnik stupa na snagu za <strong id="countdownDays">5</strong> dana — <span id="countdownDate">1. listopada 2026.</span></span>
   </div>
   <h1>Cjenik po zakonu.<br>Riješen za <em>dvije minute.</em></h1>
   <p class="hero-lead">
-    Sidro je desktop aplikacija koja vodi vaš cjenik i sidrene cijene točno onako
-    kako to zahtijeva Pravilnik NN 101/2026 — automatski generira propisane CSV,
-    XML i PDF datoteke, čuva nepromjenjivu 30-dnevnu povijest cijena, i sve radi
-    lokalno na vašem računalu. Bez interneta, bez mjesečne pretplate.
+    Sidro je desktop aplikacija za obrte, trgovačka društva, OPG-ove i slobodna
+    zanimanja koja vodi vaš cjenik i sidrene cijene točno onako kako to zahtijeva
+    Pravilnik NN 101/2026 — automatski generira propisane CSV, XML i PDF datoteke,
+    čuva nepromjenjivu 30-dnevnu povijest cijena, i sve radi lokalno na vašem
+    računalu. Bez interneta, bez mjesečne pretplate.
   </p>
   <div class="hero-actions">
     <a class="btn-primary" href="https://majstoraj.hr/downloads/SidroSetup.exe">⬇ Preuzmi Sidro besplatno</a>
@@ -613,10 +631,10 @@
       </div>
     </div>
     <div class="tech-item">
-      <span class="ti-icon">🧹</span>
+      <span class="ti-icon">💾</span>
       <div>
-        <div class="ti-label">Tolerantni uvoz</div>
-        <div class="ti-desc">Uvezite postojeći, "prljavi" Excel cjenik — Sidro sam prepoznaje kodiranje, čisti zareze i valute.</div>
+        <div class="ti-label">Automatska sigurnosna kopija</div>
+        <div class="ti-desc">Kopija baze pri svakom pokretanju i izvoz cijele baze jednim klikom — za prijenos na novo računalo bez gubitka povijesti cijena.</div>
       </div>
     </div>
     <div class="tech-item">
@@ -657,7 +675,7 @@
       <div class="paket-badge">Počnite odmah</div>
       <div class="paket-name">BESPLATNO</div>
       <div class="paket-price">0 € <span class="unit">/ trajno</span></div>
-      <div class="paket-desc">Za manje obrte, do 10 artikala</div>
+      <div class="paket-desc">Za manje poslovne subjekte, do 10 artikala</div>
       <ul class="paket-list">
         <li>Trajno besplatno, bez probnog roka</li>
         <li>CSV, XML i PDF izvoz bez ograničenja</li>
@@ -709,44 +727,47 @@
   <div id="narudzba" class="form-block">
     <h3>Naručite Trajnu licencu (20 €)</h3>
     <p>
-      Ostavite podatke obrta — u roku 24 sata šaljem vam uplatnicu (HUB3) na
-      email. Licenca se aktivira odmah nakon evidentirane uplate, a vrijedi
-      trajno za vaš OIB.
+      Ostavite podatke svog obrta ili tvrtke — odmah dobivate HUB3 bar-kod i podatke za
+      uplatu ovdje na stranici. Licenca se aktivira nakon evidentirane
+      uplate, a ključ za aktivaciju stiže vam e-mailom (ili ga ručno
+      unesete u aplikaciju) — vrijedi trajno za vaš OIB.
     </p>
 
-    <!-- [ZA GORANA] Zamijeniti "action" ispod stvarnim forminit.com endpointom
-         (napraviti novi obrazac na forminit-u, isto kao za Smjenu) prije
-         objave stranice - ovo je trenutno placeholder. -->
-    <form id="sidroLicencaForm" action="https://forminit.com/f/ZAMIJENI-SIDRO-FORM-ID" method="POST">
+    <form id="sidroLicencaForm" novalidate>
       <div class="hp-field" aria-hidden="true">
         <label for="fi-website">Ostavite prazno</label>
-        <input type="text" id="fi-website" name="fi-text-website" tabindex="-1" autocomplete="off">
+        <input type="text" id="fi-website" tabindex="-1" autocomplete="off">
       </div>
 
       <div class="form-row">
         <label for="fi-naziv">Naziv obrta / tvrtke *</label>
-        <input type="text" id="fi-naziv" name="fi-sender-firstName" placeholder="npr. Frizerski salon Ana" autocomplete="organization" required>
+        <input type="text" id="fi-naziv" placeholder="npr. Vaša tvrtka d.o.o." autocomplete="organization" required>
       </div>
 
       <div class="form-row">
-        <label for="fi-oib">OIB obrta *</label>
-        <input type="text" id="fi-oib" name="fi-text-oib" placeholder="11 znamenki" pattern="[0-9]{11}" title="OIB se sastoji od 11 znamenki" inputmode="numeric" required>
+        <label for="fi-oib">OIB *</label>
+        <input type="text" id="fi-oib" placeholder="11 znamenki" pattern="[0-9]{11}" title="OIB se sastoji od 11 znamenki" inputmode="numeric" required>
         <p class="form-hint">Licenca se veže uz OIB — potreban je za izdavanje uplatnice i aktivaciju.</p>
       </div>
 
       <div class="form-row">
-        <label for="fi-email">Poslovni email *</label>
-        <input type="email" id="fi-email" name="fi-sender-email" placeholder="ivan@vasobrt.hr" autocomplete="email" required>
+        <label for="fi-adresa">Adresa obrta / tvrtke *</label>
+        <input type="text" id="fi-adresa" placeholder="npr. Korzo 1" autocomplete="street-address" required>
       </div>
 
       <div class="form-row">
-        <label for="fi-telefon">Broj mobitela <span class="optional-note">(opcionalno)</span></label>
-        <input type="tel" id="fi-telefon" name="fi-sender-phone" placeholder="+385 9x xxx xxxx" autocomplete="tel">
-        <p class="form-hint">Za brži dogovor preko WhatsAppa — nije obavezno.</p>
+        <label for="fi-mjesto">Poštanski broj i mjesto *</label>
+        <input type="text" id="fi-mjesto" placeholder="npr. 51000 Rijeka" autocomplete="address-level2" required>
+        <p class="form-hint">Adresa i mjesto trebaju HUB3 bar-kod i uplatnica kao podaci platitelja.</p>
+      </div>
+
+      <div class="form-row">
+        <label for="fi-email">Poslovni email *</label>
+        <input type="email" id="fi-email" placeholder="ivan@vasatvrtka.hr" autocomplete="email" required>
       </div>
 
       <div class="consent-row">
-        <input type="checkbox" id="fi-privola" name="fi-text-privola" required value="da">
+        <input type="checkbox" id="fi-privola" required value="da">
         <label for="fi-privola">
           Pristajem da MAJSTORAJ obrađuje moje podatke isključivo u svrhu
           izdavanja uplatnice i aktivacije licence za Sidro, u skladu s
@@ -758,6 +779,22 @@
 
       <div class="form-status" id="licencaFormStatus" role="status" aria-live="polite"></div>
     </form>
+
+    <div id="licencaUplataBlok" class="uplata-blok" hidden>
+      <h4>Podaci za uplatu</h4>
+      <p>
+        Skenirajte bar-kod mobilnom bankovnom aplikacijom ili unesite podatke
+        ručno ispod. Čim uplatu evidentiramo, ključ za aktivaciju licence
+        šaljemo na email koji ste unijeli.
+      </p>
+      <img id="licencaBarkodSlika" alt="HUB3 2D bar-kod za uplatu" style="max-width:280px; display:block; margin: 0 auto 1.5rem; width:100%;">
+      <dl class="uplata-podaci">
+        <dt>IBAN</dt><dd id="licencaIban"></dd>
+        <dt>Model</dt><dd id="licencaModel"></dd>
+        <dt>Poziv na broj</dt><dd id="licencaPozivNaBroj"></dd>
+        <dt>Iznos</dt><dd id="licencaIznos"></dd>
+      </dl>
+    </div>
   </div>
 </section>
 <div class="divider"></div>
@@ -801,7 +838,7 @@
     </details>
     <details class="faq-item">
       <summary>Kako plaćam licencu?</summary>
-      <div class="faq-body">Ispunite obrazac ispod cijena — u roku 24 sata šaljem uplatnicu (HUB3) na vaš email. Licenca se aktivira odmah nakon evidentirane uplate.</div>
+      <div class="faq-body">Ispunite obrazac ispod cijena — odmah dobivate HUB3 bar-kod i podatke za uplatu na stranici. Plaćanje ide uplatom na poslovni račun (uplatnicom), ne karticom. Licenca se aktivira čim uplatu evidentiramo, a ključ za aktivaciju stiže vam e-mailom.</div>
     </details>
     <details class="faq-item">
       <summary>Trebam li internet za svakodnevni rad?</summary>
@@ -809,7 +846,7 @@
     </details>
     <details class="faq-item">
       <summary>Mogu li premjestiti Sidro na novo računalo?</summary>
-      <div class="faq-body">Da — licenca je vezana uz OIB vašeg obrta, ne uz konkretno računalo, pa je prijenos besplatan.</div>
+      <div class="faq-body">Da — licenca je vezana uz OIB vašeg obrta ili tvrtke, ne uz konkretno računalo, pa je prijenos besplatan.</div>
     </details>
     <details class="faq-item">
       <summary>Windows pri instalaciji prikazuje "Nepoznat izdavač" — je li to sigurno?</summary>
@@ -820,42 +857,94 @@
 
 <script>
 (function () {
+  // [ZA GORANA] Ovo mora biti prava, javno dostupna domena licencnog
+  // backenda (backend/, docs/DECISIONS.md — Korak 8/Faza A) — ISTI
+  // defaultni URL kao PODRAZUMIJEVANI_BACKEND_URL u
+  // src/sidro/core/licenca_klijent.py, i mora se poklapati sa
+  // SIDRO_CORS_ORIGINS koji backend dopušta za ovu domenu (majstoraj.hr).
+  var BACKEND_URL = 'https://licenca.majstoraj.hr';
+
   var forma = document.getElementById('sidroLicencaForm');
   var statusBox = document.getElementById('licencaFormStatus');
+  var uplataBlok = document.getElementById('licencaUplataBlok');
   if (!forma) return;
 
+  function prikaziGresku(poruka) {
+    if (!statusBox) return;
+    statusBox.className = 'form-status error';
+    statusBox.textContent = poruka;
+  }
+
   forma.addEventListener('submit', function (e) {
+    e.preventDefault();
+
     var honeypot = forma.querySelector('#fi-website');
     if (honeypot && honeypot.value.trim() !== '') {
-      e.preventDefault();
+      return; // tihi izlaz - vjerojatno bot
+    }
+
+    if (!forma.checkValidity()) {
+      forma.reportValidity();
       return;
     }
 
-    e.preventDefault();
+    var tijelo = {
+      oib: document.getElementById('fi-oib').value.trim(),
+      naziv_obrta: document.getElementById('fi-naziv').value.trim(),
+      adresa_obrta: document.getElementById('fi-adresa').value.trim(),
+      mjesto_obrta: document.getElementById('fi-mjesto').value.trim(),
+      email: document.getElementById('fi-email').value.trim()
+    };
 
-    var formData = new FormData(forma);
     var submitBtn = forma.querySelector('.form-submit-btn');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Šaljem…';
     if (statusBox) { statusBox.className = 'form-status'; statusBox.textContent = ''; }
 
-    fetch(forma.action, {
+    fetch(BACKEND_URL + '/licence/zatrazi', {
       method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(tijelo)
     })
       .then(function (odgovor) {
-        if (!odgovor.ok) throw new Error('AJAX slanje nije uspjelo');
+        if (odgovor.status === 409) {
+          throw new Error('Za ovaj OIB već postoji aktivna licenca. Ako trebate pomoć, javite nam se izravno.');
+        }
+        if (odgovor.status === 422) {
+          throw new Error('Provjerite jesu li svi podaci ispravno uneseni (osobito OIB i email adresa) pa pokušajte ponovno.');
+        }
+        if (!odgovor.ok) {
+          throw new Error('Licencni poslužitelj trenutno nije dostupan — pokušajte ponovno za nekoliko minuta ili nam pišite na info@majstoraj.hr.');
+        }
+        return odgovor.json();
+      })
+      .then(function (podaci) {
         if (statusBox) {
           statusBox.className = 'form-status success';
-          statusBox.textContent = 'Hvala! U roku 24 sata šaljem uplatnicu (HUB3) na vaš email — licenca se aktivira odmah nakon evidentirane uplate.';
+          statusBox.textContent = 'Hvala! Podaci za uplatu su ispod — licencu aktiviramo čim uplatu evidentiramo.';
         }
-        forma.reset();
+        if (uplataBlok) {
+          document.getElementById('licencaIban').textContent = podaci.iban;
+          document.getElementById('licencaModel').textContent = podaci.model;
+          document.getElementById('licencaPozivNaBroj').textContent = podaci.poziv_na_broj;
+          document.getElementById('licencaIznos').textContent = podaci.iznos.toFixed(2) + ' ' + podaci.valuta;
+          // Bar-kod se dohvaća po neprediktivnom tokenu iz odgovora, ne po rednom broju zahtjeva.
+          document.getElementById('licencaBarkodSlika').src = BACKEND_URL + '/licence/hub3-barkod/' + encodeURIComponent(podaci.token);
+          uplataBlok.hidden = false;
+          uplataBlok.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        forma.querySelectorAll('input').forEach(function (polje) { polje.disabled = true; });
+        submitBtn.textContent = 'Zahtjev poslan';
+      })
+      .catch(function (greska) {
+        // fetch() mrežnu/CORS grešku javlja kao TypeError s engleskom
+        // porukom preglednika ("Failed to fetch") - korisniku hrvatski tekst.
+        var mreznaGreska = greska instanceof TypeError;
+        prikaziGresku(mreznaGreska || !greska.message
+          ? 'Slanje nije uspjelo — provjerite internetsku vezu i pokušajte ponovno.'
+          : greska.message);
         submitBtn.disabled = false;
         submitBtn.textContent = 'Naruči licencu — 20 €';
-      })
-      .catch(function () {
-        forma.submit();
       });
   });
 })();
