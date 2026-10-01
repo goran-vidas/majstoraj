@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uvjeti korištenja — Sidro — MAJSTORAJ</title>
+<meta name="description" content="Uvjeti korištenja aplikacije Sidro: licenca, verzije i nadogradnje, plaćanje, odgovornost.">
+<link rel="canonical" href="https://majstoraj.hr/stranice/sidro-uvjeti.html">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/assets/fonts/DMSans.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/assets/fonts/DMSans-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #F6F5F2;
+    --surface:    #ECEAE6;
+    --ink:        #1A1A24;
+    --ink-soft:   #6B6B7A;
+    --accent:     #D4520A;
+    --rule:       #D8D6D0;
+    --white:      #FFFFFF;
+    --radius:     4px;
+    --font-head:  'Outfit', system-ui, sans-serif;
+    --font-body:  'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 1.2rem; letter-spacing: 0.08em;
+    color: var(--ink); text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  .nav-back {
+    font-size: 0.88rem; color: var(--ink-soft);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.15s;
+  }
+  .nav-back:hover { color: var(--ink); }
+
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .page-label {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    font-size: 0.85rem; color: var(--ink-soft);
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h2 {
+    font-family: var(--font-head);
+    font-size: 1.15rem; font-weight: 700;
+    margin-top: 2.5rem; margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+
+  p strong { color: var(--ink); font-weight: 500; }
+
+  ul {
+    list-style: none;
+    margin: 0.5rem 0 1rem 0;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  ul li {
+    font-size: 0.95rem; color: var(--ink-soft);
+    padding-left: 1.25rem; position: relative;
+    line-height: 1.65;
+  }
+  ul li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent); font-size: 0.85rem;
+  }
+
+  a {
+    color: var(--accent); text-decoration: none;
+  }
+  a:hover { text-decoration: underline; }
+
+  .third-party {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--rule);
+    padding: 1.1rem 1.25rem;
+    margin: 0.75rem 0;
+  }
+  .third-party strong {
+    display: block;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.25rem;
+    font-family: var(--font-head);
+  }
+  .third-party p {
+    font-size: 0.88rem; color: var(--ink-soft);
+    margin: 0; line-height: 1.6;
+  }
+  .third-party a { font-size: 0.85rem; }
+
+  /* Kartica za vlastitu (prve strane) obradu */
+  .own-processing {
+    background: var(--white);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--accent);
+    padding: 1.1rem 1.25rem;
+    margin: 0.75rem 0;
+  }
+  .own-processing strong {
+    display: block;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.25rem;
+    font-family: var(--font-head);
+  }
+  .own-processing p {
+    font-size: 0.88rem; color: var(--ink-soft);
+    margin: 0; line-height: 1.6;
+  }
+
+  /* Blok bez kolačića */
+  .no-cookies {
+    background: var(--white);
+    border: 1.5px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    font-size: 0.92rem; color: var(--ink-soft);
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .no-cookies::before {
+    content: '✓';
+    font-size: 1rem; color: var(--accent); font-weight: 700; flex-shrink: 0;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+
+  footer {
+    background: #121218;
+    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .footer-logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 0.95rem; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-logo span { color: var(--accent); opacity: 0.7; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+  .doc-links { font-size: 0.85rem; color: var(--ink-soft); margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">MAJSTOR<span>AJ</span></a>
+  <a class="nav-back" href="/stranice/sidro.html">← Povratak na Sidro</a>
+</nav>
+
+<div class="content">
+
+  <p class="page-label">Sidro · pravne informacije</p>
+  <h1>Uvjeti korištenja</h1>
+  <p class="meta">
+    Aplikacija Sidro · MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385<br>
+    Vrijede od 28. rujna 2026.. Isti tekst nalazi se u aplikaciji (Postavke → O aplikaciji).
+  </p>
+
+<!-- Tekst je generiran iz src/sidro/core/uvjeti_tekst.py (jedini izvor istine).
+     Kad se tekst u aplikaciji promijeni, ovu stranicu treba ponovno generirati. -->
+  <p><strong>Pružatelj:</strong> MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas, Rijeka, OIB: 73470282385, e-pošta: <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a> („MajstorAJ”, „mi”).</p>
+  <p><strong>Korisnik:</strong> poslovni subjekt koji preuzima, instalira ili koristi aplikaciju Sidro („vi”).</p>
+  <hr>
+  <h2>1. Namjena i korisnici</h2>
+  <p>Sidro je aplikacija za vođenje i izvoz cjenika sa sidrenim cijenama. Namijenjena je isključivo poslovnim korisnicima — obrtima, trgovačkim društvima, OPG-ovima i slobodnim zanimanjima — za potrebe njihove registrirane djelatnosti. Instalacijom potvrđujete da aplikaciju koristite u poslovne svrhe. Budući da se radi o odnosu između poslovnih subjekata, na njega se ne primjenjuju propisi o zaštiti potrošača.</p>
+  <h2>2. Licenca</h2>
+  <ul>
+    <li><strong>Besplatna razina:</strong> aplikaciju možete koristiti bez naknade i bez vremenskog ograničenja, do broja artikala i usluga navedenog u aplikaciji.</li>
+    <li><strong>Plaćena licenca:</strong> trajna, neisključiva i neprenosiva licenca za korištenje aplikacije u vašem poslovanju, vezana uz OIB naveden pri kupnji. Uklanja ograničenje broja artikala i otključava funkcije opisane na web stranici u trenutku kupnje.</li>
+    <li><strong>Računalo:</strong> licenca nije vezana uz računalo. Aplikaciju smijete prenijeti na drugo računalo i ponovno je aktivirati istim OIB-om.</li>
+    <li><strong>Aktivacija:</strong> automatski putem interneta ili ručnim unosom licencnog ključa koji vam dostavimo e-poštom. Oba načina su jednako valjana i ne mijenjaju opseg licence.</li>
+  </ul>
+  <p>Licencu ne smijete prodati, iznajmiti ni ustupiti drugome, niti je koristiti za poslovanje subjekta s drugim OIB-om.</p>
+  <h2>3. Verzije i nadogradnje</h2>
+  <p><strong>Plaćena licenca je trajna licenca za glavnu verziju Sidro 1.</strong> Obuhvaća sva izdanja s oznakom verzije 0.x i 1.x i sve njihove nadogradnje koje objavimo, bez doplate. Kupljena verzija radi bez vremenskog ograničenja i ne zaključava se.</p>
+  <p>Novu glavnu verziju (npr. Sidro 2) objavljujemo kad propis o isticanju ili objavi cijena bitno promijeni obvezne podatke, oblik ili način objave cjenika. Nova glavna verzija traži novu licencu; postojećim kupcima nudimo je po povlaštenoj cijeni. Licenca za Sidro 1 i dalje vrijedi za izdanja 0.x i 1.x.</p>
+  <p>Ne preuzimamo obvezu uskladiti aplikaciju sa svakom budućom izmjenom propisa, niti jamčimo da će starija verzija ostati usklađena s propisima donesenima nakon njezina izdanja.</p>
+  <h2>4. Cijena, plaćanje i račun</h2>
+  <ul>
+    <li>Cijena licence je ona objavljena na web stranici <a href="/stranice/sidro.html">majstoraj.hr</a> u trenutku podnošenja zahtjeva.</li>
+    <li>Zahtjev podnosite u aplikaciji ili putem obrasca na web stranici. Plaćate uplatom na naš poslovni račun, prema podacima za uplatu koje dobijete nakon zahtjeva. Licenca se aktivira nakon što je uplata zaprimljena.</li>
+    <li>Račun izdajemo prema propisima Republike Hrvatske, na temelju podataka koje navedete (OIB, naziv, adresa). Za netočne podatke odgovorni ste vi; mogu odgoditi izdavanje računa.</li>
+    <li><strong>Povrat novca:</strong> budući da besplatna razina omogućuje isprobavanje aplikacije prije kupnje, nakon izdavanja licencnog ključa povrat novca nije moguć. Iznimka je nedostatak aplikacije koji onemogućuje njezinu osnovnu namjenu, a koji ne otklonimo u razumnom roku nakon vaše prijave, te slučajevi u kojima povrat propisuje zakon.</li>
+  </ul>
+  <h2>5. Vaše obveze</h2>
+  <ul>
+    <li><strong>Točnost podataka i usklađenost s propisima.</strong> Sidro je alat za tehničku pripremu cjenika. Ne provjerava jesu li uneseni nazivi, cijene i referentni datumi točni, niti jesu li vaši cjenici u skladu s propisima. Za to, kao i za pravodobnu objavu cjenika, odgovorni ste vi. U nedoumici oko primjene propisa obratite se knjigovođi ili pravnom savjetniku.</li>
+    <li><strong>Sigurnosna kopija, izvoz i prijenos vlastite baze.</strong> Vaši podaci nalaze se samo na vašem računalu i nemamo im pristup. Aplikacija sama izrađuje lokalne sigurnosne kopije i omogućuje izvoz baze, ali je redovito spremanje kopija izvan računala vaša odgovornost. Izgubljene podatke ne možemo obnoviti.</li>
+    <li><strong>Vaši sustavi.</strong> Za web stranicu, poslužitelj, pristupne podatke za mrežnu sinkronizaciju i internetsku vezu odgovorni ste vi.</li>
+  </ul>
+  <h2>6. Jamstvo i ograničenje odgovornosti</h2>
+  <ul>
+    <li>Aplikaciju isporučujemo u stanju u kakvom jest. Nastojimo da radi ispravno, ali ne jamčimo rad bez prekida i pogrešaka niti prikladnost za potrebe izvan opisane namjene.</li>
+    <li>Ne odgovaramo za usluge trećih osoba koje koristite uz aplikaciju (web hosting, poslužitelj, internetska veza, banka) ni za posljedice njihova rada ili promjena.</li>
+    <li>Ne odgovaramo za neizravnu štetu, izmaklu korist, gubitak podataka ni za kazne i druge sankcije izrečene vama, ako su nastale zbog netočnih podataka, propuštene objave ili neusklađenosti vaših cjenika s propisima.</li>
+    <li>Naša ukupna odgovornost prema vama ograničena je na iznos koji ste platili za licencu.</li>
+    <li>Navedena ograničenja ne vrijede za štetu koju prouzročimo namjerno ili krajnjom nepažnjom, niti u drugim slučajevima u kojima zakon ne dopušta ograničenje odgovornosti.</li>
+  </ul>
+  <h2>7. Podrška</h2>
+  <p>Odgovori na pitanja o korištenju aplikacije putem e-pošte (<a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>) uključeni su u cijenu licence, bez zajamčenog roka odgovora. Osobna pomoć pri unosu podataka ili postavljanju mrežne sinkronizacije naplaćuje se zasebno, prema cijeni dogovorenoj unaprijed.</p>
+  <h2>8. Autorska prava</h2>
+  <p>Sidro je autorsko djelo MajstorAJ-a. Licencom stječete pravo korištenja, a ne vlasništvo nad aplikacijom. Bez našeg pisanog odobrenja ne smijete aplikaciju kopirati radi daljnje distribucije, mijenjati, rastavljati ni dekompilirati, osim u opsegu koji dopušta zakon.</p>
+  <p>Aplikacija sadrži komponente otvorenog koda koje podliježu vlastitim licencama (popis: Postavke → O aplikaciji → Licence trećih strana). Ovi uvjeti ne ograničavaju prava koja vam daju te licence.</p>
+  <h2>9. Izmjene uvjeta, mjerodavno pravo i sporovi</h2>
+  <ul>
+    <li>Uvjete možemo izmijeniti, npr. zbog promjene aplikacije ili propisa. Važeća verzija, s datumom od kojeg vrijedi, uvijek je dostupna u aplikaciji (Postavke → O aplikaciji). Nastavkom korištenja nakon izmjene prihvaćate izmijenjene uvjete. Izmjene ne umanjuju prava iz već plaćene licence.</li>
+    <li>Na ove uvjete primjenjuje se pravo Republike Hrvatske. Spor ćemo najprije pokušati riješiti dogovorom, a ako to ne uspije, nadležan je stvarno nadležni sud u Rijeci.</li>
+    <li>Ako se neka odredba pokaže nevaljanom, ostale odredbe i dalje vrijede.</li>
+  </ul>
+  <hr>
+  <p>Prihvaćanjem ovih uvjeta (pri prvom pokretanju aplikacije i ponovno prije plaćanja licence) potvrđujete da ste ih pročitali i razumjeli, da aplikaciju koristite u sklopu registrirane poslovne djelatnosti te da ste upoznati s Izjavom o privatnosti.</p>
+
+  <p class="doc-links">Vidi i: <a href="/stranice/sidro-privatnost.html">Izjava o privatnosti — Sidro</a> · <a href="/stranice/privatnost.html">Politika privatnosti web stranice</a></p>
+
+</div>
+
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
+</footer>
+
+</body>
+</html>

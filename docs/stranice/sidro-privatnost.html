@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Izjava o privatnosti — Sidro — MAJSTORAJ</title>
+<meta name="description" content="Izjava o privatnosti aplikacije Sidro: koje podatke obrađujemo, zašto i koliko dugo.">
+<link rel="canonical" href="https://majstoraj.hr/stranice/sidro-privatnost.html">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/assets/fonts/DMSans.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/assets/fonts/DMSans-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #F6F5F2;
+    --surface:    #ECEAE6;
+    --ink:        #1A1A24;
+    --ink-soft:   #6B6B7A;
+    --accent:     #D4520A;
+    --rule:       #D8D6D0;
+    --white:      #FFFFFF;
+    --radius:     4px;
+    --font-head:  'Outfit', system-ui, sans-serif;
+    --font-body:  'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 1.2rem; letter-spacing: 0.08em;
+    color: var(--ink); text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  .nav-back {
+    font-size: 0.88rem; color: var(--ink-soft);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.15s;
+  }
+  .nav-back:hover { color: var(--ink); }
+
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .page-label {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    font-size: 0.85rem; color: var(--ink-soft);
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h2 {
+    font-family: var(--font-head);
+    font-size: 1.15rem; font-weight: 700;
+    margin-top: 2.5rem; margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+
+  p strong { color: var(--ink); font-weight: 500; }
+
+  ul {
+    list-style: none;
+    margin: 0.5rem 0 1rem 0;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  ul li {
+    font-size: 0.95rem; color: var(--ink-soft);
+    padding-left: 1.25rem; position: relative;
+    line-height: 1.65;
+  }
+  ul li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent); font-size: 0.85rem;
+  }
+
+  a {
+    color: var(--accent); text-decoration: none;
+  }
+  a:hover { text-decoration: underline; }
+
+  .third-party {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--rule);
+    padding: 1.1rem 1.25rem;
+    margin: 0.75rem 0;
+  }
+  .third-party strong {
+    display: block;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.25rem;
+    font-family: var(--font-head);
+  }
+  .third-party p {
+    font-size: 0.88rem; color: var(--ink-soft);
+    margin: 0; line-height: 1.6;
+  }
+  .third-party a { font-size: 0.85rem; }
+
+  /* Kartica za vlastitu (prve strane) obradu */
+  .own-processing {
+    background: var(--white);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--accent);
+    padding: 1.1rem 1.25rem;
+    margin: 0.75rem 0;
+  }
+  .own-processing strong {
+    display: block;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.25rem;
+    font-family: var(--font-head);
+  }
+  .own-processing p {
+    font-size: 0.88rem; color: var(--ink-soft);
+    margin: 0; line-height: 1.6;
+  }
+
+  /* Blok bez kolačića */
+  .no-cookies {
+    background: var(--white);
+    border: 1.5px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    font-size: 0.92rem; color: var(--ink-soft);
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .no-cookies::before {
+    content: '✓';
+    font-size: 1rem; color: var(--accent); font-weight: 700; flex-shrink: 0;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+
+  footer {
+    background: #121218;
+    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .footer-logo {
+    font-family: var(--font-head); font-weight: 900;
+    font-size: 0.95rem; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-logo span { color: var(--accent); opacity: 0.7; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+  .doc-links { font-size: 0.85rem; color: var(--ink-soft); margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">MAJSTOR<span>AJ</span></a>
+  <a class="nav-back" href="/stranice/sidro.html">← Povratak na Sidro</a>
+</nav>
+
+<div class="content">
+
+  <p class="page-label">Sidro · pravne informacije</p>
+  <h1>Izjava o privatnosti</h1>
+  <p class="meta">
+    Aplikacija Sidro · MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385<br>
+    Vrijedi od 28. rujna 2026.. Isti tekst nalazi se u aplikaciji (Postavke → O aplikaciji).
+  </p>
+
+<!-- Tekst je generiran iz src/sidro/core/privatnost_tekst.py (jedini izvor istine).
+     Kad se tekst u aplikaciji promijeni, ovu stranicu treba ponovno generirati. -->
+  <h2>1. Tko obrađuje podatke</h2>
+  <p>Voditelj obrade je MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas, Rijeka, OIB: 73470282385 („MajstorAJ”, „mi”). Za sva pitanja o obradi podataka i ostvarivanje prava pišite na <strong><a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a></strong>.</p>
+  <h2>2. Ukratko</h2>
+  <ul>
+    <li><strong>Podaci vašeg cjenika ostaju isključivo lokalno</strong> — na vašem računalu. Nemamo im pristup i ne primamo ih.</li>
+    <li>Obrađujemo samo podatke potrebne za prodaju i aktivaciju licence te izdavanje računa.</li>
+    <li>Podatke ne prodajemo i ne koristimo ih za oglašavanje ni profiliranje.</li>
+  </ul>
+  <h2>3. Podaci koji ostaju na vašem računalu</h2>
+  <p>Sljedeće podatke Sidro sprema samo na vaše računalo i o njima odlučujete isključivo vi:</p>
+  <ul>
+    <li><strong>Podaci o obrtu, prodajnim mjestima, artiklima, cijenama i povijesti cijena</strong> — u lokalnoj bazi podataka (mapa %LOCALAPPDATA%\Majstoraj\Sidro).</li>
+    <li><strong>Sigurnosna kopija i izvoz baze</strong> — automatske kopije pri svakom pokretanju (10 najnovijih i po jedna za svaki od zadnjih 14 dana) u istoj mapi, te datoteke koje sami izvezete na mjesto koje odaberete.</li>
+    <li><strong>Pristupni podaci za vaš web poslužitelj</strong> — adresa i korisničko ime u lokalnoj bazi, a lozinka ili token u zaštićenom spremištu operacijskog sustava (na Windowsu: Upravitelj vjerodajnicama), nikad u samoj bazi.</li>
+    <li><strong>Licencni zapis</strong> — OIB, naziv obrta, datum aktivacije i Ed25519 potpis, radi provjere licence bez interneta.</li>
+  </ul>
+  <p>Izvezene cjenike objavljujete sami; pri automatskom slanju datoteke idu izravno s vašeg računala na vaš poslužitelj, bez prolaska kroz naše sustave. Deinstalacija aplikacije ne briše bazu ni sigurnosne kopije — izbrisati ih možete sami, brisanjem navedene mape.</p>
+  <h2>4. Podaci koje obrađujemo i zašto</h2>
+  <p><strong>Zahtjev za licencu, plaćanje i račun.</strong> Kad zatražite licencu (u aplikaciji ili putem obrasca na web stranici), obrađujemo:</p>
+  <ul>
+    <li>OIB, naziv, adresu i mjesto obrta ili tvrtke te e-adresu,</li>
+    <li>podatke o plaćanju: iznos, poziv na broj, datum zahtjeva i datum aktivacije,</li>
+    <li>podatke licence: datum aktivacije, Ed25519 potpis i licencni ključ.</li>
+  </ul>
+  <p>Svrha: izdavanje podataka za uplatu (2D bar-kod), povezivanje uplate sa zahtjevom, izdavanje i dostava licence (i licencnog ključa za ručnu aktivaciju gumbom „Unesi licencni ključ ručno”), izdavanje računa i komunikacija o vašoj licenci.</p>
+  <p>Pravna osnova: izvršenje ugovora o licenci (čl. 6. st. 1. t. (b) Opće uredbe o zaštiti podataka) i, za račun i poslovne knjige, zakonska obveza (čl. 6. st. 1. t. (c)). Ovi podaci su nužni za kupnju — bez njih ne možemo izdati licencu ni račun.</p>
+  <p><strong>Provjera statusa uplate.</strong> Aplikacija i web obrazac pitaju licencni poslužitelj za status vaše uplate pomoću nasumične oznake zahtjeva, bez slanja drugih podataka. Licencni poslužitelj ne bilježi IP adrese u dnevnike.</p>
+  <p><strong>Provjera nove verzije.</strong> Pri pokretanju aplikacija s web stranice majstoraj.hr dohvaća podatak o najnovijoj verziji. Pritom ne šalje nikakve podatke o vama ni o vašem cjeniku. Web stranica smještena je na usluzi GitHub Pages (GitHub, Inc., SAD), koja pri svakom zahtjevu, kao i pri svakom posjetu stranici, bilježi tehničke podatke poput IP adrese i vremena zahtjeva, prema vlastitoj politici privatnosti. Te podatke mi ne primamo.</p>
+  <p><strong>Obavijest o izlasku (lista zainteresiranih).</strong> Ako se na web stranici prijavite za obavijest, obrađujemo samo vašu e-adresu te vrijeme prijave i potvrde, kako bismo vam javili kad Sidro bude dostupan za kupnju. Pravna osnova je vaša privola (čl. 6. st. 1. t. (a)), koju dajete prijavom i potvrđujete poveznicom u prvoj poruci. Privolu možete povući u svakom trenutku, poveznicom za odjavu ili e-poštom na <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a> — tada e-adresu brišemo. Povlačenje ne utječe na zakonitost obrade prije njega.</p>
+  <p>Ne donosimo odluke o vama isključivo automatiziranom obradom.</p>
+  <h2>5. Koliko dugo čuvamo podatke</h2>
+  <ul>
+    <li>Podatke o plaćenoj licenci i računu čuvamo onoliko koliko propisuju porezni i računovodstveni propisi (u pravilu 11 godina).</li>
+    <li>Podatke o zahtjevu koji nije plaćen brišemo najkasnije 12 mjeseci nakon zahtjeva.</li>
+    <li>E-adrese s liste zainteresiranih: nepotvrđene brišemo nakon 30 dana, a potvrđene nakon odjave, najkasnije 12 mjeseci nakon prijave.</li>
+    <li>Tehničke dnevnike web stranice vodi GitHub, prema svojoj politici privatnosti.</li>
+  </ul>
+  <h2>6. Kome podaci mogu biti dostupni</h2>
+  <ul>
+    <li>knjigovodstvenom servisu, radi izdavanja računa i vođenja poslovnih knjiga,</li>
+    <li>banci, u mjeri potrebnoj za platni promet,</li>
+    <li>pružatelju poslužitelja na kojem radi licencni poslužitelj (smješten u Europskoj uniji), kao izvršitelju obrade koji podatke obrađuje samo po našem nalogu,</li>
+    <li>pružatelju usluge e-pošte (Zoho Mail, podatkovni centar u Europskoj uniji), kad vam šaljemo licencni ključ, račun ili odgovor,</li>
+    <li>nadležnim tijelima, kad to propisuje zakon.</li>
+  </ul>
+  <p>Podatke iz točke 4. ne prenosimo izvan Europskog gospodarskog prostora.</p>
+  <h2>7. Zaštita podataka</h2>
+  <p>Veza s licencnim poslužiteljem uvijek je šifrirana (HTTPS). Pristup licencnom poslužitelju i bazi licenci imamo samo mi. Licence su kriptografski potpisane (Ed25519), pa se provjeravaju bez slanja podataka na internet.</p>
+  <h2>8. Vaša prava</h2>
+  <p>U vezi s podacima iz točke 4. imate pravo:</p>
+  <ul>
+    <li>na pristup podacima i dobivanje njihove kopije,</li>
+    <li>na ispravak netočnih podataka,</li>
+    <li>na brisanje, osim podataka koje moramo čuvati po zakonu,</li>
+    <li>na ograničenje obrade,</li>
+    <li>na prenosivost podataka koje ste nam dali,</li>
+    <li>na prigovor obradi koja se temelji na legitimnom interesu,</li>
+    <li>na povlačenje privole u svakom trenutku (lista zainteresiranih).</li>
+  </ul>
+  <p>Zahtjev pošaljite na <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>; odgovorit ćemo najkasnije u roku od mjesec dana. Ako smatrate da podatke obrađujemo protivno propisima, možete podnijeti pritužbu Agenciji za zaštitu osobnih podataka (<a href="https://azop.hr" target="_blank" rel="noopener">azop.hr</a>).</p>
+  <p>Ta se prava ne odnose na podatke iz točke 3., jer ih ne posjedujemo — njima u potpunosti upravljate vi.</p>
+  <h2>9. Izmjene izjave</h2>
+  <p>Izjavu možemo izmijeniti, npr. zbog promjene aplikacije ili propisa. Važeća verzija, s datumom od kojeg vrijedi, uvijek je dostupna u aplikaciji (Postavke → O aplikaciji → Izjava o privatnosti). O bitnim izmjenama obavijestit ćemo vas u aplikaciji ili e-poštom.</p>
+  <h2>10. Kontakt</h2>
+  <p>MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas, Rijeka — <strong><a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a></strong></p>
+
+  <p class="doc-links">Vidi i: <a href="/stranice/sidro-uvjeti.html">Uvjeti korištenja — Sidro</a> · <a href="/stranice/privatnost.html">Politika privatnosti web stranice</a></p>
+
+</div>
+
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385 · majstoraj.hr</span>
+</footer>
+
+</body>
+</html>
