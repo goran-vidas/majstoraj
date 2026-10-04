@@ -37,7 +37,7 @@
   },
   "offers": [
     { "@type": "Offer", "name": "Besplatna verzija (do 10 artikala)", "price": "0", "priceCurrency": "EUR" },
-    { "@type": "Offer", "name": "Trajna licenca za Sidro 1", "price": "10", "priceCurrency": "EUR" }
+    { "@type": "Offer", "name": "Trajna licenca za Sidro 1", "price": "10", "priceCurrency": "EUR", "priceValidUntil": "2026-12-31" }
   ]
 }
 </script>
@@ -536,7 +536,7 @@
   <span class="hero-eyebrow">Desktop aplikacija za poslovne subjekte · Odluke NN 101/2026</span>
   <div class="urgency-badge">
     <span>⏳</span>
-    <span id="rokTekst">Odluke se primjenjuju od <strong>17. studenoga 2026.</strong> — još <strong id="countdownDays">47</strong> dana</span>
+    <span id="rokTekst">Odluke se primjenjuju od <strong>17. studenoga 2026.</strong> — još <strong id="countdownDays">44</strong> dana</span>
   </div>
   <h1>Sidrene cijene i cjenik po Odlukama.<br><em>Bez Excela, bez pretplate.</em></h1>
   <p class="hero-lead">
@@ -556,8 +556,7 @@
   </div>
   <p class="hero-note">
     <span class="samo-najava"><strong>Izlazak: listopad 2026.</strong> · </span>
-    <!-- [ZA GORANA] ~150 MB provjeriti nakon builda (veličina instalirane mape) -->
-    Windows 10/11 (64-bit) · ~150 MB · za svakodnevni rad ne treba internet
+    Windows 10/11 (64-bit) · instalacija ~40 MB · za svakodnevni rad ne treba internet
   </p>
 </div>
 <div class="divider"></div>
@@ -744,7 +743,7 @@
       <div class="paket-badge">Lansirna cijena</div>
       <div class="paket-name">TRAJNA LICENCA</div>
       <div class="paket-price"><span class="cijena-iznos">10</span> € <span class="cijena-stara">20 €</span> <span class="unit">/ jednokratno</span></div>
-      <!-- [ZA GORANA] Kraj lansirne cijene (prijedlog: 31.12.2026.) upiši ovdje kad odlučiš. -->
+      <div class="paket-napomena lansirna-napomena" style="margin:0.35rem 0 0.75rem;">Lansirna cijena vrijedi za narudžbe do 31. 12. 2026.</div>
       <div class="paket-desc">Trajna licenca za Sidro 1 (sva izdanja 0.x i 1.x)</div>
       <ul class="paket-list">
         <li>Neograničen broj artikala i usluga</li>
@@ -763,6 +762,7 @@
       <li>Kupljena verzija radi trajno i ne zaključava se.</li>
       <li>Ako propis bitno promijeni obvezne podatke ili oblik cjenika, izlazi Sidro 2 — postojeći kupci dobivaju ga po povlaštenoj cijeni, a licenca za Sidro 1 i dalje vrijedi. Iznimka je prilagodba prvim pravilnicima kojima se razrađuju ove Odluke: ona je uključena u licencu.</li>
       <li>Cijena je konačna: PDV nije obračunat na temelju čl. 90. st. 2. Zakona o PDV-u.</li>
+      <li>Trebate pomoć pri unosu podataka ili postavljanju slanja na web? Osobna pomoć je 40 €/h, uz opseg i procjenu dogovorene unaprijed. Odgovori na pitanja e-poštom uključeni su u licencu.</li>
       <li>Trebate nešto krojeno po vašim procesima? Pogledajte <a href="/#paketi" style="color:var(--accent);">pakete za razvoj po mjeri</a>.</li>
     </ul>
   </div>
@@ -864,7 +864,7 @@
     </div>
     <div class="req-item">
       <div class="req-label">Prostor na disku</div>
-      <div class="req-value">~150 MB</div>
+      <div class="req-value">~150 MB (instalirano)</div>
     </div>
     <div class="req-item">
       <div class="req-label">Internet</div>
@@ -872,7 +872,7 @@
     </div>
     <div class="req-item">
       <div class="req-label">Instalacija</div>
-      <div class="req-value">Klasični instalacijski program (.exe)</div>
+      <div class="req-value">Klasični instalacijski program (.exe, ~40 MB)</div>
     </div>
   </div>
 </section>
@@ -961,7 +961,7 @@
       if (!p || typeof p.iznos !== 'number') return;
       document.querySelectorAll('.cijena-iznos').forEach(function (el) { el.textContent = formatEur(p.iznos); });
       if (p.iznos >= 20) {
-        document.querySelectorAll('.cijena-stara').forEach(function (el) { el.hidden = true; });
+        document.querySelectorAll('.cijena-stara, .lansirna-napomena').forEach(function (el) { el.hidden = true; });
       }
     })
     .catch(function () {});
