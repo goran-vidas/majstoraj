@@ -843,6 +843,7 @@
       </p>
       <img id="licencaBarkodSlika" alt="2D bar-kod za uplatu" style="max-width:280px; display:block; margin: 0 auto 1.5rem; width:100%;">
       <dl class="uplata-podaci">
+        <dt>Primatelj</dt><dd id="licencaPrimatelj">MAJSTORAJ, vl. Goran Vidas</dd>
         <dt>IBAN</dt><dd id="licencaIban"></dd>
         <dt>Model</dt><dd id="licencaModel"></dd>
         <dt>Poziv na broj</dt><dd id="licencaPozivNaBroj"></dd>
@@ -1029,6 +1030,7 @@
       .then(function (podaci) {
         statusBox.className = 'form-status success';
         statusBox.textContent = 'Hvala! Podaci za uplatu su ispod, a poslali smo ih i na ' + tijelo.email + '.';
+        if (podaci.primatelj) document.getElementById('licencaPrimatelj').textContent = podaci.primatelj;
         document.getElementById('licencaIban').textContent = podaci.iban;
         document.getElementById('licencaModel').textContent = podaci.model;
         document.getElementById('licencaPozivNaBroj').textContent = podaci.poziv_na_broj;
