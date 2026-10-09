@@ -543,7 +543,9 @@
     Sidro je desktop aplikacija za obrte, trgovačka društva, OPG-ove i slobodna
     zanimanja. Vodi povijest vaših cijena koja se ne može naknadno mijenjati,
     izrađuje cjenik za prodajno mjesto (PDF) i CSV/XML datoteke za objavu na
-    webu, u obliku i s nazivima koje propisuju Odluke. Sve radi na vašem računalu.
+    webu, u obliku i s nazivima koje propisuju Odluke.
+    <strong>Vaši podaci, vaša aplikacija:</strong> sve radi na vašem računalu,
+    bez korisničkog računa i bez pretplate.
   </p>
   <div class="hero-actions">
     <a class="btn-primary samo-prodaja" href="https://preuzimanje.majstoraj.hr/SidroSetup.exe">⬇ Preuzmi Sidro besplatno</a>
@@ -700,8 +702,8 @@
     <div class="tech-item">
       <span class="ti-icon">🔒</span>
       <div>
-        <div class="ti-label">Podaci ostaju kod vas</div>
-        <div class="ti-desc">Cjenik i povijest cijena nalaze se samo na vašem računalu. Mi im nemamo pristup.</div>
+        <div class="ti-label">Vlasništvo i neovisnost</div>
+        <div class="ti-desc">Cjenik, povijest cijena i arhiva objava nalaze se samo na vašem računalu — mi im nemamo pristup. Sidro radi bez korisničkog računa, a za svakodnevni rad ne treba internet. Cjenik pripremate bez dijeljenja: dok ga sami ne objavite, vaše cijene ne napuštaju vaše računalo — i ako se obveza odgodi ili ukine. Kupljena licenca je trajna — i ako nam se sutra išta dogodi, vaši podaci i aplikacija ostaju vaši.</div>
       </div>
     </div>
     <div class="tech-item">
@@ -759,6 +761,7 @@
   <div class="ownership-block">
     <h3>Što je važno znati</h3>
     <ul>
+      <li>Sidro 0.1 je prva verzija. Izgleda jednostavno, ali radi ono najvažnije: vodi povijest cijena i izrađuje cjenik u propisanom obliku, a podaci ostaju na vašem računalu. Doradu radimo prema vašim primjedbama, a ažuriranja verzije 1 su besplatna. Primjedbe i prijedloge šaljite na info@majstoraj.hr.</li>
       <li>Kupljena verzija radi trajno i ne zaključava se.</li>
       <li>Ako propis bitno promijeni obvezne podatke ili oblik cjenika, izlazi Sidro 2 — postojeći kupci dobivaju ga po povlaštenoj cijeni, a licenca za Sidro 1 i dalje vrijedi. Iznimka je prilagodba prvim pravilnicima kojima se razrađuju ove Odluke: ona je uključena u licencu.</li>
       <li>Cijena je konačna: PDV nije obračunat na temelju čl. 90. st. 2. Zakona o PDV-u.</li>
@@ -777,7 +780,49 @@
     <a class="btn-primary" href="mailto:info@majstoraj.hr?subject=Sidro%20-%20javite%20mi%20kad%20iza%C4%91e">Javite mi kad izađe</a>
   </div>
 
-  <div id="narudzba" class="form-block samo-prodaja">
+  <!-- [2026-10-08] Prodaja licenci otvara se ručno na poslužitelju
+       (SIDRO_PRODAJA_OTVORENA), nekoliko dana prije 17.11.2026. Dok je
+       zatvorena (ili poslužitelj ne odgovara), vidi se ova napomena, a
+       obrazac ostaje skriven; skripta ispod ih zamijeni kad
+       /licence/cijena javi prodaja_otvorena: true. -->
+  <div id="prodajaZatvorena" class="najava-blok samo-prodaja">
+    <h3>Kupnja licence otvara se pred početak primjene Odluka</h3>
+    <p>
+      Licencu možete kupiti nekoliko dana prije 17. studenoga 2026., kad bude
+      sigurno da Odluke stupaju na snagu. Do tada Sidro koristite besplatno:
+      unesite sve artikle i usluge, pripremite cjenik i isprobajte izvoz
+      (do 10 artikala). Uneseni podaci ostaju i nakon kupnje.
+    </p>
+  </div>
+
+  <!-- [2026-10-08] Lista "javite mi kad se otvori kupnja": postojeći
+       /obavijesti/prijava na licencnom poslužitelju (dvostruka potvrda,
+       privola; Izjava o privatnosti, "Obavijest o izlasku"). -->
+  <div id="obavijestKupnja" class="form-block samo-prodaja">
+    <h3>Javite mi kad se otvori kupnja</h3>
+    <p>
+      Pošaljemo vam jednu poruku kad licencu bude moguće kupiti. Adresu ne
+      koristimo ni za što drugo; odjaviti se možete poveznicom iz svake poruke.
+    </p>
+    <form id="obavijestForm" novalidate>
+      <div class="form-row">
+        <label for="ob-email">E-adresa *</label>
+        <input type="email" id="ob-email" placeholder="ivan@vasatvrtka.hr" autocomplete="email" maxlength="254" required>
+      </div>
+      <div class="consent-row">
+        <input type="checkbox" id="ob-privola" required value="da">
+        <label for="ob-privola">
+          Pristajem da mi pošaljete obavijest o otvaranju kupnje
+          (<a href="/stranice/sidro-privatnost.html" target="_blank" rel="noopener">Izjava o privatnosti</a>).
+          Prijavu potvrđujem poveznicom iz e-pošte. *
+        </label>
+      </div>
+      <button type="submit" class="form-submit-btn">Prijavi me</button>
+      <div class="form-status" id="obavijestStatus" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <div id="narudzba" class="form-block samo-prodaja" hidden>
     <h3>Naručite trajnu licencu (<span class="cijena-iznos">10</span> €)</h3>
     <p>
       Upišite podatke obrta ili tvrtke. Podaci za uplatu i 2D bar-kod pojavit će
@@ -972,12 +1017,56 @@
     .then(function (o) { return o.ok ? o.json() : null; })
     .then(function (p) {
       if (!p || typeof p.iznos !== 'number') return;
+      if (p.prodaja_otvorena === true) {
+        document.getElementById('narudzba').hidden = false;
+        document.getElementById('prodajaZatvorena').hidden = true;
+        document.getElementById('obavijestKupnja').hidden = true;
+      }
       document.querySelectorAll('.cijena-iznos').forEach(function (el) { el.textContent = formatEur(p.iznos); });
       if (p.iznos >= 20) {
         document.querySelectorAll('.cijena-stara, .lansirna-napomena').forEach(function (el) { el.hidden = true; });
       }
     })
     .catch(function () {});
+
+  // [2026-10-08] Prijava na obavijest o otvaranju kupnje.
+  var obForma = document.getElementById('obavijestForm');
+  if (obForma) {
+    var obStatus = document.getElementById('obavijestStatus');
+    obForma.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('ob-email').value.trim();
+      var privola = document.getElementById('ob-privola').checked;
+      if (!email || email.indexOf('@') < 1) {
+        obStatus.className = 'form-status error';
+        obStatus.textContent = 'Upišite ispravnu e-adresu.';
+        return;
+      }
+      if (!privola) {
+        obStatus.className = 'form-status error';
+        obStatus.textContent = 'Za prijavu označite pristanak.';
+        return;
+      }
+      var gumb = obForma.querySelector('.form-submit-btn');
+      gumb.disabled = true;
+      fetch(BACKEND_URL + '/obavijesti/prijava', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, privola: true })
+      })
+        .then(function (o) { return o.json().then(function (t) { return { ok: o.ok, t: t }; }); })
+        .then(function (r) {
+          obStatus.className = 'form-status ' + (r.ok ? 'success' : 'error');
+          obStatus.textContent = r.ok ? r.t.poruka : 'Prijava nije uspjela. Provjerite e-adresu ili pišite na info@majstoraj.hr.';
+          if (!r.ok) gumb.disabled = false;
+        })
+        .catch(function () {
+          obStatus.className = 'form-status error';
+          obStatus.textContent = 'Poslužitelj trenutno nije dostupan. Pokušajte kasnije ili pišite na info@majstoraj.hr.';
+          gumb.disabled = false;
+        });
+    });
+  }
 
   var forma = document.getElementById('sidroLicencaForm');
   var statusBox = document.getElementById('licencaFormStatus');
