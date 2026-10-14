@@ -525,7 +525,7 @@
   data-faza="prodaja" -> tek kad: backend radi (curl https://licenca.majstoraj.hr/licence/cijena),
                          SidroSetup.exe je na https://preuzimanje.majstoraj.hr/ (VPS), probna kupnja prošla
 -->
-<body data-faza="najava">
+<body data-faza="prodaja">
 
 <nav>
   <a class="logo" href="/">MAJSTOR<span>AJ</span></a>
@@ -753,7 +753,8 @@
         <li>Vezana uz OIB, ne uz računalo</li>
         <li>Račun e-poštom</li>
       </ul>
-      <a class="btn-primary samo-prodaja" href="#narudzba">Naruči licencu →</a>
+      <!-- [2026-10-14] Dok je kupnja zatvorena, gumb vodi na prijavu za obavijest; skripta ga pretvori u "Naruči licencu" kad poslužitelj javi prodaja_otvorena. -->
+      <a class="btn-primary samo-prodaja" id="gumbNarudzba" href="#obavijestKupnja">Javite mi kad se otvori kupnja →</a>
       <a class="btn-outline samo-najava" href="mailto:info@majstoraj.hr?subject=Sidro%20-%20javite%20mi%20kad%20iza%C4%91e">Javite mi kad izađe →</a>
     </div>
   </div>
@@ -1021,6 +1022,9 @@
         document.getElementById('narudzba').hidden = false;
         document.getElementById('prodajaZatvorena').hidden = true;
         document.getElementById('obavijestKupnja').hidden = true;
+        var gumbNarudzba = document.getElementById('gumbNarudzba');
+        gumbNarudzba.href = '#narudzba';
+        gumbNarudzba.textContent = 'Naruči licencu →';
       }
       document.querySelectorAll('.cijena-iznos').forEach(function (el) { el.textContent = formatEur(p.iznos); });
       if (p.iznos >= 20) {
