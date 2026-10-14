@@ -13,13 +13,16 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sidro — cjenik i sidrene cijene prema Odlukama NN 101/2026">
 <meta property="og:description" content="Povijest cijena, CSV/XML/PDF cjenik u propisanom obliku, podaci na vašem računalu. Odluke se primjenjuju od 17. studenoga 2026.">
-<meta property="og:image" content="https://majstoraj.hr/favicon.png">
+<meta property="og:image" content="https://majstoraj.hr/stranice/slike/sidro-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sidro: popis artikala s primjerom podataka">
 <meta property="og:url" content="https://majstoraj.hr/stranice/sidro.html">
 <meta property="og:locale" content="hr_HR">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sidro — cjenik i sidrene cijene">
 <meta name="twitter:description" content="Sidrene cijene i objava cjenika od 17. studenoga 2026. Besplatno do 10 artikala, bez pretplate.">
-<meta name="twitter:image" content="https://majstoraj.hr/favicon.png">
+<meta name="twitter:image" content="https://majstoraj.hr/stranice/slike/sidro-og.png">
 
 <script type="application/ld+json">
 {
@@ -242,6 +245,21 @@
   .tech-item .ti-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem; }
   .tech-item .ti-label { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; font-family: var(--font-head); }
   .tech-item .ti-desc { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.55; }
+
+  /* ── SNIMKE ZASLONA ──────────────────────────────────────────── */
+  .snimke { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+  .snimka { margin: 0; }
+  .snimka.glavna { grid-column: 1 / -1; }
+  .snimka-okvir {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(26,26,36,0.10), 0 2px 6px rgba(26,26,36,0.06);
+  }
+  .snimka-okvir a { display: block; }
+  .snimka-okvir img { display: block; width: 100%; height: auto; }
+  .snimka figcaption { font-size: 0.86rem; color: var(--ink-soft); margin-top: 0.75rem; line-height: 1.55; }
+  .snimke-napomena { font-size: 0.8rem; color: var(--ink-soft); margin-top: 1.5rem; }
+  @media (max-width: 760px) { .snimke { grid-template-columns: 1fr; } }
 
   /* ── CIJENE (3 razine) ───────────────────────────────────────── */
   .paketi-grid {
@@ -661,6 +679,43 @@
       </div>
     </div>
   </div>
+</section>
+<div class="divider"></div>
+
+<section id="izgled">
+  <p class="section-label">Kako izgleda</p>
+  <h2>Pregledno, bez nepotrebnih izbornika</h2>
+  <p class="section-intro">Snimke stvarne aplikacije s izmišljenim podacima jedne male trgovine.</p>
+  <div class="snimke">
+    <figure class="snimka glavna">
+      <div class="snimka-okvir">
+        <a href="slike/sidro-artikli.webp" target="_blank" rel="noopener">
+          <img src="slike/sidro-artikli.webp" width="1353" height="812" loading="lazy" decoding="async"
+               alt="Sidro, stranica Artikli: popis proizvoda i usluga s vrstom, jedinicom mjere, šifrom, markom, barkodom i statusom">
+        </a>
+      </div>
+      <figcaption>Artikli: proizvodi i usluge na jednom mjestu, s poljima koja traže Odluke.</figcaption>
+    </figure>
+    <figure class="snimka">
+      <div class="snimka-okvir">
+        <a href="slike/sidro-povijest.webp" target="_blank" rel="noopener">
+          <img src="slike/sidro-povijest.webp" width="1442" height="812" loading="lazy" decoding="async"
+               alt="Sidro, stranica Povijest cijena: sidrena i maloprodajna cijena po artiklu i povijest promjena za odabrani artikl, uključujući akciju">
+        </a>
+      </div>
+      <figcaption>Povijest cijena: svaka promjena ostaje zapisana, i akcija i redovna cijena.</figcaption>
+    </figure>
+    <figure class="snimka">
+      <div class="snimka-okvir">
+        <a href="slike/sidro-cjenik.webp" target="_blank" rel="noopener">
+          <img src="slike/sidro-cjenik.webp" width="971" height="464" loading="lazy" decoding="async"
+               alt="PDF cjenik proizvoda iz Sidra: stupci prema Odluci, uključujući cijenu za jedinicu mjere, poseban oblik prodaje i cijenu na 10.9.2026.">
+        </a>
+      </div>
+      <figcaption>PDF cjenik za prodajno mjesto, uz CSV i XML za web.</figcaption>
+    </figure>
+  </div>
+  <p class="snimke-napomena">Podaci na snimkama su izmišljeni. Klik na sliku otvara je u punoj veličini.</p>
 </section>
 <div class="divider"></div>
 
