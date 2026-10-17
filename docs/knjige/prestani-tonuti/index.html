@@ -1,77 +1,139 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestani tonuti | Knjiga o temeljima i nasljeđu</title>
-    <meta name="description" content="Pokušaj očuvanja vrijednosti i učenja na greškama prošlosti.">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/book-style.css"> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prestani tonuti | Knjiga o temeljima i nasljeđu</title>
+<meta name="description" content="Pokušaj očuvanja vrijednosti i učenja na greškama prošlosti.">
+<link rel="canonical" href="https://majstoraj.hr/knjige/prestani-tonuti/">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<meta property="og:type" content="book">
+<meta property="og:title" content="Prestani tonuti — Goran Vidas">
+<meta property="og:description" content="O važnosti temelja, čuvanju vrijednosti i putu koji gradimo za one koji dolaze.">
+<meta property="og:image" content="https://majstoraj.hr/assets/img/knjiga-prestani-tonuti/naslovnica.jpg">
+<meta property="og:url" content="https://majstoraj.hr/knjige/prestani-tonuti/">
+<meta property="og:locale" content="hr_HR">
+
+<meta name="theme-color" content="#F8F6F2">
+<link rel="preload" href="/assets/fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/majstoraj.css">
+
+<style>
+  /* Stranica knjige. Zajednički izgled je u /assets/css/majstoraj.css. */
+
+  .knjiga-uvod {
+    display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center;
+    padding-top: clamp(3rem, 7vw, 5.5rem); padding-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+  @media (min-width: 900px) {
+    .knjiga-uvod { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+  }
+
+  /* Korice na toploj podlozi, s blagom sjenom i hrptom */
+  .knjiga-korice {
+    display: grid; place-items: center;
+    padding: clamp(2.25rem, 6vw, 3.75rem);
+    border-radius: var(--radius-xl);
+    background: radial-gradient(120% 95% at 30% 0%, #FCF7F2 0%, #F5E6DA 55%, #ECD7C7 100%);
+    box-shadow: inset 0 0 0 1px rgba(212,82,10,0.10);
+  }
+  .knjiga { position: relative; width: min(300px, 72%); }
+  .knjiga img {
+    display: block; width: 100%; height: auto; border-radius: 3px 6px 6px 3px;
+    box-shadow: 0 2px 4px rgba(20,30,50,0.20), 0 18px 30px rgba(20,30,50,0.25),
+                0 40px 70px -20px rgba(110,48,12,0.35);
+  }
+  .knjiga::after {
+    content: ''; position: absolute; inset: 0; border-radius: 3px 6px 6px 3px; pointer-events: none;
+    background: linear-gradient(90deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 3%,
+                rgba(0,0,0,0.18) 4.5%, rgba(0,0,0,0) 8%);
+  }
+
+  .knjiga-podnaslov {
+    font-size: clamp(1.15rem, 1rem + 0.5vw, 1.35rem);
+    color: var(--ink-soft); max-width: 32rem; line-height: 1.55; margin-bottom: 2rem;
+  }
+
+  .knjiga-sadrzaj > * { max-width: 46rem; }
+  .knjiga-citat {
+    font-family: var(--font-head); font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+    font-weight: 600; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink);
+    border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 0 0 2.25rem;
+  }
+  .knjiga-opis p { font-size: 1.12rem; line-height: 1.75; margin-bottom: 1.25rem; }
+
+  .knjiga-autor > * { max-width: 46rem; }
+  .knjiga-autor p { color: var(--ink-soft); margin-bottom: 1.1rem; }
+</style>
 </head>
 <body>
+<a class="preskoci" href="#sadrzaj">Preskoči na sadržaj</a>
 
-    <div id="header"></div>
+<nav aria-label="Glavna navigacija">
+  <a class="logo" href="/" aria-label="MAJSTORAJ, naslovnica">MAJSTOR<span>AJ</span></a>
+  <a class="nav-back" href="/"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Naslovnica</a>
+</nav>
 
-    <main class="main-content">
-        <article class="container book-container">
-            <header class="book-header">
-                <div class="badge" style="background: rgba(94, 234, 212, 0.2); color: var(--accent);">ZAVRŠENO I SPREMNO</div>
-                <h1 class="book-title">Prestani tonuti</h1>
-                <p class="book-subtitle">O važnosti temelja, čuvanju vrijednosti i putu koji gradimo za one koji dolaze.</p>
-            </header>
+<main id="sadrzaj">
 
-            <div class="book-cover-wrapper">
+  <header class="omot knjiga-uvod">
+    <figure class="knjiga-korice">
+      <div class="knjiga">
+        <img src="/assets/img/knjiga-prestani-tonuti/naslovnica.jpg" width="900" height="1350" decoding="async" fetchpriority="high"
+             alt="Naslovnica knjige Prestani tonuti, autor Goran Vidas">
+      </div>
+    </figure>
+    <div>
+      <p class="uvod-oznaka">Završeno i dostupno u tisku i kao PDF</p>
+      <h1>Prestani tonuti</h1>
+      <p class="knjiga-podnaslov">O važnosti temelja, čuvanju vrijednosti i putu koji gradimo za one koji dolaze.</p>
+      <div class="uvod-gumbi">
+        <a class="btn-primary" href="https://www.lulu.com/shop/goran-vidas/prestani-tonuti/paperback/product-je6v4p4.html" target="_blank" rel="noopener">Kupi tiskano izdanje</a>
+        <a class="btn-ghost" href="https://payhip.com/b/A5HsK" target="_blank" rel="noopener">Preuzmi PDF odmah</a>
+      </div>
+      <p class="uvod-napomena">
+        Knjiga je dostupna i s pregledom na <a href="http://books.google.com/books/about?id=KfTHEQAAQBAJ" target="_blank" rel="noopener">Google Books</a>.
+      </p>
+    </div>
+  </header>
 
-                <div class="ribbon">
-                    DOSTUPNO
-                </div>
+  <section class="knjiga-sadrzaj">
+    <blockquote class="knjiga-citat">
+      „Ova knjiga je pokušaj nasljedstva i nastavka truda... da se iz temelja nešto izgradi.”
+    </blockquote>
+    <div class="knjiga-opis">
+      <p>Rukopis je završen. Ovo nije samo knjiga; to je sustav upozorenja i lekcija o učenju na greškama prošlosti, napisana kako bi buduće generacije lakše prepoznale ispravan put.</p>
+      <p>Knjiga nudi praktičnu arhitekturu i konkretne korake za postavljanje minimalnih temelja bez kojih se ništa stabilno ne može izgraditi.</p>
+    </div>
+  </section>
 
-                <img src="/assets/img/knjiga-prestani-tonuti/naslovnica.jpg"
-                    alt="Naslovnica knjige Prestani tonuti"
-                    class="book-cover">
+  <section class="pojas pijesak">
+    <div class="omot knjiga-autor">
+      <h2>O autoru</h2>
+      <p>
+        Vjerujem u vrijednost temelja. Moje iskustvo oblikovano je godinama rada u IT sektoru, ali i neprocjenjivim lekcijama koje donose putovanja svijetom i susreti s različitim kulturama i životnim sustavima. Shvatio sam univerzalnu istinu: bilo u tehnologiji ili u samom životu, sve propada tamo gdje se zanemari baza. Ova knjiga je moj pokušaj nasljeđa – prijenos iskustva prožetog lekcijama o žrtvovanju i očuvanju ispravnog puta za generacije koje dolaze.
+      </p>
+      <p>
+        Cilj mi je stvoriti sustav upozorenja koji će drugima pomoći da prepoznaju dubinu ponora prije nego u njega zakorače.
+      </p>
+    </div>
+  </section>
 
-            </div>
+</main>
 
-            <section class="book-content">
-                <div class="manuscript-quote">
-                    "Ova knjiga je pokušaj nasljedstva i nastavka truda... da se iz temelja nešto izgradi."
-                </div>
-
-                <div class="text-block">
-                    <p>Rukopis je završen. Ovo nije samo knjiga; to je sustav upozorenja i lekcija o učenju na greškama prošlosti, napisana kako bi buduće generacije lakše prepoznale ispravan put.</p>
-                    <p>Knjiga nudi praktičnu arhitekturu i konkretne korake za postavljanje minimalnih temelja bez kojih se ništa stabilno ne može izgraditi.</p>
-                </div>
-
-                <div class="cta-wrapper">
-                    <a class="cta" href="https://www.lulu.com/shop/goran-vidas/prestani-tonuti/paperback/product-je6v4p4.html" target="_blank">📖 Kupi tiskano izdanje</a>
-
-                    <a class="cta cta-pdf" href="https://payhip.com/b/A5HsK" target="_blank">⚡ Preuzmi PDF odmah</a>
-                </div>
-            </section>
-
-            <section class="about-author">
-                <div class="section-title">O autoru</div>
-                <div class="author-bio">
-                    <p>
-                        Vjerujem u vrijednost temelja. Moje iskustvo oblikovano je godinama rada u IT sektoru, ali i neprocjenjivim lekcijama koje donose putovanja svijetom i susreti s različitim kulturama i životnim sustavima. Shvatio sam univerzalnu istinu: bilo u tehnologiji ili u samom životu, sve propada tamo gdje se zanemari baza. Ova knjiga je moj pokušaj nasljeđa – prijenos iskustva prožetog lekcijama o žrtvovanju i očuvanju ispravnog puta za generacije koje dolaze.
-                    </p>
-                    <p>
-                        Cilj mi je stvoriti sustav upozorenja koji će drugima pomoći da prepoznaju dubinu ponora prije nego u njega zakorače.
-                    </p>
-                </div>
-            </section>
-
-            <section class="book-preview">
-                <p class="small-text">
-                    Knjiga je dostupna i s pregledom na <a href="http://books.google.com/books/about?id=KfTHEQAAQBAJ" target="_blank">Google Books</a>.
-                </p>
-            </section>
-        </article>
-    </main>
-
-    <div id="footer"></div>
-
-    <script src="/assets/js/components.js"></script>
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <nav class="footer-veze" aria-label="Ostale stranice">
+    <a href="/">Naslovnica</a>
+    <a href="/stranice/sidro.html">Sidro</a>
+    <a href="/stranice/smjena.html">Smjena</a>
+    <a href="/stranice/privatnost.html">Politika privatnosti</a>
+  </nav>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385</span>
+</footer>
 </body>
 </html>

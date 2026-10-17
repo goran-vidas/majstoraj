@@ -40,121 +40,13 @@
 </script>
 
 <style>
-  /* Naslovnica. Zajednički izgled (boje, slova, gumbi, navigacija, podnožje)
-     je u /assets/css/majstoraj.css; ovdje je samo ono što postoji na naslovnici. */
+  /* Naslovnica. Zajednički izgled i dijelovi koji se ponavljaju (uvod, izlog,
+     problemi, koraci, paketi) su u /assets/css/majstoraj.css; ovdje je samo
+     ono što postoji samo na naslovnici. */
 
-  /* ── IKONE ───────────────────────────────────────────────────── */
-  .ikona { width: 1.15rem; height: 1.15rem; flex: none; margin-top: 0.24rem; color: var(--accent); }
-
-  /* ── UVOD ────────────────────────────────────────────────────── */
-  .uvod {
-    display: grid; gap: clamp(2.75rem, 5vw, 4rem); align-items: center;
-    padding-top: clamp(3rem, 7vw, 5.5rem); padding-bottom: clamp(1.5rem, 4vw, 3rem);
-  }
-  .uvod h1 { font-size: clamp(2.4rem, 4.4vw, 3.35rem); }
-  @media (min-width: 960px) {
-    .uvod { grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); }
-  }
-  .uvod-lead {
-    font-size: clamp(1.12rem, 1rem + 0.45vw, 1.3rem);
-    color: var(--ink-soft); max-width: 33rem; line-height: 1.6; margin-bottom: 2.25rem;
-  }
-  .uvod-lead strong { color: var(--ink); font-weight: 600; }
-  .uvod-gumbi { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 2.25rem; }
-  .cinjenice { list-style: none; display: grid; gap: 0.55rem; }
-  .cinjenice li { display: flex; gap: 0.6rem; color: var(--ink-soft); font-size: 1rem; }
-
-  /* Pozornica: prava snimka aplikacije na toploj podlozi, izlazi preko ruba */
-  .pozornica {
-    position: relative; display: block; overflow: hidden;
-    aspect-ratio: 5 / 4; border-radius: var(--radius-xl);
-    background: radial-gradient(120% 95% at 25% 0%, #FCF7F2 0%, #F5E6DA 55%, #ECD7C7 100%);
-    box-shadow: inset 0 0 0 1px rgba(212,82,10,0.10);
-  }
-  .pozornica .prozor {
-    position: absolute; left: 9%; top: 11%; width: 160%;
-    border-radius: 10px; overflow: hidden; background: var(--white);
-    box-shadow: 0 0 0 1px rgba(42,36,32,0.10), 0 2px 6px rgba(42,36,32,0.08),
-                0 24px 50px rgba(110,48,12,0.20);
-  }
-  .pozornica .prozor img { display: block; width: 100%; height: auto; }
-  a.pozornica:focus-visible { outline-offset: 4px; border-radius: var(--radius-xl); }
-  .uvod-slika { max-width: 640px; }
-  .uvod-slika figcaption, .sidro-slika figcaption { margin-top: 0.9rem; font-size: 0.92rem; color: var(--ink-soft); }
-  .uvod-slika figcaption a { color: var(--ink); }
-
-  /* ── PROBLEMI ────────────────────────────────────────────────── */
-  .problemi { display: grid; column-gap: clamp(2rem, 5vw, 4.5rem); }
-  @media (min-width: 760px) { .problemi { grid-template-columns: 1fr 1fr; } }
-  .problem { border-top: 1px solid var(--rule-strong); padding: 1.75rem 0 2.5rem; }
-  .problem h3 { margin-bottom: 0.55rem; }
-  .problem p { color: var(--ink-soft); }
-  .problem .rjesenje { display: flex; gap: 0.55rem; margin-top: 1rem; color: var(--ink); font-weight: 600; }
-
-  /* ── KAKO RADIM (stvarni slijed, zato brojevi) ────────────────── */
-  .koraci { list-style: none; display: grid; gap: 2.25rem; position: relative; }
-  .korak { position: relative; }
-  .korak-broj {
-    width: 48px; height: 48px; border-radius: 50%;
-    display: grid; place-items: center; position: relative; z-index: 1;
-    font-family: var(--font-head); font-weight: 700; font-size: 1.15rem;
-    color: var(--accent-ink); background: var(--white); border: 2px solid var(--accent);
-    margin-bottom: 1.25rem;
-  }
-  .korak h3 { margin-bottom: 0.5rem; }
-  .korak p { color: var(--ink-soft); font-size: 1rem; }
-  @media (min-width: 900px) {
-    .koraci { grid-template-columns: repeat(4, 1fr); gap: 2.25rem; }
-    .koraci::before {
-      content: ''; position: absolute; top: 23px; left: 24px; right: 22%;
-      height: 2px; background: var(--rule-strong);
-    }
-  }
-  @media (max-width: 899px) {
-    .korak { padding-left: 4.25rem; min-height: 48px; }
-    .korak-broj { position: absolute; left: 0; top: -0.35rem; margin: 0; }
-    .koraci::before {
-      content: ''; position: absolute; left: 23px; top: 24px; bottom: 24px;
-      width: 2px; background: var(--rule-strong);
-    }
-  }
-
-  /* ── PAKETI ──────────────────────────────────────────────────── */
-  .paketi { display: grid; gap: 1.25rem; align-items: stretch; max-width: 36rem; }
-  @media (min-width: 1000px) { .paketi { grid-template-columns: repeat(3, 1fr); max-width: none; } }
-  .paket {
-    background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius-l);
-    padding: 2rem 1.75rem 2.1rem; display: flex; flex-direction: column;
-  }
-  .paket-oznaka { font-size: 0.9rem; font-weight: 600; color: var(--accent-ink); margin-bottom: 0.85rem; }
-  .paket-ime { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.25rem; }
-  .paket-cijena {
-    font-family: var(--font-head); font-size: clamp(1.9rem, 2.6vw, 2.3rem);
-    font-weight: 750; letter-spacing: -0.02em; line-height: 1.15;
-    color: var(--ink); white-space: nowrap;
-  }
-  .paket-opis { color: var(--ink-soft); margin: 0.55rem 0 1.5rem; }
-  .paket-popis {
-    list-style: none; display: grid; gap: 0.7rem; align-content: start;
-    padding-top: 1.4rem; border-top: 1px solid var(--rule); flex: 1;
-  }
-  .paket-popis li { display: flex; gap: 0.6rem; font-size: 1rem; line-height: 1.5; }
-  .paket-popis .ikona { margin-top: 0.15rem; }
-  .paket.istaknut {
-    background: var(--night); border-color: var(--night); color: var(--night-soft);
-    box-shadow: 0 22px 48px rgba(42,36,32,0.22);
-  }
-  .paket.istaknut .paket-ime, .paket.istaknut .paket-cijena { color: var(--bg); }
-  .paket.istaknut .paket-oznaka, .paket.istaknut .ikona { color: var(--night-accent); }
-  .paket.istaknut .paket-opis { color: var(--night-soft); }
-  .paket.istaknut .paket-popis { border-top-color: rgba(248,246,242,0.14); }
-  .paket.istaknut .paket-popis li { color: #E9E2DA; }
-
+  /* ── PAKETI: podrška i manji poslovi ispod kartica ───────────── */
   .paketi-dodatno { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
   @media (min-width: 900px) { .paketi-dodatno { grid-template-columns: 1fr 1fr; } }
-  .dodatak { background: var(--surface); border-radius: var(--radius-l); padding: 1.6rem 1.75rem 1.7rem; }
-  .dodatak h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-  .dodatak p { color: var(--ink-soft); font-size: 1rem; }
   .dodatak .dodatak-cijene { display: flex; flex-wrap: wrap; gap: 0.35rem 1.5rem; margin-top: 0.85rem; color: var(--ink); }
   .dodatak .btn-secondary { display: inline-block; margin-top: 0.85rem; }
   .cijene-napomena { margin-top: 1.75rem; font-size: 0.9rem; color: var(--ink-soft); max-width: 46rem; }
@@ -168,8 +60,8 @@
   @media (min-width: 960px) {
     .sidro-blok { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); padding: 1.75rem 3rem 1.75rem 1.75rem; }
   }
-  .sidro-blok .pozornica { aspect-ratio: 4 / 3; border-radius: var(--radius-l); }
-  .sidro-blok .pozornica .prozor { left: 8%; top: 12%; width: 150%; }
+  .sidro-blok .izlog { aspect-ratio: 4 / 3; border-radius: var(--radius-l); }
+  .sidro-blok .izlog .prozor { left: 8%; top: 12%; width: 150%; }
   .sidro-tekst { padding: 0.5rem 0.75rem 1rem; }
   .sidro-tekst h3 { font-size: clamp(1.55rem, 2.4vw, 1.95rem); font-weight: 700; letter-spacing: -0.015em; margin-bottom: 0.9rem; }
   .sidro-tekst p { color: var(--ink-soft); margin-bottom: 1rem; }
@@ -185,10 +77,25 @@
   .aplikacija p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 1rem; }
 
   /* ── O MENI ──────────────────────────────────────────────────── */
-  .omeni { display: grid; gap: clamp(2rem, 5vw, 5rem); }
-  @media (min-width: 900px) { .omeni { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); } }
+  .omeni { display: grid; gap: clamp(2.5rem, 5vw, 5rem); }
+  @media (min-width: 900px) { .omeni { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); } }
+  /* Mjesto za fotografiju: dok je nema, topla podloga s inicijalima.
+     Fotografija ide kao <img> umjesto <span class="portret-monogram">. */
+  .portret {
+    position: relative; display: grid; place-items: center; overflow: hidden;
+    aspect-ratio: 4 / 5; max-width: 340px; margin-bottom: 2.25rem;
+    border-radius: var(--radius-xl);
+    background: radial-gradient(120% 90% at 30% 10%, #FCF6F1 0%, #F4E3D6 55%, #EAD3C2 100%);
+    box-shadow: inset 0 0 0 1px rgba(212,82,10,0.12);
+  }
+  .portret img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .portret-monogram {
+    font-family: var(--font-head); font-weight: 800; letter-spacing: 0.02em;
+    font-size: clamp(4rem, 9vw, 6rem); color: rgba(180,68,10,0.26); user-select: none;
+  }
+  @media (max-width: 899px) { .portret { max-width: 260px; } }
   .omeni-uloga { color: var(--ink-soft); font-size: 1.1rem; }
-  .omeni-cinjenice { list-style: none; margin-top: 2.25rem; display: grid; gap: 1.25rem; }
+  .omeni-cinjenice { list-style: none; margin-top: 2rem; display: grid; gap: 1.25rem; }
   .omeni-cinjenice li { padding-left: 1.1rem; border-left: 2px solid var(--accent); }
   .omeni-cinjenice strong { display: block; font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--ink); line-height: 1.25; }
   .omeni-cinjenice span { color: var(--ink-soft); font-size: 0.98rem; }
@@ -261,7 +168,7 @@
   </div>
 
   <figure class="uvod-slika">
-    <a class="pozornica" href="/stranice/sidro.html" aria-label="Sidro, aplikacija za cjenike: više o aplikaciji">
+    <a class="izlog" href="/stranice/sidro.html" aria-label="Sidro, aplikacija za cjenike: više o aplikaciji">
       <span class="prozor"><img src="/stranice/slike/sidro-artikli.webp" width="1353" height="812" decoding="async" fetchpriority="high"
            alt="Sidro, stranica Artikli: popis proizvoda i usluga s primjerom podataka"></span>
     </a>
@@ -403,7 +310,7 @@
 
     <article class="sidro-blok" id="sidro-proizvod">
       <figure class="sidro-slika">
-        <a class="pozornica" href="/stranice/sidro.html#izgled" aria-label="Sidro: pogledajte kako izgleda">
+        <a class="izlog" href="/stranice/sidro.html#izgled" aria-label="Sidro: pogledajte kako izgleda">
           <span class="prozor"><img src="/stranice/slike/sidro-povijest.webp" width="1442" height="812" loading="lazy" decoding="async"
                alt="Sidro, stranica Povijest cijena: cijene po artiklu i povijest promjena za odabrani artikl"></span>
         </a>
@@ -450,6 +357,10 @@
 <section id="omeni">
   <div class="omeni">
     <div>
+      <figure class="portret">
+        <!-- Fotografija: <img src="/assets/img/goran-vidas.webp" width="800" height="1000" alt="Goran Vidas"> umjesto monograma -->
+        <span class="portret-monogram" aria-hidden="true">GV</span>
+      </figure>
       <h2>Goran Vidas</h2>
       <p class="omeni-uloga">Programer i vlasnik obrta MAJSTORAJ, Rijeka</p>
       <ul class="omeni-cinjenice">
@@ -536,7 +447,13 @@
 
 <footer>
   <span class="footer-logo">MAJSTOR<span>AJ</span></span>
-  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385 · majstoraj.hr · <a href="/stranice/privatnost.html">Politika privatnosti</a></span>
+  <nav class="footer-veze" aria-label="Ostale stranice">
+    <a href="/stranice/sidro.html">Sidro</a>
+    <a href="/stranice/smjena.html">Smjena</a>
+    <a href="/stranice/privatnost.html">Politika privatnosti</a>
+    <a href="/knjige/prestani-tonuti/">Knjiga „Prestani tonuti”</a>
+  </nav>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385</span>
   <p class="b2b-disclaimer">Usluge i softverska rješenja pružamo isključivo poslovnim subjektima (B2B — tvrtkama, obrtima, OPG-ovima, slobodnim zanimanjima i udrugama). Ne pružamo usluge fizičkim osobama / potrošačima.</p>
 </footer>
 
