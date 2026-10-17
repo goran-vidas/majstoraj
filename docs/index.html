@@ -79,8 +79,8 @@
   /* ── O MENI ──────────────────────────────────────────────────── */
   .omeni { display: grid; gap: clamp(2.5rem, 5vw, 5rem); }
   @media (min-width: 900px) { .omeni { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); } }
-  /* Mjesto za fotografiju: dok je nema, topla podloga s inicijalima.
-     Fotografija ide kao <img> umjesto <span class="portret-monogram">. */
+  /* Fotografija (WebP, JPEG kao zamjena); topla podloga vidi se dok se ne učita.
+     .portret-monogram ostaje za slučaj bez fotografije. */
   .portret {
     position: relative; display: grid; place-items: center; overflow: hidden;
     aspect-ratio: 4 / 5; max-width: 340px; margin-bottom: 2.25rem;
@@ -88,7 +88,8 @@
     background: radial-gradient(120% 90% at 30% 10%, #FCF6F1 0%, #F4E3D6 55%, #EAD3C2 100%);
     box-shadow: inset 0 0 0 1px rgba(212,82,10,0.12);
   }
-  .portret img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .portret picture, .portret img { display: block; width: 100%; height: 100%; }
+  .portret img { object-fit: cover; }
   .portret-monogram {
     font-family: var(--font-head); font-weight: 800; letter-spacing: 0.02em;
     font-size: clamp(4rem, 9vw, 6rem); color: rgba(180,68,10,0.26); user-select: none;
@@ -358,8 +359,10 @@
   <div class="omeni">
     <div>
       <figure class="portret">
-        <!-- Fotografija: <img src="/assets/img/goran-vidas.webp" width="800" height="1000" alt="Goran Vidas"> umjesto monograma -->
-        <span class="portret-monogram" aria-hidden="true">GV</span>
+        <picture>
+          <source srcset="/assets/img/goran-vidas.webp" type="image/webp">
+          <img src="/assets/img/goran-vidas.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Goran Vidas, programer i vlasnik obrta MAJSTORAJ">
+        </picture>
       </figure>
       <h2>Goran Vidas</h2>
       <p class="omeni-uloga">Programer i vlasnik obrta MAJSTORAJ, Rijeka</p>
