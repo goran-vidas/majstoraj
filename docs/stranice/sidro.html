@@ -247,19 +247,124 @@
   .tech-item .ti-desc { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.55; }
 
   /* ── SNIMKE ZASLONA ──────────────────────────────────────────── */
-  .snimke { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
-  .snimka { margin: 0; }
-  .snimka.glavna { grid-column: 1 / -1; }
-  .snimka-okvir {
-    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(26,26,36,0.10), 0 2px 6px rgba(26,26,36,0.06);
+  /* Kartice nad jednom velikom "pozornicom": prozor aplikacije lebdi na toploj
+     podlozi i izlazi preko donjeg ruba, pa se prazan donji dio snimke ne vidi.
+     Bez JS-a kartice su skrivene, a snimke stoje jedna ispod druge. */
+  .snimke-kartice {
+    display: flex; gap: clamp(0.6rem, 3vw, 2.1rem);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 1.75rem;
+    overflow-x: auto; scrollbar-width: none;
   }
-  .snimka-okvir a { display: block; }
-  .snimka-okvir img { display: block; width: 100%; height: auto; }
-  .snimka figcaption { font-size: 0.86rem; color: var(--ink-soft); margin-top: 0.75rem; line-height: 1.55; }
-  .snimke-napomena { font-size: 0.8rem; color: var(--ink-soft); margin-top: 1.5rem; }
-  @media (max-width: 760px) { .snimke { grid-template-columns: 1fr; } }
+  .snimke-kartice::-webkit-scrollbar { display: none; }
+  .snimke-kartice[hidden] { display: none; }
+  .snimke-kartice [role="tab"] {
+    position: relative; flex: none;
+    font-family: var(--font-head); font-size: 1rem; font-weight: 600;
+    color: var(--ink-soft); background: none; border: 0; border-radius: var(--radius);
+    padding: 0.45rem 0.4rem 0.9rem; cursor: pointer;
+    transition: color 0.15s;
+  }
+  .snimke-kartice [role="tab"]:hover,
+  .snimke-kartice [role="tab"][aria-selected="true"] { color: var(--ink); }
+  .snimke-kartice [role="tab"][aria-selected="true"]::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+    height: 3px; background: var(--accent); border-radius: 2px 2px 0 0;
+  }
+  .snimke-kartice [role="tab"]:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  .snimka { margin: 0; }
+  .snimka + .snimka { margin-top: 2.75rem; }
+  .snimke.kao-kartice .snimka + .snimka { margin-top: 0; }
+  .snimka[hidden] { display: none; }
+
+  .pozornica {
+    display: block; position: relative; overflow: hidden; min-height: 0;
+    aspect-ratio: 2 / 1;
+    padding: clamp(1.25rem, 5%, 3rem) clamp(1rem, 6%, 3.5rem) 0;
+    border-radius: 12px;
+    background: radial-gradient(120% 95% at 50% 0%, #FBF5F0 0%, #F4E6DB 52%, #EBD6C6 100%);
+    box-shadow: inset 0 0 0 1px rgba(212,82,10,0.10);
+    color: var(--ink); text-decoration: none; cursor: zoom-in;
+  }
+  .pozornica:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .prozor {
+    display: block; border-radius: 8px; overflow: hidden; background: var(--white);
+    box-shadow: 0 0 0 1px rgba(26,26,36,0.10), 0 2px 6px rgba(26,26,36,0.08),
+                0 18px 40px rgba(110,48,12,0.16), 0 44px 80px -28px rgba(110,48,12,0.32);
+  }
+  .prozor img, .papir img { display: block; width: 100%; height: auto; }
+
+  /* PDF cjenik kao ispisan list (A4 položeno), s još jednim listom ispod */
+  .papir-hrpa { display: block; position: relative; }
+  .papir-ispod {
+    position: absolute; inset: 0; background: #FBFAF7; border-radius: 2px;
+    transform: rotate(2deg) translateX(-0.8%); transform-origin: 100% 0;
+    box-shadow: 0 0 0 1px rgba(26,26,36,0.06), 0 16px 34px rgba(110,48,12,0.14);
+  }
+  .papir {
+    display: block; position: relative; aspect-ratio: 1.414 / 1;
+    background: var(--white); border-radius: 2px; padding: 2.2% 2.4%;
+    box-shadow: 0 0 0 1px rgba(26,26,36,0.08), 0 2px 6px rgba(26,26,36,0.07),
+                0 20px 44px rgba(110,48,12,0.18);
+  }
+
+  .povecaj {
+    position: absolute; top: 0.85rem; right: 0.9rem;
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.78rem; font-weight: 500; line-height: 1; color: var(--ink);
+    background: rgba(255,255,255,0.78); border: 1px solid rgba(26,26,36,0.08);
+    padding: 0.4rem 0.65rem; border-radius: 999px;
+  }
+  .povecaj svg { width: 13px; height: 13px; flex: none; }
+  .pozornica:hover .povecaj, .pozornica:focus-visible .povecaj { background: var(--white); }
+
+  .snimka figcaption { font-size: 0.9rem; color: var(--ink-soft); margin-top: 1rem; line-height: 1.55; max-width: 640px; }
+  .snimka-ime { display: block; font-family: var(--font-head); font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.15rem; }
+  .snimke.kao-kartice .snimka-ime { display: none; }
+
+  @keyframes snimkaUlaz { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .snimke.kao-kartice .prozor, .snimke.kao-kartice .papir-hrpa { animation: snimkaUlaz 0.3s ease-out; }
+
+  @media (max-width: 600px) {
+    .povecaj { top: auto; bottom: 0.6rem; right: 0.6rem; padding: 0.5rem; background: var(--white); box-shadow: 0 2px 8px rgba(26,26,36,0.16); }
+    .povecaj svg { width: 16px; height: 16px; }
+    .povecaj-tekst { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  }
+  @media (max-width: 360px) {
+    .snimke-kartice [role="tab"] { font-size: 0.92rem; padding-left: 0.25rem; padding-right: 0.25rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .snimke.kao-kartice .prozor, .snimke.kao-kartice .papir-hrpa { animation: none; }
+  }
+
+  /* Uvećana snimka (dijalog) */
+  .snimka-dijalog {
+    inset: 0; margin: 0; width: 100%; height: 100%; max-width: none; max-height: none;
+    border: 0; background: transparent; color: var(--bg);
+    padding: 4.25rem clamp(1rem, 4vw, 2.5rem) clamp(1rem, 4vw, 2.5rem);
+    overflow: auto;
+  }
+  .snimka-dijalog[open] { display: grid; place-items: center; }
+  .snimka-dijalog::backdrop { background: rgba(20,20,28,0.95); backdrop-filter: blur(4px); }
+  .snimka-dijalog-sadrzaj { margin: 0; }
+  .snimka-dijalog img {
+    display: block; margin: 0 auto; width: auto; height: auto;
+    max-width: 100%; max-height: calc(100vh - 10rem);
+    border-radius: 8px; background: var(--white);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+  }
+  .snimka-dijalog-opis { font-size: 0.9rem; line-height: 1.55; color: rgba(246,245,242,0.82); text-align: center; max-width: 640px; margin: 1rem auto 0; }
+  .snimka-dijalog-opis .snimka-ime { display: inline; margin: 0 0.4rem 0 0; color: var(--white); }
+  .snimka-zatvori {
+    position: fixed; top: 0.9rem; right: 1rem;
+    width: 44px; height: 44px; border-radius: 999px;
+    border: 1px solid rgba(246,245,242,0.28); background: rgba(26,26,36,0.55);
+    color: var(--white); font-size: 1.6rem; line-height: 1; cursor: pointer;
+  }
+  .snimka-zatvori:hover { background: rgba(26,26,36,0.9); }
+  .snimka-zatvori:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  html.snimka-otvorena { overflow: hidden; scrollbar-gutter: stable; }
 
   /* ── CIJENE (3 razine) ───────────────────────────────────────── */
   .paketi-grid {
@@ -687,36 +792,47 @@
   <p class="section-label">Kako izgleda</p>
   <h2>Pregledno, bez nepotrebnih izbornika</h2>
   <p class="section-intro">Snimke stvarne aplikacije s izmišljenim podacima jedne male trgovine.</p>
-  <div class="snimke">
-    <figure class="snimka glavna">
-      <div class="snimka-okvir">
-        <a href="slike/sidro-artikli.webp" target="_blank" rel="noopener">
-          <img src="slike/sidro-artikli.webp" width="1353" height="812" loading="lazy" decoding="async"
-               alt="Sidro, stranica Artikli: popis proizvoda i usluga s vrstom, jedinicom mjere, šifrom, markom, barkodom i statusom">
-        </a>
-      </div>
-      <figcaption>Artikli: proizvodi i usluge na jednom mjestu, s poljima koja traže propisi.</figcaption>
+  <div class="snimke" id="snimke">
+    <div class="snimke-kartice" role="tablist" aria-label="Snimke zaslona" hidden>
+      <button type="button" role="tab" id="kartica-artikli" aria-controls="snimka-artikli" aria-selected="true">Artikli</button>
+      <button type="button" role="tab" id="kartica-povijest" aria-controls="snimka-povijest" aria-selected="false" tabindex="-1">Povijest cijena</button>
+      <button type="button" role="tab" id="kartica-cjenik" aria-controls="snimka-cjenik" aria-selected="false" tabindex="-1">PDF cjenik</button>
+    </div>
+    <figure class="snimka" id="snimka-artikli">
+      <a class="pozornica" href="slike/sidro-artikli.webp" target="_blank" rel="noopener">
+        <span class="prozor"><img src="slike/sidro-artikli.webp" width="1353" height="812" loading="lazy" decoding="async"
+             alt="Sidro, stranica Artikli: popis proizvoda i usluga s vrstom, jedinicom mjere, šifrom, markom, barkodom i statusom"></span>
+        <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
+      </a>
+      <figcaption><span class="snimka-ime">Artikli</span>Proizvodi i usluge na jednom mjestu, s poljima koja traže propisi.</figcaption>
     </figure>
-    <figure class="snimka">
-      <div class="snimka-okvir">
-        <a href="slike/sidro-povijest.webp" target="_blank" rel="noopener">
-          <img src="slike/sidro-povijest.webp" width="1442" height="812" loading="lazy" decoding="async"
-               alt="Sidro, stranica Povijest cijena: sidrena i maloprodajna cijena po artiklu i povijest promjena za odabrani artikl, uključujući akciju">
-        </a>
-      </div>
-      <figcaption>Povijest cijena: svaka promjena ostaje zapisana, i akcija i redovna cijena.</figcaption>
+    <figure class="snimka" id="snimka-povijest">
+      <a class="pozornica" href="slike/sidro-povijest.webp" target="_blank" rel="noopener">
+        <span class="prozor"><img src="slike/sidro-povijest.webp" width="1442" height="812" loading="lazy" decoding="async"
+             alt="Sidro, stranica Povijest cijena: sidrena i maloprodajna cijena po artiklu i povijest promjena za odabrani artikl, uključujući akciju"></span>
+        <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
+      </a>
+      <figcaption><span class="snimka-ime">Povijest cijena</span>Svaka promjena ostaje zapisana, i akcija i redovna cijena.</figcaption>
     </figure>
-    <figure class="snimka">
-      <div class="snimka-okvir">
-        <a href="slike/sidro-cjenik.webp" target="_blank" rel="noopener">
-          <img src="slike/sidro-cjenik.webp" width="971" height="464" loading="lazy" decoding="async"
-               alt="PDF cjenik proizvoda iz Sidra: stupci prema Odluci, uključujući cijenu za jedinicu mjere, poseban oblik prodaje i cijenu na 10.9.2026.">
-        </a>
-      </div>
-      <figcaption>PDF cjenik za prodajno mjesto, uz CSV i XML za web.</figcaption>
+    <figure class="snimka" id="snimka-cjenik">
+      <a class="pozornica" href="slike/sidro-cjenik.webp" target="_blank" rel="noopener">
+        <span class="papir-hrpa">
+          <span class="papir-ispod" aria-hidden="true"></span>
+          <span class="papir"><img src="slike/sidro-cjenik.webp" width="971" height="464" loading="lazy" decoding="async"
+               alt="PDF cjenik proizvoda iz Sidra: stupci prema Odluci, uključujući cijenu za jedinicu mjere, poseban oblik prodaje i cijenu na 10.9.2026."></span>
+        </span>
+        <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
+      </a>
+      <figcaption><span class="snimka-ime">PDF cjenik</span>Za prodajno mjesto, uz CSV i XML za web.</figcaption>
     </figure>
   </div>
-  <p class="snimke-napomena">Podaci na snimkama su izmišljeni. Klik na sliku otvara je u punoj veličini.</p>
+  <dialog class="snimka-dijalog" id="snimkaDijalog" aria-label="Uvećana snimka zaslona">
+    <figure class="snimka-dijalog-sadrzaj">
+      <img alt="" decoding="async">
+      <figcaption class="snimka-dijalog-opis"></figcaption>
+    </figure>
+    <button type="button" class="snimka-zatvori" aria-label="Zatvori uvećanu snimku">×</button>
+  </dialog>
 </section>
 <div class="divider"></div>
 
@@ -1045,6 +1161,98 @@
   } else {
     tekst.innerHTML = 'Nova pravila o baznoj (sidrenoj) cijeni i objavi cjenika primjenjuju se od <strong>17. studenoga 2026.</strong>';
   }
+})();
+</script>
+
+<script>
+(function () {
+  // Snimke zaslona: kartice nad jednom velikom snimkom i uvećana snimka u dijalogu.
+  // Bez JS-a snimke su jedna ispod druge, a klik otvara sliku u novoj kartici preglednika.
+  var snimke = document.getElementById('snimke');
+  if (!snimke) return;
+
+  var traka = snimke.querySelector('[role="tablist"]');
+  var kartice = traka ? Array.prototype.slice.call(traka.querySelectorAll('[role="tab"]')) : [];
+  var ploce = kartice.map(function (k) { return document.getElementById(k.getAttribute('aria-controls')); });
+
+  function odaberi(i, fokus) {
+    kartice.forEach(function (k, j) {
+      var odabrana = j === i;
+      k.setAttribute('aria-selected', odabrana ? 'true' : 'false');
+      k.tabIndex = odabrana ? 0 : -1;
+      ploce[j].hidden = !odabrana;
+    });
+    if (fokus) kartice[i].focus();
+  }
+
+  if (kartice.length && ploce.every(Boolean)) {
+    ploce.forEach(function (p, j) {
+      p.setAttribute('role', 'tabpanel');
+      p.setAttribute('aria-labelledby', kartice[j].id);
+    });
+    snimke.classList.add('kao-kartice');
+    traka.hidden = false;
+    odaberi(0, false);
+
+    kartice.forEach(function (k, i) {
+      k.addEventListener('click', function () { odaberi(i, false); });
+      k.addEventListener('keydown', function (e) {
+        var n = kartice.length, cilj = -1;
+        if (e.key === 'ArrowRight') cilj = (i + 1) % n;
+        else if (e.key === 'ArrowLeft') cilj = (i + n - 1) % n;
+        else if (e.key === 'Home') cilj = 0;
+        else if (e.key === 'End') cilj = n - 1;
+        if (cilj < 0) return;
+        e.preventDefault();
+        odaberi(cilj, true);
+      });
+    });
+
+    // Druge dvije snimke učitavaju se čim se učita prva, da prebacivanje kartice ne čeka mrežu.
+    var prva = ploce[0].querySelector('img');
+    var ucitajOstale = function () {
+      ploce.slice(1).forEach(function (p) {
+        var s = p.querySelector('img');
+        if (s) s.loading = 'eager';
+      });
+    };
+    if (prva && !prva.complete) prva.addEventListener('load', ucitajOstale);
+    else ucitajOstale();
+  }
+
+  // Uvećana snimka. Esc, gumb ili klik izvan slike zatvaraju dijalog; fokus se vraća na snimku.
+  var dijalog = document.getElementById('snimkaDijalog');
+  if (!dijalog || typeof dijalog.showModal !== 'function') return;
+  var slika = dijalog.querySelector('img');
+  var opis = dijalog.querySelector('.snimka-dijalog-opis');
+  var okidac = null;
+
+  snimke.addEventListener('click', function (e) {
+    var poveznica = e.target.closest ? e.target.closest('a.pozornica') : null;
+    if (!poveznica || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    e.preventDefault();
+    var izvor = poveznica.querySelector('img');
+    var natpis = poveznica.parentNode.querySelector('figcaption');
+    slika.src = poveznica.getAttribute('href');
+    slika.alt = izvor ? izvor.alt : '';
+    if (izvor) {
+      slika.setAttribute('width', izvor.getAttribute('width'));
+      slika.setAttribute('height', izvor.getAttribute('height'));
+    }
+    opis.innerHTML = natpis ? natpis.innerHTML : '';
+    okidac = poveznica;
+    document.documentElement.classList.add('snimka-otvorena');
+    dijalog.showModal();
+    dijalog.querySelector('.snimka-zatvori').focus();
+  });
+
+  dijalog.addEventListener('click', function (e) {
+    if (e.target !== slika) dijalog.close();
+  });
+  dijalog.addEventListener('close', function () {
+    document.documentElement.classList.remove('snimka-otvorena');
+    if (okidac) okidac.focus();
+  });
 })();
 </script>
 
