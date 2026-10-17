@@ -10,10 +10,14 @@
 <meta property="og:description" content="Desktop aplikacije i automatizacija za tvrtke u Rijeci i Kvarneru. Bez clouda, bez pretplate, bez IT odjela.">
 <meta property="og:url" content="https://majstoraj.hr/">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#F8F6F2">
 <link rel="canonical" href="https://majstoraj.hr/">
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preload" href="/assets/fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/majstoraj.css">
 
 <script type="application/ld+json">
 {
@@ -36,857 +40,428 @@
 </script>
 
 <style>
-  @font-face {
-    font-family: 'Outfit';
-    src: url('/assets/fonts/Outfit.ttf') format('truetype');
-    font-weight: 100 900;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'DM Sans';
-    src: url('/assets/fonts/DMSans.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'DM Sans';
-    src: url('/assets/fonts/DMSans-Italic.ttf') format('truetype');
-    font-style: italic;
-    font-weight: 100 900;
-    font-display: swap;
-  }
+  /* Naslovnica. Zajednički izgled (boje, slova, gumbi, navigacija, podnožje)
+     je u /assets/css/majstoraj.css; ovdje je samo ono što postoji na naslovnici. */
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* ── IKONE ───────────────────────────────────────────────────── */
+  .ikona { width: 1.15rem; height: 1.15rem; flex: none; margin-top: 0.24rem; color: var(--accent); }
 
-  :root {
-    --bg:         #F6F5F2;
-    --surface:    #ECEAE6;
-    --ink:        #1A1A24;
-    --ink-soft:   #6B6B7A;
-    --accent:     #D4520A;
-    --accent-dim: rgba(212,82,10,0.10);
-    --rule:       #D8D6D0;
-    --white:      #FFFFFF;
-    --radius:     4px;
-    --font-head:  'Outfit', system-ui, sans-serif;
-    --font-body:  'DM Sans', system-ui, sans-serif;
+  /* ── UVOD ────────────────────────────────────────────────────── */
+  .uvod {
+    display: grid; gap: clamp(2.75rem, 5vw, 4rem); align-items: center;
+    padding-top: clamp(3rem, 7vw, 5.5rem); padding-bottom: clamp(1.5rem, 4vw, 3rem);
   }
+  .uvod h1 { font-size: clamp(2.4rem, 4.4vw, 3.35rem); }
+  @media (min-width: 960px) {
+    .uvod { grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); }
+  }
+  .uvod-lead {
+    font-size: clamp(1.12rem, 1rem + 0.45vw, 1.3rem);
+    color: var(--ink-soft); max-width: 33rem; line-height: 1.6; margin-bottom: 2.25rem;
+  }
+  .uvod-lead strong { color: var(--ink); font-weight: 600; }
+  .uvod-gumbi { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 2.25rem; }
+  .cinjenice { list-style: none; display: grid; gap: 0.55rem; }
+  .cinjenice li { display: flex; gap: 0.6rem; color: var(--ink-soft); font-size: 1rem; }
 
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
+  /* Pozornica: prava snimka aplikacije na toploj podlozi, izlazi preko ruba */
+  .pozornica {
+    position: relative; display: block; overflow: hidden;
+    aspect-ratio: 5 / 4; border-radius: var(--radius-xl);
+    background: radial-gradient(120% 95% at 25% 0%, #FCF7F2 0%, #F5E6DA 55%, #ECD7C7 100%);
+    box-shadow: inset 0 0 0 1px rgba(212,82,10,0.10);
   }
+  .pozornica .prozor {
+    position: absolute; left: 9%; top: 11%; width: 160%;
+    border-radius: 10px; overflow: hidden; background: var(--white);
+    box-shadow: 0 0 0 1px rgba(42,36,32,0.10), 0 2px 6px rgba(42,36,32,0.08),
+                0 24px 50px rgba(110,48,12,0.20);
+  }
+  .pozornica .prozor img { display: block; width: 100%; height: auto; }
+  a.pozornica:focus-visible { outline-offset: 4px; border-radius: var(--radius-xl); }
+  .uvod-slika { max-width: 640px; }
+  .uvod-slika figcaption, .sidro-slika figcaption { margin-top: 0.9rem; font-size: 0.92rem; color: var(--ink-soft); }
+  .uvod-slika figcaption a { color: var(--ink); }
 
-  /* ── NAV ──────────────────────────────────────────────────── */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--bg);
-    border-bottom: 1px solid var(--rule);
-    padding: 0 clamp(1.5rem, 5vw, 4rem);
-    height: 64px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .logo {
-    font-family: var(--font-head); font-weight: 900;
-    font-size: 1.2rem; letter-spacing: 0.08em;
-    color: var(--ink); text-decoration: none;
-  }
-  .logo span { color: var(--accent); }
-  .nav-links { display: flex; align-items: center; gap: 1.75rem; }
-  .nav-links a:not(.nav-cta) {
-    font-size: 0.88rem; color: var(--ink-soft); text-decoration: none;
-    transition: color 0.15s;
-  }
-  .nav-links a:not(.nav-cta):hover { color: var(--ink); }
-  .nav-cta {
-    font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
-    color: var(--accent); text-decoration: none;
-    border: 1.5px solid var(--accent);
-    padding: 0.4rem 1rem; border-radius: var(--radius);
-    transition: background 0.18s, color 0.18s;
-  }
-  .nav-cta:hover { background: var(--accent); color: var(--white); }
-  @media (max-width: 600px) {
-    .nav-links a:not(.nav-cta) { display: none; }
-  }
+  /* ── PROBLEMI ────────────────────────────────────────────────── */
+  .problemi { display: grid; column-gap: clamp(2rem, 5vw, 4.5rem); }
+  @media (min-width: 760px) { .problemi { grid-template-columns: 1fr 1fr; } }
+  .problem { border-top: 1px solid var(--rule-strong); padding: 1.75rem 0 2.5rem; }
+  .problem h3 { margin-bottom: 0.55rem; }
+  .problem p { color: var(--ink-soft); }
+  .problem .rjesenje { display: flex; gap: 0.55rem; margin-top: 1rem; color: var(--ink); font-weight: 600; }
 
-  /* ── HERO ─────────────────────────────────────────────────── */
-  .hero {
-    padding: clamp(4rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+  /* ── KAKO RADIM (stvarni slijed, zato brojevi) ────────────────── */
+  .koraci { list-style: none; display: grid; gap: 2.25rem; position: relative; }
+  .korak { position: relative; }
+  .korak-broj {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: grid; place-items: center; position: relative; z-index: 1;
+    font-family: var(--font-head); font-weight: 700; font-size: 1.15rem;
+    color: var(--accent-ink); background: var(--white); border: 2px solid var(--accent);
+    margin-bottom: 1.25rem;
   }
-  .hero-eyebrow {
-    display: inline-block; font-size: 0.78rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 1.5rem;
-    border-left: 3px solid var(--accent); padding-left: 0.75rem;
-  }
-  h1 {
-    font-family: var(--font-head);
-    font-size: clamp(2.4rem,6vw,4.2rem);
-    font-weight: 900; line-height: 1.08;
-    letter-spacing: -0.02em; color: var(--ink);
-    margin-bottom: 1.75rem;
-  }
-  h1 em { font-style: normal; color: var(--accent); }
-  .hero-sub {
-    font-size: clamp(1rem,2vw,1.2rem); font-weight: 300;
-    color: var(--ink-soft); max-width: 560px;
-    margin-bottom: 2.5rem; line-height: 1.7;
-  }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-
-  /* ── HERO GRID + CSS MAKETA APLIKACIJE ───────────────────────
-     Generička maketa sučelja (praćenje naloga) - namjerno BEZ
-     izmišljenog naziva/brenda proizvoda. Sakriva se ispod 900px. ── */
-  .hero-grid {
-    display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;
-  }
+  .korak h3 { margin-bottom: 0.5rem; }
+  .korak p { color: var(--ink-soft); font-size: 1rem; }
   @media (min-width: 900px) {
-    .hero-grid { grid-template-columns: 1.15fr 1fr; }
+    .koraci { grid-template-columns: repeat(4, 1fr); gap: 2.25rem; }
+    .koraci::before {
+      content: ''; position: absolute; top: 23px; left: 24px; right: 22%;
+      height: 2px; background: var(--rule-strong);
+    }
   }
-  .app-mockup { display: none; }
-  @media (min-width: 900px) {
-    .app-mockup { display: block; }
-  }
-  .mockup-window {
-    background: var(--white);
-    border-radius: 10px;
-    border: 1px solid var(--rule);
-    box-shadow: 0 24px 55px rgba(26,26,36,0.13), 0 8px 20px rgba(26,26,36,0.07);
-    overflow: hidden;
-  }
-  .mockup-titlebar {
-    background: var(--surface);
-    padding: 0.7rem 1rem;
-    display: flex; align-items: center; gap: 0.4rem;
-    border-bottom: 1px solid var(--rule);
-  }
-  .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .mockup-dot.red { background: #FF5F57; }
-  .mockup-dot.yellow { background: #FEBC2E; }
-  .mockup-dot.green { background: #28C840; }
-  .mockup-title-bar {
-    margin-left: 0.6rem; width: 90px; height: 8px;
-    background: var(--rule); border-radius: 4px;
-  }
-  .mockup-body { padding: 1.35rem 1.25rem; }
-  .mockup-row {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--surface);
-  }
-  .mockup-row:last-of-type { border-bottom: none; }
-  .mockup-row-lines { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
-  .mockup-line { height: 9px; border-radius: 4px; background: var(--surface); }
-  .mockup-line.short { height: 7px; background: rgba(107,107,122,0.14); }
-  .mockup-pill {
-    width: 42px; height: 16px; border-radius: 8px; flex-shrink: 0;
-  }
-  .mockup-pill.done { background: rgba(26,102,50,0.18); }
-  .mockup-pill.progress { background: var(--accent-dim); }
-  .mockup-pill.pending { background: rgba(107,107,122,0.16); }
-  .mockup-chart {
-    display: flex; align-items: flex-end; gap: 0.5rem; height: 56px;
-    margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--surface);
-  }
-  .mockup-bar { flex: 1; background: var(--accent); opacity: 0.82; border-radius: 3px 3px 0 0; }
-  .btn-primary {
-    font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
-    background: var(--accent); color: var(--white); border: none;
-    padding: 0.8rem 1.8rem; border-radius: var(--radius);
-    text-decoration: none;
-    transition: opacity 0.18s, transform 0.18s; cursor: pointer;
-  }
-  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-  .btn-whatsapp {
-    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
-    color: var(--ink-soft); text-decoration: none;
-    display: flex; align-items: center; gap: 0.5rem;
-    border: 1.5px solid var(--rule); padding: 0.75rem 1.2rem;
-    border-radius: var(--radius);
-    transition: border-color 0.15s, color 0.15s;
-  }
-  .btn-whatsapp:hover { border-color: #25D366; color: #1A6632; }
-  .btn-secondary {
-    font-size: 0.95rem; color: var(--ink-soft);
-    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
-  }
-  .btn-secondary:hover { color: var(--ink); }
-
-  /* ── DIVIDER ──────────────────────────────────────────────── */
-  .divider { height: 1px; background: var(--rule); margin: 0 clamp(1.5rem,5vw,4rem); }
-
-  /* ── SECTION WRAPPER ──────────────────────────────────────── */
-  section {
-    padding: clamp(3.5rem,8vw,6rem) clamp(1.5rem,5vw,4rem);
-    max-width: 1100px; margin: 0 auto;
-  }
-  .section-label {
-    font-size: 0.72rem; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 0.75rem;
-  }
-  h2 {
-    font-family: var(--font-head);
-    font-size: clamp(1.7rem,3.5vw,2.6rem);
-    font-weight: 800; line-height: 1.15;
-    letter-spacing: -0.015em; margin-bottom: 1rem;
-  }
-  .section-intro {
-    color: var(--ink-soft); font-size: 1.05rem; font-weight: 300;
-    max-width: 520px; margin-bottom: 3rem; line-height: 1.7;
+  @media (max-width: 899px) {
+    .korak { padding-left: 4.25rem; min-height: 48px; }
+    .korak-broj { position: absolute; left: 0; top: -0.35rem; margin: 0; }
+    .koraci::before {
+      content: ''; position: absolute; left: 23px; top: 24px; bottom: 24px;
+      width: 2px; background: var(--rule-strong);
+    }
   }
 
-  /* ── PROBLEMI ─────────────────────────────────────────────── */
-  .problems-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  /* ── PAKETI ──────────────────────────────────────────────────── */
+  .paketi { display: grid; gap: 1.25rem; align-items: stretch; max-width: 36rem; }
+  @media (min-width: 1000px) { .paketi { grid-template-columns: repeat(3, 1fr); max-width: none; } }
+  .paket {
+    background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius-l);
+    padding: 2rem 1.75rem 2.1rem; display: flex; flex-direction: column;
   }
-  @media (min-width: 900px) {
-    .problems-grid { grid-template-columns: repeat(4, 1fr); }
+  .paket-oznaka { font-size: 0.9rem; font-weight: 600; color: var(--accent-ink); margin-bottom: 0.85rem; }
+  .paket-ime { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .paket-cijena {
+    font-family: var(--font-head); font-size: clamp(1.9rem, 2.6vw, 2.3rem);
+    font-weight: 750; letter-spacing: -0.02em; line-height: 1.15;
+    color: var(--ink); white-space: nowrap;
   }
-  .problem-card {
-    background: var(--white);
-    padding: 2rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(26,26,36,0.06), 0 1px 2px rgba(26,26,36,0.04);
-    transition: transform 0.2s, box-shadow 0.2s;
+  .paket-opis { color: var(--ink-soft); margin: 0.55rem 0 1.5rem; }
+  .paket-popis {
+    list-style: none; display: grid; gap: 0.7rem; align-content: start;
+    padding-top: 1.4rem; border-top: 1px solid var(--rule); flex: 1;
   }
-  .problem-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(26,26,36,0.09), 0 2px 6px rgba(26,26,36,0.06);
+  .paket-popis li { display: flex; gap: 0.6rem; font-size: 1rem; line-height: 1.5; }
+  .paket-popis .ikona { margin-top: 0.15rem; }
+  .paket.istaknut {
+    background: var(--night); border-color: var(--night); color: var(--night-soft);
+    box-shadow: 0 22px 48px rgba(42,36,32,0.22);
   }
-  .problem-card::before {
-    content: ''; display: block;
-    width: 32px; height: 3px;
-    background: var(--accent); margin-bottom: 1.25rem;
-  }
-  .problem-card h3 {
-    font-family: var(--font-head); font-size: 1.05rem;
-    font-weight: 600; margin-bottom: 0.6rem; line-height: 1.3;
-  }
-  .problem-card p {
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-  .problem-card .resolve {
-    display: inline-block;
-    margin-top: auto;
-    font-size: 0.82rem; font-weight: 500;
-    color: var(--accent); background: var(--accent-dim);
-    padding: 0.25rem 0.65rem; border-radius: 2px;
-    width: fit-content;
-  }
+  .paket.istaknut .paket-ime, .paket.istaknut .paket-cijena { color: var(--bg); }
+  .paket.istaknut .paket-oznaka, .paket.istaknut .ikona { color: var(--night-accent); }
+  .paket.istaknut .paket-opis { color: var(--night-soft); }
+  .paket.istaknut .paket-popis { border-top-color: rgba(248,246,242,0.14); }
+  .paket.istaknut .paket-popis li { color: #E9E2DA; }
 
-  /* ── KAKO RADIM ───────────────────────────────────────────── */
-  .kako-bg { background: var(--surface); }
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap: 2rem; margin-top: 2.5rem;
-  }
-  .step-num {
-    font-family: var(--font-head); font-size: 3rem;
-    font-weight: 900; color: var(--rule);
-    line-height: 1; margin-bottom: 0.75rem;
-    letter-spacing: -0.03em; user-select: none;
-  }
-  .step h3 {
-    font-family: var(--font-head); font-size: 1.05rem;
-    font-weight: 600; margin-bottom: 0.5rem;
-  }
-  .step p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
+  .paketi-dodatno { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
+  @media (min-width: 900px) { .paketi-dodatno { grid-template-columns: 1fr 1fr; } }
+  .dodatak { background: var(--surface); border-radius: var(--radius-l); padding: 1.6rem 1.75rem 1.7rem; }
+  .dodatak h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .dodatak p { color: var(--ink-soft); font-size: 1rem; }
+  .dodatak .dodatak-cijene { display: flex; flex-wrap: wrap; gap: 0.35rem 1.5rem; margin-top: 0.85rem; color: var(--ink); }
+  .dodatak .btn-secondary { display: inline-block; margin-top: 0.85rem; }
+  .cijene-napomena { margin-top: 1.75rem; font-size: 0.9rem; color: var(--ink-soft); max-width: 46rem; }
 
-  /* ── PAKETI ───────────────────────────────────────────────── */
-  .paketi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap: 1.75rem;
+  /* ── GOTOVE APLIKACIJE ───────────────────────────────────────── */
+  .sidro-blok {
+    display: grid; gap: clamp(1.75rem, 4vw, 3.5rem); align-items: center;
+    background: var(--white); border-radius: var(--radius-xl);
+    padding: clamp(1rem, 2.5vw, 1.75rem); box-shadow: var(--shadow-2);
   }
-  .paket-card {
-    background: var(--white); padding: 2rem 2rem 2.25rem;
-    display: flex; flex-direction: column; gap: 0;
-    position: relative;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(26,26,36,0.06), 0 1px 2px rgba(26,26,36,0.04);
-    transition: transform 0.2s, box-shadow 0.2s;
+  @media (min-width: 960px) {
+    .sidro-blok { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); padding: 1.75rem 3rem 1.75rem 1.75rem; }
   }
-  .paket-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(26,26,36,0.09), 0 2px 6px rgba(26,26,36,0.06);
+  .sidro-blok .pozornica { aspect-ratio: 4 / 3; border-radius: var(--radius-l); }
+  .sidro-blok .pozornica .prozor { left: 8%; top: 12%; width: 150%; }
+  .sidro-tekst { padding: 0.5rem 0.75rem 1rem; }
+  .sidro-tekst h3 { font-size: clamp(1.55rem, 2.4vw, 1.95rem); font-weight: 700; letter-spacing: -0.015em; margin-bottom: 0.9rem; }
+  .sidro-tekst p { color: var(--ink-soft); margin-bottom: 1rem; }
+  .sidro-tekst .btn-primary { margin-top: 0.5rem; }
+  .u-pripremi { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
+  @media (min-width: 760px) { .u-pripremi { grid-template-columns: 1fr 1fr; } }
+  .aplikacija { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius-l); padding: 1.75rem 1.75rem 1.85rem; }
+  .status {
+    display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--ink-soft);
+    background: var(--surface); padding: 0.2rem 0.7rem; border-radius: 999px; margin-bottom: 0.9rem;
   }
-  .paket-card.featured {
-    background: var(--ink); color: var(--white);
-    border: 1.5px solid var(--accent);
-    box-shadow: 0 12px 28px rgba(212,82,10,0.18), 0 4px 10px rgba(26,26,36,0.12);
-    z-index: 1;
-  }
-  @media (min-width: 900px) {
-    .paket-card.featured { transform: scale(1.02); }
-    .paket-card.featured:hover { transform: scale(1.02) translateY(-2px); }
-  }
-  .paket-badge {
-    display: inline-block; font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--accent); background: var(--accent-dim);
-    padding: 0.2rem 0.6rem; border-radius: 2px;
-    margin-bottom: 1.25rem; width: fit-content;
-  }
-  .paket-card.featured .paket-badge { color: #FFB347; background: rgba(255,179,71,0.15); }
-  .paket-name {
-    font-family: var(--font-head); font-size: 1.4rem;
-    font-weight: 900; letter-spacing: 0.04em;
-    margin-bottom: 0.3rem; color: inherit;
-  }
-  .paket-price {
-    font-family: var(--font-head); font-size: 2.1rem;
-    font-weight: 900; line-height: 1.1;
-    color: var(--accent); margin-bottom: 0.5rem;
-  }
-  .paket-card.featured .paket-price { color: #FFB347; }
-  .paket-desc { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.5rem; line-height: 1.4; }
-  .paket-card.featured .paket-desc { color: rgba(255,255,255,0.55); }
-  .paket-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-top: auto; }
-  .paket-list li { font-size: 0.9rem; color: var(--ink-soft); padding-left: 1.2rem; position: relative; }
-  .paket-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-  .paket-card.featured .paket-list li { color: rgba(255,255,255,0.7); }
-  .paket-card.featured .paket-list li::before { color: #FFB347; }
+  .aplikacija h3 { margin-bottom: 0.45rem; }
+  .aplikacija p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 1rem; }
 
-  .sla-strip {
-    display: flex; gap: 1.5rem; margin-top: 1.5rem;
-    padding: 1.25rem 1.5rem;
-    background: var(--surface); border-radius: 4px;
-    flex-wrap: wrap; align-items: center;
-  }
-  .sla-strip p { font-size: 0.9rem; color: var(--ink-soft); flex: 1; min-width: 200px; }
-  .sla-strip strong { color: var(--ink); }
-  .sla-pills { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .sla-pill {
-    font-size: 0.82rem; font-weight: 500;
-    background: var(--white); border: 1.5px solid var(--rule);
-    padding: 0.3rem 0.85rem; border-radius: 2px;
-    color: var(--ink-soft); white-space: nowrap;
-  }
+  /* ── O MENI ──────────────────────────────────────────────────── */
+  .omeni { display: grid; gap: clamp(2rem, 5vw, 5rem); }
+  @media (min-width: 900px) { .omeni { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); } }
+  .omeni-uloga { color: var(--ink-soft); font-size: 1.1rem; }
+  .omeni-cinjenice { list-style: none; margin-top: 2.25rem; display: grid; gap: 1.25rem; }
+  .omeni-cinjenice li { padding-left: 1.1rem; border-left: 2px solid var(--accent); }
+  .omeni-cinjenice strong { display: block; font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--ink); line-height: 1.25; }
+  .omeni-cinjenice span { color: var(--ink-soft); font-size: 0.98rem; }
+  .omeni-tekst p { margin-bottom: 1.2rem; max-width: 38rem; }
+  .omeni-tekst p:first-child { font-size: clamp(1.15rem, 1rem + 0.4vw, 1.3rem); line-height: 1.55; }
 
-  /* ── CALLOUT (reusable: "brza rješenja" i "OPG najava") ──────── */
-  .brza-inner {
-    display: flex; gap: 2.5rem; align-items: flex-start;
-    padding: 2rem 2.25rem;
-    background: var(--white);
-    border: 1.5px solid var(--rule); border-radius: 6px;
-    border-left: 4px solid var(--accent);
+  /* ── KONTAKT ─────────────────────────────────────────────────── */
+  .kontakt { display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); }
+  @media (min-width: 960px) { .kontakt { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
+  .pojas.vecer .section-intro { color: var(--night-soft); margin-bottom: 1.5rem; }
+  .kontakt-napomena { font-size: 0.95rem; color: var(--night-muted); max-width: 30rem; }
+  .kanali { list-style: none; display: grid; gap: 0.75rem; }
+  .kanal {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.05rem 1.25rem; border-radius: var(--radius-l);
+    background: rgba(248,246,242,0.05); border: 1px solid rgba(248,246,242,0.12);
+    color: var(--bg); text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
   }
-  .brza-icon { font-size: 2rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .brza-inner h3 { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .brza-inner p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.65; margin-bottom: 1rem; max-width: 540px; }
-  @media (max-width: 520px) { .brza-inner { flex-direction: column; gap: 1rem; } }
-
-  /* Suptilna varijanta callouta - manje uočljivo od accent border-lefta,
-     namjerno tiša vizualna težina za ranu, neimenovanu najavu (OPG). */
-  .callout-subtle {
-    border-left-color: var(--ink-soft);
+  a.kanal:hover { background: rgba(248,246,242,0.09); border-color: rgba(240,138,75,0.55); color: var(--bg); }
+  .kanal-ikona {
+    width: 44px; height: 44px; border-radius: 50%; flex: none;
+    display: grid; place-items: center;
+    background: rgba(240,138,75,0.14); color: var(--night-accent);
   }
-  .callout-subtle .brza-icon { opacity: 0.75; }
-
-  /* ── O MENI ───────────────────────────────────────────────── */
-  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  @media (max-width: 680px) { .about-inner { grid-template-columns: 1fr; gap: 2rem; } }
-  .about-stat-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
-  .about-stat-list li { display: flex; flex-direction: column; border-left: 2px solid var(--accent); padding-left: 1rem; }
-  .about-stat-list .num { font-family: var(--font-head); font-size: 2rem; font-weight: 900; line-height: 1.1; color: var(--ink); }
-  .about-stat-list .label { font-size: 0.85rem; color: var(--ink-soft); }
-  .about-text p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 1rem; line-height: 1.7; }
-  .about-text p strong { color: var(--ink); font-weight: 500; }
-
-  /* ── KONTAKT ──────────────────────────────────────────────── */
-  .kontakt-bg { background: var(--ink); }
-  .kontakt-bg .section-label { color: #E07040; }
-  .kontakt-bg h2 { color: var(--white); }
-  .kontakt-bg .section-intro { color: rgba(255,255,255,0.5); }
-  .kontakt-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 2rem; align-items: start; margin-top: 2.5rem;
-  }
-  .contact-item { display: flex; flex-direction: column; gap: 0.25rem; }
-  .contact-item .cl {
-    font-size: 0.78rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: rgba(255,255,255,0.35); font-weight: 500;
-  }
-  .contact-item a {
-    font-family: var(--font-head); font-size: 1.1rem;
-    font-weight: 600; color: var(--white);
-    text-decoration: none; transition: color 0.15s;
-  }
-  .contact-item a:hover { color: #E07040; }
-  .contact-item .sub { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 0.1rem; }
-  .kontakt-note {
-    font-size: 0.88rem; color: rgba(255,255,255,0.4);
-    margin-top: 2.5rem; padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    max-width: 500px;
-  }
-
-  /* ── FOOTER ───────────────────────────────────────────────── */
-  footer {
-    background: #121218;
-    padding: 2rem clamp(1.5rem, 5vw, 4rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    text-align: center;
-  }
-  .footer-logo {
-    font-family: var(--font-head);
-    font-weight: 900;
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.25);
-  }
-  .footer-logo span {
-    color: var(--accent);
-    opacity: 0.7;
-  }
-  .footer-copy {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.4);
-    max-width: 800px;
-    line-height: 1.6;
-  }
-  .footer-copy a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: underline;
-  }
-  .b2b-disclaimer {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.25);
-    line-height: 1.5;
-    max-width: 650px;
-    margin-top: 0.2rem;
-  }
-  .pricing-note {
-    font-size: 0.82rem;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    font-style: italic;
-    text-align: center;
-    max-width: 700px;
-    margin: 1.75rem auto 0;
-    border: 1px dashed var(--rule);
-    padding: 0.6rem 1rem;
-    background: var(--bg-subtle, rgba(0,0,0,0.02));
-    border-radius: var(--radius, 4px);
-  }
-
-  /* ── DEVICE MOCKUP (Smjena screenshot) ───────────────────────
-     Namjerno čist CSS okvir, ne pokušaj fotorealizma - stvaran
-     screenshot unutar minimalističkog "monitora", u skladu s ravnim,
-     geometrijskim jezikom ostatka stranice. ── */
-  .device-mockup { max-width: 480px; margin: 0 auto; }
-  .device-screen {
-    background: var(--ink);
-    border-radius: 10px;
-    padding: 9px;
-    box-shadow: 0 24px 55px rgba(26,26,36,0.15), 0 8px 20px rgba(26,26,36,0.07);
-  }
-  .device-screen img {
-    display: block; width: 100%; height: auto;
-    border-radius: 4px;
-  }
-  .device-stand {
-    width: 70px; height: 16px; background: var(--ink);
-    margin: 0 auto; border-radius: 0 0 5px 5px;
-  }
-  .device-base {
-    width: 140px; height: 7px; background: var(--ink);
-    opacity: 0.35; margin: 3px auto 0; border-radius: 4px;
-  }
-
-  /* ── UTILITY ──────────────────────────────────────────────── */
-  .full-bleed { max-width: 100%; }
-  @media (max-width: 480px) { h1 { font-size: 2.1rem; } }
+  .kanal-ikona svg { width: 20px; height: 20px; }
+  .kanal-vrsta { display: block; font-size: 0.86rem; color: var(--night-soft); line-height: 1.4; }
+  .kanal-vrijednost { display: block; font-family: var(--font-head); font-size: 1.15rem; font-weight: 600; color: var(--bg); line-height: 1.35; }
+  .kanal-sitno { display: block; font-size: 0.86rem; color: var(--night-muted); line-height: 1.4; }
 </style>
 </head>
 <body>
+<a class="preskoci" href="#sadrzaj">Preskoči na sadržaj</a>
 
-<!-- NAV -->
-<nav>
-  <a class="logo" href="#">MAJSTOR<span>AJ</span></a>
+<nav aria-label="Glavna navigacija">
+  <a class="logo" href="/" aria-label="MAJSTORAJ, naslovnica">MAJSTOR<span>AJ</span></a>
   <div class="nav-links">
-    <a href="#paketi">Paketi</a>
-    <a href="#kako">Proces</a>
+    <a href="#paketi">Cijene</a>
+    <a href="#kako">Kako radim</a>
     <a href="/stranice/sidro.html">Sidro</a>
     <a href="/stranice/smjena.html">Smjena</a>
     <a href="#omeni">O meni</a>
-    <a class="nav-cta" href="#kontakt">Razgovor besplatno</a>
+    <a class="nav-cta" href="#kontakt">Javite se</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div style="max-width:1100px; margin:0 auto;">
-  <div class="hero hero-grid">
-    <div>
-      <span class="hero-eyebrow">Rijeka &amp; Kvarner · Custom softver</span>
-      <h1>Vaši procesi.<br>Naše <em>rješenje.</em></h1>
-      <p class="hero-sub">
-        Razvijam desktop aplikacije koje digitaliziraju operativno poslovanje malih i
-        srednjih tvrtki — bez cloud pretplate, bez IT odjela, bez ovisnosti o internetu.
-      </p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#kontakt">Razgovarajmo besplatno</a>
-        <a class="btn-whatsapp" href="https://wa.me/385919546490" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
-        </a>
-        <a class="btn-secondary" href="#kako">Kako to izgleda →</a>
-      </div>
-    </div>
+<main id="sadrzaj">
 
-    <!-- CSS maketa sučelja - generička (praćenje naloga), bez izmišljenog brenda -->
-    <div class="app-mockup" aria-hidden="true">
-      <div class="mockup-window">
-        <div class="mockup-titlebar">
-          <span class="mockup-dot red"></span>
-          <span class="mockup-dot yellow"></span>
-          <span class="mockup-dot green"></span>
-          <span class="mockup-title-bar"></span>
-        </div>
-        <div class="mockup-body">
-          <div class="mockup-row">
-            <div class="mockup-row-lines">
-              <div class="mockup-line" style="width: 65%;"></div>
-              <div class="mockup-line short" style="width: 40%;"></div>
-            </div>
-            <span class="mockup-pill done"></span>
-          </div>
-          <div class="mockup-row">
-            <div class="mockup-row-lines">
-              <div class="mockup-line" style="width: 55%;"></div>
-              <div class="mockup-line short" style="width: 35%;"></div>
-            </div>
-            <span class="mockup-pill progress"></span>
-          </div>
-          <div class="mockup-row">
-            <div class="mockup-row-lines">
-              <div class="mockup-line" style="width: 70%;"></div>
-              <div class="mockup-line short" style="width: 30%;"></div>
-            </div>
-            <span class="mockup-pill pending"></span>
-          </div>
-          <div class="mockup-chart" aria-hidden="true">
-            <div class="mockup-bar" style="height: 45%;"></div>
-            <div class="mockup-bar" style="height: 70%;"></div>
-            <div class="mockup-bar" style="height: 55%;"></div>
-            <div class="mockup-bar" style="height: 85%;"></div>
-            <div class="mockup-bar" style="height: 65%;"></div>
-            <div class="mockup-bar" style="height: 92%;"></div>
-          </div>
-        </div>
-      </div>
+<!-- UVOD -->
+<header class="omot uvod">
+  <div>
+    <h1>Softver po mjeri vašeg posla.</h1>
+    <p class="uvod-lead">
+      Ja sam <strong>Goran Vidas</strong>, programer iz Rijeke. Izrađujem desktop aplikacije
+      za male i srednje tvrtke i obrte — bez pretplate, bez IT odjela i bez ovisnosti
+      o internetu.
+    </p>
+    <div class="uvod-gumbi">
+      <a class="btn-primary" href="#kontakt">Dogovorimo razgovor</a>
+      <a class="btn-whatsapp" href="https://wa.me/385919546490" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
     </div>
+    <ul class="cinjenice">
+      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dolazim k vama, u Rijeci i na Kvarneru</li>
+      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prvi razgovor na kavi je besplatan</li>
+      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fiksna cijena u pisanoj ponudi</li>
+    </ul>
   </div>
-</div>
-<div class="divider"></div>
+
+  <figure class="uvod-slika">
+    <a class="pozornica" href="/stranice/sidro.html" aria-label="Sidro, aplikacija za cjenike: više o aplikaciji">
+      <span class="prozor"><img src="/stranice/slike/sidro-artikli.webp" width="1353" height="812" decoding="async" fetchpriority="high"
+           alt="Sidro, stranica Artikli: popis proizvoda i usluga s primjerom podataka"></span>
+    </a>
+    <figcaption>Primjer mog rada: <a href="/stranice/sidro.html">Sidro</a>, aplikacija za cjenike i bazne cijene.</figcaption>
+  </figure>
+</header>
 
 <!-- PROBLEMI -->
 <section id="problemi">
-  <p class="section-label">Prepoznajete li se?</p>
-  <h2>Problemi koje rješavamo</h2>
+  <h2>Problemi koje rješavam</h2>
   <p class="section-intro">
-    Nije pitanje hoće li se problem pojaviti — pitanje je koliko dugo ćete tolerirati gubitak vremena i novca.
+    Ako vam je nešto od ovoga poznato, vjerojatno se može riješiti jednostavnije nego što mislite.
   </p>
-  <div class="problems-grid">
-    <div class="problem-card">
+  <div class="problemi">
+    <article class="problem">
       <h3>Radni nalozi na papiru ili u Excelu</h3>
       <p>Ručno prepisivanje, duple verzije, izgubljeni listovi — nitko ne zna tko što radi u ovom trenutku.</p>
-      <span class="resolve">→ Digitalni nalog, odmah vidljiv svima</span>
-    </div>
-    <div class="problem-card">
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Digitalni nalog, odmah vidljiv svima</p>
+    </article>
+    <article class="problem">
       <h3>Terenske ekipe bez uvida u ured</h3>
       <p>Dispečer zove mobitelom, majstor ne zna adresu, šef ne zna status. Koordinacija troši pola radnog dana.</p>
-      <span class="resolve">→ Dodjela, status i pregled — jednim klikom</span>
-    </div>
-    <div class="problem-card">
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dodjela, status i pregled jednim klikom</p>
+    </article>
+    <article class="problem">
       <h3>Izvještaji koji se rade sat vremena</h3>
       <p>Copy-paste iz tablice u tablicu, ručno računanje sati, klijent čeka tjedan dana na fakturu.</p>
-      <span class="resolve">→ PDF izvještaj generira se automatski</span>
-    </div>
-    <div class="problem-card">
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF izvještaj nastaje automatski</p>
+    </article>
+    <article class="problem">
       <h3>Skupi SaaS koji ne odgovara vašem procesu</h3>
       <p>Platite pretplatu, utrošite tjedne na implementaciju, pa radite kao i prije — samo s novim problemima.</p>
-      <span class="resolve">→ Softver po mjeri, jednom, bez pretplate</span>
-    </div>
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Softver po mjeri, plaćen jednom, bez pretplate</p>
+    </article>
   </div>
 </section>
-<div class="divider"></div>
 
 <!-- KAKO RADIM -->
-<section id="kako" class="full-bleed kako-bg" style="max-width:100%; background:var(--surface);">
-  <div style="max-width:1100px; margin:0 auto; padding:0 clamp(1.5rem,5vw,4rem);">
-    <p class="section-label">Proces</p>
-    <h2>Od razgovora do softvera<br>za 3–4 tjedna</h2>
+<section id="kako" class="pojas pijesak">
+  <div class="omot">
+    <h2>Od razgovora do softvera za 3–4 tjedna</h2>
     <p class="section-intro">Nema dugih specifikacija, nema iznenađenja na kraju, nema skrivenih troškova.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
+    <ol class="koraci">
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">1</span>
         <h3>Razgovor na kavi</h3>
         <p>Dolazim k vama. Slušam. Procjenjujem stanje bez tehničkog žargona. Bez obveze, bez naplate.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
+      </li>
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">2</span>
         <h3>Ponuda s fiksnom cijenom</h3>
-        <p>Dobivate preciznu ponudu — što ću napraviti, za koliko, i što se točno isporučuje. Bez iznenađenja.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
+        <p>Dobivate preciznu ponudu — što ću napraviti, za koliko i što se točno isporučuje.</p>
+      </li>
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">3</span>
         <h3>Razvoj i predaja</h3>
-        <p>Razvijam lokalno, testiram s vama, instaliram na vaša računala. Obuka uključena u cijenu.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
+        <p>Razvijam lokalno, testiram s vama, instaliram na vaša računala. Obuka je uključena u cijenu.</p>
+      </li>
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">4</span>
         <h3>Podrška na dugi rok</h3>
-        <p>Opcionalan mjesečni ugovor za podršku — odziv do 24h, popravci, dorade i mir na duže staze.</p>
-      </div>
-    </div>
+        <p>Po želji mjesečni ugovor za podršku: odziv do 24 sata, popravci, dorade i mir na duže staze.</p>
+      </li>
+    </ol>
   </div>
 </section>
-<div class="divider"></div>
 
 <!-- PAKETI -->
 <section id="paketi">
-  <p class="section-label">Transparentne cijene</p>
-  <h2>Fiksna cijena.<br>Nema iznenađenja.</h2>
+  <h2>Fiksna cijena, bez iznenađenja</h2>
   <p class="section-intro">
-    Svaki projekt dobiva pisanu ponudu s točnom cijenom i rokom isporuke —
-    prije nego što potpišemo išta.
+    Svaki projekt dobiva pisanu ponudu s točnom cijenom i rokom isporuke, prije nego što
+    potpišemo išta.
   </p>
 
-  <div class="paketi-grid">
-    <!-- START -->
-    <div class="paket-card">
-      <div class="paket-badge">Brz start</div>
-      <div class="paket-name">START</div>
-      <div class="paket-price">1.500 €</div>
-      <div class="paket-desc">Rješavamo jedan konkretan problem</div>
-      <ul class="paket-list">
-        <li>Automatizacija ponavljajućih zadataka</li>
-        <li>Povezivanje dva sustava koja trenutno nisu povezana</li>
-        <li>Mini-aplikacija ili skripta po mjeri</li>
-        <li>Isporuka za 5–10 radnih dana</li>
+  <div class="paketi">
+    <article class="paket">
+      <p class="paket-oznaka">Brz start</p>
+      <h3 class="paket-ime">Start</h3>
+      <p class="paket-cijena">1.500 €</p>
+      <p class="paket-opis">Rješavamo jedan konkretan problem.</p>
+      <ul class="paket-popis">
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatizacija ponavljajućih zadataka</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Povezivanje dva sustava koja trenutno nisu povezana</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mini-aplikacija ili skripta po mjeri</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Isporuka za 5–10 radnih dana</li>
       </ul>
+    </article>
+    <article class="paket istaknut">
+      <p class="paket-oznaka">Najpopularnije</p>
+      <h3 class="paket-ime">Pro</h3>
+      <p class="paket-cijena">3.500–4.500 €</p>
+      <p class="paket-opis">Vaša vlastita aplikacija, bez pretplate.</p>
+      <ul class="paket-popis">
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Desktop aplikacija krojena točno prema vašim procesima</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Radi lokalno: nema clouda, ne treba internet</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Pratite naloge, materijal, troškove i sate</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF izvještaji jednim klikom</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Instalacija na vaša računala i obuka</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Isporuka za 3–4 tjedna</li>
+      </ul>
+    </article>
+    <article class="paket">
+      <p class="paket-oznaka">Više odjela</p>
+      <h3 class="paket-ime">Enterprise</h3>
+      <p class="paket-cijena">Od 6.000 €</p>
+      <p class="paket-opis">Kompletan digitalni sustav za cijelu tvrtku.</p>
+      <ul class="paket-popis">
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Arhitektura cijelog sustava od temelja</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Integracija više aplikacija i odjela</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatski protok podataka kroz tvrtku</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cijena se utvrđuje nakon tehničke specifikacije</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="paketi-dodatno">
+    <div class="dodatak">
+      <h3>Održavanje i podrška</h3>
+      <p>Nakon isporuke brinem o softveru uz fiksni mjesečni paušal: odziv, popravci, backup i mir.</p>
+      <p class="dodatak-cijene"><span>Osnovna podrška <strong>250 €/mj.</strong></span><span>Napredna podrška <strong>450 €/mj.</strong></span></p>
     </div>
-    <!-- PRO -->
-    <div class="paket-card featured">
-      <div class="paket-badge">Najpopularnije</div>
-      <div class="paket-name">PRO</div>
-      <div class="paket-price">3.500 – 4.500 €</div>
-      <div class="paket-desc">Vaša vlastita aplikacija, bez pretplate</div>
-      <ul class="paket-list">
-        <li>Desktop aplikacija krojena točno prema vašim procesima</li>
-        <li>Radi lokalno — nema clouda, nema interneta</li>
-        <li>Pratite naloge, materijal, troškove i sate</li>
-        <li>PDF izvještaji jednim klikom</li>
-        <li>Instalacija na vaša računala i obuka</li>
-        <li>Isporuka za 3–4 tjedna</li>
-      </ul>
-    </div>
-    <!-- ENTERPRISE -->
-    <div class="paket-card">
-      <div class="paket-badge">Više odjela</div>
-      <div class="paket-name">ENTERPRISE</div>
-      <div class="paket-price">Od 6.000 €</div>
-      <div class="paket-desc">Kompletan digitalni sustav za cijelu tvrtku</div>
-      <ul class="paket-list">
-        <li>Arhitektura cijelog sustava od temelja</li>
-        <li>Integracija više aplikacija i odjela</li>
-        <li>Automatski protok podataka kroz tvrtku</li>
-        <li>Cijena se utvrđuje nakon tehničke specifikacije</li>
-      </ul>
+    <div class="dodatak">
+      <h3>Trebate nešto brže i jednostavnije?</h3>
+      <p>Za male obrte i uslužne djelatnosti: automatizacija rezervacija, jednostavna web stranica
+        ili mali alat po mjeri. Od <strong>300 €</strong>, isporuka u tjedan dana.</p>
+      <a class="btn-secondary" href="#kontakt">Pitajte me</a>
     </div>
   </div>
 
-  <!-- SLA strip -->
-  <div class="sla-strip">
-    <p><strong>+ Održavanje i podrška:</strong> Nakon isporuke, brinem o softveru uz fiksni mjesečni paušal — odziv, popravci, backup i mir.</p>
-    <div class="sla-pills">
-      <span class="sla-pill">Osnovna podrška · 250 €/mj.</span>
-      <span class="sla-pill">Napredna podrška · 450 €/mj.</span>
-    </div>
-  </div>
+  <p class="cijene-napomena">Sve navedene cijene su informativne i odnose se na B2B suradnju. Točna cijena utvrđuje se pisanom ponudom nakon definiranja specifikacije.</p>
+</section>
 
-  <!-- Brza rješenja callout -->
-  <div style="margin-top: 1.5rem;">
-    <div class="brza-inner">
-      <div class="brza-icon">⚡</div>
-      <div>
-        <p class="section-label" style="margin-bottom:0.4rem;">Za male obrte i uslužne djelatnosti</p>
-        <h3>Trebate nešto brže i jednostavnije?</h3>
+<!-- GOTOVE APLIKACIJE: Sidro (primjena od 17.11.2026., tekst neutralan prema Odlukama NN 101/2026 i pravilnicima po ZZP-u), Smjena i Gajba u pripremi -->
+<section id="aplikacije" class="pojas pijesak">
+  <div class="omot">
+    <h2>Gotove aplikacije</h2>
+    <p class="section-intro">Neke probleme ima puno tvrtki odjednom. Za njih radim gotove aplikacije koje samo instalirate.</p>
+
+    <article class="sidro-blok" id="sidro-proizvod">
+      <figure class="sidro-slika">
+        <a class="pozornica" href="/stranice/sidro.html#izgled" aria-label="Sidro: pogledajte kako izgleda">
+          <span class="prozor"><img src="/stranice/slike/sidro-povijest.webp" width="1442" height="812" loading="lazy" decoding="async"
+               alt="Sidro, stranica Povijest cijena: cijene po artiklu i povijest promjena za odabrani artikl"></span>
+        </a>
+      </figure>
+      <div class="sidro-tekst">
+        <p class="section-label">Nova obveza od 17. studenoga 2026.</p>
+        <h3>Sidro: cjenik s baznim (sidrenim) cijenama</h3>
         <p>
-          Automatizacija rezervacija, jednostavna web stranica, mali alat po mjeri —
-          brzo, jednostavnije rješenje za mikro-obrte koji nemaju vremena ni budžeta
-          za dugotrajne projekte. Od <strong>300 €</strong>, isporuka u tjedan dana.
-          (Glavna ponuda i dalje su custom desktop aplikacije bez clouda — vidi PRO paket.)
+          Od 17. studenoga 2026. uz cijenu se ističe bazna (sidrena) cijena, a cjenik se
+          objavljuje na web stranici. Sidro vodi povijest cijena koja se ne može naknadno
+          mijenjati i izrađuje cjenik za prodajno mjesto (PDF) te CSV i XML datoteke za web.
+          Podaci ostaju na vašem računalu.
         </p>
-        <a class="btn-secondary" href="#kontakt">Pitajte me →</a>
-      </div>
-    </div>
-  </div>
-
-  <p class="pricing-note">Sve navedene cijene su informativne i odnose se na B2B suradnju. Točna cijena utvrđuje se pisanom ponudom nakon definiranja specifikacije.</p>
-</section>
-<div class="divider"></div>
-
-<!-- SIDRO - gotova aplikacija za cjenike i bazne (sidrene) cijene, primjena od 17.11.2026. (tekst neutralan: Odluke NN 101/2026 / pravilnici po ZZP-u, 16.10.2026.) -->
-<section id="sidro-proizvod">
-  <p class="section-label">Nova obveza od 17. studenoga 2026.</p>
-  <h2>Cjenik s baznim (sidrenim) cijenama,<br>bez Excela i bez pretplate</h2>
-  <p class="section-intro">
-    Od 17. studenoga 2026. uz cijenu se ističe bazna (sidrena) cijena, a cjenik se
-    objavljuje na web stranici. Prema najavi Ministarstva gospodarstva obveze tada
-    preuzimaju pravilnici po Zakonu o zaštiti potrošača (nacrti su u savjetovanju
-    do 13. studenoga). Sidro je gotova aplikacija koja taj posao vodi umjesto vas.
-  </p>
-
-  <div style="display:grid; grid-template-columns:1fr; gap:2.5rem; align-items:center;">
-    <a class="device-mockup" href="/stranice/sidro.html#izgled" style="display:block;">
-      <div class="device-screen">
-        <img src="/stranice/slike/sidro-artikli.webp" width="1353" height="812" loading="lazy" decoding="async"
-             alt="Sidro, stranica Artikli: popis proizvoda i usluga s primjerom podataka">
-      </div>
-      <div class="device-stand"></div>
-      <div class="device-base"></div>
-    </a>
-
-    <div style="background:var(--white); border:1.5px solid var(--rule); border-radius:6px;
-                padding:2rem 2.25rem; display:flex; gap:2rem; align-items:center;
-                flex-wrap:wrap; justify-content:space-between;">
-      <div style="flex:1; min-width:260px;">
-        <div style="font-family:var(--font-head); font-weight:900; font-size:1.3rem;
-                    margin-bottom:0.4rem;">Sidro</div>
-        <p style="font-size:0.92rem; color:var(--ink-soft); line-height:1.6; margin-bottom:0;">
-          Vodi povijest cijena koja se ne može naknadno mijenjati, izrađuje cjenik za
-          prodajno mjesto (PDF) i CSV/XML datoteke za objavu na webu. Podaci ostaju na
-          vašem računalu. Besplatna verzija (do 10 artikala) već se može preuzeti, a
-          trajna licenca plaća se jednom.
+        <p>
+          Besplatna verzija (do 10 artikala) već se može preuzeti, a trajna licenca plaća se
+          jednom. Imate puno artikala u blagajni ili web shopu? Prenesem ih u Sidro i postavim
+          slanje cjenika na vaš web, po dogovoru.
         </p>
-        <p style="font-size:0.92rem; color:var(--ink-soft); line-height:1.6; margin:0.6rem 0 0;">
-          Imate puno artikala u blagajni ili web shopu? Prenesem ih u Sidro i postavim
-          slanje cjenika na vaš web, po dogovoru. Do 17. studenoga prvih 15 minuta
-          pomoći je besplatno.
-        </p>
+        <a class="btn-primary" href="/stranice/sidro.html">Više o Sidru i preuzimanje</a>
       </div>
-      <a class="btn-primary" href="/stranice/sidro.html" style="flex-shrink:0;">
-        Više o Sidru i preuzimanje →
-      </a>
+    </article>
+
+    <div class="u-pripremi">
+      <article class="aplikacija" id="smjena-proizvod">
+        <p class="status">U završnoj fazi razvoja</p>
+        <h3>Smjena</h3>
+        <p>Automatski raspored smjena za ugostiteljstvo i male obrte. Provjerava zakonski odmor,
+          radi bez interneta i bez pretplate.</p>
+        <a class="btn-secondary" href="/stranice/smjena.html">Prijavite interes</a>
+      </article>
+      <article class="aplikacija" id="opg-najava">
+        <p class="status">U pripremi</p>
+        <h3>Gajba, za OPG-ove</h3>
+        <p>Narudžbe i dostava za OPG-ove koji dostavljaju domaće proizvode po Rijeci i Kvarneru.
+          Jedina moja aplikacija koja svjesno radi na internetu (poslužitelj u Hrvatskoj), jer
+          narudžba mora stići vlasniku dok je na terenu.</p>
+        <a class="btn-secondary" href="#kontakt">Vodite OPG? Javite se</a>
+      </article>
     </div>
   </div>
 </section>
-<div class="divider"></div>
-
-<!-- SMJENA - proizvod u razvoju, lansiranje jesen 2026 (odvojeno od custom Paketi ponude) -->
-<section id="smjena-proizvod">
-  <p class="section-label">Lansiranje jesen 2026</p>
-  <h2>Ne treba vam uvijek custom rješenje</h2>
-  <p class="section-intro">
-    Za raspored radnih smjena razvijam gotovu aplikaciju — u završnoj fazi
-    razvoja, lansiranje na jesen.
-  </p>
-
-  <div style="display:grid; grid-template-columns:1fr; gap:2.5rem; align-items:center;">
-    <div class="device-mockup" aria-hidden="true">
-      <div class="device-screen">
-        <img src="/smjena-screenshot.png" alt="" loading="lazy">
-      </div>
-      <div class="device-stand"></div>
-      <div class="device-base"></div>
-    </div>
-
-    <div style="background:var(--white); border:1.5px solid var(--rule); border-radius:6px;
-                padding:2rem 2.25rem; display:flex; gap:2rem; align-items:center;
-                flex-wrap:wrap; justify-content:space-between;">
-      <div style="flex:1; min-width:260px;">
-        <div style="font-family:var(--font-head); font-weight:900; font-size:1.3rem;
-                    margin-bottom:0.4rem;">Smjena 2026</div>
-        <p style="font-size:0.92rem; color:var(--ink-soft); line-height:1.6; margin-bottom:0;">
-          Automatski raspored smjena za ugostiteljstvo i male obrte — provjerava
-          zakonski odmor, radi 100% offline, bez pretplate. Prijave za predbilježbu otvorene.
-        </p>
-      </div>
-      <a class="btn-primary" href="/stranice/smjena.html" style="flex-shrink:0;">
-        Prijavite interes →
-      </a>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
-
-<!-- OPG NAJAVA - suptilan, tih callout (NE puna sekcija kao Smjena):
-     - Bez konkretnog naziva proizvoda (nije još odlučeno)
-     - Bez datuma lansiranja, bez cijene
-     - Kratko objašnjava zašto je ovo iznimka od "bez interneta" poruke
-       ostatka stranice, umjesto da se šutke kosi s njom
-     - CTA vodi na postojeći #kontakt, ne na novu podstranicu (svjesno
-       minimalan zahvat dok Faza 1 direktnog outreacha nije završena) -->
-<section id="opg-najava" style="padding-top: clamp(2rem,4vw,3rem); padding-bottom: clamp(2rem,4vw,3rem);">
-  <div class="brza-inner callout-subtle">
-    <div class="brza-icon">🌱</div>
-    <div>
-      <p class="section-label" style="margin-bottom:0.4rem; color: var(--ink-soft);">U pripremi</p>
-      <h3>Gajba — nešto slično radim i za male poljoprivrednike (OPG)</h3>
-      <p>
-        Za OPG-ove koji dostavljaju domaće proizvode po Rijeci i Kvarneru priprema se
-        <strong>Gajba</strong> — poseban alat za narudžbe i logistiku dostave, jedini u mojoj
-        ponudi koji svjesno radi na internetu (poslužitelj u Hrvatskoj), jer narudžba mora
-        stići vlasniku dok je na terenu, ne tek kad se vrati za računalo.
-      </p>
-      <a class="btn-secondary" href="#kontakt">Vodite OPG i muči vas isto? Javite se →</a>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
 
 <!-- O MENI -->
 <section id="omeni">
-  <div class="about-inner">
+  <div class="omeni">
     <div>
-      <p class="section-label">O meni</p>
       <h2>Goran Vidas</h2>
-      <ul class="about-stat-list">
-        <li>
-          <span class="num">25+</span>
-          <span class="label">godina programerskog iskustva</span>
-        </li>
-        <li>
-          <span class="num">Python · PySide6 · SQLite</span>
-          <span class="label">lokalni stack bez cloud ovisnosti</span>
-        </li>
-        <li>
-          <span class="num">Rijeka</span>
-          <span class="label">lokalni partner, ne anonimna agencija</span>
-        </li>
+      <p class="omeni-uloga">Programer i vlasnik obrta MAJSTORAJ, Rijeka</p>
+      <ul class="omeni-cinjenice">
+        <li><strong>25+ godina</strong><span>programerskog iskustva</span></li>
+        <li><strong>Lokalno, bez clouda</strong><span>Python, PySide6 i SQLite na vašim računalima</span></li>
+        <li><strong>Moj obrt, ne agencija</strong><span>uvijek razgovarate sa mnom</span></li>
       </ul>
     </div>
-    <div class="about-text">
+    <div class="omeni-tekst">
       <p>
-        <strong>Nisam agencija.</strong> MAJSTORAJ je moj obrt — što znači da ćete uvijek
-        razgovarati sa mnom, i ja ću osobno razviti vaše rješenje.
+        <strong>Nisam agencija.</strong> MAJSTORAJ je moj obrt, što znači da ćete uvijek
+        razgovarati sa mnom i da ću vaše rješenje osobno razviti ja.
       </p>
       <p>
         Kad vodite vlastiti obrt ili tvrtku, vaš posao nije samo stavka na
@@ -897,7 +472,7 @@
       </p>
       <p>
         Radim s lokalnim poduzetnicima jer vjerujem da tvrtke u Rijeci i
-        okolici zaslužuju moderan, brz i pouzdan softver — po cijeni koja
+        okolici zaslužuju moderan, brz i pouzdan softver, po cijeni koja
         ima smisla za njihovo poslovanje.
       </p>
       <p>
@@ -915,43 +490,50 @@
 </section>
 
 <!-- KONTAKT -->
-<section id="kontakt" class="full-bleed kontakt-bg" style="max-width:100%; background:var(--ink);">
-  <div style="max-width:1100px; margin:0 auto; padding:0 clamp(1.5rem,5vw,4rem);">
-    <p class="section-label">Kontakt</p>
-    <h2>Razgovor ne košta ništa.</h2>
-    <p class="section-intro">
-      Javite se — u roku 24 sata dogovaramo kavu, dolazim k vama, i vidimo ima li smisla surađivati.
-    </p>
-    <div class="kontakt-grid">
-      <div class="contact-item">
-        <span class="cl">Email</span>
-        <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>
-      </div>
-      <div class="contact-item">
-        <span class="cl">Mobitel</span>
-        <a href="tel:+385919546490">+385 91 954 6490</a>
-        <span class="sub">pon–pet · 08:00–16:00</span>
-      </div>
-      <div class="contact-item">
-        <span class="cl">WhatsApp</span>
-        <a href="https://wa.me/385919546490" target="_blank" rel="noopener">Pišite na WhatsApp</a>
-        <span class="sub">Odgovaram isti radni dan</span>
-      </div>
-      <div class="contact-item">
-        <span class="cl">Lokacija</span>
-        <span style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 600; color: var(--white);">Rijeka i Kvarner</span>
-        <span class="sub">Dolazim k vama</span>
-      </div>
+<section id="kontakt" class="pojas vecer">
+  <div class="omot kontakt">
+    <div>
+      <h2>Razgovor ne košta ništa.</h2>
+      <p class="section-intro">
+        Javite se: u roku 24 sata dogovaramo kavu, dolazim k vama i vidimo ima li smisla surađivati.
+      </p>
+      <p class="kontakt-napomena">
+        Razgovor na kavi dogovaramo odmah, bez čekanja. Zbog trenutnog obujma posla početak
+        izrade novih projekata planiram unutar 1–2 tjedna od dogovora, pa se javite na vrijeme
+        da rezerviramo termin.
+      </p>
     </div>
-    <p class="kontakt-note">
-      Razgovor na kavi dogovaramo odmah, bez čekanja. Zbog trenutnog obujma
-      posla, početak izrade novih projekata planiram unutar 1–2 tjedna od
-      dogovora — javite se na vrijeme da rezerviramo termin.
-    </p>
+    <ul class="kanali">
+      <li>
+        <a class="kanal" href="mailto:info@majstoraj.hr">
+          <span class="kanal-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><span class="kanal-vrsta">E-pošta</span><span class="kanal-vrijednost">info@majstoraj.hr</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="kanal" href="tel:+385919546490">
+          <span class="kanal-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.5a12 12 0 0 0 6.4 6.4l1.5-2 4 1.4v2.6a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span><span class="kanal-vrsta">Mobitel</span><span class="kanal-vrijednost">+385 91 954 6490</span><span class="kanal-sitno">pon–pet, 8–16 h</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="kanal" href="https://wa.me/385919546490" target="_blank" rel="noopener">
+          <span class="kanal-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span><span class="kanal-vrsta">WhatsApp</span><span class="kanal-vrijednost">Pišite na WhatsApp</span><span class="kanal-sitno">Odgovaram isti radni dan</span></span>
+        </a>
+      </li>
+      <li>
+        <div class="kanal">
+          <span class="kanal-ikona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+          <span><span class="kanal-vrsta">Lokacija</span><span class="kanal-vrijednost">Rijeka i Kvarner</span><span class="kanal-sitno">Dolazim k vama</span></span>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
   <span class="footer-logo">MAJSTOR<span>AJ</span></span>
   <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385 · majstoraj.hr · <a href="/stranice/privatnost.html">Politika privatnosti</a></span>
@@ -978,8 +560,8 @@
 
       var banner = document.createElement('div');
       banner.style.cssText =
-        'background:#1A1A24;color:#F6F5F2;text-align:center;' +
-        'padding:0.65rem 1.25rem;font-size:0.85rem;line-height:1.5;' +
+        'background:#2A2420;color:#F8F6F2;text-align:center;' +
+        'padding:0.65rem 1.25rem;font-size:0.9rem;line-height:1.5;' +
         'font-family:var(--font-body, sans-serif);';
       banner.textContent = config.poruka;
       document.body.insertBefore(banner, document.body.firstChild);
