@@ -30,7 +30,7 @@
   <h1>Izjava o privatnosti</h1>
   <p class="meta">
     Aplikacija Sidro · MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385<br>
-    Vrijedi od 16. listopada 2026. Isti tekst bit će u aplikaciji od verzije 0.2 (Postavke → O aplikaciji); u verziji 0.1.0 nalazi se prethodni tekst od 1. listopada 2026. Novo u ovoj verziji: obrada podataka kod usluga po narudžbi (točke 2, 4, 5 i 6).
+    Vrijedi od 19. listopada 2026. Isti tekst bit će u aplikaciji od verzije 0.2 (Postavke → O aplikaciji); u verziji 0.1.0 nalazi se tekst od 1. listopada 2026. Novo u ovoj verziji: sigurnosne kopije baze licenci (točke 5 i 7). Prethodna verzija (16. listopada 2026.) uvela je obradu podataka kod usluga po narudžbi (točke 2, 4, 5 i 6).
   </p>
 
 <!-- Tekst je generiran iz src/sidro/core/privatnost_tekst.py (jedini izvor istine).
@@ -72,6 +72,7 @@
     <li>Podatke o zahtjevu koji nije plaćen brišemo najkasnije 12 mjeseci nakon zahtjeva.</li>
     <li>E-adrese s liste zainteresiranih: nepotvrđene brišemo nakon 30 dana, a potvrđene nakon odjave, najkasnije 12 mjeseci nakon prijave.</li>
     <li>Podatke primljene za uslugu po narudžbi (izvoz, datoteka za uvoz, kontrolni izvještaj) brišemo najkasnije 30 dana nakon isporuke, osim ako se pisano drukčije dogovorimo; ponudu, dopisivanje i račun čuvamo kao poslovnu dokumentaciju.</li>
+    <li>Sigurnosne kopije baze licenci čuvamo na licencnom poslužitelju najviše 30 dana, a tjednu kopiju na šifriranom vanjskom disku najviše 8 tjedana. Podatak obrisan iz baze tako nestaje i iz kopija najkasnije istekom tih rokova.</li>
     <li>Tehničke dnevnike web stranice vodi GitHub, prema svojoj politici privatnosti.</li>
   </ul>
   <h2>6. Kome podaci mogu biti dostupni</h2>
@@ -84,7 +85,7 @@
   </ul>
   <p>Podatke iz točke 4. ne prenosimo izvan Europskog gospodarskog prostora.</p>
   <h2>7. Zaštita podataka</h2>
-  <p>Veza s licencnim poslužiteljem uvijek je šifrirana (HTTPS). Pristup licencnom poslužitelju i bazi licenci imamo samo mi. Licence su kriptografski potpisane (Ed25519), pa se provjeravaju bez slanja podataka na internet.</p>
+  <p>Veza s licencnim poslužiteljem uvijek je šifrirana (HTTPS). Pristup licencnom poslužitelju i bazi licenci imamo samo mi. Kopije baze licenci postoje samo na poslužitelju i na šifriranom vanjskom disku zaštićenom lozinkom, nikad u oblaku (Google Drive, OneDrive i sl.). Licence su kriptografski potpisane (Ed25519), pa se provjeravaju bez slanja podataka na internet.</p>
   <h2>8. Vaša prava</h2>
   <p>U vezi s podacima iz točke 4. imate pravo:</p>
   <ul>
