@@ -1,0 +1,8 @@
+﻿Naziv proizvoda,Šifra,Marka,Jedinica mjere,Cijena za jedinicu mjere (ako je primjenjivo),Maloprodajna cijena,Poseban oblik prodaje (DA/NE),Naziv posebnog oblika prodaje,Dodatna cijena 10.9.2026.,Barkod (ako ima),Dostupnost (dostupan ili nedostupan),Referentni datum dodatne cijene
+Brašno T-550 1 kg,B-101,Mlin Kvarner,kg,1.25,1.25,NE,,1.19,2000000000046,dostupan,2026-09-10
+Džem od šljiva 370 g,D-011,Domaći okus,kg,10.78,3.99,NE,,3.99,2000000000077,dostupan,2026-09-10
+Kava mljevena 250 g,K-001,Jadran,kg,17.96,4.49,NE,,4.29,2000000000015,dostupan,2026-09-10
+"Maslinovo ulje 0,75 l",U-014,Istarska zlatna,l,17.20,12.90,NE,,12.90,2000000000022,dostupan,2026-09-10
+Med cvjetni 450 g,M-003,Pčelinjak Gorski,kg,17.00,7.65,DA,Akcija,8.50,2000000000039,dostupan,2026-09-10
+Sapun s lavandom 100 g,S-020,Lavanda Hvar,kg,32.00,3.20,NE,,3.20,2000000000053,dostupan,2026-09-10
+Čaj od kamilice 20 vrećica,C-007,Bilje Lika,kom,,2.29,NE,,2.10,2000000000060,dostupan,2026-09-10

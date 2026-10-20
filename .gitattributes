@@ -1,0 +1,3 @@
+# Primjeri datoteka iz Sidra objavljuju se točno kako ih aplikacija izradi
+# (UTF-8 s BOM-om, CRLF): git ih ne smije pretvarati.
+docs/sidro/primjeri/** -text

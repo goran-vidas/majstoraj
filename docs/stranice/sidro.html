@@ -221,6 +221,86 @@
   .snimka-zatvori:hover { background: rgba(26,26,36,0.9); }
   .snimka-zatvori:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   html.snimka-otvorena { overflow: hidden; scrollbar-gutter: stable; }
+  /* ── PRIMJERI DATOTEKA ───────────────────────────────────────── */
+  #primjeri { --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+  .primjeri { display: grid; gap: 1.25rem; margin-top: 2.25rem; }
+  @media (min-width: 860px) { .primjeri { grid-template-columns: 1fr 1fr; } }
+  .primjer {
+    background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius-l);
+    padding: 1.4rem 1.5rem 1.5rem; box-shadow: var(--shadow-1);
+  }
+  .primjer h3 { font-size: 1.12rem; margin-bottom: 0.4rem; }
+  .primjer > p { color: var(--ink-soft); font-size: 0.98rem; margin-bottom: 1.1rem; }
+  .datoteke { list-style: none; display: grid; gap: 0.55rem; }
+  .datoteke a {
+    display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 0.85rem; row-gap: 0.1rem; align-items: center;
+    padding: 0.6rem 0.8rem; border: 1px solid var(--rule); border-radius: var(--radius);
+    background: var(--bg); color: var(--ink); text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .datoteke a:hover { border-color: var(--accent); background: var(--white); color: var(--ink); }
+  .datoteke .format {
+    grid-row: 1 / span 2; min-width: 3.2rem; text-align: center;
+    font-family: var(--font-head); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;
+    color: var(--accent-ink); background: var(--peach); border-radius: 6px; padding: 0.5rem 0.55rem;
+  }
+  .datoteke .ime { font-family: var(--mono); font-size: 0.8rem; color: var(--ink); overflow-wrap: anywhere; line-height: 1.35; }
+  .datoteke .svrha { font-size: 0.84rem; color: var(--ink-soft); }
+
+  .primjeri-naslov { font-size: 1.15rem; margin: 3rem 0 0.55rem; }
+  .primjeri-tekst { color: var(--ink-soft); max-width: 44rem; margin-bottom: 1.2rem; }
+
+  .naziv-razlozen { display: flex; flex-wrap: wrap; align-items: flex-start; row-gap: 0.75rem; }
+  .naziv-razlozen .dio { display: inline-flex; flex-direction: column; align-items: center; }
+  .naziv-razlozen code {
+    font-family: var(--mono); font-size: clamp(0.9rem, 1.8vw, 1.08rem); font-weight: 600; color: var(--ink);
+    background: var(--white); border: 1px solid var(--rule-strong); border-bottom: 3px solid var(--accent);
+    border-radius: 6px; padding: 0.4rem 0.55rem;
+  }
+  .naziv-razlozen small { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.4rem; text-align: center; max-width: 6.2rem; line-height: 1.3; }
+  .naziv-razlozen .spoj { font-family: var(--mono); font-size: 1.1rem; color: var(--ink-soft); padding: 0.4rem 0.15rem 0; }
+
+  .tablica-omot {
+    overflow-x: auto; background: var(--white); border: 1px solid var(--rule);
+    border-radius: var(--radius-l); box-shadow: var(--shadow-1);
+  }
+  .tablica-omot:focus-visible, .kod:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .csv-pregled, .propis-tablica { width: 100%; border-collapse: collapse; font-size: 0.86rem; line-height: 1.45; }
+  .csv-pregled th, .csv-pregled td { padding: 0.55rem 0.75rem; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--rule); }
+  .csv-pregled thead th { font-family: var(--font-head); font-weight: 600; font-size: 0.8rem; color: var(--ink); background: var(--surface); white-space: normal; min-width: 6.5rem; vertical-align: bottom; }
+  .csv-pregled td { color: #4F4741; font-variant-numeric: tabular-nums; }
+  .csv-pregled td.broj { text-align: right; font-family: var(--mono); font-size: 0.82rem; }
+  .csv-pregled tbody tr:last-child td { border-bottom: 0; }
+
+  .propis-tablica th, .propis-tablica td { padding: 0.6rem 0.85rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+  .propis-tablica thead th { font-family: var(--font-head); font-weight: 600; font-size: 0.85rem; background: var(--surface); color: var(--ink); vertical-align: bottom; }
+  .propis-tablica thead small { font-family: var(--font-body); font-weight: 400; color: var(--ink-soft); }
+  .propis-tablica tbody th[scope="row"] { font-weight: 600; color: var(--ink); min-width: 11rem; }
+  .propis-tablica .skupina th { font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); background: var(--bg); padding-top: 0.9rem; }
+  .propis-tablica td { color: #4F4741; min-width: 7rem; }
+  .propis-tablica td:last-child { min-width: 14rem; }
+  .propis-tablica td.da { color: var(--green); font-weight: 600; }
+  .propis-tablica td.uvjet { color: var(--green); }
+  .propis-tablica td.ne { color: var(--ink-soft); }
+  .propis-tablica sup { color: var(--accent-ink); font-weight: 700; }
+  .propis-tablica tbody tr:last-child th, .propis-tablica tbody tr:last-child td { border-bottom: 0; }
+
+  .kod {
+    background: var(--night); color: #EDE6DE; border-radius: var(--radius-l);
+    padding: 1.1rem 1.3rem; overflow-x: auto; font-family: var(--mono); font-size: 0.82rem; line-height: 1.6;
+  }
+  .kod code { font-family: inherit; }
+  .kod .t { color: var(--night-accent); }
+  .kod .k { color: var(--night-muted); font-style: italic; }
+
+  .mala { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.85rem; max-width: 46rem; line-height: 1.6; }
+  .biljeske { font-size: 0.9rem; color: var(--ink-soft); margin: 0.85rem 0 0 1.2rem; max-width: 46rem; line-height: 1.6; display: grid; gap: 0.35rem; }
+  .biljeske li::marker { color: var(--accent-ink); font-weight: 700; }
+
+  .prijedlog { margin-top: 3rem; max-width: 50rem; border-left: 4px solid var(--accent); }
+  .prijedlog p + p { margin-top: 0.85rem; }
+  .prijedlog-veze { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-weight: 600; }
+  /* ── /PRIMJERI DATOTEKA ── */
 </style>
 </head>
 <!--
@@ -238,6 +318,7 @@
     <a href="#propis">Nova pravila</a>
     <a href="#kako">Kako radi</a>
     <a href="#izgled">Izgled</a>
+    <a href="#primjeri">Primjeri</a>
     <a href="#faq">Pitanja</a>
     <a class="nav-cta" href="#cijena">Preuzimanje</a>
   </div>
@@ -263,7 +344,7 @@
       </a>
     </div>
     <ul class="cinjenice">
-      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cjenik za prodajno mjesto (PDF) i CSV/XML datoteke za web, s propisanim nazivima datoteka</span></li>
+      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cjenik za prodajno mjesto (PDF) i CSV/XML datoteke za web, s propisanim nazivima datoteka — <a href="#primjeri">pogledajte primjere</a></span></li>
       <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Vaši podaci, vaša aplikacija: sve radi na vašem računalu, bez korisničkog računa</span></li>
       <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Besplatno do 10 artikala, bez pretplate</span></li>
     </ul>
@@ -437,6 +518,152 @@
   </dialog>
 </section>
 
+<!-- PRIMJERI DATOTEKA (plan V3, dokaz na webu). Datoteke izrađuje Sidro
+     (tools/primjeri_za_web.py u repozitoriju Sidra, kod izdane verzije), a ovaj
+     odjeljak složen je iz istih datoteka (tools/web_primjeri.py). Ne uređivati
+     ručno: pri novom izdanju alat zamijeni sve do oznake /PRIMJERI DATOTEKA. -->
+<div class="divider" aria-hidden="true"></div>
+<section id="primjeri">
+  <h2>Provjerite sami: datoteke koje Sidro izrađuje</h2>
+  <p class="section-intro">
+    Prije instalacije pogledajte što ćete objaviti. Ove datoteke izradio je
+    Sidro 0.1.0, verzija koju danas preuzimate, iz izmišljenih podataka male
+    trgovine. Ništa nismo uređivali ručno — otvorite ih u Excelu, pregledniku
+    ili programu za obradu podataka.
+  </p>
+
+  <div class="primjeri">
+    <article class="primjer">
+      <h3>Cjenik proizvoda</h3>
+      <p>Sedam proizvoda: nepromijenjena cijena, poskupljenje nakon 10. 9. 2026., akcija i proizvod bez cijene za jedinicu mjere.</p>
+      <ul class="datoteke">
+        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0001_20261020_0005.csv" download><span class="format">CSV</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0001_<wbr>20261020_<wbr>0005.csv</span><span class="svrha">za web · 1 kB</span></a></li>
+        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0003_20261020_0005.xml" target="_blank" rel="noopener"><span class="format">XML</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0003_<wbr>20261020_<wbr>0005.xml</span><span class="svrha">za web · 4 kB</span></a></li>
+        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0005_20261020_0005.pdf" target="_blank" rel="noopener"><span class="format">PDF</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0005_<wbr>20261020_<wbr>0005.pdf</span><span class="svrha">za prodajno mjesto · 45 kB</span></a></li>
+      </ul>
+    </article>
+    <article class="primjer">
+      <h3>Cjenik usluga</h3>
+      <p>Tri usluge u zasebnoj datoteci, kako propis traži: robu i usluge ne miješamo u istom cjeniku.</p>
+      <ul class="datoteke">
+        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0002_20261020_0005.csv" download><span class="format">CSV</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0002_<wbr>20261020_<wbr>0005.csv</span><span class="svrha">za web · 1 kB</span></a></li>
+        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0004_20261020_0005.xml" target="_blank" rel="noopener"><span class="format">XML</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0004_<wbr>20261020_<wbr>0005.xml</span><span class="svrha">za web · 1 kB</span></a></li>
+        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0006_20261020_0005.pdf" target="_blank" rel="noopener"><span class="format">PDF</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0006_<wbr>20261020_<wbr>0005.pdf</span><span class="svrha">za prodajno mjesto · 44 kB</span></a></li>
+      </ul>
+    </article>
+  </div>
+
+  <h3 class="primjeri-naslov">Naziv datoteke, dio po dio</h3>
+  <p class="primjeri-tekst">
+    Odluka (točka VI.) i nacrt pravilnika (čl. 6.) traže da naziv sadrži oblik,
+    adresu i oznaku prodajnog mjesta, broj pohrane te datum i vrijeme. Sidro ga
+    sastavlja sam — bez razmaka, dvotočke i dijakritičkih znakova, pa radi na
+    svakom poslužitelju i u svakoj web adresi.
+  </p>
+  <p class="naziv-razlozen" aria-label="TRG_KORZO1RIJEKA_001_0001_20261020_0005.csv: oblik TRG, adresa KORZO1RIJEKA, oznaka 001, broj pohrane 0001, datum i vrijeme 20261020_0005">
+    <span class="dio" aria-hidden="true"><code>TRG</code><small>oblik prodajnog mjesta</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>KORZO1RIJEKA</code><small>adresa</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>001</code><small>oznaka</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>0001</code><small>broj pohrane</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>20261020_0005</code><small>datum i vrijeme</small></span><span class="dio" aria-hidden="true"><code>.csv</code><small>oblik datoteke</small></span>
+  </p>
+
+  <h3 class="primjeri-naslov">CSV proizvoda, otvoren kao tablica</h3>
+  <div class="tablica-omot" tabindex="0" role="region" aria-label="Sadržaj datoteke TRG_KORZO1RIJEKA_001_0001_20261020_0005.csv">
+    <table class="csv-pregled">
+      <thead><tr><th scope="col">Naziv proizvoda</th><th scope="col">Šifra</th><th scope="col">Marka</th><th scope="col">Jedinica mjere</th><th scope="col">Cijena za jedinicu mjere (ako je primjenjivo)</th><th scope="col">Maloprodajna cijena</th><th scope="col">Poseban oblik prodaje (DA/NE)</th><th scope="col">Naziv posebnog oblika prodaje</th><th scope="col">Dodatna cijena 10.9.2026.</th><th scope="col">Barkod (ako ima)</th><th scope="col">Dostupnost (dostupan ili nedostupan)</th><th scope="col">Referentni datum dodatne cijene</th></tr></thead>
+      <tbody>
+          <tr><td>Brašno T-550 1 kg</td><td>B-101</td><td>Mlin Kvarner</td><td>kg</td><td class="broj">1.25</td><td class="broj">1.25</td><td>NE</td><td></td><td class="broj">1.19</td><td class="broj">2000000000046</td><td>dostupan</td><td>2026-09-10</td></tr>
+          <tr><td>Džem od šljiva 370 g</td><td>D-011</td><td>Domaći okus</td><td>kg</td><td class="broj">10.78</td><td class="broj">3.99</td><td>NE</td><td></td><td class="broj">3.99</td><td class="broj">2000000000077</td><td>dostupan</td><td>2026-09-10</td></tr>
+          <tr><td>Kava mljevena 250 g</td><td>K-001</td><td>Jadran</td><td>kg</td><td class="broj">17.96</td><td class="broj">4.49</td><td>NE</td><td></td><td class="broj">4.29</td><td class="broj">2000000000015</td><td>dostupan</td><td>2026-09-10</td></tr>
+          <tr><td>Maslinovo ulje 0,75 l</td><td>U-014</td><td>Istarska zlatna</td><td>l</td><td class="broj">17.20</td><td class="broj">12.90</td><td>NE</td><td></td><td class="broj">12.90</td><td class="broj">2000000000022</td><td>dostupan</td><td>2026-09-10</td></tr>
+          <tr><td>Med cvjetni 450 g</td><td>M-003</td><td>Pčelinjak Gorski</td><td>kg</td><td class="broj">17.00</td><td class="broj">7.65</td><td>DA</td><td>Akcija</td><td class="broj">8.50</td><td class="broj">2000000000039</td><td>dostupan</td><td>2026-09-10</td></tr>
+          <tr><td>Sapun s lavandom 100 g</td><td>S-020</td><td>Lavanda Hvar</td><td>kg</td><td class="broj">32.00</td><td class="broj">3.20</td><td>NE</td><td></td><td class="broj">3.20</td><td class="broj">2000000000053</td><td>dostupan</td><td>2026-09-10</td></tr>
+          <tr><td>Čaj od kamilice 20 vrećica</td><td>C-007</td><td>Bilje Lika</td><td>kom</td><td></td><td class="broj">2.29</td><td>NE</td><td></td><td class="broj">2.10</td><td class="broj">2000000000060</td><td>dostupan</td><td>2026-09-10</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mala">
+    UTF-8 s oznakom BOM, pa Excel odmah ispravno prikazuje hrvatska slova; zarez
+    kao razdjelnik i decimalna točka, za automatsku obradu. Tekst koji sadrži zarez
+    stoji u navodnicima („Maslinovo ulje 0,75 l”).
+  </p>
+
+  <h3 class="primjeri-naslov">Isti cjenik u XML-u (isječak)</h3>
+  <pre class="kod" tabindex="0" aria-label="Isječak datoteke TRG_KORZO1RIJEKA_001_0003_20261020_0005.xml"><code><span class="t">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span>
+<span class="t">&lt;Cjenik oib=&quot;00000000001&quot; nazivObrta=&quot;Trgovina Primjer, vl. Ivan Horvat&quot; datumIzvoza=&quot;2026-10-20T00:05:25&quot;&gt;</span>
+    <span class="k">&lt;!-- … --&gt;</span>
+    <span class="t">&lt;Proizvod&gt;</span>
+        <span class="t">&lt;Naziv&gt;</span>Med cvjetni 450 g<span class="t">&lt;/Naziv&gt;</span>
+        <span class="t">&lt;Sifra&gt;</span>M-003<span class="t">&lt;/Sifra&gt;</span>
+        <span class="t">&lt;Marka&gt;</span>Pčelinjak Gorski<span class="t">&lt;/Marka&gt;</span>
+        <span class="t">&lt;JedinicaMjere&gt;</span>kg<span class="t">&lt;/JedinicaMjere&gt;</span>
+        <span class="t">&lt;CijenaPoJedinici&gt;</span>17.00<span class="t">&lt;/CijenaPoJedinici&gt;</span>
+        <span class="t">&lt;MaloprodajnaCijena&gt;</span>7.65<span class="t">&lt;/MaloprodajnaCijena&gt;</span>
+        <span class="t">&lt;PosebanOblikProdaje&gt;</span>DA<span class="t">&lt;/PosebanOblikProdaje&gt;</span>
+        <span class="t">&lt;NazivPosebnogOblika&gt;</span>Akcija<span class="t">&lt;/NazivPosebnogOblika&gt;</span>
+        <span class="t">&lt;SidrenaCijena&gt;</span>8.50<span class="t">&lt;/SidrenaCijena&gt;</span>
+        <span class="t">&lt;Barkod&gt;</span>2000000000039<span class="t">&lt;/Barkod&gt;</span>
+        <span class="t">&lt;Dostupno&gt;</span>dostupan<span class="t">&lt;/Dostupno&gt;</span>
+        <span class="t">&lt;ReferentniDatum&gt;</span>2026-09-10<span class="t">&lt;/ReferentniDatum&gt;</span>
+        <span class="t">&lt;Valuta&gt;</span>EUR<span class="t">&lt;/Valuta&gt;</span>
+    <span class="t">&lt;/Proizvod&gt;</span>
+    <span class="k">&lt;!-- … još 6 proizvoda … --&gt;</span>
+<span class="t">&lt;/Cjenik&gt;</span></code></pre>
+
+  <h3 class="primjeri-naslov">Što traži propis i gdje je to u datoteci</h3>
+  <div class="tablica-omot" tabindex="0" role="region" aria-label="Usporedba podataka iz propisa i stupaca u Sidru">
+    <table class="propis-tablica">
+      <thead>
+        <tr><th scope="col">Podatak</th><th scope="col">Odluka<br><small>NN 101/2026</small></th><th scope="col">Nacrt pravilnika<br><small>čl. 3. i 6.</small></th><th scope="col">Stupac u CSV-u iz Sidra</th></tr>
+      </thead>
+      <tbody>
+        <tr class="skupina"><th scope="rowgroup" colspan="4">Proizvodi</th></tr>
+        <tr><th scope="row">Naziv</th><td class="da">da</td><td class="da">da</td><td>Naziv proizvoda</td></tr>
+        <tr><th scope="row">Šifra</th><td class="da">da</td><td class="uvjet">ako je primjenjivo</td><td>Šifra</td></tr>
+        <tr><th scope="row">Marka</th><td class="da">da</td><td class="uvjet">ako je primjenjivo</td><td>Marka</td></tr>
+        <tr><th scope="row">Neto količina</th><td class="ne">—</td><td class="uvjet">ako je primjenjivo</td><td>dolazi s prilagodbom pravilniku<sup>1</sup></td></tr>
+        <tr><th scope="row">Jedinica mjere</th><td class="uvjet">ako je primjenjivo</td><td class="uvjet">ako je primjenjivo</td><td>Jedinica mjere</td></tr>
+        <tr><th scope="row">Cijena za jedinicu mjere</th><td class="uvjet">ako je primjenjivo</td><td class="uvjet">ako je primjenjivo</td><td>Cijena za jedinicu mjere (ako je primjenjivo)</td></tr>
+        <tr><th scope="row">Maloprodajna cijena</th><td class="da">da</td><td class="da">da</td><td>Maloprodajna cijena</td></tr>
+        <tr><th scope="row">Poseban oblik prodaje i njegov naziv</th><td class="da">da</td><td class="da">da</td><td>Poseban oblik prodaje (DA/NE); Naziv posebnog oblika prodaje</td></tr>
+        <tr><th scope="row">Sidrena, odnosno bazna cijena</th><td class="da">da</td><td class="da">da</td><td>Dodatna cijena 10.9.2026.; Referentni datum dodatne cijene<sup>2</sup></td></tr>
+        <tr><th scope="row">Barkod</th><td class="da">da</td><td class="uvjet">ako je primjenjivo</td><td>Barkod (ako ima)</td></tr>
+        <tr><th scope="row">Dostupnost</th><td class="da">da</td><td class="ne">—</td><td>Dostupnost (dostupan ili nedostupan)</td></tr>
+        <tr class="skupina"><th scope="rowgroup" colspan="4">Usluge</th></tr>
+        <tr><th scope="row">Naziv usluge</th><td class="da">da</td><td class="da">da</td><td>Naziv usluge</td></tr>
+        <tr><th scope="row">Maloprodajna cijena, poseban oblik prodaje i njegov naziv</th><td class="da">da</td><td class="da">da</td><td>Maloprodajna cijena; Poseban oblik prodaje (DA/NE); Naziv posebnog oblika prodaje</td></tr>
+        <tr><th scope="row">Sidrena, odnosno bazna cijena</th><td class="da">da</td><td class="da">da</td><td>Sidrena cijena 10.9.2026.; Referentni datum sidrene cijene<sup>2</sup></td></tr>
+        <tr class="skupina"><th scope="rowgroup" colspan="4">Datoteka</th></tr>
+        <tr><th scope="row">.csv ili .xml</th><td class="da">da</td><td class="da">da</td><td>oba oblika, zasebno za proizvode i usluge</td></tr>
+        <tr><th scope="row">Naziv: oblik, adresa i oznaka prodajnog mjesta, broj pohrane, datum i vrijeme</th><td class="da">da</td><td class="da">da</td><td>sastavlja ga Sidro (gore)</td></tr>
+        <tr><th scope="row">Ista struktura za sva prodajna mjesta</th><td class="da">da</td><td class="da">da</td><td>da</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ol class="biljeske">
+    <li>Neto količinu traži tek nacrt pravilnika, a dostupnost samo Odluka. Sidro je izrađen prema Odlukama i usklađujemo ga s konačnim tekstom pravilnika; prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača uključena je u licencu.</li>
+    <li>Zadnji stupac Sidro dodaje sam: kaže na koji se dan odnosi sidrena cijena — 10. 9. 2026., 2. 5. 2025. za propisane skupine proizvoda ili dan prvog uvrštenja u ponudu. Ostali stupci istim su redom i istog naziva kao u predlošcima HOK-a.</li>
+  </ol>
+  <p class="mala">
+    Pri slanju na web Sidro ne briše i ne prepisuje prethodne datoteke: svaka objava
+    ima novi broj pohrane i vremensku oznaku.
+  </p>
+
+  <div class="dodatak prijedlog">
+    <h3>Predložili smo jedinstveni predložak datoteke</h3>
+    <p>
+      Nacrt pravilnika propisuje koje podatke cjenik sadrži, ali ne i kako su
+      zapisani, pa bi svaki trgovac mogao objaviti drukčiju datoteku. U javnom
+      savjetovanju (e-Savjetovanja, 19. 10. 2026.) predložili smo Ministarstvu
+      gospodarstva obvezni predložak: nazive stupaca, kodiranje, zapis iznosa i
+      naziv datoteke bez razmaka i dvotočke. Prijedlog s XML shemom i primjerima
+      slobodan je za uporabu, i drugim izrađivačima softvera.
+    </p>
+    <p class="prijedlog-veze">
+      <a href="/sidro/primjeri/Prijedlog_predloska_cjenika_MAJSTORAJ.zip" download>Preuzmite prijedlog (ZIP, 67 kB)</a>
+      <a href="https://esavjetovanja.gov.hr/Econ/10332" target="_blank" rel="noopener">Savjetovanje o nacrtu pravilnika</a>
+    </p>
+  </div>
+</section>
+<!-- /PRIMJERI DATOTEKA -->
+
 <!-- ZNAČAJKE -->
 <section id="znacajke" class="pojas pijesak">
   <div class="omot podjela">
@@ -458,7 +685,7 @@
         <span class="znacajka-ikona"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
         <div>
           <h3>CSV, XML i PDF</h3>
-          <p>Propisan naziv datoteke (oblik, adresa, oznaka, broj pohrane, vremenska oznaka), zasebne datoteke za proizvode i usluge.</p>
+          <p>Propisan naziv datoteke (oblik, adresa, oznaka, broj pohrane, vremenska oznaka), zasebne datoteke za proizvode i usluge. <a href="#primjeri">Primjeri datoteka</a></p>
         </div>
       </li>
       <li class="znacajka">

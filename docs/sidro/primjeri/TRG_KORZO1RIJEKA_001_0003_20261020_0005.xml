@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Cjenik oib="00000000001" nazivObrta="Trgovina Primjer, vl. Ivan Horvat" datumIzvoza="2026-10-20T00:05:25">
+    <Proizvod>
+        <Naziv>Brašno T-550 1 kg</Naziv>
+        <Sifra>B-101</Sifra>
+        <Marka>Mlin Kvarner</Marka>
+        <JedinicaMjere>kg</JedinicaMjere>
+        <CijenaPoJedinici>1.25</CijenaPoJedinici>
+        <MaloprodajnaCijena>1.25</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>1.19</SidrenaCijena>
+        <Barkod>2000000000046</Barkod>
+        <Dostupno>dostupan</Dostupno>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Džem od šljiva 370 g</Naziv>
+        <Sifra>D-011</Sifra>
+        <Marka>Domaći okus</Marka>
+        <JedinicaMjere>kg</JedinicaMjere>
+        <CijenaPoJedinici>10.78</CijenaPoJedinici>
+        <MaloprodajnaCijena>3.99</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>3.99</SidrenaCijena>
+        <Barkod>2000000000077</Barkod>
+        <Dostupno>dostupan</Dostupno>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Kava mljevena 250 g</Naziv>
+        <Sifra>K-001</Sifra>
+        <Marka>Jadran</Marka>
+        <JedinicaMjere>kg</JedinicaMjere>
+        <CijenaPoJedinici>17.96</CijenaPoJedinici>
+        <MaloprodajnaCijena>4.49</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>4.29</SidrenaCijena>
+        <Barkod>2000000000015</Barkod>
+        <Dostupno>dostupan</Dostupno>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Maslinovo ulje 0,75 l</Naziv>
+        <Sifra>U-014</Sifra>
+        <Marka>Istarska zlatna</Marka>
+        <JedinicaMjere>l</JedinicaMjere>
+        <CijenaPoJedinici>17.20</CijenaPoJedinici>
+        <MaloprodajnaCijena>12.90</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>12.90</SidrenaCijena>
+        <Barkod>2000000000022</Barkod>
+        <Dostupno>dostupan</Dostupno>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Med cvjetni 450 g</Naziv>
+        <Sifra>M-003</Sifra>
+        <Marka>Pčelinjak Gorski</Marka>
+        <JedinicaMjere>kg</JedinicaMjere>
+        <CijenaPoJedinici>17.00</CijenaPoJedinici>
+        <MaloprodajnaCijena>7.65</MaloprodajnaCijena>
+        <PosebanOblikProdaje>DA</PosebanOblikProdaje>
+        <NazivPosebnogOblika>Akcija</NazivPosebnogOblika>
+        <SidrenaCijena>8.50</SidrenaCijena>
+        <Barkod>2000000000039</Barkod>
+        <Dostupno>dostupan</Dostupno>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Sapun s lavandom 100 g</Naziv>
+        <Sifra>S-020</Sifra>
+        <Marka>Lavanda Hvar</Marka>
+        <JedinicaMjere>kg</JedinicaMjere>
+        <CijenaPoJedinici>32.00</CijenaPoJedinici>
+        <MaloprodajnaCijena>3.20</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>3.20</SidrenaCijena>
+        <Barkod>2000000000053</Barkod>
+        <Dostupno>dostupan</Dostupno>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Čaj od kamilice 20 vrećica</Naziv>
+        <Sifra>C-007</Sifra>
+        <Marka>Bilje Lika</Marka>
+        <JedinicaMjere>kom</JedinicaMjere>
+        <CijenaPoJedinici />
+        <MaloprodajnaCijena>2.29</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>2.10</SidrenaCijena>
+        <Barkod>2000000000060</Barkod>
+        <Dostupno>dostupan</Dostupno>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Proizvod>
+</Cjenik>

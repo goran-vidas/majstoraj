@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Cjenik oib="00000000001" nazivObrta="Trgovina Primjer, vl. Ivan Horvat" datumIzvoza="2026-10-20T00:05:25">
+    <Usluga>
+        <Naziv>Dostava na kućnu adresu (Rijeka)</Naziv>
+        <MaloprodajnaCijena>4.00</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>4.00</SidrenaCijena>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Usluga>
+    <Usluga>
+        <Naziv>Izrada poklon košarice po narudžbi</Naziv>
+        <MaloprodajnaCijena>12.00</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>10.00</SidrenaCijena>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Usluga>
+    <Usluga>
+        <Naziv>Poklon pakiranje</Naziv>
+        <MaloprodajnaCijena>2.50</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>2.00</SidrenaCijena>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Usluga>
+</Cjenik>
