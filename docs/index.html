@@ -68,6 +68,10 @@
   .sidro-tekst .btn-primary { margin-top: 0.5rem; }
   .u-pripremi { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
   @media (min-width: 760px) { .u-pripremi { grid-template-columns: 1fr 1fr; } }
+  /* Lokalac (besplatan, javno dostupan) uz Smjenu i Gajbu: tri kartice u redu
+     na širem zaslonu; između 760 i 1039 px Lokalac preko cijele širine. */
+  @media (min-width: 760px) and (max-width: 1039px) { .u-pripremi #lokalac-proizvod { grid-column: 1 / -1; } }
+  @media (min-width: 1040px) { .u-pripremi { grid-template-columns: repeat(3, 1fr); } }
   .aplikacija { background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius-l); padding: 1.75rem 1.75rem 1.85rem; }
   .status {
     display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--ink-soft);
@@ -303,11 +307,12 @@
   <p class="cijene-napomena">Sve navedene cijene su informativne i odnose se na B2B suradnju. Točna cijena utvrđuje se pisanom ponudom nakon definiranja specifikacije.</p>
 </section>
 
-<!-- GOTOVE APLIKACIJE: Sidro (primjena od 17.11.2026., tekst neutralan prema Odlukama NN 101/2026 i pravilnicima po ZZP-u), Smjena i Gajba u pripremi -->
+<!-- GOTOVE APLIKACIJE: Sidro (primjena od 17.11.2026., tekst neutralan prema Odlukama NN 101/2026 i pravilnicima po ZZP-u), Lokalac (besplatno, javno), Smjena i Gajba u pripremi.
+     Lokalac: u main tek kad je lansiran (20+ proizvođača) i nakon 17. 11. — da ne odvlači od priopćenja za Sidro. -->
 <section id="aplikacije" class="pojas pijesak">
   <div class="omot">
     <h2>Gotove aplikacije</h2>
-    <p class="section-intro">Neke probleme ima puno tvrtki odjednom. Za njih radim gotove aplikacije koje samo instalirate.</p>
+    <p class="section-intro">Neke probleme ima puno tvrtki odjednom. Za njih radim gotove aplikacije koje samo instalirate, a za Rijeku i Kvarner i besplatne javne usluge.</p>
 
     <article class="sidro-blok" id="sidro-proizvod">
       <figure class="sidro-slika">
@@ -335,6 +340,14 @@
     </article>
 
     <div class="u-pripremi">
+      <article class="aplikacija" id="lokalac-proizvod">
+        <p class="status">Besplatno, već radi</p>
+        <h3>Lokalac, domaće s Kvarnera</h3>
+        <p>Domaći proizvođači iz Rijeke i Kvarnera na jednom mjestu: tko što nudi, gdje i kada.
+          Kupci se javljaju izravno proizvođaču, bez posrednika i bez naknada, a OPG-ovi ponudu
+          prijavljuju besplatno, bez registracije.</p>
+        <a class="btn-secondary" href="https://lokalac.majstoraj.hr/">Otvorite Lokalac</a>
+      </article>
       <article class="aplikacija" id="smjena-proizvod">
         <p class="status">U završnoj fazi razvoja</p>
         <h3>Smjena</h3>
@@ -453,6 +466,7 @@
   <nav class="footer-veze" aria-label="Ostale stranice">
     <a href="/stranice/sidro.html">Sidro</a>
     <a href="/stranice/smjena.html">Smjena</a>
+    <a href="https://lokalac.majstoraj.hr/">Lokalac</a>
     <a href="/stranice/privatnost.html">Politika privatnosti</a>
     <a href="/knjige/prestani-tonuti/">Knjiga „Prestani tonuti”</a>
   </nav>
