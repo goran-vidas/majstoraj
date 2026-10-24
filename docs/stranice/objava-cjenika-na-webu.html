@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objava cjenika na webu od 17. 11. 2026.: datoteka, naziv i rokovi | MAJSTORAJ</title>
+<meta name="description" content="Što nacrt pravilnika traži za objavu cjenika na mrežnim stranicama od 17. studenoga 2026.: CSV ili XML, podaci za robu i usluge, naziv datoteke, rok objave promjene i 30 dana dostupnosti. S kontrolnim popisom.">
+<link rel="canonical" href="https://majstoraj.hr/stranice/objava-cjenika-na-webu.html">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objava cjenika na webu od 17. studenoga 2026.: kako izgleda datoteka i na što paziti">
+<meta property="og:description" content="CSV ili XML, podaci za robu i usluge, naziv datoteke, rok objave promjene i 30 dana dostupnosti — prema nacrtu pravilnika, s kontrolnim popisom.">
+<meta property="og:image" content="https://majstoraj.hr/stranice/slike/sidro-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://majstoraj.hr/stranice/objava-cjenika-na-webu.html">
+<meta property="og:locale" content="hr_HR">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Pri objavi (merge u main): datePublished i dateModified postaviti na dan objave,
+     a prije toga provjeriti stanje propisa (plan Sidra, V7b). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Objava cjenika na webu od 17. studenoga 2026.: kako izgleda datoteka i na što paziti",
+  "description": "Što nacrt pravilnika o načinu objave cjenika traži za objavu na mrežnim stranicama: CSV ili XML, podaci za robu i usluge, naziv datoteke, rok objave promjene i dostupnost.",
+  "inLanguage": "hr",
+  "datePublished": "2026-10-25",
+  "dateModified": "2026-10-25",
+  "author": { "@type": "Organization", "name": "MAJSTORAJ", "url": "https://majstoraj.hr/" },
+  "publisher": { "@type": "Organization", "name": "MAJSTORAJ", "url": "https://majstoraj.hr/" },
+  "mainEntityOfPage": "https://majstoraj.hr/stranice/objava-cjenika-na-webu.html"
+}
+</script>
+<meta name="theme-color" content="#F8F6F2">
+<link rel="preload" href="/assets/fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/majstoraj.css">
+
+<style>
+  /* Stručni članak. Tipografija dolazi iz .pravno (majstoraj.css); ovdje su
+     samo okviri, tablica, naziv datoteke i isječak koda — isti izgled kao u
+     odjeljku „Provjerite sami” na stranici Sidra. */
+  .clanak { --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace; max-width: 48rem; }
+  .clanak h3 { font-size: 1.08rem; font-weight: 650; margin: 1.75rem 0 0.55rem; }
+  .clanak ol { margin: 0.5rem 0 1.25rem 1.3rem; display: grid; gap: 0.6rem; }
+  .clanak ol li { color: #4F4741; line-height: 1.7; padding-left: 0.2rem; }
+  .clanak ol li::marker { color: var(--accent-ink); font-weight: 700; }
+  .clanak code { font-family: var(--mono); font-size: 0.9em; }
+
+  .sazetak {
+    background: var(--white); border: 1px solid var(--rule); border-radius: var(--radius-l);
+    box-shadow: var(--shadow-1); padding: 1.35rem 1.5rem 0.6rem; margin: 0 0 2.25rem;
+  }
+  .sazetak h2 { margin-top: 0; font-size: 1.15rem; }
+  .otvoreno { background: var(--surface); border-radius: var(--radius-l); padding: 1.2rem 1.4rem 0.4rem; margin: 1rem 0 1.5rem; }
+  .otvoreno p:first-child { margin-top: 0; }
+
+  .tablica-omot {
+    overflow-x: auto; background: var(--white); border: 1px solid var(--rule);
+    border-radius: var(--radius-l); box-shadow: var(--shadow-1); margin: 1rem 0 0.75rem;
+  }
+  .tablica-omot:focus-visible, .kod:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .propis-tablica { width: 100%; border-collapse: collapse; font-size: 0.9rem; line-height: 1.45; }
+  .propis-tablica th, .propis-tablica td { padding: 0.6rem 0.85rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+  .propis-tablica thead th { font-family: var(--font-head); font-weight: 600; font-size: 0.86rem; background: var(--surface); color: var(--ink); vertical-align: bottom; }
+  .propis-tablica tbody th[scope="row"] { font-weight: 600; color: var(--ink); min-width: 12rem; }
+  .propis-tablica td { color: #4F4741; min-width: 8rem; }
+  .propis-tablica td.da { color: var(--green); font-weight: 600; }
+  .propis-tablica td.uvjet { color: var(--green); }
+  .propis-tablica td.ne { color: var(--ink-soft); }
+  .propis-tablica tbody tr:last-child th, .propis-tablica tbody tr:last-child td { border-bottom: 0; }
+  @media (max-width: 560px) {
+    .propis-tablica th, .propis-tablica td { padding: 0.5rem 0.6rem; }
+    .propis-tablica tbody th[scope="row"] { min-width: 8.5rem; }
+    .propis-tablica td { min-width: 5.5rem; }
+  }
+
+  .naziv-razlozen { display: flex; flex-wrap: wrap; align-items: flex-start; row-gap: 0.75rem; margin: 1rem 0 1.25rem; }
+  .naziv-razlozen .dio { display: inline-flex; flex-direction: column; align-items: center; }
+  .naziv-razlozen code {
+    font-family: var(--mono); font-size: clamp(0.86rem, 1.8vw, 1.02rem); font-weight: 600; color: var(--ink);
+    background: var(--white); border: 1px solid var(--rule-strong); border-bottom: 3px solid var(--accent);
+    border-radius: 6px; padding: 0.4rem 0.55rem;
+  }
+  .naziv-razlozen small { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.4rem; text-align: center; max-width: 6.4rem; line-height: 1.3; }
+  .naziv-razlozen .spoj { font-family: var(--mono); font-size: 1.05rem; color: var(--ink-soft); padding: 0.4rem 0.15rem 0; }
+
+  .kod {
+    background: var(--night); color: #EDE6DE; border-radius: var(--radius-l); margin: 1rem 0 0.75rem;
+    padding: 1.1rem 1.3rem; overflow-x: auto; font-family: var(--mono); font-size: 0.82rem; line-height: 1.6;
+  }
+  .kod code { font-family: inherit; font-size: inherit; }
+  .mala { font-size: 0.92rem; color: var(--ink-soft) !important; line-height: 1.6; }
+
+  .clanak-sidro { margin-top: 2.75rem; padding-top: 1.75rem; border-top: 1px solid var(--rule-strong); }
+  .clanak-gumbi { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; margin: 1.25rem 0 0.5rem; }
+  .clanak .doc-links ul { margin-top: 0.75rem; }
+  .clanak .doc-links li { font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<a class="preskoci" href="#sadrzaj">Preskoči na sadržaj</a>
+
+<nav aria-label="Glavna navigacija">
+  <a class="logo" href="/" aria-label="MAJSTORAJ, naslovnica">MAJSTOR<span>AJ</span></a>
+  <div class="nav-links">
+    <a href="/stranice/sidro.html#primjeri">Primjeri datoteka</a>
+    <a class="nav-cta" href="/stranice/sidro.html">Sidro</a>
+  </div>
+</nav>
+
+<main class="pravno clanak" id="sadrzaj">
+  <p class="page-label">Stručni članak · objava cjenika</p>
+  <h1>Objava cjenika na webu od 17. studenoga 2026.: kako izgleda datoteka i na što paziti</h1>
+  <p class="meta">
+    MAJSTORAJ · stanje propisa na dan 25. listopada 2026.<br>
+    Pravilnik o načinu objave cjenika još je nacrt: javno savjetovanje traje do
+    13. studenoga 2026., a konačni tekst može se razlikovati. Članak ćemo ažurirati
+    kad konačni tekst bude objavljen. Ovo je tehnički pregled, ne pravni savjet.
+  </p>
+
+  <div class="sazetak" role="region" aria-labelledby="ukratko">
+    <h2 id="ukratko">Ukratko</h2>
+    <ul>
+      <li>Od <strong>17. studenoga 2026.</strong> Zakon o zaštiti potrošača (čl. 7., NN 59/2026) traži da trgovac uz cijenu ističe baznu cijenu i da važeće cjenike objavi na svojim mrežnim stranicama. Kako se cjenik objavljuje, propisuje pravilnik.</li>
+      <li>Prema nacrtu tog pravilnika cjenik se objavljuje kao <strong>CSV ili XML datoteka</strong> koju računalo može automatski pročitati, zasebno za svako prodajno mjesto.</li>
+      <li>Naziv datoteke sastoji se od oblika, adrese i oznake prodajnog mjesta, broja pohrane te datuma i vremena.</li>
+      <li>Nakon promjene cijene izmijenjeni cjenik objavljuje se <strong>najkasnije sljedeći radni dan do 11:00</strong>, a objavljeni cjenik ostaje dostupan 30 dana.</li>
+      <li>Nacrt propisuje koje podatke datoteka sadrži, ali ne i kako su zapisani. Dok Ministarstvo ne objavi predložak, u nastavku je zapis koji smo predložili u savjetovanju.</li>
+    </ul>
+  </div>
+
+  <h2>1. Tko objavljuje i što je izuzeto</h2>
+  <p>
+    Zakon obvezu objave veže uz trgovca koji ima mrežne stranice. U obrazloženju nacrta
+    Ministarstvo gospodarstva navodi da se to odnosi i na stranice koje služe samo
+    oglašavanju, a ne prodaji. Hrvatska obrtnička komora traži da se takve stranice
+    izuzmu, pa je to jedno od otvorenih pitanja savjetovanja. Profil na Facebooku ili
+    Instagramu nije mrežna stranica trgovca (pojašnjenje Ministarstva gospodarstva od
+    18. 9. 2026., dano uz Odluke Vlade).
+  </p>
+  <p>Nacrt (čl. 4.) izuzima:</p>
+  <ul>
+    <li>cijene uređene posebnim propisima;</li>
+    <li>popuste za određene skupine kupaca ili načine plaćanja;</li>
+    <li>personalizirane cijene;</li>
+    <li>usluge s dinamički određenom cijenom, bez usporedivih elemenata;</li>
+    <li>posredničke platforme.</li>
+  </ul>
+  <p>
+    Odnosi li se obveza na vaše poslovanje, i u kojem opsegu, odlučit će konačni tekst.
+    U nedoumici pitajte Ministarstvo gospodarstva ili svoju komoru (HOK, HGK).
+  </p>
+
+  <h2>2. Što piše u datoteci</h2>
+  <p>
+    Nacrt (čl. 3.) propisuje različite podatke za robu i za usluge. Zato je robu i
+    usluge praktično objavljivati u zasebnim datotekama: svaka tada ima svoje stupce.
+  </p>
+  <div class="tablica-omot" tabindex="0" role="region" aria-label="Podaci u cjeniku prema nacrtu pravilnika">
+    <table class="propis-tablica">
+      <thead>
+        <tr><th scope="col">Podatak</th><th scope="col">Roba</th><th scope="col">Usluge</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Naziv</th><td class="da">da</td><td class="da">da</td></tr>
+        <tr><th scope="row">Šifra</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
+        <tr><th scope="row">Marka</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
+        <tr><th scope="row">Neto količina</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
+        <tr><th scope="row">Jedinica mjere i cijena za jedinicu mjere</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
+        <tr><th scope="row">Maloprodajna cijena</th><td class="da">da</td><td class="da">da</td></tr>
+        <tr><th scope="row">Poseban oblik prodaje (npr. akcija) i njegov naziv</th><td class="da">da</td><td class="da">da</td></tr>
+        <tr><th scope="row">Bazna cijena</th><td class="da">da</td><td class="da">da</td></tr>
+        <tr><th scope="row">Barkod</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mala">
+    Dostupnost proizvoda (dostupan ili nedostupan) traže samo Odluke Vlade (NN 101/2026),
+    a nacrt pravilnika ne. Ministarstvo je 15. 10. 2026. najavilo da Odluke prestaju kad
+    pravilnici stupe na snagu; odluka o tome do 25. 10. nije objavljena u Narodnim novinama.
+  </p>
+
+  <h3>Bazna cijena</h3>
+  <p>
+    Bazna cijena je maloprodajna cijena na referentni dan. Prema nacrtu pravilnika o
+    isticanju bazne cijene to je u pravilu <strong>10. 9. 2026.</strong>, a za hranu,
+    piće, kozmetiku, sredstva za čišćenje, toaletne potrepštine i proizvode za kućanstvo
+    <strong>2. 5. 2025.</strong> Za proizvod uveden u ponudu kasnije bazna je cijena na
+    dan uvođenja. Ako je proizvod na referentni dan bio na akciji, uzima se prethodna
+    redovna cijena, a za skupinu s datumom 2. 5. 2025. najniža cijena u 30 dana prije
+    početka akcije. Bazna cijena ne mijenja se s promjenom maloprodajne, zato je dobro
+    sačuvati dokaz odakle je (cjenik, blagajna ili računi s tog dana).
+  </p>
+
+  <h2>3. Kako zapisati datoteku</h2>
+  <p>
+    Nacrt određuje koje podatke cjenik sadrži, ali ne i nazive i redoslijed stupaca,
+    kodiranje znakova, razdjelnik ni zapis iznosa i datuma. To je u savjetovanju jedno
+    od najčešćih pitanja: bez jedinstvenog zapisa svaki trgovac objavit će drukčiju
+    datoteku. Dok Ministarstvo ne objavi predložak, ovaj zapis radi u Excelu i u
+    programima za automatsku obradu (predložili smo ga u savjetovanju):
+  </p>
+  <ul>
+    <li>kodiranje <strong>UTF-8</strong>, da hrvatska slova ostanu ispravna (s oznakom BOM, ako će se datoteka otvarati u Excelu);</li>
+    <li>prvi redak su nazivi stupaca, istim redom kao u pravilniku;</li>
+    <li><strong>zarez</strong> kao razdjelnik i <strong>decimalna točka</strong> (<code>23.50</code>), bez oznake valute; tekst koji sadrži zarez stoji u navodnicima;</li>
+    <li>datumi u obliku <code>GGGG-MM-DD</code>;</li>
+    <li>prazno polje kad podatak nije primjenjiv.</li>
+  </ul>
+  <p>Primjer cjenika usluga s izmišljenim podacima:</p>
+  <pre class="kod" tabindex="0" aria-label="Primjer CSV cjenika usluga"><code>Naziv usluge,Maloprodajna cijena,Poseban oblik prodaje (DA/NE),Naziv posebnog oblika prodaje,Bazna cijena
+Muško šišanje,15.00,NE,,14.00
+"Žensko šišanje i feniranje, kratka kosa",28.00,NE,,25.00
+Bojanje kose,45.00,DA,Jesenski popust,50.00
+Pranje i feniranje,12.00,NE,,12.00</code></pre>
+  <p class="mala">
+    Isti prijedlog s XML shemom i primjerima za robu i usluge slobodan je za uporabu:
+    <a href="/sidro/primjeri/Prijedlog_predloska_cjenika_MAJSTORAJ.zip" download>preuzmite ZIP (67 kB)</a>.
+  </p>
+
+  <h2>4. Naziv datoteke</h2>
+  <p>
+    Naziv datoteke (nacrt, čl. 6.; isto i u Odlukama) sadrži oblik prodajnog mjesta,
+    adresu, oznaku prodajnog mjesta, broj pohrane te datum i vrijeme. Pojašnjenje
+    Ministarstva uz Odluke kao primjer navodi naziv s razmacima, točkama i dvotočkom
+    (<code>prodavaonica_Ilica 150 Zagreb_P- 01_104_01.10.2026_07:45</code>). Takav naziv
+    stvara probleme: Windows dvotočku u nazivu datoteke ne dopušta, a razmaci u web
+    adresama ne rade pouzdano. Sigurnije je pisati samo slova bez dijakritičkih znakova,
+    brojke i podvlaku, s vremenom u obliku <code>GGGGMMDD_SSMM</code>:
+  </p>
+  <p class="naziv-razlozen" aria-label="PRODAVAONICA_ILICA150ZAGREB_P01_0104_20261117_0745.csv: oblik PRODAVAONICA, adresa ILICA150ZAGREB, oznaka P01, broj pohrane 0104, datum i vrijeme 20261117_0745">
+    <span class="dio" aria-hidden="true"><code>PRODAVAONICA</code><small>oblik prodajnog mjesta</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>ILICA150ZAGREB</code><small>adresa</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>P01</code><small>oznaka</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>0104</code><small>broj pohrane</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>20261117_0745</code><small>datum i vrijeme</small></span><span class="dio" aria-hidden="true"><code>.csv</code><small>oblik datoteke</small></span>
+  </p>
+  <p>
+    „Broj pohrane” nacrt ne definira. Razumno je da to bude redni broj objave za to
+    prodajno mjesto, koji raste sa svakom objavom. Tada svaka objava ima nov naziv i
+    nijedna datoteka ne prepisuje prethodnu.
+  </p>
+
+  <h2>5. Objava i čuvanje na webu</h2>
+  <ul>
+    <li><strong>Gdje:</strong> na vašim mrežnim stranicama, zasebno za svako prodajno mjesto (čl. 3.), tako da se datoteke mogu automatski prikupljati (čl. 5.).</li>
+    <li><strong>Kada:</strong> nakon promjene cijene izmijenjeni cjenik objavljuje se najkasnije sljedeći radni dan do 11:00 (čl. 3. st. 4.). Odluke Vlade za robu predviđaju objavu svaki dan do 8:00.</li>
+    <li><strong>Koliko dugo:</strong> objavljeni cjenik ostaje dostupan 30 dana (čl. 3. st. 5.). Računa li se tih 30 dana od zadnje objave ili od zamjene cjenika, pitanje je iz savjetovanja. Zamijenjene datoteke zato ne brišite odmah.</li>
+  </ul>
+  <p>
+    Prije 17. 11. provjerite s izrađivačem weba ili pružateljem hostinga možete li na
+    stranicu postaviti vlastite datoteke i kako (ručno, FTP/SFTP, WebDAV). Neki
+    graditelji stranica to ne dopuštaju, što je u savjetovanju također istaknuto. Uz
+    datoteke s vremenskom oznakom predložili smo i stalnu adresu važećeg cjenika (npr.
+    <code>/cjenik/roba.csv</code>). To nacrt ne propisuje, ali programima za usporedbu
+    cijena olakšava pronalaženje važećeg cjenika.
+  </p>
+
+  <h2>6. Kontrolni popis do 17. studenoga</h2>
+  <ol>
+    <li>Provjerite odnosi li se obveza na vaše poslovanje i vrijedi li za vas neko izuzeće (komora, Ministarstvo gospodarstva).</li>
+    <li>Popišite proizvode i usluge s maloprodajnim cijenama, za svako prodajno mjesto.</li>
+    <li>Za svaki artikl odredite baznu cijenu i referentni dan te sačuvajte izvor (cjenik, blagajna ili računi s tog dana).</li>
+    <li>Izradite CSV ili XML datoteku i otvorite je, da provjerite slova, iznose i prazna polja.</li>
+    <li>Dogovorite gdje će datoteke biti na vašem webu i tko ih postavlja.</li>
+    <li>Odredite tko objavljuje izmijenjeni cjenik nakon promjene cijene, najkasnije do 11:00 sljedećeg radnog dana.</li>
+    <li>Kad bude objavljen konačni tekst pravilnika, provjerite što se promijenilo u odnosu na nacrt.</li>
+  </ol>
+
+  <h2>7. Što još nije odlučeno</h2>
+  <div class="otvoreno">
+    <p>
+      Javno savjetovanje zatvara se 13. 11. 2026. Do 21. 10. o oba nacrta stiglo je oko
+      400 komentara, a odgovori Ministarstva dolaze u izvješću nakon savjetovanja.
+      Otvorena pitanja su:
+    </p>
+    <ul>
+      <li>izuzeće obrtnika i mikro poduzetnika te ugostiteljstva i turizma, koje traži Hrvatska obrtnička komora;</li>
+      <li>vrijedi li obveza i za stranice koje služe samo predstavljanju;</li>
+      <li>strojno čitljiv oblik i 30 dana dostupnosti (HOK ih osporava, a Ministarstvo ih je 15. 10. branilo);</li>
+      <li>hoće li Ministarstvo objaviti obvezni predložak datoteke;</li>
+      <li>prestanak Odluka Vlade (najavljen, ali do 25. 10. nije objavljen).</li>
+    </ul>
+  </div>
+
+  <div class="clanak-sidro" role="region" aria-labelledby="sidro-naslov">
+    <h2 id="sidro-naslov">Kako to radimo u Sidru</h2>
+    <p>
+      Ova pravila ugradili smo u Sidro, desktop aplikaciju obrta MAJSTORAJ. Sidro vodi
+      povijest cijena koja se ne može naknadno mijenjati, pa je bazna cijena svakog
+      artikla zapisana s datumom. Izrađuje CSV i XML datoteke s propisanim nazivom,
+      zasebno za robu i usluge, i PDF cjenik za prodajno mjesto, a datoteke može sam
+      poslati na vaš web. Podaci ostaju na vašem računalu.
+    </p>
+    <p>
+      Sidro je izrađen prema Odlukama Vlade i usklađujemo ga s konačnim tekstom
+      pravilnika; prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača uključena
+      je u licencu. Besplatna verzija radi s do 10 artikala, a za više artikala potrebna
+      je jednokratna licenca, bez pretplate.
+    </p>
+    <div class="clanak-gumbi">
+      <a class="btn-primary" href="/stranice/sidro.html">Više o Sidru</a>
+      <a class="btn-secondary" href="/stranice/sidro.html#primjeri">Pogledajte primjere datoteka</a>
+    </div>
+  </div>
+
+  <div class="doc-links">
+    <strong>Izvori</strong>
+    <ul>
+      <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/full/2026_06_59_728.html" target="_blank" rel="noopener">Zakon o izmjenama i dopunama Zakona o zaštiti potrošača, NN 59/2026</a> (čl. 7.)</li>
+      <li><a href="https://esavjetovanja.gov.hr/Econ/10332" target="_blank" rel="noopener">Nacrt pravilnika o načinu objave cjenika</a> (e-Savjetovanja, do 13. 11. 2026.)</li>
+      <li><a href="https://esavjetovanja.gov.hr/Econ/10333" target="_blank" rel="noopener">Nacrt pravilnika o isticanju bazne cijene</a> (e-Savjetovanja, do 13. 11. 2026.)</li>
+      <li>Odluka o objavi cjenika i Odluka o isticanju dodatne cijene, NN 101/2026 i 110/2026</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <nav class="footer-veze" aria-label="Ostale stranice">
+    <a href="/">Naslovnica</a>
+    <a href="/stranice/sidro.html">Sidro</a>
+    <a href="/stranice/privatnost.html">Politika privatnosti</a>
+  </nav>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385</span>
+</footer>
+</body>
+</html>
