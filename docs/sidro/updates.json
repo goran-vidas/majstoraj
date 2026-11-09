@@ -1,5 +1,5 @@
 {
-  "latest_version": "0.1.0",
+  "latest_version": "0.2.0",
   "download_url": "https://preuzimanje.majstoraj.hr/SidroSetup.exe",
-  "release_notes": "Prvo izdanje Sidra."
+  "release_notes": "Cijene unaprijed (polje „Vrijedi od”), uvoz artikala iz datoteke .sidro, cijene s decimalnim zarezom, redoslijed po hrvatskoj abecedi, kartica „Pomoć i usluge”, brža stranica Povijest cijena i tekstovi usklađeni s najavljenim pravilnicima."
 }
