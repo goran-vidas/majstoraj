@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Cjenik oib="00000000001" nazivObrta="Trgovina Primjer, vl. Ivan Horvat" datumIzvoza="2026-10-20T00:05:25">
+<Cjenik oib="00000000001" nazivObrta="Trgovina Primjer, vl. Ivan Horvat" datumIzvoza="2026-11-09T11:12:29">
     <Proizvod>
         <Naziv>Brašno T-550 1 kg</Naziv>
         <Sifra>B-101</Sifra>
@@ -11,6 +11,21 @@
         <NazivPosebnogOblika />
         <SidrenaCijena>1.19</SidrenaCijena>
         <Barkod>2000000000046</Barkod>
+        <Dostupno>dostupan</Dostupno>
+        <ReferentniDatum>2026-09-10</ReferentniDatum>
+        <Valuta>EUR</Valuta>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Čaj od kamilice 20 vrećica</Naziv>
+        <Sifra>C-007</Sifra>
+        <Marka>Bilje Lika</Marka>
+        <JedinicaMjere>kom</JedinicaMjere>
+        <CijenaPoJedinici />
+        <MaloprodajnaCijena>2.29</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <NazivPosebnogOblika />
+        <SidrenaCijena>2.10</SidrenaCijena>
+        <Barkod>2000000000060</Barkod>
         <Dostupno>dostupan</Dostupno>
         <ReferentniDatum>2026-09-10</ReferentniDatum>
         <Valuta>EUR</Valuta>
@@ -86,21 +101,6 @@
         <NazivPosebnogOblika />
         <SidrenaCijena>3.20</SidrenaCijena>
         <Barkod>2000000000053</Barkod>
-        <Dostupno>dostupan</Dostupno>
-        <ReferentniDatum>2026-09-10</ReferentniDatum>
-        <Valuta>EUR</Valuta>
-    </Proizvod>
-    <Proizvod>
-        <Naziv>Čaj od kamilice 20 vrećica</Naziv>
-        <Sifra>C-007</Sifra>
-        <Marka>Bilje Lika</Marka>
-        <JedinicaMjere>kom</JedinicaMjere>
-        <CijenaPoJedinici />
-        <MaloprodajnaCijena>2.29</MaloprodajnaCijena>
-        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
-        <NazivPosebnogOblika />
-        <SidrenaCijena>2.10</SidrenaCijena>
-        <Barkod>2000000000060</Barkod>
         <Dostupno>dostupan</Dostupno>
         <ReferentniDatum>2026-09-10</ReferentniDatum>
         <Valuta>EUR</Valuta>
