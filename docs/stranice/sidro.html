@@ -356,7 +356,7 @@
 
   <figure class="uvod-slika">
     <a class="izlog" href="#izgled" aria-label="Pogledajte snimke aplikacije">
-      <span class="prozor"><img src="slike/sidro-artikli.webp" width="1353" height="812" decoding="async" fetchpriority="high"
+      <span class="prozor"><img src="slike/sidro-artikli.webp" width="1287" height="869" decoding="async" fetchpriority="high"
            alt="Sidro, stranica Artikli: popis proizvoda i usluga s vrstom, jedinicom mjere, šifrom, markom, barkodom i statusom"></span>
     </a>
     <figcaption>Snimka stvarne aplikacije s izmišljenim podacima jedne male trgovine.</figcaption>
@@ -479,11 +479,12 @@
     <div class="snimke-kartice" role="tablist" aria-label="Snimke zaslona" hidden>
       <button type="button" role="tab" id="kartica-artikli" aria-controls="snimka-artikli" aria-selected="true">Artikli</button>
       <button type="button" role="tab" id="kartica-povijest" aria-controls="snimka-povijest" aria-selected="false" tabindex="-1">Povijest cijena</button>
+      <button type="button" role="tab" id="kartica-izvoz" aria-controls="snimka-izvoz" aria-selected="false" tabindex="-1">Izvoz</button>
       <button type="button" role="tab" id="kartica-cjenik" aria-controls="snimka-cjenik" aria-selected="false" tabindex="-1">PDF cjenik</button>
     </div>
     <figure class="snimka" id="snimka-artikli">
       <a class="pozornica" href="slike/sidro-artikli.webp" target="_blank" rel="noopener">
-        <span class="prozor"><img src="slike/sidro-artikli.webp" width="1353" height="812" loading="lazy" decoding="async"
+        <span class="prozor"><img src="slike/sidro-artikli.webp" width="1287" height="869" loading="lazy" decoding="async"
              alt="Sidro, stranica Artikli: popis proizvoda i usluga s vrstom, jedinicom mjere, šifrom, markom, barkodom i statusom"></span>
         <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
       </a>
@@ -491,17 +492,25 @@
     </figure>
     <figure class="snimka" id="snimka-povijest">
       <a class="pozornica" href="slike/sidro-povijest.webp" target="_blank" rel="noopener">
-        <span class="prozor"><img src="slike/sidro-povijest.webp" width="1442" height="812" loading="lazy" decoding="async"
-             alt="Sidro, stranica Povijest cijena: sidrena i maloprodajna cijena po artiklu i povijest promjena za odabrani artikl, uključujući akciju"></span>
+        <span class="prozor"><img src="slike/sidro-povijest.webp" width="1287" height="869" loading="lazy" decoding="async"
+             alt="Sidro, stranica Povijest cijena: sidrena i maloprodajna cijena po artiklu, dostupnost i povijest promjena za odabrani artikl"></span>
         <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
       </a>
-      <figcaption><span class="snimka-ime">Povijest cijena</span>Svaka promjena ostaje zapisana, i akcija i redovna cijena.</figcaption>
+      <figcaption><span class="snimka-ime">Povijest cijena</span>Svaka promjena ostaje zapisana, s datumom od kad vrijedi.</figcaption>
+    </figure>
+    <figure class="snimka" id="snimka-izvoz">
+      <a class="pozornica" href="slike/sidro-izvoz.webp" target="_blank" rel="noopener">
+        <span class="prozor"><img src="slike/sidro-izvoz.webp" width="1286" height="867" loading="lazy" decoding="async"
+             alt="Sidro, stranica Izvoz cjenika: provjera prije izvoza i poruka s nazivima izrađenih CSV datoteka po propisanom obliku"></span>
+        <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
+      </a>
+      <figcaption><span class="snimka-ime">Izvoz</span>CSV, XML i PDF jednim klikom, s propisanim nazivom datoteke.</figcaption>
     </figure>
     <figure class="snimka" id="snimka-cjenik">
       <a class="pozornica" href="slike/sidro-cjenik.webp" target="_blank" rel="noopener">
         <span class="papir-hrpa">
           <span class="papir-ispod" aria-hidden="true"></span>
-          <span class="papir"><img src="slike/sidro-cjenik.webp" width="971" height="464" loading="lazy" decoding="async"
+          <span class="papir"><img src="slike/sidro-cjenik.webp" width="1033" height="466" loading="lazy" decoding="async"
                alt="PDF cjenik proizvoda iz Sidra: stupci prema Odluci, uključujući cijenu za jedinicu mjere, poseban oblik prodaje i cijenu na 10.9.2026."></span>
         </span>
         <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
