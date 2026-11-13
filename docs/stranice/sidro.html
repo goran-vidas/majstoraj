@@ -890,7 +890,9 @@
       <p>
         Skenirajte bar-kod mobilnim bankarstvom ili upišite podatke ručno. Iste
         podatke poslali smo i e-poštom. Kad uplata stigne, licencni ključ i račun
-        šaljemo na vašu e-adresu (obično isti ili sljedeći radni dan).
+        šaljemo na vašu e-adresu (obično isti ili sljedeći radni dan). Ako ih
+        ne dobijete u roku od 3 radna dana od uplate, provjerite mapu neželjene
+        pošte i javite nam se na info@majstoraj.hr.
       </p>
       <img id="licencaBarkodSlika" alt="2D bar-kod za uplatu" style="max-width:280px; display:block; margin: 0 auto 1.5rem; width:100%;">
       <dl class="uplata-podaci">
@@ -1211,7 +1213,7 @@
       })
       .then(function (podaci) {
         statusBox.className = 'form-status success';
-        statusBox.textContent = 'Hvala! Podaci za uplatu su ispod, a poslali smo ih i na ' + tijelo.email + '.';
+        statusBox.textContent = 'Hvala! Podaci za uplatu su ispod, a poslali smo ih i na ' + tijelo.email + '. Ako poruka ne stigne, provjerite neželjenu poštu; podaci su i ovdje.';
         if (podaci.primatelj) document.getElementById('licencaPrimatelj').textContent = podaci.primatelj;
         document.getElementById('licencaIban').textContent = podaci.iban;
         document.getElementById('licencaModel').textContent = podaci.model;
