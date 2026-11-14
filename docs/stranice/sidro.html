@@ -376,15 +376,16 @@
         <p>
           Od <strong>17. studenoga 2026.</strong> uz cijenu se ističe bazna (sidrena)
           cijena, a tko ima web stranicu objavljuje cjenik u strojno čitljivom obliku.
-          Ministarstvo gospodarstva najavilo je 15. 10. 2026. da tada prestaju
-          privremene Odluke Vlade (NN 101/2026), a iste obveze preuzimaju pravilnici
-          po Zakonu o zaštiti potrošača — nacrti su u e-Savjetovanju do 13. 11. 2026.
-          Referentni datumi ostaju isti.
+          Vlada je 14. 11. 2026. donijela odluke o prestanku važenja privremenih Odluka
+          (NN 101/2026), a od 17. 11. te obveze propisuju Pravilnik o isticanju bazne
+          cijene proizvoda i Pravilnik o načinu objave cjenika proizvoda, doneseni po
+          Zakonu o zaštiti potrošača. Konačni tekst pravilnika objavljuje se u Narodnim
+          novinama; pojedinosti, npr. izuzeća, potvrdit će objavljeni tekst.
         </p>
         <p>
-          Sidro je izrađen prema Odlukama, a nacrti pravilnika zadržavaju isti oblik
-          cjenika i iste referentne datume. Sidro ćemo uskladiti s konačnim tekstom
-          pravilnika. <strong>Prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača (bazna cijena i objava cjenika) uključena je u licencu.</strong>
+          Sidro 0.2 izrađen je prema Odlukama i nacrtima pravilnika, koji zadržavaju isti
+          oblik cjenika i iste referentne datume. S konačnim tekstom uskladit ćemo ga u
+          sljedećoj verziji, čim pravilnici budu objavljeni. <strong>Prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača (bazna cijena i objava cjenika) uključena je u licencu.</strong>
         </p>
       </div>
       <div class="propis-kartice">
@@ -768,8 +769,8 @@
         <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Vezana uz OIB, ne uz računalo</span></li>
         <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Račun e-poštom</span></li>
       </ul>
-      <!-- [2026-10-14] Dok je kupnja zatvorena, gumb vodi na prijavu za obavijest; skripta ga pretvori u "Naruči licencu" kad poslužitelj javi prodaja_otvorena. -->
-      <a class="btn-primary paket-gumb samo-prodaja" id="gumbNarudzba" href="#obavijestKupnja">Javite mi kad se otvori kupnja</a>
+      <!-- [2026-11-14] Kupnja je otvorena (13. 11.), pa je to početno stanje stranice; skripta prikaže napomenu iz #prodajaZatvorena samo ako poslužitelj javi prodaja_otvorena: false. -->
+      <a class="btn-primary paket-gumb samo-prodaja" id="gumbNarudzba" href="#narudzba">Naruči licencu</a>
     </article>
   </div>
 
@@ -786,49 +787,19 @@
     </ul>
   </div>
 
-  <!-- [2026-10-08] Prodaja licenci otvara se ručno na poslužitelju
-       (SIDRO_PRODAJA_OTVORENA), nekoliko dana prije 17.11.2026. Dok je
-       zatvorena (ili poslužitelj ne odgovara), vidi se ova napomena, a
-       obrazac ostaje skriven; skripta ispod ih zamijeni kad
-       /licence/cijena javi prodaja_otvorena: true. -->
-  <div id="prodajaZatvorena" class="najava-blok samo-prodaja">
-    <h3>Kupnja licence otvara se pred 17. studenoga</h3>
+  <!-- [2026-11-14] Prodaja je otvorena od 13. 11. 2026. (SIDRO_PRODAJA_OTVORENA na
+       poslužitelju). Ova napomena prikazuje se samo ako /licence/cijena javi
+       prodaja_otvorena: false (npr. privremeno zatvaranje). -->
+  <div id="prodajaZatvorena" class="najava-blok samo-prodaja" hidden>
+    <h3>Kupnja licence trenutačno nije moguća</h3>
     <p>
-      Licencu možete kupiti nekoliko dana prije 17. studenoga 2026., kad bude
-      jasno da nova pravila stupaju na snagu. Do tada Sidro koristite besplatno:
-      unesite sve artikle i usluge, pripremite cjenik i isprobajte izvoz
-      (do 10 artikala). Uneseni podaci ostaju i nakon kupnje.
+      Narudžbe licence privremeno ne primamo. Sidro i dalje koristite besplatno
+      (do 10 artikala), a uneseni podaci ostaju i nakon kupnje. Za pitanja pišite
+      na <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>.
     </p>
   </div>
 
-  <!-- [2026-10-08] Lista "javite mi kad se otvori kupnja": postojeći
-       /obavijesti/prijava na licencnom poslužitelju (dvostruka potvrda,
-       privola; Izjava o privatnosti, "Obavijest o izlasku"). -->
-  <div id="obavijestKupnja" class="form-block samo-prodaja">
-    <h3>Javite mi kad se otvori kupnja</h3>
-    <p>
-      Pošaljemo vam jednu poruku kad licencu bude moguće kupiti. Adresu ne
-      koristimo ni za što drugo; odjaviti se možete poveznicom iz svake poruke.
-    </p>
-    <form id="obavijestForm" novalidate>
-      <div class="form-row">
-        <label for="ob-email">E-adresa *</label>
-        <input type="email" id="ob-email" placeholder="ivan@vasatvrtka.hr" autocomplete="email" maxlength="254" required>
-      </div>
-      <div class="consent-row">
-        <input type="checkbox" id="ob-privola" required value="da">
-        <label for="ob-privola">
-          Pristajem da mi pošaljete obavijest o otvaranju kupnje
-          (<a href="/stranice/sidro-privatnost.html" target="_blank" rel="noopener">Izjava o privatnosti</a>).
-          Prijavu potvrđujem poveznicom iz e-pošte. *
-        </label>
-      </div>
-      <button type="submit" class="form-submit-btn">Prijavi me</button>
-      <div class="form-status" id="obavijestStatus" role="status" aria-live="polite"></div>
-    </form>
-  </div>
-
-  <div id="narudzba" class="form-block samo-prodaja" hidden>
+  <div id="narudzba" class="form-block samo-prodaja">
     <h3>Naručite trajnu licencu (<span class="cijena-iznos">10</span> €)</h3>
     <p>
       Upišite podatke obrta ili tvrtke. Podaci za uplatu i 2D bar-kod pojavit će
@@ -926,7 +897,7 @@
   <div class="faq-list">
     <details class="faq-item">
       <summary>Odnose li se nova pravila na moje poslovanje?</summary>
-      <div class="faq-body">Propisi (do 17. 11. Odluke NN 101/2026, a od tada pravilnici po Zakonu o zaštiti potrošača) sami određuju tko su obveznici i za koje proizvode i usluge. Nacrti pravilnika predviđaju iznimke, npr. za robu i usluge po mjeri kupca i za dinamički određene cijene; konačni tekst odlučuje. Ako niste sigurni, provjerite pojašnjenja Ministarstva gospodarstva ili pitajte svoju komoru (HOK, HGK) — Sidro vam pomaže izvršiti obvezu, ali ne odlučuje imate li je.</div>
+      <div class="faq-body">Od 17. 11. 2026. to određuju pravilnici po Zakonu o zaštiti potrošača (privremene Odluke Vlade NN 101/2026 prestaju važiti). Nacrti pravilnika predviđali su iznimke, npr. za robu i usluge po mjeri kupca i za dinamički određene cijene; odlučuje tekst objavljen u Narodnim novinama. Ako niste sigurni, provjerite pojašnjenja Ministarstva gospodarstva ili pitajte svoju komoru (HOK, HGK) — Sidro vam pomaže izvršiti obvezu, ali ne odlučuje imate li je.</div>
     </details>
     <details class="faq-item">
       <summary>Imam web stranicu samo za prezentaciju, ili samo Facebook — moram li objavljivati cjenik?</summary>
@@ -950,7 +921,7 @@
     </details>
     <details class="faq-item">
       <summary>Imam stotine artikala u Excelu — mogu li ih uvesti?</summary>
-      <div class="faq-body">U aplikaciji se artikli zasad unose ručno. Ako ih već imate u blagajničkom programu ili Excelu, prijenos u Sidro možemo napraviti kao uslugu: pošaljete izvoz, mi pripremimo podatke, a vi ih prije upisa pregledate. Cijena ovisi o obimu i dogovara se unaprijed. Besplatnu verziju (do 10 artikala) možete isprobati odmah.</div>
+      <div class="faq-body">Artikle unosite ručno ili ih Sidro uvozi iz pripremljene datoteke (Artikli → „Uvoz iz datoteke…”). Ako ih već imate u blagajničkom programu ili Excelu, tu datoteku pripremamo kao uslugu: pošaljete izvoz, mi ga pretvorimo, a vi u Sidru prije upisa pregledate svaku stavku. Cijena ovisi o obimu i dogovara se unaprijed. Besplatnu verziju (do 10 artikala) možete isprobati odmah.</div>
     </details>
     <details class="faq-item">
       <summary>Web mi je na Wixu ili sličnom i nemam FTP pristup. Što onda?</summary>
@@ -1109,13 +1080,10 @@
     .then(function (o) { return o.ok ? o.json() : null; })
     .then(function (p) {
       if (!p || typeof p.iznos !== 'number') return;
-      if (p.prodaja_otvorena === true) {
-        document.getElementById('narudzba').hidden = false;
-        document.getElementById('prodajaZatvorena').hidden = true;
-        document.getElementById('obavijestKupnja').hidden = true;
-        var gumbNarudzba = document.getElementById('gumbNarudzba');
-        gumbNarudzba.href = '#narudzba';
-        gumbNarudzba.textContent = 'Naruči licencu';
+      if (p.prodaja_otvorena === false) {
+        document.getElementById('narudzba').hidden = true;
+        document.getElementById('prodajaZatvorena').hidden = false;
+        document.getElementById('gumbNarudzba').href = '#prodajaZatvorena';
       }
       document.querySelectorAll('.cijena-iznos').forEach(function (el) { el.textContent = formatEur(p.iznos); });
       if (p.iznos >= 20) {
@@ -1123,45 +1091,6 @@
       }
     })
     .catch(function () {});
-
-  // [2026-10-08] Prijava na obavijest o otvaranju kupnje.
-  var obForma = document.getElementById('obavijestForm');
-  if (obForma) {
-    var obStatus = document.getElementById('obavijestStatus');
-    obForma.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = document.getElementById('ob-email').value.trim();
-      var privola = document.getElementById('ob-privola').checked;
-      if (!email || email.indexOf('@') < 1) {
-        obStatus.className = 'form-status error';
-        obStatus.textContent = 'Upišite ispravnu e-adresu.';
-        return;
-      }
-      if (!privola) {
-        obStatus.className = 'form-status error';
-        obStatus.textContent = 'Za prijavu označite pristanak.';
-        return;
-      }
-      var gumb = obForma.querySelector('.form-submit-btn');
-      gumb.disabled = true;
-      fetch(BACKEND_URL + '/obavijesti/prijava', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, privola: true })
-      })
-        .then(function (o) { return o.json().then(function (t) { return { ok: o.ok, t: t }; }); })
-        .then(function (r) {
-          obStatus.className = 'form-status ' + (r.ok ? 'success' : 'error');
-          obStatus.textContent = r.ok ? r.t.poruka : 'Prijava nije uspjela. Provjerite e-adresu ili pišite na info@majstoraj.hr.';
-          if (!r.ok) gumb.disabled = false;
-        })
-        .catch(function () {
-          obStatus.className = 'form-status error';
-          obStatus.textContent = 'Poslužitelj trenutno nije dostupan. Pokušajte kasnije ili pišite na info@majstoraj.hr.';
-          gumb.disabled = false;
-        });
-    });
-  }
 
   var forma = document.getElementById('sidroLicencaForm');
   var statusBox = document.getElementById('licencaFormStatus');
