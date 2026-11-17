@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<Cjenik oib="00000000001" nazivObrta="Trgovina Primjer, vl. Ivan Horvat" datumIzvoza="2026-11-17T14:37:18">
+<Cjenik maticniBroj="12345678" nazivObrta="Trgovina Primjer, vl. Ivan Horvat" datumIzvoza="2026-11-17T17:40:46">
     <Usluga>
         <Naziv>Dostava na kućnu adresu (Rijeka)</Naziv>
         <MaloprodajnaCijena>4.00</MaloprodajnaCijena>
