@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Objava cjenika na webu od 17. 11. 2026.: datoteka, naziv i rokovi | MAJSTORAJ</title>
-<meta name="description" content="Što nacrt pravilnika traži za objavu cjenika na mrežnim stranicama od 17. studenoga 2026.: CSV ili XML, podaci za robu i usluge, naziv datoteke, rok objave promjene i 30 dana dostupnosti. S kontrolnim popisom.">
+<title>Objava cjenika na webu prema pravilniku (NN 132/2026): datoteka, naziv i rokovi | MAJSTORAJ</title>
+<meta name="description" content="Što Pravilnik o načinu objave cjenika proizvoda (NN 132/2026) traži od 17. studenoga 2026.: CSV ili XML, stupci za robu i usluge, UTF-8 i točka-zarez, naziv datoteke s OIB-om ili matičnim brojem, objava do 11:00 i arhiva 15 dana. S kontrolnim popisom.">
 <link rel="canonical" href="https://majstoraj.hr/stranice/objava-cjenika-na-webu.html">
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" href="/favicon.png">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Objava cjenika na webu od 17. studenoga 2026.: kako izgleda datoteka i na što paziti">
-<meta property="og:description" content="CSV ili XML, podaci za robu i usluge, naziv datoteke, rok objave promjene i 30 dana dostupnosti — prema nacrtu pravilnika, s kontrolnim popisom.">
+<meta property="og:title" content="Objava cjenika na webu prema pravilniku (NN 132/2026): kako izgleda datoteka i na što paziti">
+<meta property="og:description" content="CSV ili XML, stupci za robu i usluge, naziv datoteke, objava do 11:00 i arhiva 15 dana — prema Pravilniku o načinu objave cjenika proizvoda, s kontrolnim popisom.">
 <meta property="og:image" content="https://majstoraj.hr/stranice/slike/sidro-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,17 +20,15 @@
 <meta property="og:locale" content="hr_HR">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Pri objavi (merge u main): datePublished i dateModified postaviti na dan objave,
-     a prije toga provjeriti stanje propisa (plan Sidra, V7b). -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Objava cjenika na webu od 17. studenoga 2026.: kako izgleda datoteka i na što paziti",
-  "description": "Što nacrt pravilnika o načinu objave cjenika traži za objavu na mrežnim stranicama: CSV ili XML, podaci za robu i usluge, naziv datoteke, rok objave promjene i dostupnost.",
+  "headline": "Objava cjenika na webu prema pravilniku (NN 132/2026): kako izgleda datoteka i na što paziti",
+  "description": "Što Pravilnik o načinu objave cjenika proizvoda (NN 132/2026) traži za objavu na mrežnim stranicama: CSV ili XML, stupci za robu i usluge, naziv datoteke, rok objave izmjene i arhiva.",
   "inLanguage": "hr",
   "datePublished": "2026-11-06",
-  "dateModified": "2026-11-06",
+  "dateModified": "2026-11-17",
   "author": { "@type": "Organization", "name": "MAJSTORAJ", "url": "https://majstoraj.hr/" },
   "publisher": { "@type": "Organization", "name": "MAJSTORAJ", "url": "https://majstoraj.hr/" },
   "mainEntityOfPage": "https://majstoraj.hr/stranice/objava-cjenika-na-webu.html"
@@ -57,8 +55,6 @@
     box-shadow: var(--shadow-1); padding: 1.35rem 1.5rem 0.6rem; margin: 0 0 2.25rem;
   }
   .sazetak h2 { margin-top: 0; font-size: 1.15rem; }
-  .sazetak-novo { border-left: 4px solid var(--accent-ink); }
-  .sazetak-novo p { margin: 0.4rem 0 0.8rem; }
   .otvoreno { background: var(--surface); border-radius: var(--radius-l); padding: 1.2rem 1.4rem 0.4rem; margin: 1rem 0 1.5rem; }
   .otvoreno p:first-child { margin-top: 0; }
 
@@ -76,6 +72,7 @@
   .propis-tablica td.uvjet { color: var(--green); }
   .propis-tablica td.ne { color: var(--ink-soft); }
   .propis-tablica tbody tr:last-child th, .propis-tablica tbody tr:last-child td { border-bottom: 0; }
+  .propis-tablica.redom tbody th[scope="row"] { min-width: 0; width: 3.5rem; color: var(--ink-soft); font-weight: 600; }
   @media (max-width: 560px) {
     .propis-tablica th, .propis-tablica td { padding: 0.5rem 0.6rem; }
     .propis-tablica tbody th[scope="row"] { min-width: 8.5rem; }
@@ -111,240 +108,239 @@
 <nav aria-label="Glavna navigacija">
   <a class="logo" href="/" aria-label="MAJSTORAJ, naslovnica">MAJSTOR<span>AJ</span></a>
   <div class="nav-links">
-    <a href="/stranice/sidro.html#primjeri">Primjeri datoteka</a>
     <a class="nav-cta" href="/stranice/sidro.html">Sidro</a>
   </div>
 </nav>
 
 <main class="pravno clanak" id="sadrzaj">
   <p class="page-label">Stručni članak · objava cjenika</p>
-  <h1>Objava cjenika na webu od 17. studenoga 2026.: kako izgleda datoteka i na što paziti</h1>
+  <h1>Objava cjenika na webu prema pravilniku (NN 132/2026): kako izgleda datoteka i na što paziti</h1>
   <p class="meta">
-    MAJSTORAJ · stanje propisa na dan 14. studenoga 2026., dopuna 16. studenoga 2026. (objavljen pravilnik)<br>
-    Vlada je 14. 11. 2026. ukinula privremene Odluke, a Pravilnik o načinu objave
-    cjenika proizvoda stupa na snagu 17. studenoga 2026. Njegov konačni tekst još
-    nije objavljen u Narodnim novinama, pa se članak oslanja na nacrt iz savjetovanja
-    (zatvoreno 13. 11.). Ažurirat ćemo ga kad tekst bude objavljen. Ovo je tehnički
-    pregled, ne pravni savjet.
+    MAJSTORAJ · stanje propisa na dan 17. studenoga 2026.<br>
+    Pravilnik o načinu objave cjenika proizvoda i Pravilnik o isticanju bazne cijene
+    proizvoda objavljeni su u Narodnim novinama 132/2026 i vrijede od 17. studenoga 2026.
+    Odluke Vlade (NN 101/2026 i 110/2026) prestale su važiti. Ovo je tehnički pregled,
+    ne pravni savjet.
   </p>
-
-  <div class="sazetak sazetak-novo" role="region" aria-labelledby="novo1611">
-    <h2 id="novo1611">Novo 16. 11.: pravilnik je objavljen (NN 132/2026)</h2>
-    <p>
-      Pravilnik o načinu objave cjenika proizvoda objavljen je u Narodnim novinama
-      16. 11. 2026. (NN 132/2026) i vrijedi od 17. 11. Razlikuje se od nacrta koji opisuje
-      ostatak članka (članak ažuriramo u cijelosti):
-    </p>
-    <ul>
-      <li><strong>stupci točno ovim redom:</strong> naziv, šifra, marka, neto količina, jedinica mjere, maloprodajna cijena i je li primijenjena tijekom posebnog oblika prodaje, cijena za jedinicu mjere, barkod, EAN barkod, bazna cijena; za usluge: naziv, maloprodajna cijena i poseban oblik prodaje, bazna cijena (čl. 3.);</li>
-      <li><strong>CSV s razdjelnikom točka-zarez (;)</strong> i kodiranjem UTF-8; datoteka smije biti i .zip ili .gz (čl. 6.);</li>
-      <li><strong>naziv datoteke:</strong> OIB (pravna osoba) ili matični broj (fizička osoba), prodajno mjesto, adresa i oznaka, oznaka cjenika robe ili usluga, broj pohrane i vrijeme objave GGGGMMDD_SSMM; za isti cjenik na svim mjestima „ZA_SVA_PRODAJNA_MJESTA” (čl. 6.);</li>
-      <li>izmijenjeni cjenik objavljuje se <strong>do 11:00 na dan izmjene</strong>, na istom mjestu, a arhivski ostaje dostupan <strong>15 dana</strong> (čl. 3. i 6.);</li>
-      <li>naziv posebnog oblika prodaje, dostupnost i referentni datum više se ne traže; naznaku datuma bazne cijene pravilnik ne propisuje.</li>
-    </ul>
-    <p>
-      Izvor: <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_11_132_1584.html" target="_blank" rel="noopener">NN 132/2026, Pravilnik o načinu objave cjenika proizvoda</a>
-      i <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_11_132_1583.html" target="_blank" rel="noopener">Pravilnik o isticanju bazne cijene proizvoda</a>.
-      Primjeri datoteka niže još su u obliku iz nacrta; Sidro usklađujemo u sljedećoj verziji.
-    </p>
-  </div>
 
   <div class="sazetak" role="region" aria-labelledby="ukratko">
     <h2 id="ukratko">Ukratko</h2>
     <ul>
-      <li>Od <strong>17. studenoga 2026.</strong> Zakon o zaštiti potrošača (čl. 7., NN 59/2026) traži da trgovac uz cijenu ističe baznu cijenu i da važeće cjenike objavi na svojim mrežnim stranicama. Kako se cjenik objavljuje, propisuje pravilnik.</li>
-      <li>Prema nacrtu tog pravilnika cjenik se objavljuje kao <strong>CSV ili XML datoteka</strong> koju računalo može automatski pročitati, zasebno za svako prodajno mjesto.</li>
-      <li>Naziv datoteke sastoji se od oblika, adrese i oznake prodajnog mjesta, broja pohrane te datuma i vremena.</li>
-      <li>Nakon promjene cijene izmijenjeni cjenik objavljuje se <strong>najkasnije sljedeći radni dan do 11:00</strong>, a objavljeni cjenik ostaje dostupan 30 dana.</li>
-      <li>Nacrt propisuje koje podatke datoteka sadrži, ali ne i kako su zapisani. Dok Ministarstvo ne objavi predložak, u nastavku je zapis koji smo predložili u savjetovanju.</li>
+      <li>Trgovac koji ima mrežne stranice na njima objavljuje važeći cjenik robe i usluga, zasebno za svako prodajno mjesto, osim ako na svim mjestima primjenjuje isti cjenik.</li>
+      <li>Cjenik je <strong>CSV ili XML datoteka</strong> u kodiranju <strong>UTF-8</strong>, sa stupcima odvojenima <strong>točkom-zarezom (;)</strong>, točno onim redom kojim ih pravilnik nabraja.</li>
+      <li>Naziv datoteke počinje <strong>OIB-om</strong> (pravna osoba) ili <strong>matičnim brojem</strong> (fizička osoba, npr. obrt), a sadrži prodajno mjesto, oznaku robe ili usluga, broj pohrane i vrijeme objave.</li>
+      <li>Izmijenjeni cjenik objavljuje se <strong>do 11:00 na dan izmjene</strong>, na istom mjestu na webu. Zamijenjeni cjenik ostaje dostupan kao arhivski još <strong>15 dana</strong>.</li>
     </ul>
   </div>
 
   <h2>1. Tko objavljuje i što je izuzeto</h2>
   <p>
-    Zakon obvezu objave veže uz trgovca koji ima mrežne stranice. U obrazloženju nacrta
-    Ministarstvo gospodarstva navodi da se to odnosi i na stranice koje služe samo
-    oglašavanju, a ne prodaji. Hrvatska obrtnička komora traži da se takve stranice
-    izuzmu, pa je to jedno od otvorenih pitanja savjetovanja. Profil na Facebooku ili
-    Instagramu nije mrežna stranica trgovca (pojašnjenje Ministarstva gospodarstva od
-    18. 9. 2026., dano uz Odluke Vlade).
+    Zakon o zaštiti potrošača (čl. 7.) obvezu objave veže uz trgovca koji ima mrežne
+    stranice; pravilnik propisuje kako se cjenik objavljuje. U izvješću o savjetovanju
+    Ministarstvo gospodarstva navodi da su obuhvaćeni i trgovci čije stranice služe
+    samo informiranju potrošača, a ne prodaji. Profil na Facebooku ili Instagramu
+    Ministarstvo je uz ranije Odluke pojasnilo kao nešto što nije mrežna stranica
+    trgovca (18. 9. 2026.).
   </p>
-  <p>Nacrt (čl. 4.) izuzima:</p>
+  <p>Pravilnik (čl. 4.) izuzima:</p>
   <ul>
-    <li>cijene uređene posebnim propisima;</li>
-    <li>popuste za određene skupine kupaca ili načine plaćanja;</li>
-    <li>personalizirane cijene;</li>
-    <li>usluge s dinamički određenom cijenom, bez usporedivih elemenata;</li>
-    <li>posredničke platforme.</li>
+    <li>robu i usluge čije je određivanje cijene uređeno posebnim propisima;</li>
+    <li>popuste za pojedine skupine potrošača ili oblike plaćanja;</li>
+    <li>personalizirane cijene ponuđene pojedinom potrošaču;</li>
+    <li>dinamički određene cijene, za koje se ne može utvrditi usporediva bazna cijena;</li>
+    <li>cijene istaknute na automatima;</li>
+    <li>posredničke platforme i druge posredničke kanale.</li>
   </ul>
   <p>
-    Odnosi li se obveza na vaše poslovanje, i u kojem opsegu, odlučit će konačni tekst.
-    U nedoumici pitajte Ministarstvo gospodarstva ili svoju komoru (HOK, HGK).
+    Izuzeće za obrtnike i mikro poduzetnike, koje je tražila Hrvatska obrtnička komora,
+    pravilnik ne sadrži. U nedoumici pitajte Ministarstvo gospodarstva ili svoju komoru
+    (HOK, HGK).
   </p>
 
   <h2>2. Što piše u datoteci</h2>
   <p>
-    Nacrt (čl. 3.) propisuje različite podatke za robu i za usluge. Zato je robu i
-    usluge praktično objavljivati u zasebnim datotekama: svaka tada ima svoje stupce.
+    Pravilnik (čl. 3. st. 2.–4.) nabraja podatke cjenika robe i cjenika usluga i traži
+    da stupci datoteke idu <strong>istim redom</strong>. Roba i usluge imaju različite
+    stupce, pa se objavljuju u zasebnim datotekama.
   </p>
-  <div class="tablica-omot" tabindex="0" role="region" aria-label="Podaci u cjeniku prema nacrtu pravilnika">
-    <table class="propis-tablica">
+  <div class="tablica-omot" tabindex="0" role="region" aria-label="Stupci cjenika prema Pravilniku o načinu objave cjenika proizvoda">
+    <table class="propis-tablica redom">
       <thead>
-        <tr><th scope="col">Podatak</th><th scope="col">Roba</th><th scope="col">Usluge</th></tr>
+        <tr><th scope="col">Redom</th><th scope="col">Cjenik robe</th><th scope="col">Cjenik usluga</th></tr>
       </thead>
       <tbody>
-        <tr><th scope="row">Naziv</th><td class="da">da</td><td class="da">da</td></tr>
-        <tr><th scope="row">Šifra</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
-        <tr><th scope="row">Marka</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
-        <tr><th scope="row">Neto količina</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
-        <tr><th scope="row">Jedinica mjere i cijena za jedinicu mjere</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
-        <tr><th scope="row">Maloprodajna cijena</th><td class="da">da</td><td class="da">da</td></tr>
-        <tr><th scope="row">Poseban oblik prodaje (npr. akcija) i njegov naziv</th><td class="da">da</td><td class="da">da</td></tr>
-        <tr><th scope="row">Bazna cijena</th><td class="da">da</td><td class="da">da</td></tr>
-        <tr><th scope="row">Barkod</th><td class="uvjet">ako je primjenjivo</td><td class="ne">—</td></tr>
+        <tr><th scope="row">1.</th><td class="da">naziv</td><td class="da">naziv</td></tr>
+        <tr><th scope="row">2.</th><td class="uvjet">šifra, ako je primjenjivo</td><td class="da">maloprodajna cijena i je li primijenjena tijekom posebnog oblika prodaje</td></tr>
+        <tr><th scope="row">3.</th><td class="uvjet">marka, ako je primjenjivo</td><td class="da">bazna cijena</td></tr>
+        <tr><th scope="row">4.</th><td class="uvjet">neto količina, za robu s obvezom isticanja cijene za jedinicu mjere</td><td class="ne">—</td></tr>
+        <tr><th scope="row">5.</th><td class="uvjet">jedinica mjere, ako je primjenjivo</td><td class="ne">—</td></tr>
+        <tr><th scope="row">6.</th><td class="da">maloprodajna cijena i je li primijenjena tijekom posebnog oblika prodaje</td><td class="ne">—</td></tr>
+        <tr><th scope="row">7.</th><td class="uvjet">cijena za jedinicu mjere, ako je primjenjivo</td><td class="ne">—</td></tr>
+        <tr><th scope="row">8.</th><td class="uvjet">barkod, ako je primjenjivo</td><td class="ne">—</td></tr>
+        <tr><th scope="row">9.</th><td class="uvjet">EAN barkod, ako je primjenjivo</td><td class="ne">—</td></tr>
+        <tr><th scope="row">10.</th><td class="da">bazna cijena</td><td class="ne">—</td></tr>
       </tbody>
     </table>
   </div>
   <p class="mala">
-    Dostupnost proizvoda (dostupan ili nedostupan) tražile su samo Odluke Vlade
-    (NN 101/2026), koje je Vlada 14. 11. 2026. ukinula; nacrt pravilnika je ne traži.
+    „Maloprodajna cijena i je li primijenjena tijekom posebnog oblika prodaje” praktično
+    su dva stupca: cijena i oznaka DA/NE. Naziv posebnog oblika prodaje (npr. „Jesenski
+    popust”), dostupnost proizvoda i referentni datum bazne cijene, koje su tražile Odluke
+    ili nacrt, pravilnik više ne navodi.
   </p>
 
   <h3>Bazna cijena</h3>
   <p>
-    Bazna cijena je maloprodajna cijena na referentni dan. Prema nacrtu pravilnika o
-    isticanju bazne cijene to je u pravilu <strong>10. 9. 2026.</strong>, a za hranu,
-    piće, kozmetiku, sredstva za čišćenje, toaletne potrepštine i proizvode za kućanstvo
-    <strong>2. 5. 2025.</strong> Za proizvod uveden u ponudu kasnije bazna je cijena na
-    dan uvođenja. Ako je proizvod na referentni dan bio na akciji, uzima se prethodna
-    redovna cijena, a za skupinu s datumom 2. 5. 2025. najniža cijena u 30 dana prije
-    početka akcije. Bazna cijena ne mijenja se s promjenom maloprodajne, zato je dobro
-    sačuvati dokaz odakle je (cjenik, blagajna ili računi s tog dana).
+    Bazna cijena je maloprodajna cijena koju je trgovac primijenio na referentni dan
+    (Pravilnik o isticanju bazne cijene proizvoda, čl. 3.):
+  </p>
+  <ul>
+    <li>za hranu, piće, kozmetiku, sredstva za čišćenje, toaletne potrepštine i proizvode za kućanstvo: <strong>2. 5. 2025.</strong>;</li>
+    <li>za ostalu robu i za usluge: <strong>10. 9. 2026.</strong>;</li>
+    <li>za robu ili uslugu ponuđenu nakon tog datuma: dan kad je stavljena u ponudu.</li>
+  </ul>
+  <p>
+    Ako je na referentni dan cijena bila snižena (popust ili poseban oblik prodaje, npr.
+    akcija), uzima se prethodna redovna cijena, a za skupinu s datumom 2. 5. 2025.
+    (hrana, piće i dr.) najniža cijena u 30 dana prije početka sniženja. Bazna cijena ne mijenja
+    se s promjenom maloprodajne, zato sačuvajte dokaz odakle je (cjenik, blagajna ili
+    računi s tog dana). Naznaku datuma bazne cijene pravilnik ne propisuje.
   </p>
 
   <h2>3. Kako zapisati datoteku</h2>
+  <p>Pravilnik (čl. 6.) za datoteku propisuje:</p>
+  <ul>
+    <li>oblik <strong>.csv ili .xml</strong>, pogodan za automatsku obradu; smije se objaviti i sažet kao .zip ili .gz;</li>
+    <li>kodiranje znakova <strong>UTF-8</strong>;</li>
+    <li>stupci razdvojeni <strong>točkom-zarezom (;)</strong>;</li>
+    <li>istu strukturu datoteke za sva prodajna mjesta istog trgovca.</li>
+  </ul>
   <p>
-    Strojno čitljivi cjenici nisu posve novi: supermarketi ih na svojim stranicama
-    objavljuju od 15. svibnja 2025. (Odluka Vlade, NN 75/2025), a na tim datotekama već
-    rade neovisne usporedbe cijena. Upravo to Ministarstvo navodi kao svrhu ovakvog
-    oblika. Od 17. studenoga cjenike objavljuje mnogo više trgovaca, pa je važno da ih
-    takvi alati mogu pročitati bez ručne prilagodbe za svaku stranicu.
-  </p>
-  <p>
-    Nacrt određuje koje podatke cjenik sadrži, ali ne i nazive i redoslijed stupaca,
-    kodiranje znakova, razdjelnik ni zapis iznosa i datuma. To je u savjetovanju jedno
-    od najčešćih pitanja: bez jedinstvenog zapisa svaki trgovac objavit će drukčiju
-    datoteku. Dok Ministarstvo ne objavi predložak, ovaj zapis radi u Excelu i u
-    programima za automatsku obradu (predložili smo ga u savjetovanju):
+    Nazive stupaca, decimalni znak, zapis oznake posebnog oblika prodaje i strukturu
+    XML-a pravilnik ne određuje. Strojno čitljive cjenike već čitaju neovisne usporedbe
+    cijena, pa je važno da su datoteke dosljedne. Ovako ih izrađujemo u Sidru:
   </p>
   <ul>
-    <li>kodiranje <strong>UTF-8</strong>, da hrvatska slova ostanu ispravna (s oznakom BOM, ako će se datoteka otvarati u Excelu);</li>
     <li>prvi redak su nazivi stupaca, istim redom kao u pravilniku;</li>
-    <li><strong>zarez</strong> kao razdjelnik i <strong>decimalna točka</strong> (<code>23.50</code>), bez oznake valute; tekst koji sadrži zarez stoji u navodnicima;</li>
-    <li>datumi u obliku <code>GGGG-MM-DD</code>;</li>
-    <li>prazno polje kad podatak nije primjenjiv.</li>
+    <li>iznosi s <strong>decimalnom točkom</strong> (<code>23.50</code>), bez oznake valute, jer ih tako bez prilagodbe čitaju programi za obradu podataka;</li>
+    <li>poseban oblik prodaje kao <code>DA</code> ili <code>NE</code>;</li>
+    <li>prazno polje kad podatak nije primjenjiv;</li>
+    <li>UTF-8 bez oznake BOM. Ako Excel pri otvaranju dvoklikom prikaže krivo hrvatska slova, otvorite datoteku preko <em>Podaci → Iz teksta/CSV-a</em> i odaberite UTF-8.</li>
   </ul>
   <p>Primjer cjenika usluga s izmišljenim podacima:</p>
-  <pre class="kod" tabindex="0" aria-label="Primjer CSV cjenika usluga"><code>Naziv usluge,Maloprodajna cijena,Poseban oblik prodaje (DA/NE),Naziv posebnog oblika prodaje,Bazna cijena
-Muško šišanje,15.00,NE,,14.00
-"Žensko šišanje i feniranje, kratka kosa",28.00,NE,,25.00
-Bojanje kose,45.00,DA,Jesenski popust,50.00
-Pranje i feniranje,12.00,NE,,12.00</code></pre>
+  <pre class="kod" tabindex="0" aria-label="Primjer CSV cjenika usluga"><code>Naziv usluge;Maloprodajna cijena;Poseban oblik prodaje (DA/NE);Bazna cijena
+Muško šišanje;15.00;NE;14.00
+Žensko šišanje i feniranje, kratka kosa;28.00;NE;25.00
+Bojanje kose;45.00;DA;50.00
+Pranje i feniranje;12.00;NE;12.00</code></pre>
   <p class="mala">
-    Isti prijedlog s XML shemom i primjerima za robu i usluge slobodan je za uporabu:
-    <a href="/sidro/primjeri/Prijedlog_predloska_cjenika_MAJSTORAJ.zip" download>preuzmite ZIP (67 kB)</a>.
+    Zarez u nazivu usluge ne smeta, jer razdjelnik je točka-zarez. Naziv koji sadrži
+    točku-zarez stavlja se u navodnike.
   </p>
 
   <h2>4. Naziv datoteke</h2>
   <p>
-    Naziv datoteke (nacrt, čl. 6.; isto i u Odlukama) sadrži oblik prodajnog mjesta,
-    adresu, oznaku prodajnog mjesta, broj pohrane te datum i vrijeme. Pojašnjenje
-    Ministarstva uz Odluke kao primjer navodi naziv s razmacima, točkama i dvotočkom
-    (<code>prodavaonica_Ilica 150 Zagreb_P- 01_104_01.10.2026_07:45</code>). Takav naziv
-    stvara probleme: Windows dvotočku u nazivu datoteke ne dopušta, a razmaci u web
-    adresama ne rade pouzdano. Sigurnije je pisati samo slova bez dijakritičkih znakova,
-    brojke i podvlaku, s vremenom u obliku <code>GGGGMMDD_SSMM</code>:
+    Naziv datoteke (čl. 6. st. 3.) sadrži OIB ako je trgovac pravna osoba, odnosno
+    matični broj ako je fizička osoba (npr. obrt), zatim prodajno mjesto prema propisu
+    o razvrstavanju prodajnih mjesta, adresu i oznaku prodajnog mjesta, naznaku je li to
+    cjenik robe ili usluga, broj pohrane i vrijeme objave u obliku
+    <code>GGGGMMDD_SSMM</code>. Razdjelnike pravilnik ne propisuje. Sigurno je pisati samo
+    slova bez dijakritičkih znakova, brojke i podvlaku, jer Windows ne dopušta dvotočku
+    u nazivu datoteke, a razmaci u web adresama ne rade pouzdano:
   </p>
-  <p class="naziv-razlozen" aria-label="PRODAVAONICA_ILICA150ZAGREB_P01_0104_20261117_0745.csv: oblik PRODAVAONICA, adresa ILICA150ZAGREB, oznaka P01, broj pohrane 0104, datum i vrijeme 20261117_0745">
-    <span class="dio" aria-hidden="true"><code>PRODAVAONICA</code><small>oblik prodajnog mjesta</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>ILICA150ZAGREB</code><small>adresa</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>P01</code><small>oznaka</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>0104</code><small>broj pohrane</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>20261117_0745</code><small>datum i vrijeme</small></span><span class="dio" aria-hidden="true"><code>.csv</code><small>oblik datoteke</small></span>
+  <p class="naziv-razlozen" aria-label="12345678_PRODAVAONICA_ILICA150ZAGREB_P01_ROBA_0104_20261117_0745.csv: matični broj 12345678, prodajno mjesto PRODAVAONICA, adresa ILICA150ZAGREB, oznaka P01, cjenik ROBA, broj pohrane 0104, datum i vrijeme 20261117_0745">
+    <span class="dio" aria-hidden="true"><code>12345678</code><small>OIB ili matični broj</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>PRODAVAONICA</code><small>prodajno mjesto</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>ILICA150ZAGREB</code><small>adresa</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>P01</code><small>oznaka</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>ROBA</code><small>roba ili usluge</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>0104</code><small>broj pohrane</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>20261117_0745</code><small>vrijeme objave</small></span><span class="dio" aria-hidden="true"><code>.csv</code><small>oblik datoteke</small></span>
   </p>
   <p>
-    „Broj pohrane” nacrt ne definira. Razumno je da to bude redni broj objave za to
-    prodajno mjesto, koji raste sa svakom objavom. Tada svaka objava ima nov naziv i
-    nijedna datoteka ne prepisuje prethodnu.
+    Ako trgovac na svim prodajnim mjestima primjenjuje isti cjenik, umjesto prodajnog
+    mjesta, adrese i oznake u nazivu piše <code>ZA_SVA_PRODAJNA_MJESTA</code> (čl. 6.
+    st. 4.), npr. <code>12345678_ZA_SVA_PRODAJNA_MJESTA_USLUGE_0012_20261117_0745.csv</code>.
+    To vrijedi samo kad su i cijene i ponuda na svim mjestima iste.
+  </p>
+  <p>
+    „Prodajno mjesto” je vrsta prodajnog mjesta iz propisa o razvrstavanju, npr.
+    prodavaonica, kiosk ili štand, a ne interna kratica. „Broj pohrane” pravilnik ne
+    definira; Ministarstvo ga u izvješću o savjetovanju opisuje kao interni broj
+    evidencije datoteke. Praktično je da to bude redni broj objave za to prodajno mjesto,
+    koji raste sa svakom objavom, pa nijedna datoteka ne prepisuje prethodnu.
   </p>
 
   <h2>5. Objava i čuvanje na webu</h2>
   <ul>
-    <li><strong>Gdje:</strong> na vašim mrežnim stranicama, zasebno za svako prodajno mjesto (čl. 3.), tako da se datoteke mogu automatski prikupljati (čl. 5.).</li>
-    <li><strong>Kada:</strong> nakon promjene cijene izmijenjeni cjenik objavljuje se najkasnije sljedeći radni dan do 11:00 (čl. 3. st. 4.).</li>
-    <li><strong>Koliko dugo:</strong> objavljeni cjenik ostaje dostupan 30 dana (čl. 3. st. 5.). Računa li se tih 30 dana od zadnje objave ili od zamjene cjenika, pitanje je iz savjetovanja. Zamijenjene datoteke zato ne brišite odmah.</li>
+    <li><strong>Gdje:</strong> na vašim mrežnim stranicama, tako da ih programi mogu automatski prikupljati (čl. 5.): bez prijave, lozinke ili provjere „niste robot”.</li>
+    <li><strong>Kada:</strong> izmijenjeni cjenik objavljuje se najkasnije do 11:00 na dan izmjene (čl. 3. st. 5.). Ako nova cijena vrijedi od sutra, objavite novi cjenik sutra do 11:00, a najbolje ujutro prije otvaranja.</li>
+    <li><strong>Na istom mjestu:</strong> izmijenjeni cjenik objavljuje se na istom mjestu mrežne stranice na kojem je bio cjenik koji se mijenja, a taj se uklanja (čl. 6. st. 2.).</li>
+    <li><strong>Arhiva:</strong> zamijenjeni cjenik ostaje dostupan kao arhivski 15 dana od zamjene (čl. 3. st. 6.).</li>
   </ul>
   <p>
-    Prije 17. 11. provjerite s izrađivačem weba ili pružateljem hostinga možete li na
-    stranicu postaviti vlastite datoteke i kako (ručno, FTP/SFTP, WebDAV). Neki
-    graditelji stranica to ne dopuštaju, što je u savjetovanju također istaknuto. Uz
-    datoteke s vremenskom oznakom predložili smo i stalnu adresu važećeg cjenika (npr.
-    <code>/cjenik/roba.csv</code>). To nacrt ne propisuje, ali programima za usporedbu
-    cijena olakšava pronalaženje važećeg cjenika.
+    Pravilnik traži „istu URL adresu”, a naziv datoteke sadrži vrijeme objave, pa se
+    adresa same datoteke svakom objavom mijenja. Razumno je to čitati kao isto mjesto
+    na stranici: ista mapa i ista poveznica na stranici s cjenikom, na kojoj stara
+    datoteka ustupa mjesto novoj, a stara se premješta u arhivsku podmapu (npr.
+    <code>arhiva/</code>) i ondje briše nakon 15 dana. Ovo je otvoreno pitanje; pratite
+    pojašnjenja Ministarstva.
+  </p>
+  <p>
+    Provjerite s izrađivačem weba ili pružateljem hostinga možete li na stranicu
+    postaviti vlastite datoteke i kako (ručno, FTP/SFTP, WebDAV). Neki graditelji
+    stranica to ne dopuštaju.
   </p>
 
-  <h2>6. Kontrolni popis do 17. studenoga</h2>
+  <h2>6. Kontrolni popis</h2>
   <ol>
-    <li>Provjerite odnosi li se obveza na vaše poslovanje i vrijedi li za vas neko izuzeće (komora, Ministarstvo gospodarstva).</li>
-    <li>Popišite proizvode i usluge s maloprodajnim cijenama, za svako prodajno mjesto.</li>
+    <li>Provjerite vrijedi li za vaše poslovanje neko izuzeće iz čl. 4. (komora, Ministarstvo gospodarstva).</li>
+    <li>Popišite robu i usluge s maloprodajnim cijenama, za svako prodajno mjesto, i odlučite primjenjujete li isti cjenik na svim mjestima.</li>
     <li>Za svaki artikl odredite baznu cijenu i referentni dan te sačuvajte izvor (cjenik, blagajna ili računi s tog dana).</li>
-    <li>Izradite CSV ili XML datoteku i otvorite je, da provjerite slova, iznose i prazna polja.</li>
-    <li>Dogovorite gdje će datoteke biti na vašem webu i tko ih postavlja.</li>
-    <li>Odredite tko objavljuje izmijenjeni cjenik nakon promjene cijene, najkasnije do 11:00 sljedećeg radnog dana.</li>
-    <li>Kad bude objavljen konačni tekst pravilnika, provjerite što se promijenilo u odnosu na nacrt.</li>
+    <li>Pripremite OIB (pravna osoba) ili matični broj (obrt: MBO iz Obrtnog registra) i vrstu prodajnog mjesta za naziv datoteke.</li>
+    <li>Izradite CSV ili XML datoteku i otvorite je: provjerite redoslijed stupaca, slova, iznose i prazna polja.</li>
+    <li>Dogovorite gdje će datoteke biti na vašem webu, kako se čuva arhiva od 15 dana i tko ih postavlja.</li>
+    <li>Odredite tko objavljuje izmijenjeni cjenik na dan izmjene, do 11:00.</li>
   </ol>
 
-  <h2>7. Što još nije odlučeno</h2>
+  <h2>7. Što pravilnik ostavlja otvorenim</h2>
   <div class="otvoreno">
     <p>
-      Javno savjetovanje zatvoreno je 13. 11. 2026. s više od 850 komentara o oba nacrta.
-      Izvješće s odgovorima Ministarstva očekuje se 16. 12. 2026., a pravilnici stupaju
-      na snagu 17. 11. Što je od primjedbi uvaženo, pokazat će tekst objavljen u Narodnim
-      novinama. Otvorena pitanja su:
+      U savjetovanju je o oba nacrta stiglo 866 komentara, a Ministarstvo je 15. 11.
+      objavilo izvješća s odgovorima. Konačni tekst donio je redoslijed stupaca,
+      kodiranje, razdjelnik i OIB ili matični broj u nazivu datoteke, ali ne odgovara na
+      sve:
     </p>
     <ul>
-      <li>izuzeće obrtnika i mikro poduzetnika te ugostiteljstva i turizma, koje traži Hrvatska obrtnička komora;</li>
-      <li>vrijedi li obveza i za stranice koje služe samo predstavljanju;</li>
-      <li>strojno čitljiv oblik, rok objave i 30 dana dostupnosti (HOK je u savjetovanju 13. 11. predložio da se te odredbe brišu, a Ministarstvo ih je 15. 10. branilo);</li>
-      <li>hoće li Ministarstvo objaviti obvezni predložak datoteke (Hrvatska obrtnička komora najavila je da će nakon 16. 11. na svojoj stranici objaviti Excel predloške za robu i za usluge);</li>
+      <li>nazive stupaca, decimalni znak i strukturu XML-a; obvezni predložak nije objavljen;</li>
+      <li>kako uskladiti „istu URL adresu” s vremenom objave u nazivu datoteke;</li>
+      <li>smije li se cjenik objaviti poveznicom na vanjskog pružatelja; izvješće o savjetovanju to dopušta, a tekst pravilnika ne spominje;</li>
+      <li>vrstu prodajnog mjesta i adresu za prodaju putem interneta.</li>
     </ul>
   </div>
 
   <div class="clanak-sidro" role="region" aria-labelledby="sidro-naslov">
     <h2 id="sidro-naslov">Kako to radimo u Sidru</h2>
     <p>
-      Ova pravila ugradili smo u Sidro, desktop aplikaciju obrta MAJSTORAJ. Sidro vodi
+      Ova pravila ugrađujemo u Sidro, desktop aplikaciju obrta MAJSTORAJ. Sidro vodi
       povijest cijena koja se ne može naknadno mijenjati, pa je bazna cijena svakog
       artikla zapisana s datumom. Izrađuje CSV i XML datoteke s propisanim nazivom,
       zasebno za robu i usluge, i PDF cjenik za prodajno mjesto, a datoteke može sam
       poslati na vaš web. Podaci ostaju na vašem računalu.
     </p>
     <p>
-      Sidro 0.2 izrađen je prema Odlukama Vlade i nacrtima pravilnika; s konačnim
-      tekstom uskladit ćemo ga u sljedećoj verziji, a prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača uključena
-      je u licencu. Besplatna verzija radi s do 10 artikala, a za više artikala potrebna
-      je jednokratna licenca, bez pretplate.
+      Sidro 0.2 izrađen je prema nacrtu pravilnika. Verzija 0.3, usklađena s pravilnikom
+      iz NN 132/2026, u završnom je testiranju i besplatna je za postojeće korisnike.
+      Besplatna verzija radi s do 10 artikala, a za više artikala potrebna je jednokratna
+      licenca, bez pretplate.
     </p>
     <div class="clanak-gumbi">
       <a class="btn-primary" href="/stranice/sidro.html">Više o Sidru</a>
-      <a class="btn-secondary" href="/stranice/sidro.html#primjeri">Pogledajte primjere datoteka</a>
     </div>
   </div>
 
   <div class="doc-links">
     <strong>Izvori</strong>
     <ul>
+      <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_11_132_1584.html" target="_blank" rel="noopener">Pravilnik o načinu objave cjenika proizvoda, NN 132/2026</a></li>
+      <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_11_132_1583.html" target="_blank" rel="noopener">Pravilnik o isticanju bazne cijene proizvoda, NN 132/2026</a></li>
       <li><a href="https://narodne-novine.nn.hr/clanci/sluzbeni/full/2026_06_59_728.html" target="_blank" rel="noopener">Zakon o izmjenama i dopunama Zakona o zaštiti potrošača, NN 59/2026</a> (čl. 4., kojim je izmijenjen čl. 7. Zakona o zaštiti potrošača)</li>
-      <li><a href="https://esavjetovanja.gov.hr/Econ/10332" target="_blank" rel="noopener">Nacrt pravilnika o načinu objave cjenika</a> (e-Savjetovanja, do 13. 11. 2026.)</li>
-      <li><a href="https://esavjetovanja.gov.hr/Econ/10333" target="_blank" rel="noopener">Nacrt pravilnika o isticanju bazne cijene</a> (e-Savjetovanja, do 13. 11. 2026.)</li>
-      <li>Odluka o objavi cjenika i Odluka o isticanju dodatne cijene, NN 101/2026 i 110/2026</li>
-      <li>Odluka o objavi cjenika i isticanju dodatne cijene kao mjera izravne kontrole cijena u trgovini na malo, NN 75/2025</li>
+      <li><a href="https://esavjetovanja.gov.hr/Econ/10332" target="_blank" rel="noopener">Savjetovanje i izvješće: Pravilnik o načinu objave cjenika</a> i <a href="https://esavjetovanja.gov.hr/Econ/10333" target="_blank" rel="noopener">Pravilnik o isticanju bazne cijene</a> (e-Savjetovanja)</li>
+      <li>Odluke o prestanku važenja Odluka o objavi cjenika i o isticanju dodatne cijene, NN 132/2026</li>
     </ul>
   </div>
 </main>
