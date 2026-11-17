@@ -382,13 +382,12 @@
           Zakonu o zaštiti potrošača. Pravilnici su objavljeni u Narodnim
           novinama 16. 11. 2026. (NN 132/2026) i propisuju točan oblik datoteke: redoslijed
           stupaca, razdjelnik „;” i naziv datoteke s OIB-om ili matičnim brojem
-          (<a href="objava-cjenika-na-webu.html">pregled</a>). Sidro 0.2 izvozi u obliku iz
-          nacrta; verziju usklađenu s objavljenim pravilnikom pripremamo.
+          (<a href="objava-cjenika-na-webu.html">pregled</a>).
         </p>
         <p>
-          Sidro 0.2 izrađen je prema Odlukama i nacrtima pravilnika, koji zadržavaju isti
-          oblik cjenika i iste referentne datume. S konačnim tekstom uskladit ćemo ga u
-          sljedećoj verziji, čim pravilnici budu objavljeni. <strong>Prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača (bazna cijena i objava cjenika) uključena je u licencu.</strong>
+          Sidro 0.3 izvozi cjenik u obliku iz pravilnika: stupci propisanim redom, UTF-8 i
+          „;”, naziv s OIB-om ili matičnim brojem i oznakom robe ili usluga, i jedna
+          datoteka za sva prodajna mjesta kad je cjenik isti. <strong>Prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača (bazna cijena i objava cjenika) uključena je u licencu</strong>: postojeći korisnici nadogradnju dobivaju besplatno.
         </p>
       </div>
       <div class="propis-kartice">
@@ -398,15 +397,16 @@
             Uz važeću cijenu ističe se cijena na referentni dan: u pravilu
             <strong>10. 9. 2026.</strong>, za propisane skupine proizvoda (npr. hrana,
             piće, kozmetika, sredstva za čišćenje) <strong>2. 5. 2025.</strong>, a za
-            artikle uvedene kasnije — dan prvog uvrštenja u ponudu.
+            artikle uvedene kasnije — dan stavljanja u ponudu.
           </p>
         </div>
         <div class="propis-kartica">
           <h3>Objava cjenika</h3>
           <p>
             Cjenik se objavljuje na webu u propisanom obliku (CSV ili XML, UTF-8,
-            decimalna točka) i s propisanim nazivom datoteke, zasebno za proizvode
-            i za usluge. <a href="/stranice/objava-cjenika-na-webu.html">Kako izgleda datoteka i na što paziti</a>
+            stupci propisanim redom, odvojeni točkom-zarezom) i s propisanim nazivom
+            datoteke, zasebno za robu i usluge. Izmjena se objavljuje do 11:00 na dan
+            izmjene, a stari cjenik ostaje dostupan 15 dana. <a href="/stranice/objava-cjenika-na-webu.html">Kako izgleda datoteka i na što paziti</a>
           </p>
         </div>
       </div>
@@ -433,7 +433,7 @@
     </article>
     <article class="problem">
       <h3>Propisan oblik datoteke</h3>
-      <p>Decimalna točka, UTF-8, oznaka prodajnog mjesta i vremenska oznaka u nazivu — sitnice koje je lako promašiti ručno.</p>
+      <p>Redoslijed stupaca, točka-zarez, UTF-8, OIB ili matični broj i vremenska oznaka u nazivu — sitnice koje je lako promašiti ručno.</p>
       <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Isti, ispravan oblik svaki put</span></p>
     </article>
     <article class="problem">
@@ -544,7 +544,7 @@
   <h2>Provjerite sami: datoteke koje Sidro izrađuje</h2>
   <p class="section-intro">
     Prije instalacije pogledajte što ćete objaviti. Ove datoteke izradio je
-    Sidro 0.2.0, verzija koju danas preuzimate, iz izmišljenih podataka male
+    Sidro 0.3.0, verzija koju danas preuzimate, iz izmišljenih podataka male
     trgovine. Ništa nismo uređivali ručno — otvorite ih u Excelu, pregledniku
     ili programu za obradu podataka.
   </p>
@@ -554,110 +554,112 @@
       <h3>Cjenik proizvoda</h3>
       <p>Sedam proizvoda: nepromijenjena cijena, poskupljenje nakon 10. 9. 2026., akcija i proizvod bez cijene za jedinicu mjere.</p>
       <ul class="datoteke">
-        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0001_20261109_1112.csv" download><span class="format">CSV</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0001_<wbr>20261109_<wbr>1112.csv</span><span class="svrha">za web · 1 kB</span></a></li>
-        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0003_20261109_1112.xml" target="_blank" rel="noopener"><span class="format">XML</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0003_<wbr>20261109_<wbr>1112.xml</span><span class="svrha">za web · 4 kB</span></a></li>
-        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0005_20261109_1112.pdf" target="_blank" rel="noopener"><span class="format">PDF</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0005_<wbr>20261109_<wbr>1112.pdf</span><span class="svrha">za prodajno mjesto · 45 kB</span></a></li>
+        <li><a href="/sidro/primjeri/12345678_PRODAVAONICA_KORZO1RIJEKA_001_ROBA_0001_20261117_1407.csv" download><span class="format">CSV</span><span class="ime">12345678_<wbr>PRODAVAONICA_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>ROBA_<wbr>0001_<wbr>20261117_<wbr>1407.csv</span><span class="svrha">za web · 1 kB</span></a></li>
+        <li><a href="/sidro/primjeri/12345678_PRODAVAONICA_KORZO1RIJEKA_001_ROBA_0003_20261117_1407.xml" target="_blank" rel="noopener"><span class="format">XML</span><span class="ime">12345678_<wbr>PRODAVAONICA_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>ROBA_<wbr>0003_<wbr>20261117_<wbr>1407.xml</span><span class="svrha">za web · 3 kB</span></a></li>
+        <li><a href="/sidro/primjeri/12345678_PRODAVAONICA_KORZO1RIJEKA_001_ROBA_0005_20261117_1407.pdf" target="_blank" rel="noopener"><span class="format">PDF</span><span class="ime">12345678_<wbr>PRODAVAONICA_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>ROBA_<wbr>0005_<wbr>20261117_<wbr>1407.pdf</span><span class="svrha">za prodajno mjesto · 45 kB</span></a></li>
       </ul>
     </article>
     <article class="primjer">
       <h3>Cjenik usluga</h3>
       <p>Tri usluge u zasebnoj datoteci, kako propis traži: robu i usluge ne miješamo u istom cjeniku.</p>
       <ul class="datoteke">
-        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0002_20261109_1112.csv" download><span class="format">CSV</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0002_<wbr>20261109_<wbr>1112.csv</span><span class="svrha">za web · 1 kB</span></a></li>
-        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0004_20261109_1112.xml" target="_blank" rel="noopener"><span class="format">XML</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0004_<wbr>20261109_<wbr>1112.xml</span><span class="svrha">za web · 1 kB</span></a></li>
-        <li><a href="/sidro/primjeri/TRG_KORZO1RIJEKA_001_0006_20261109_1112.pdf" target="_blank" rel="noopener"><span class="format">PDF</span><span class="ime">TRG_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>0006_<wbr>20261109_<wbr>1112.pdf</span><span class="svrha">za prodajno mjesto · 44 kB</span></a></li>
+        <li><a href="/sidro/primjeri/12345678_PRODAVAONICA_KORZO1RIJEKA_001_USLUGE_0002_20261117_1407.csv" download><span class="format">CSV</span><span class="ime">12345678_<wbr>PRODAVAONICA_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>USLUGE_<wbr>0002_<wbr>20261117_<wbr>1407.csv</span><span class="svrha">za web · 1 kB</span></a></li>
+        <li><a href="/sidro/primjeri/12345678_PRODAVAONICA_KORZO1RIJEKA_001_USLUGE_0004_20261117_1407.xml" target="_blank" rel="noopener"><span class="format">XML</span><span class="ime">12345678_<wbr>PRODAVAONICA_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>USLUGE_<wbr>0004_<wbr>20261117_<wbr>1407.xml</span><span class="svrha">za web · 1 kB</span></a></li>
+        <li><a href="/sidro/primjeri/12345678_PRODAVAONICA_KORZO1RIJEKA_001_USLUGE_0006_20261117_1407.pdf" target="_blank" rel="noopener"><span class="format">PDF</span><span class="ime">12345678_<wbr>PRODAVAONICA_<wbr>KORZO1RIJEKA_<wbr>001_<wbr>USLUGE_<wbr>0006_<wbr>20261117_<wbr>1407.pdf</span><span class="svrha">za prodajno mjesto · 44 kB</span></a></li>
       </ul>
     </article>
   </div>
 
   <h3 class="primjeri-naslov">Naziv datoteke, dio po dio</h3>
   <p class="primjeri-tekst">
-    Odluka (točka VI.) i nacrt pravilnika (čl. 6.) traže da naziv sadrži oblik,
-    adresu i oznaku prodajnog mjesta, broj pohrane te datum i vrijeme. Sidro ga
-    sastavlja sam — bez razmaka, dvotočke i dijakritičkih znakova, pa radi na
-    svakom poslužitelju i u svakoj web adresi.
+    Pravilnik (čl. 6. st. 3.) traži da naziv sadrži OIB pravne osobe ili matični
+    broj fizičke osobe, prodajno mjesto, adresu i oznaku, naznaku robe ili usluga,
+    broj pohrane i vrijeme objave. Sidro ga sastavlja sam — bez razmaka, dvotočke i
+    dijakritičkih znakova, pa radi na svakom poslužitelju i u svakoj web adresi. Uz
+    isti cjenik za sva mjesta umjesto mjesta, adrese i oznake piše
+    <code>ZA_SVA_PRODAJNA_MJESTA</code>.
   </p>
-  <p class="naziv-razlozen" aria-label="TRG_KORZO1RIJEKA_001_0001_20261109_1112.csv: oblik TRG, adresa KORZO1RIJEKA, oznaka 001, broj pohrane 0001, datum i vrijeme 20261109_1112">
-    <span class="dio" aria-hidden="true"><code>TRG</code><small>oblik prodajnog mjesta</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>KORZO1RIJEKA</code><small>adresa</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>001</code><small>oznaka</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>0001</code><small>broj pohrane</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>20261109_1112</code><small>datum i vrijeme</small></span><span class="dio" aria-hidden="true"><code>.csv</code><small>oblik datoteke</small></span>
+  <p class="naziv-razlozen" aria-label="12345678_PRODAVAONICA_KORZO1RIJEKA_001_ROBA_0001_20261117_1407.csv: matični broj 12345678, prodajno mjesto PRODAVAONICA, adresa KORZO1RIJEKA, oznaka 001, cjenik ROBA, broj pohrane 0001, vrijeme objave 20261117_1407">
+    <span class="dio" aria-hidden="true"><code>12345678</code><small>OIB ili matični broj</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>PRODAVAONICA</code><small>prodajno mjesto</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>KORZO1RIJEKA</code><small>adresa</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>001</code><small>oznaka</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>ROBA</code><small>roba ili usluge</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>0001</code><small>broj pohrane</small></span><span class="spoj" aria-hidden="true">_</span><span class="dio" aria-hidden="true"><code>20261117_1407</code><small>vrijeme objave</small></span><span class="dio" aria-hidden="true"><code>.csv</code><small>oblik datoteke</small></span>
   </p>
 
   <h3 class="primjeri-naslov">CSV proizvoda, otvoren kao tablica</h3>
-  <div class="tablica-omot" tabindex="0" role="region" aria-label="Sadržaj datoteke TRG_KORZO1RIJEKA_001_0001_20261109_1112.csv">
+  <div class="tablica-omot" tabindex="0" role="region" aria-label="Sadržaj datoteke 12345678_PRODAVAONICA_KORZO1RIJEKA_001_ROBA_0001_20261117_1407.csv">
     <table class="csv-pregled">
-      <thead><tr><th scope="col">Naziv proizvoda</th><th scope="col">Šifra</th><th scope="col">Marka</th><th scope="col">Jedinica mjere</th><th scope="col">Cijena za jedinicu mjere (ako je primjenjivo)</th><th scope="col">Maloprodajna cijena</th><th scope="col">Poseban oblik prodaje (DA/NE)</th><th scope="col">Naziv posebnog oblika prodaje</th><th scope="col">Dodatna cijena 10.9.2026.</th><th scope="col">Barkod (ako ima)</th><th scope="col">Dostupnost (dostupan ili nedostupan)</th><th scope="col">Referentni datum dodatne cijene</th></tr></thead>
+      <thead><tr><th scope="col">Naziv</th><th scope="col">Šifra</th><th scope="col">Marka</th><th scope="col">Neto količina</th><th scope="col">Jedinica mjere</th><th scope="col">Maloprodajna cijena</th><th scope="col">Poseban oblik prodaje (DA/NE)</th><th scope="col">Cijena za jedinicu mjere</th><th scope="col">Barkod</th><th scope="col">EAN barkod</th><th scope="col">Bazna cijena</th></tr></thead>
       <tbody>
-          <tr><td>Brašno T-550 1 kg</td><td>B-101</td><td>Mlin Kvarner</td><td>kg</td><td class="broj">1.25</td><td class="broj">1.25</td><td>NE</td><td></td><td class="broj">1.19</td><td class="broj">2000000000046</td><td>dostupan</td><td>2026-09-10</td></tr>
-          <tr><td>Čaj od kamilice 20 vrećica</td><td>C-007</td><td>Bilje Lika</td><td>kom</td><td></td><td class="broj">2.29</td><td>NE</td><td></td><td class="broj">2.10</td><td class="broj">2000000000060</td><td>dostupan</td><td>2026-09-10</td></tr>
-          <tr><td>Džem od šljiva 370 g</td><td>D-011</td><td>Domaći okus</td><td>kg</td><td class="broj">10.78</td><td class="broj">3.99</td><td>NE</td><td></td><td class="broj">3.99</td><td class="broj">2000000000077</td><td>dostupan</td><td>2026-09-10</td></tr>
-          <tr><td>Kava mljevena 250 g</td><td>K-001</td><td>Jadran</td><td>kg</td><td class="broj">17.96</td><td class="broj">4.49</td><td>NE</td><td></td><td class="broj">4.29</td><td class="broj">2000000000015</td><td>dostupan</td><td>2026-09-10</td></tr>
-          <tr><td>Maslinovo ulje 0,75 l</td><td>U-014</td><td>Istarska zlatna</td><td>l</td><td class="broj">17.20</td><td class="broj">12.90</td><td>NE</td><td></td><td class="broj">12.90</td><td class="broj">2000000000022</td><td>dostupan</td><td>2026-09-10</td></tr>
-          <tr><td>Med cvjetni 450 g</td><td>M-003</td><td>Pčelinjak Gorski</td><td>kg</td><td class="broj">17.00</td><td class="broj">7.65</td><td>DA</td><td>Akcija</td><td class="broj">8.50</td><td class="broj">2000000000039</td><td>dostupan</td><td>2026-09-10</td></tr>
-          <tr><td>Sapun s lavandom 100 g</td><td>S-020</td><td>Lavanda Hvar</td><td>kg</td><td class="broj">32.00</td><td class="broj">3.20</td><td>NE</td><td></td><td class="broj">3.20</td><td class="broj">2000000000053</td><td>dostupan</td><td>2026-09-10</td></tr>
+          <tr><td>Brašno T-550 1 kg</td><td>B-101</td><td>Mlin Kvarner</td><td></td><td>kg</td><td class="broj">1.25</td><td>NE</td><td class="broj">1.25</td><td></td><td class="broj">2000000000046</td><td class="broj">1.19</td></tr>
+          <tr><td>Čaj od kamilice 20 vrećica</td><td>C-007</td><td>Bilje Lika</td><td></td><td>kom</td><td class="broj">2.29</td><td>NE</td><td></td><td></td><td class="broj">2000000000060</td><td class="broj">2.10</td></tr>
+          <tr><td>Džem od šljiva 370 g</td><td>D-011</td><td>Domaći okus</td><td></td><td>kg</td><td class="broj">3.99</td><td>NE</td><td class="broj">10.78</td><td></td><td class="broj">2000000000077</td><td class="broj">3.99</td></tr>
+          <tr><td>Kava mljevena 250 g</td><td>K-001</td><td>Jadran</td><td></td><td>kg</td><td class="broj">4.49</td><td>NE</td><td class="broj">17.96</td><td></td><td class="broj">2000000000015</td><td class="broj">4.29</td></tr>
+          <tr><td>Maslinovo ulje 0,75 l</td><td>U-014</td><td>Istarska zlatna</td><td></td><td>l</td><td class="broj">12.90</td><td>NE</td><td class="broj">17.20</td><td></td><td class="broj">2000000000022</td><td class="broj">12.90</td></tr>
+          <tr><td>Med cvjetni 450 g</td><td>M-003</td><td>Pčelinjak Gorski</td><td></td><td>kg</td><td class="broj">7.65</td><td>DA</td><td class="broj">17.00</td><td></td><td class="broj">2000000000039</td><td class="broj">8.50</td></tr>
+          <tr><td>Sapun s lavandom 100 g</td><td>S-020</td><td>Lavanda Hvar</td><td></td><td>kg</td><td class="broj">3.20</td><td>NE</td><td class="broj">32.00</td><td></td><td class="broj">2000000000053</td><td class="broj">3.20</td></tr>
       </tbody>
     </table>
   </div>
   <p class="mala">
-    UTF-8 s oznakom BOM, pa Excel odmah ispravno prikazuje hrvatska slova; zarez
-    kao razdjelnik i decimalna točka, za automatsku obradu. Tekst koji sadrži zarez
-    stoji u navodnicima („Maslinovo ulje 0,75 l”).
+    UTF-8 i točka-zarez kao razdjelnik, kako propisuje pravilnik (čl. 6.), i
+    decimalna točka, za automatsku obradu. Ako Excel pri otvaranju dvoklikom prikaže
+    krivo hrvatska slova, otvorite datoteku preko Podaci → Iz teksta/CSV-a i
+    odaberite UTF-8.
   </p>
 
   <h3 class="primjeri-naslov">Isti cjenik u XML-u (isječak)</h3>
-  <pre class="kod" tabindex="0" aria-label="Isječak datoteke TRG_KORZO1RIJEKA_001_0003_20261109_1112.xml"><code><span class="t">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span>
-<span class="t">&lt;Cjenik oib=&quot;00000000001&quot; nazivObrta=&quot;Trgovina Primjer, vl. Ivan Horvat&quot; datumIzvoza=&quot;2026-11-09T11:12:29&quot;&gt;</span>
+  <pre class="kod" tabindex="0" aria-label="Isječak datoteke 12345678_PRODAVAONICA_KORZO1RIJEKA_001_ROBA_0003_20261117_1407.xml"><code><span class="t">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span>
+<span class="t">&lt;Cjenik oib=&quot;00000000001&quot; nazivObrta=&quot;Trgovina Primjer, vl. Ivan Horvat&quot; datumIzvoza=&quot;2026-11-17T14:07:02&quot;&gt;</span>
     <span class="k">&lt;!-- … --&gt;</span>
     <span class="t">&lt;Proizvod&gt;</span>
         <span class="t">&lt;Naziv&gt;</span>Med cvjetni 450 g<span class="t">&lt;/Naziv&gt;</span>
         <span class="t">&lt;Sifra&gt;</span>M-003<span class="t">&lt;/Sifra&gt;</span>
         <span class="t">&lt;Marka&gt;</span>Pčelinjak Gorski<span class="t">&lt;/Marka&gt;</span>
+        <span class="t">&lt;NetoKolicina /&gt;</span>
         <span class="t">&lt;JedinicaMjere&gt;</span>kg<span class="t">&lt;/JedinicaMjere&gt;</span>
-        <span class="t">&lt;CijenaPoJedinici&gt;</span>17.00<span class="t">&lt;/CijenaPoJedinici&gt;</span>
         <span class="t">&lt;MaloprodajnaCijena&gt;</span>7.65<span class="t">&lt;/MaloprodajnaCijena&gt;</span>
         <span class="t">&lt;PosebanOblikProdaje&gt;</span>DA<span class="t">&lt;/PosebanOblikProdaje&gt;</span>
-        <span class="t">&lt;NazivPosebnogOblika&gt;</span>Akcija<span class="t">&lt;/NazivPosebnogOblika&gt;</span>
-        <span class="t">&lt;SidrenaCijena&gt;</span>8.50<span class="t">&lt;/SidrenaCijena&gt;</span>
-        <span class="t">&lt;Barkod&gt;</span>2000000000039<span class="t">&lt;/Barkod&gt;</span>
-        <span class="t">&lt;Dostupno&gt;</span>dostupan<span class="t">&lt;/Dostupno&gt;</span>
-        <span class="t">&lt;ReferentniDatum&gt;</span>2026-09-10<span class="t">&lt;/ReferentniDatum&gt;</span>
-        <span class="t">&lt;Valuta&gt;</span>EUR<span class="t">&lt;/Valuta&gt;</span>
+        <span class="t">&lt;CijenaPoJedinici&gt;</span>17.00<span class="t">&lt;/CijenaPoJedinici&gt;</span>
+        <span class="t">&lt;Barkod /&gt;</span>
+        <span class="t">&lt;EANBarkod&gt;</span>2000000000039<span class="t">&lt;/EANBarkod&gt;</span>
+        <span class="t">&lt;BaznaCijena&gt;</span>8.50<span class="t">&lt;/BaznaCijena&gt;</span>
     <span class="t">&lt;/Proizvod&gt;</span>
     <span class="k">&lt;!-- … još 6 proizvoda … --&gt;</span>
 <span class="t">&lt;/Cjenik&gt;</span></code></pre>
 
-  <h3 class="primjeri-naslov">Što traži propis i gdje je to u datoteci</h3>
-  <div class="tablica-omot" tabindex="0" role="region" aria-label="Usporedba podataka iz propisa i stupaca u Sidru">
+  <h3 class="primjeri-naslov">Što traži pravilnik i gdje je to u datoteci</h3>
+  <div class="tablica-omot" tabindex="0" role="region" aria-label="Usporedba podataka iz pravilnika i stupaca u Sidru">
     <table class="propis-tablica">
       <thead>
-        <tr><th scope="col">Podatak</th><th scope="col">Odluka<br><small>NN 101/2026</small></th><th scope="col">Nacrt pravilnika<br><small>čl. 3. i 6.</small></th><th scope="col">Stupac u CSV-u iz Sidra</th></tr>
+        <tr><th scope="col">Podatak</th><th scope="col">Pravilnik<br><small>NN 132/2026, čl. 3. i 6.</small></th><th scope="col">Stupac u CSV-u iz Sidra</th></tr>
       </thead>
       <tbody>
-        <tr class="skupina"><th scope="rowgroup" colspan="4">Proizvodi</th></tr>
-        <tr><th scope="row">Naziv</th><td class="da">da</td><td class="da">da</td><td>Naziv proizvoda</td></tr>
-        <tr><th scope="row">Šifra</th><td class="da">da</td><td class="uvjet">ako je primjenjivo</td><td>Šifra</td></tr>
-        <tr><th scope="row">Marka</th><td class="da">da</td><td class="uvjet">ako je primjenjivo</td><td>Marka</td></tr>
-        <tr><th scope="row">Neto količina</th><td class="ne">—</td><td class="uvjet">ako je primjenjivo</td><td>dolazi s prilagodbom pravilniku<sup>1</sup></td></tr>
-        <tr><th scope="row">Jedinica mjere</th><td class="uvjet">ako je primjenjivo</td><td class="uvjet">ako je primjenjivo</td><td>Jedinica mjere</td></tr>
-        <tr><th scope="row">Cijena za jedinicu mjere</th><td class="uvjet">ako je primjenjivo</td><td class="uvjet">ako je primjenjivo</td><td>Cijena za jedinicu mjere (ako je primjenjivo)</td></tr>
-        <tr><th scope="row">Maloprodajna cijena</th><td class="da">da</td><td class="da">da</td><td>Maloprodajna cijena</td></tr>
-        <tr><th scope="row">Poseban oblik prodaje i njegov naziv</th><td class="da">da</td><td class="da">da</td><td>Poseban oblik prodaje (DA/NE); Naziv posebnog oblika prodaje</td></tr>
-        <tr><th scope="row">Sidrena, odnosno bazna cijena</th><td class="da">da</td><td class="da">da</td><td>Dodatna cijena 10.9.2026.; Referentni datum dodatne cijene<sup>2</sup></td></tr>
-        <tr><th scope="row">Barkod</th><td class="da">da</td><td class="uvjet">ako je primjenjivo</td><td>Barkod (ako ima)</td></tr>
-        <tr><th scope="row">Dostupnost</th><td class="da">da</td><td class="ne">—</td><td>Dostupnost (dostupan ili nedostupan)</td></tr>
-        <tr class="skupina"><th scope="rowgroup" colspan="4">Usluge</th></tr>
-        <tr><th scope="row">Naziv usluge</th><td class="da">da</td><td class="da">da</td><td>Naziv usluge</td></tr>
-        <tr><th scope="row">Maloprodajna cijena, poseban oblik prodaje i njegov naziv</th><td class="da">da</td><td class="da">da</td><td>Maloprodajna cijena; Poseban oblik prodaje (DA/NE); Naziv posebnog oblika prodaje</td></tr>
-        <tr><th scope="row">Sidrena, odnosno bazna cijena</th><td class="da">da</td><td class="da">da</td><td>Sidrena cijena 10.9.2026.; Referentni datum sidrene cijene<sup>2</sup></td></tr>
-        <tr class="skupina"><th scope="rowgroup" colspan="4">Datoteka</th></tr>
-        <tr><th scope="row">.csv ili .xml</th><td class="da">da</td><td class="da">da</td><td>oba oblika, zasebno za proizvode i usluge</td></tr>
-        <tr><th scope="row">Naziv: oblik, adresa i oznaka prodajnog mjesta, broj pohrane, datum i vrijeme</th><td class="da">da</td><td class="da">da</td><td>sastavlja ga Sidro (gore)</td></tr>
-        <tr><th scope="row">Ista struktura za sva prodajna mjesta</th><td class="da">da</td><td class="da">da</td><td>da</td></tr>
+        <tr class="skupina"><th scope="rowgroup" colspan="3">Roba, ovim redom</th></tr>
+        <tr><th scope="row">Naziv</th><td class="da">da</td><td>Naziv</td></tr>
+        <tr><th scope="row">Šifra</th><td class="uvjet">ako je primjenjivo</td><td>Šifra</td></tr>
+        <tr><th scope="row">Marka</th><td class="uvjet">ako je primjenjivo</td><td>Marka</td></tr>
+        <tr><th scope="row">Neto količina</th><td class="uvjet">za robu s obvezom cijene za jedinicu mjere</td><td>Neto količina</td></tr>
+        <tr><th scope="row">Jedinica mjere</th><td class="uvjet">ako je primjenjivo</td><td>Jedinica mjere</td></tr>
+        <tr><th scope="row">Maloprodajna cijena i je li primijenjena tijekom posebnog oblika prodaje</th><td class="da">da</td><td>Maloprodajna cijena; Poseban oblik prodaje (DA/NE)</td></tr>
+        <tr><th scope="row">Cijena za jedinicu mjere</th><td class="uvjet">ako je primjenjivo</td><td>Cijena za jedinicu mjere</td></tr>
+        <tr><th scope="row">Barkod</th><td class="uvjet">ako je primjenjivo</td><td>Barkod (interni ili drugi kod)</td></tr>
+        <tr><th scope="row">EAN barkod</th><td class="uvjet">ako je primjenjivo</td><td>EAN barkod (valjani EAN-8 ili EAN-13)</td></tr>
+        <tr><th scope="row">Bazna cijena</th><td class="da">da</td><td>Bazna cijena</td></tr>
+        <tr class="skupina"><th scope="rowgroup" colspan="3">Usluge, ovim redom</th></tr>
+        <tr><th scope="row">Naziv usluge</th><td class="da">da</td><td>Naziv usluge</td></tr>
+        <tr><th scope="row">Maloprodajna cijena i je li primijenjena tijekom posebnog oblika prodaje</th><td class="da">da</td><td>Maloprodajna cijena; Poseban oblik prodaje (DA/NE)</td></tr>
+        <tr><th scope="row">Bazna cijena</th><td class="da">da</td><td>Bazna cijena</td></tr>
+        <tr class="skupina"><th scope="rowgroup" colspan="3">Datoteka</th></tr>
+        <tr><th scope="row">.csv ili .xml</th><td class="da">da</td><td>oba oblika, zasebno za robu i usluge</td></tr>
+        <tr><th scope="row">UTF-8, stupci odvojeni točkom-zarezom</th><td class="da">da</td><td>da</td></tr>
+        <tr><th scope="row">Naziv: OIB ili matični broj, prodajno mjesto, adresa, oznaka, roba ili usluge, broj pohrane, vrijeme objave</th><td class="da">da</td><td>sastavlja ga Sidro (gore)</td></tr>
+        <tr><th scope="row">Isti cjenik za sva prodajna mjesta (ZA_SVA_PRODAJNA_MJESTA)</th><td class="uvjet">ako su cjenici isti</td><td>opcija na stranici Izvoz cjenika</td></tr>
+        <tr><th scope="row">Ista struktura za sva prodajna mjesta</th><td class="da">da</td><td>da</td></tr>
       </tbody>
     </table>
   </div>
-  <ol class="biljeske">
-    <li>Neto količinu traži tek nacrt pravilnika, a dostupnost samo Odluka. Sidro je izrađen prema Odlukama i usklađujemo ga s konačnim tekstom pravilnika; prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača uključena je u licencu.</li>
-    <li>Zadnji stupac Sidro dodaje sam: kaže na koji se dan odnosi sidrena cijena — 10. 9. 2026., 2. 5. 2025. za propisane skupine proizvoda ili dan prvog uvrštenja u ponudu. Ostali stupci istim su redom i istog naziva kao u predlošcima HOK-a.</li>
-  </ol>
+  <p class="mala">
+    Datum bazne cijene Sidro čuva u povijesti cijena i ispisuje na PDF cjeniku, ali ga
+    ne stavlja u CSV i XML, jer ga pravilnik u cjeniku ne traži.
+  </p>
   <p class="mala">
     Pri slanju na web Sidro ne briše i ne prepisuje prethodne datoteke: svaka objava
     ima novi broj pohrane i vremensku oznaku.
@@ -666,16 +668,16 @@
   <div class="dodatak prijedlog">
     <h3>Predložili smo jedinstveni predložak datoteke</h3>
     <p>
-      Nacrt pravilnika propisuje koje podatke cjenik sadrži, ali ne i kako su
-      zapisani, pa bi svaki trgovac mogao objaviti drukčiju datoteku. U javnom
-      savjetovanju (e-Savjetovanja, 19. 10. 2026.) predložili smo Ministarstvu
-      gospodarstva obvezni predložak: nazive stupaca, kodiranje, zapis iznosa i
-      naziv datoteke bez razmaka i dvotočke. Prijedlog s XML shemom i primjerima
-      slobodan je za uporabu, i drugim izrađivačima softvera.
+      U javnom savjetovanju o nacrtu pravilnika (e-Savjetovanja, 19. 10. 2026.)
+      predložili smo Ministarstvu gospodarstva obvezni predložak datoteke: nazive
+      stupaca, kodiranje, zapis iznosa i naziv datoteke bez razmaka i dvotočke.
+      Ministarstvo ga je djelomično prihvatilo: pravilnik sada propisuje redoslijed
+      stupaca, kodiranje UTF-8, razdjelnik i oblik vremenske oznake. Prijedlog je
+      pisan prema nacrtu (zarez kao razdjelnik) i ostaje ovdje kao arhiva.
     </p>
     <p class="prijedlog-veze">
-      <a href="/sidro/primjeri/Prijedlog_predloska_cjenika_MAJSTORAJ.zip" download>Preuzmite prijedlog (ZIP, 67 kB)</a>
-      <a href="https://esavjetovanja.gov.hr/Econ/10332" target="_blank" rel="noopener">Savjetovanje o nacrtu pravilnika</a>
+      <a href="/sidro/primjeri/Prijedlog_predloska_cjenika_MAJSTORAJ.zip" download>Prijedlog iz savjetovanja (ZIP, 67 kB)</a>
+      <a href="https://esavjetovanja.gov.hr/Econ/10332" target="_blank" rel="noopener">Savjetovanje i izvješće Ministarstva</a>
     </p>
   </div>
 </section>
@@ -702,7 +704,7 @@
         <span class="znacajka-ikona"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
         <div>
           <h3>CSV, XML i PDF</h3>
-          <p>Propisan naziv datoteke (oblik, adresa, oznaka, broj pohrane, vremenska oznaka), zasebne datoteke za proizvode i usluge. <a href="#primjeri">Primjeri datoteka</a></p>
+          <p>Propisan naziv datoteke (OIB ili matični broj, prodajno mjesto, roba ili usluge, broj pohrane, vrijeme objave), zasebne datoteke za robu i usluge. <a href="#primjeri">Primjeri datoteka</a></p>
         </div>
       </li>
       <li class="znacajka">
@@ -780,7 +782,7 @@
   <div class="dodatak vazno">
     <h3>Što je važno znati</h3>
     <ul class="napomene">
-      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sidro je mlad program (trenutačno verzija 0.2). Izgleda jednostavno, ali radi ono najvažnije: vodi povijest cijena i izrađuje cjenik u propisanom obliku, a podaci ostaju na vašem računalu. Doradu radimo prema vašim primjedbama, a ažuriranja verzije 1 su besplatna. Primjedbe i prijedloge šaljite na info@majstoraj.hr.</span></li>
+      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sidro je mlad program (trenutačno verzija 0.3). Izgleda jednostavno, ali radi ono najvažnije: vodi povijest cijena i izrađuje cjenik u propisanom obliku, a podaci ostaju na vašem računalu. Doradu radimo prema vašim primjedbama, a ažuriranja verzije 1 su besplatna. Primjedbe i prijedloge šaljite na info@majstoraj.hr.</span></li>
       <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Kupljena verzija radi trajno i ne zaključava se.</span></li>
       <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ako propis bitno promijeni obvezne podatke ili oblik cjenika, izlazi Sidro 2 — postojeći kupci dobivaju ga po povlaštenoj cijeni, a licenca za Sidro 1 i dalje vrijedi. Iznimka je prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača (bazna cijena i objava cjenika): ona je uključena u licencu.</span></li>
       <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cijena je konačna: PDV nije obračunat na temelju čl. 90. st. 2. Zakona o PDV-u.</span></li>
@@ -900,19 +902,27 @@
   <div class="faq-list">
     <details class="faq-item">
       <summary>Odnose li se nova pravila na moje poslovanje?</summary>
-      <div class="faq-body">Od 17. 11. 2026. to određuju pravilnici po Zakonu o zaštiti potrošača (privremene Odluke Vlade NN 101/2026 prestaju važiti). Nacrti pravilnika predviđali su iznimke, npr. za robu i usluge po mjeri kupca i za dinamički određene cijene; odlučuje tekst objavljen u Narodnim novinama. Ako niste sigurni, provjerite pojašnjenja Ministarstva gospodarstva ili pitajte svoju komoru (HOK, HGK) — Sidro vam pomaže izvršiti obvezu, ali ne odlučuje imate li je.</div>
+      <div class="faq-body">Od 17. 11. 2026. to određuju pravilnici po Zakonu o zaštiti potrošača (NN 132/2026); privremene Odluke Vlade prestale su važiti. Pravilnik o objavi cjenika (čl. 4.) izuzima robu i usluge s cijenom uređenom posebnim propisima, popuste za skupine kupaca ili oblike plaćanja, personalizirane i dinamički određene cijene, cijene na automatima te posredničke platforme. Ako niste sigurni, provjerite pojašnjenja Ministarstva gospodarstva ili pitajte svoju komoru (HOK, HGK) — Sidro vam pomaže izvršiti obvezu, ali ne odlučuje imate li je.</div>
     </details>
     <details class="faq-item">
       <summary>Imam web stranicu samo za prezentaciju, ili samo Facebook — moram li objavljivati cjenik?</summary>
-      <div class="faq-body">Prema pojašnjenju Ministarstva i nacrtu pravilnika, da — i kad web služi samo za prezentaciju (HOK traži iznimku; konačni tekst odlučuje). Profil na Facebooku ili Instagramu prema pojašnjenju Ministarstva gospodarstva (18. 9. 2026.) nije web stranica, pa tada CSV/XML datoteke ne objavljujete. Cijene i baznu cijenu u poslovnom prostoru ističete u svakom slučaju — za to služi PDF cjenik iz Sidra.</div>
+      <div class="faq-body">Da, i kad web služi samo za prezentaciju: u izvješću o savjetovanju Ministarstvo gospodarstva navodi da su obuhvaćeni i trgovci čije stranice samo informiraju potrošače, a izuzeće koje je tražio HOK pravilnik ne sadrži. Profil na Facebooku ili Instagramu prema pojašnjenju Ministarstva gospodarstva (18. 9. 2026.) nije web stranica, pa tada CSV/XML datoteke ne objavljujete. Cijene i baznu cijenu u poslovnom prostoru ističete u svakom slučaju — za to služi PDF cjenik iz Sidra.</div>
     </details>
     <details class="faq-item">
       <summary>Od kada vrijede nova pravila?</summary>
-      <div class="faq-body">Od 17. studenoga 2026. Referentni datumi za baznu (sidrenu) cijenu ostaju isti: u pravilu 10. 9. 2026., a za propisane skupine proizvoda 2. 5. 2025. Zato je dobro cijene s tih datuma unijeti odmah.</div>
+      <div class="faq-body">Od 17. studenoga 2026. Referentni datumi za baznu (sidrenu) cijenu: u pravilu 10. 9. 2026., za hranu, piće, kozmetiku, sredstva za čišćenje, toaletne potrepštine i proizvode za kućanstvo 2. 5. 2025., a za robu i usluge ponuđene kasnije dan stavljanja u ponudu. Zato je dobro cijene s tih datuma unijeti odmah.</div>
     </details>
     <details class="faq-item">
-      <summary>Što ako se pravila promijene ili izađu pravilnici?</summary>
-      <div class="faq-body">Prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača (bazna cijena i objava cjenika) uključena je u licencu. Ostale izmjene koje razrađuju iste obveze dolaze kao besplatne nadogradnje verzije 1. Ako propis bitno promijeni obvezne podatke, oblik ili način objave cjenika, izlazi nova glavna verzija (Sidro 2), koju postojeći kupci dobivaju po povlaštenoj cijeni. Detalji su u <a href="/stranice/sidro-uvjeti.html">Uvjetima korištenja</a>, točka 3.</div>
+      <summary>Kako izgleda datoteka i do kad je objavljujem?</summary>
+      <div class="faq-body">CSV ili XML, kodiranje UTF-8, stupci propisanim redom i odvojeni točkom-zarezom; roba i usluge u zasebnim datotekama. Izmijenjeni cjenik objavljuje se do 11:00 na dan izmjene, na istom mjestu na webu, a zamijenjeni ostaje dostupan kao arhivski još 15 dana. Sidro sastavlja datoteku i naziv, na Početnoj pokazuje rok za neobjavljene promjene i ne briše prethodne datoteke. Pojedinosti su u članku <a href="/stranice/objava-cjenika-na-webu.html">Objava cjenika na webu</a>, a primjeri u odjeljku <a href="#primjeri">Provjerite sami</a>.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Što je matični broj u nazivu datoteke i gdje ga nalazim?</summary>
+      <div class="faq-body">Pravilnik traži da naziv datoteke počinje OIB-om ako je trgovac pravna osoba (npr. d.o.o.), odnosno matičnim brojem ako je fizička osoba (npr. obrt, OPG). Za obrt je to matični broj obrta (MBO) iz Obrtnog registra. U Sidru ga upisujete jednom: Postavke → Podaci o poslovnom subjektu, uz vrstu subjekta.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Što ako se pravila promijene?</summary>
+      <div class="faq-body">Prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača (bazna cijena i objava cjenika) uključena je u licencu: to je Sidro 0.3, besplatna nadogradnja za postojeće korisnike. Ostale izmjene koje razrađuju iste obveze dolaze kao besplatne nadogradnje verzije 1. Ako propis bitno promijeni obvezne podatke, oblik ili način objave cjenika, izlazi nova glavna verzija (Sidro 2), koju postojeći kupci dobivaju po povlaštenoj cijeni. Detalji su u <a href="/stranice/sidro-uvjeti.html">Uvjetima korištenja</a>, točka 3.</div>
     </details>
     <details class="faq-item">
       <summary>Je li besplatna verzija stvarno besplatna?</summary>

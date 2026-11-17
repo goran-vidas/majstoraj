@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Cjenik oib="00000000001" nazivObrta="Trgovina Primjer, vl. Ivan Horvat" datumIzvoza="2026-11-17T14:07:02">
+    <Proizvod>
+        <Naziv>Brašno T-550 1 kg</Naziv>
+        <Sifra>B-101</Sifra>
+        <Marka>Mlin Kvarner</Marka>
+        <NetoKolicina />
+        <JedinicaMjere>kg</JedinicaMjere>
+        <MaloprodajnaCijena>1.25</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <CijenaPoJedinici>1.25</CijenaPoJedinici>
+        <Barkod />
+        <EANBarkod>2000000000046</EANBarkod>
+        <BaznaCijena>1.19</BaznaCijena>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Čaj od kamilice 20 vrećica</Naziv>
+        <Sifra>C-007</Sifra>
+        <Marka>Bilje Lika</Marka>
+        <NetoKolicina />
+        <JedinicaMjere>kom</JedinicaMjere>
+        <MaloprodajnaCijena>2.29</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <CijenaPoJedinici />
+        <Barkod />
+        <EANBarkod>2000000000060</EANBarkod>
+        <BaznaCijena>2.10</BaznaCijena>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Džem od šljiva 370 g</Naziv>
+        <Sifra>D-011</Sifra>
+        <Marka>Domaći okus</Marka>
+        <NetoKolicina />
+        <JedinicaMjere>kg</JedinicaMjere>
+        <MaloprodajnaCijena>3.99</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <CijenaPoJedinici>10.78</CijenaPoJedinici>
+        <Barkod />
+        <EANBarkod>2000000000077</EANBarkod>
+        <BaznaCijena>3.99</BaznaCijena>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Kava mljevena 250 g</Naziv>
+        <Sifra>K-001</Sifra>
+        <Marka>Jadran</Marka>
+        <NetoKolicina />
+        <JedinicaMjere>kg</JedinicaMjere>
+        <MaloprodajnaCijena>4.49</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <CijenaPoJedinici>17.96</CijenaPoJedinici>
+        <Barkod />
+        <EANBarkod>2000000000015</EANBarkod>
+        <BaznaCijena>4.29</BaznaCijena>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Maslinovo ulje 0,75 l</Naziv>
+        <Sifra>U-014</Sifra>
+        <Marka>Istarska zlatna</Marka>
+        <NetoKolicina />
+        <JedinicaMjere>l</JedinicaMjere>
+        <MaloprodajnaCijena>12.90</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <CijenaPoJedinici>17.20</CijenaPoJedinici>
+        <Barkod />
+        <EANBarkod>2000000000022</EANBarkod>
+        <BaznaCijena>12.90</BaznaCijena>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Med cvjetni 450 g</Naziv>
+        <Sifra>M-003</Sifra>
+        <Marka>Pčelinjak Gorski</Marka>
+        <NetoKolicina />
+        <JedinicaMjere>kg</JedinicaMjere>
+        <MaloprodajnaCijena>7.65</MaloprodajnaCijena>
+        <PosebanOblikProdaje>DA</PosebanOblikProdaje>
+        <CijenaPoJedinici>17.00</CijenaPoJedinici>
+        <Barkod />
+        <EANBarkod>2000000000039</EANBarkod>
+        <BaznaCijena>8.50</BaznaCijena>
+    </Proizvod>
+    <Proizvod>
+        <Naziv>Sapun s lavandom 100 g</Naziv>
+        <Sifra>S-020</Sifra>
+        <Marka>Lavanda Hvar</Marka>
+        <NetoKolicina />
+        <JedinicaMjere>kg</JedinicaMjere>
+        <MaloprodajnaCijena>3.20</MaloprodajnaCijena>
+        <PosebanOblikProdaje>NE</PosebanOblikProdaje>
+        <CijenaPoJedinici>32.00</CijenaPoJedinici>
+        <Barkod />
+        <EANBarkod>2000000000053</EANBarkod>
+        <BaznaCijena>3.20</BaznaCijena>
+    </Proizvod>
+</Cjenik>
