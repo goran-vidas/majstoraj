@@ -30,7 +30,7 @@
   <h1>Izjava o privatnosti</h1>
   <p class="meta">
     Aplikacija Sidro · MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385<br>
-    Vrijedi od 19. listopada 2026. Isti tekst bit će u aplikaciji od verzije 0.2 (Postavke → O aplikaciji); u verziji 0.1.0 nalazi se tekst od 1. listopada 2026. Novo u ovoj verziji: sigurnosne kopije baze licenci (točke 5 i 7). Prethodna verzija (16. listopada 2026.) uvela je obradu podataka kod usluga po narudžbi (točke 2, 4, 5 i 6).
+    Vrijedi od 18. studenoga 2026. Isti tekst bit će u aplikaciji od verzije 0.3.1 (Postavke → O aplikaciji); do tada aplikacija prikazuje tekst od 19. listopada 2026. Novo u ovoj verziji: zbroj preuzimanja iz obavijesti o novoj verziji (točka 4); lista zainteresiranih je zatvorena i uklonjena iz točaka 4, 5 i 8. Prethodne verzije: 19. listopada 2026. (sigurnosne kopije baze licenci), 16. listopada 2026. (usluge po narudžbi) i 1. listopada 2026.
   </p>
 
 <!-- Tekst je generiran iz src/sidro/core/privatnost_tekst.py (jedini izvor istine).
@@ -62,15 +62,13 @@
   <p>Svrha: izdavanje podataka za uplatu (2D bar-kod), povezivanje uplate sa zahtjevom, izdavanje i dostava licence (i licencnog ključa za ručnu aktivaciju gumbom „Unesi licencni ključ ručno”), izdavanje računa i komunikacija o vašoj licenci.</p>
   <p>Pravna osnova: izvršenje ugovora o licenci (čl. 6. st. 1. t. (b) Opće uredbe o zaštiti podataka) i, za račun i poslovne knjige, zakonska obveza (čl. 6. st. 1. t. (c)). Ovi podaci su nužni za kupnju — bez njih ne možemo izdati licencu ni račun.</p>
   <p><strong>Provjera statusa uplate.</strong> Aplikacija i web obrazac pitaju licencni poslužitelj za status vaše uplate pomoću nasumične oznake zahtjeva, bez slanja drugih podataka. Licencni poslužitelj ne bilježi IP adrese u dnevnike.</p>
-  <p><strong>Provjera nove verzije.</strong> Pri pokretanju aplikacija s web stranice majstoraj.hr dohvaća podatak o najnovijoj verziji. Pritom ne šalje nikakve podatke o vama ni o vašem cjeniku. Web stranica smještena je na usluzi GitHub Pages (GitHub, Inc., SAD), koja pri svakom zahtjevu, kao i pri svakom posjetu stranici, bilježi tehničke podatke poput IP adrese i vremena zahtjeva, prema vlastitoj politici privatnosti. Te podatke mi ne primamo.</p>
-  <p><strong>Obavijest o izlasku (lista zainteresiranih).</strong> Ako se na web stranici prijavite za obavijest, obrađujemo samo vašu e-adresu te vrijeme prijave i potvrde, kako bismo vam javili kad Sidro bude dostupan za kupnju. Pravna osnova je vaša privola (čl. 6. st. 1. t. (a)), koju dajete prijavom i potvrđujete poveznicom u prvoj poruci. Privolu možete povući u svakom trenutku, poveznicom za odjavu ili e-poštom na <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a> — tada e-adresu brišemo. Povlačenje ne utječe na zakonitost obrade prije njega.</p>
+  <p><strong>Provjera nove verzije.</strong> Pri pokretanju aplikacija s web stranice majstoraj.hr dohvaća podatak o najnovijoj verziji. Pritom ne šalje nikakve podatke o vama ni o vašem cjeniku. Web stranica smještena je na usluzi GitHub Pages (GitHub, Inc., SAD), koja pri svakom zahtjevu, kao i pri svakom posjetu stranici, bilježi tehničke podatke poput IP adrese i vremena zahtjeva, prema vlastitoj politici privatnosti. Te podatke mi ne primamo. Ako u obavijesti o novoj verziji odaberete „Preuzmi”, instalacija se preuzima s našeg poslužitelja preuzimanje.majstoraj.hr, koji vašu IP adresu ne bilježi; vodimo samo zbroj takvih preuzimanja po danu, bez ikakvih podataka o vama.</p>
   <p><strong>Usluge po narudžbi (prijenos artikala, osobna pomoć).</strong> Ako naručite uslugu, primjerice prijenos artikala iz vašeg blagajničkog programa ili web trgovine u Sidro ili pomoć pri postavljanju, podatke nam šaljete sami (npr. izvoz artikala i cijena) ili nam ih pokazujete dijeljenjem zaslona. Obrađujemo samo ono što je potrebno za uslugu: podatke iz izvoza (nazivi, šifre, barkodovi, jedinice mjere, cijene) te ime, e-adresu i telefon osobe s kojom dogovaramo posao. Molimo da ne šaljete podatke koji nisu potrebni (npr. nabavne cijene, marže ili podatke o vašim kupcima). Svrha: izvršenje usluge koju ste naručili i komunikacija o njoj. Pravna osnova: izvršenje ugovora (čl. 6. st. 1. t. (b)). Dijeljenje zaslona ne snimamo. Te podatke ne dijelimo s trećima i ne koristimo ih ni za što drugo.</p>
   <p>Ne donosimo odluke o vama isključivo automatiziranom obradom.</p>
   <h2>5. Koliko dugo čuvamo podatke</h2>
   <ul>
     <li>Podatke o plaćenoj licenci i računu čuvamo onoliko koliko propisuju porezni i računovodstveni propisi (u pravilu 11 godina).</li>
     <li>Podatke o zahtjevu koji nije plaćen brišemo najkasnije 12 mjeseci nakon zahtjeva.</li>
-    <li>E-adrese s liste zainteresiranih: nepotvrđene brišemo nakon 30 dana, a potvrđene nakon odjave, najkasnije 12 mjeseci nakon prijave.</li>
     <li>Podatke primljene za uslugu po narudžbi (izvoz, datoteka za uvoz, kontrolni izvještaj) brišemo najkasnije 30 dana nakon isporuke, osim ako se pisano drukčije dogovorimo; ponudu, dopisivanje i račun čuvamo kao poslovnu dokumentaciju.</li>
     <li>Sigurnosne kopije baze licenci čuvamo na licencnom poslužitelju najviše 30 dana, a tjednu kopiju na šifriranom vanjskom disku najviše 8 tjedana. Podatak obrisan iz baze tako nestaje i iz kopija najkasnije istekom tih rokova.</li>
     <li>Tehničke dnevnike web stranice vodi GitHub, prema svojoj politici privatnosti.</li>
@@ -94,8 +92,7 @@
     <li>na brisanje, osim podataka koje moramo čuvati po zakonu,</li>
     <li>na ograničenje obrade,</li>
     <li>na prenosivost podataka koje ste nam dali,</li>
-    <li>na prigovor obradi koja se temelji na legitimnom interesu,</li>
-    <li>na povlačenje privole u svakom trenutku (lista zainteresiranih).</li>
+    <li>na prigovor obradi koja se temelji na legitimnom interesu.</li>
   </ul>
   <p>Zahtjev pošaljite na <a href="mailto:info@majstoraj.hr">info@majstoraj.hr</a>; odgovorit ćemo najkasnije u roku od mjesec dana. Ako smatrate da podatke obrađujemo protivno propisima, možete podnijeti pritužbu Agenciji za zaštitu osobnih podataka (<a href="https://azop.hr" target="_blank" rel="noopener">azop.hr</a>).</p>
   <p>Ta se prava ne odnose na podatke iz točke 3., jer ih ne posjedujemo — njima u potpunosti upravljate vi.</p>
