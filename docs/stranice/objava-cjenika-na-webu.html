@@ -28,7 +28,7 @@
   "description": "Što Pravilnik o načinu objave cjenika proizvoda (NN 132/2026) traži za objavu na mrežnim stranicama: CSV ili XML, stupci za robu i usluge, naziv datoteke, rok objave izmjene i arhiva.",
   "inLanguage": "hr",
   "datePublished": "2026-11-06",
-  "dateModified": "2026-11-17",
+  "dateModified": "2026-11-18",
   "author": { "@type": "Organization", "name": "MAJSTORAJ", "url": "https://majstoraj.hr/" },
   "publisher": { "@type": "Organization", "name": "MAJSTORAJ", "url": "https://majstoraj.hr/" },
   "mainEntityOfPage": "https://majstoraj.hr/stranice/objava-cjenika-na-webu.html"
@@ -117,7 +117,7 @@
   <p class="page-label">Stručni članak · objava cjenika</p>
   <h1>Objava cjenika na webu prema pravilniku (NN 132/2026): kako izgleda datoteka i na što paziti</h1>
   <p class="meta">
-    MAJSTORAJ · stanje propisa na dan 17. studenoga 2026.<br>
+    MAJSTORAJ · stanje propisa na dan 17. studenoga 2026., česta pitanja dopunjena 18. studenoga<br>
     Pravilnik o načinu objave cjenika proizvoda i Pravilnik o isticanju bazne cijene
     proizvoda objavljeni su u Narodnim novinama 132/2026 i vrijede od 17. studenoga 2026.
     Odluke Vlade o dodatnoj cijeni i objavi cjenika (NN 75/2025 i 101/2026) prestale su
@@ -194,7 +194,7 @@
     bazne cijene.
   </p>
 
-  <h3>Bazna cijena</h3>
+  <h3 id="bazna-cijena">Bazna cijena</h3>
   <p>
     Bazna cijena je maloprodajna cijena koju je trgovac primijenio na referentni dan
     (Pravilnik o isticanju bazne cijene proizvoda, čl. 3.):
@@ -335,6 +335,42 @@ Pranje i feniranje;12.00;NE;12.00</code></pre>
       <li>koji je „dan izmjene” kad se cijena mijenja tijekom dana;</li>
       <li>smije li se cjenik objaviti poveznicom na vanjskog pružatelja; izvješće o savjetovanju to dopušta, a tekst pravilnika ne spominje.</li>
     </ul>
+  </div>
+
+  <h2 id="pitanja">8. Česta pitanja iz prakse</h2>
+  <p>
+    Pitanja koja obrtnici najčešće postavljaju od stupanja pravilnika na snagu. Gdje
+    propis ne daje izravan odgovor, to i pišemo.
+  </p>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Moram li cjenik objavljivati svaki dan?</summary>
+      <div class="faq-body">Ne. Izmijenjeni cjenik objavljuje se do 11:00 na dan izmjene (čl. 3. st. 5.), i to za robu i za usluge. Svakodnevna objava do 8:00 bila je obveza po ranijim Odlukama Vlade, koje su prestale važiti. Objavljivati svaki dan nije zabranjeno, ali nije ni potrebno: novi cjenik treba tek kad se nešto u njemu promijeni.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Gdje je datum uz baznu cijenu?</summary>
+      <div class="faq-body">Pravilnici datum ne traže, ni u CSV/XML datoteci ni na oznaci u prodavaonici; u cjeniku je bazna cijena samo iznos. Referentni dan ipak nije uvijek isti (2. 5. 2025., 10. 9. 2026. ili dan stavljanja u ponudu, vidi <a href="#bazna-cijena">Bazna cijena</a>), pa za svaki artikl zapišite koji je i sačuvajte dokaz cijene s tog dana. Datum smijete dopisati; Ministarstvo je uz ranije Odluke predlagalo oblik „Cijena na 10. 9. 2026.”.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Obrt: OIB ili matični broj u nazivu datoteke?</summary>
+      <div class="faq-body">Matični broj. Pravilnik OIB traži samo od pravnih osoba (d.o.o., j.d.o.o.), a od fizičkih osoba, pa i obrta, matični broj. Koji matični broj, ne definira; za obrt je razumno upisati matični broj obrta (MBO, osam znamenki) s rješenja o upisu u Obrtni registar. OIB u podnožju weba i na računima to ne mijenja.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Imam web shop. Koju adresu upisujem u naziv datoteke?</summary>
+      <div class="faq-body">Pravilnik to ne uređuje. Kao prodajno mjesto razumno je upisati prodaju putem interneta (izvješće o savjetovanju navodi „prodaja putem interneta” bez adrese). Ako u naziv ipak upisujete adresu, upišite sjedište, odnosno adresu iz podataka o trgovcu na webu, i dodajte oznaku po kojoj se web shop razlikuje od prodavaonice (npr. WEB). Najvažnije je da naziv bude uvijek isti. Ministarstvo je uz ranije Odluke tražilo zasebnu datoteku za web shop; vrijedi li to i kad web shop ima iste cijene i istu ponudu kao prodavaonica, još nije pojašnjeno.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Prodajem samo preko Facebooka ili Instagrama. Što moram?</summary>
+      <div class="faq-body">CSV/XML cjenik objavljuje se na mrežnoj stranici, a profil na društvenoj mreži prema pojašnjenju Ministarstva nije mrežna stranica, pa bez weba tu datoteku ne objavljujete. Cijenu u objavi smijete navesti i bolje je da je navedete: kad nešto nudite na prodaju, cijena je bitna informacija za kupca, pa „javite se u inbox za cijenu” nosi rizik da se smatra prešućivanjem. Ranije Odluke tražile su dodatnu (baznu) cijenu i u oglasima; ako u objavi navodite cijenu, sigurnije je uz nju navesti i baznu.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Dajem popust. Je li dovoljan natpis ili banner na webu?</summary>
+      <div class="faq-body">Nije: popust mora biti i u cjeniku. Maloprodajna cijena je tada snižena cijena, oznaka posebnog oblika prodaje je DA, a bazna cijena ostaje ista, jer se s promjenom maloprodajne cijene ne mijenja. Naziv akcije pravilnik ne traži. Novi cjenik objavite do 11:00 na dan kad popust počinje i ponovno kad završava. Uz sniženu cijenu Zakon o zaštiti potrošača (čl. 19.) traži i najnižu cijenu iz 30 dana prije sniženja; ako tek počinjete raditi i redovnu cijenu još niste primjenjivali, prije oglašavanja „popusta” provjerite s knjigovodstvom ili komorom kako to ispravno istaknuti.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Cijenu dogovaram s naručiteljem. Trebam li brošuru?</summary>
+      <div class="faq-body">Brošura je iz Pravilnika o načinu isticanja maloprodajne cijene (NN 105/2026, čl. 9.): kad usluga ima toliko da cjenik ne bi bio pregledan, cijene se smiju istaknuti u katalogu, brošuri ili prospektu. Sadržaj je isti kao u cjeniku: za svaku uslugu naziv, vrsta i opseg te cijena sa svim pripadajućim troškovima. Usluge sa stalnom cijenom idu u cjenik. Pravilnici o baznoj cijeni i objavi cjenika izuzimaju personalizirane cijene ponuđene pojedinom potrošaču (čl. 4.); je li pojedinačna ponuda, npr. za konferenciju, takav slučaj, provjerite kod Ministarstva gospodarstva ili komore.</div>
+    </details>
   </div>
 
   <div class="clanak-sidro" role="region" aria-labelledby="sidro-naslov">
