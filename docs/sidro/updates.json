@@ -1,5 +1,5 @@
 {
   "latest_version": "0.3.0",
-  "download_url": "https://preuzimanje.majstoraj.hr/SidroSetup.exe",
+  "download_url": "https://preuzimanje.majstoraj.hr/nadogradnja/SidroSetup.exe",
   "release_notes": "Usklađeno s pravilnicima NN 132/2026 (na snazi od 17. 11. 2026.): novi oblik CSV i XML cjenika, naziv datoteke s OIB-om ili matičnim brojem, rok objave do 11:00 na dan izmjene. Nakon nadogradnje u Postavkama odaberite vrstu subjekta i, za obrt, upišite matični broj."
 }
