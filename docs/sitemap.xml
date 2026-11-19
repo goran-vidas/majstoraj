@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://majstoraj.hr/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -34,6 +34,16 @@
     <loc>https://majstoraj.hr/stranice/objava-cjenika-na-webu.html</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://majstoraj.hr/stranice/po-mjeri.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://majstoraj.hr/stranice/o-meni.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://majstoraj.hr/stranice/smjena.html</loc>

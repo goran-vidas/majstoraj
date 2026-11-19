@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O meni — MAJSTORAJ, obrt za razvoj softvera, Rijeka</title>
+<meta name="description" content="MAJSTORAJ je obrt, ne agencija: uvijek razgovarate s osobom koja vaše rješenje i razvija.">
+<meta property="og:title" content="O meni — MAJSTORAJ, obrt za razvoj softvera, Rijeka">
+<meta property="og:description" content="MAJSTORAJ je obrt, ne agencija: uvijek razgovarate s osobom koja vaše rješenje i razvija.">
+<meta property="og:url" content="https://majstoraj.hr/stranice/o-meni.html">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F8F6F2">
+<link rel="canonical" href="https://majstoraj.hr/stranice/o-meni.html">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preload" href="/assets/fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/majstoraj.css">
+
+<style>
+  /* ── O MENI ──────────────────────────────────────────────────── */
+  .omeni { display: grid; gap: clamp(2.5rem, 5vw, 5rem); }
+  @media (min-width: 900px) { .omeni { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); } }
+  /* Fotografija (WebP, JPEG kao zamjena); topla podloga vidi se dok se ne učita.
+     .portret-monogram ostaje za slučaj bez fotografije. */
+  .portret {
+    position: relative; display: grid; place-items: center; overflow: hidden;
+    aspect-ratio: 4 / 5; max-width: 340px; margin-bottom: 2.25rem;
+    border-radius: var(--radius-xl);
+    background: radial-gradient(120% 90% at 30% 10%, #FCF6F1 0%, #F4E3D6 55%, #EAD3C2 100%);
+    box-shadow: inset 0 0 0 1px rgba(212,82,10,0.12);
+  }
+  .portret picture, .portret img { display: block; width: 100%; height: 100%; }
+  .portret img { object-fit: cover; }
+  .portret-monogram {
+    font-family: var(--font-head); font-weight: 800; letter-spacing: 0.02em;
+    font-size: clamp(4rem, 9vw, 6rem); color: rgba(180,68,10,0.26); user-select: none;
+  }
+  @media (max-width: 899px) { .portret { max-width: 260px; } }
+  .omeni-uloga { color: var(--ink-soft); font-size: 1.1rem; }
+  .omeni-cinjenice { list-style: none; margin-top: 2rem; display: grid; gap: 1.25rem; }
+  .omeni-cinjenice li { padding-left: 1.1rem; border-left: 2px solid var(--accent); }
+  .omeni-cinjenice strong { display: block; font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--ink); line-height: 1.25; }
+  .omeni-cinjenice span { color: var(--ink-soft); font-size: 0.98rem; }
+  .omeni-tekst p { margin-bottom: 1.2rem; max-width: 38rem; }
+  .omeni-tekst p:first-child { font-size: clamp(1.15rem, 1rem + 0.4vw, 1.3rem); line-height: 1.55; }
+
+  /* ── PODSTRANICA (2026-11-19) ───────────────────────────────── */
+  .podstranica-uvod { padding-top: clamp(2.5rem, 5vw, 4rem); padding-bottom: 0; }
+  .podstranica-uvod .nav-back { display: inline-flex; margin-bottom: 1.25rem; }
+  .podstranica-uvod h1 { font-size: clamp(2.2rem, 3.6vw, 2.8rem); margin-bottom: 0.75rem; }
+  .podstranica-uvod .section-intro { margin-bottom: 0; }
+  .podstranica-uvod + section:not(.pojas) { padding-top: clamp(2.5rem, 5vw, 3.5rem); }
+</style>
+</head>
+<body>
+<a class="preskoci" href="#sadrzaj">Preskoči na sadržaj</a>
+
+<nav aria-label="Glavna navigacija">
+  <a class="logo" href="/" aria-label="MAJSTORAJ, naslovnica">MAJSTOR<span>AJ</span></a>
+  <div class="nav-links">
+    <a href="/stranice/sidro.html">Sidro</a>
+    <a href="/stranice/smjena.html">Smjena</a>
+    <a href="/stranice/po-mjeri.html">Softver po mjeri</a>
+    <a href="/stranice/o-meni.html" aria-current="page">O meni</a>
+    <a class="nav-cta" href="/#kontakt">Javite se</a>
+  </div>
+</nav>
+
+<main id="sadrzaj">
+
+<section class="podstranica-uvod">
+  <a class="nav-back" href="/"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Naslovnica</a>
+  <h1>O meni</h1>
+  <p class="section-intro">Tko stoji iza MAJSTORAJA i kako radim.</p>
+</section>
+
+<!-- O MENI -->
+<section id="omeni">
+  <div class="omeni">
+    <div>
+      <figure class="portret">
+        <picture>
+          <source srcset="/assets/img/goran-vidas.webp" type="image/webp">
+          <img src="/assets/img/goran-vidas.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Goran Vidas, programer i vlasnik obrta MAJSTORAJ">
+        </picture>
+      </figure>
+      <h2>Goran Vidas</h2>
+      <p class="omeni-uloga">Programer i vlasnik obrta MAJSTORAJ, Rijeka</p>
+      <ul class="omeni-cinjenice">
+        <li><strong>25+ godina</strong><span>programerskog iskustva</span></li>
+        <li><strong>Lokalno, bez clouda</strong><span>Python, PySide6 i SQLite na vašim računalima</span></li>
+        <li><strong>Moj obrt, ne agencija</strong><span>uvijek razgovarate sa mnom</span></li>
+      </ul>
+    </div>
+    <div class="omeni-tekst">
+      <p>
+        <strong>Nisam agencija.</strong> MAJSTORAJ je moj obrt, što znači da ćete uvijek
+        razgovarati sa mnom i da ću vaše rješenje osobno razviti ja.
+      </p>
+      <p>
+        Kad vodite vlastiti obrt ili tvrtku, vaš posao nije samo stavka na
+        fakturi. To je vaš trud i vaš rizik. Isti taj pristup unosim u
+        softver koji gradim: svako rješenje nosi moje ime i moram iza njega
+        stajati sto posto. Zato se najbolje razumijem s ljudima koji cijene
+        direktan kontakt, odgovornost i rad bez posrednika.
+      </p>
+      <p>
+        Radim s lokalnim poduzetnicima jer vjerujem da tvrtke u Rijeci i
+        okolici zaslužuju moderan, brz i pouzdan softver, po cijeni koja
+        ima smisla za njihovo poslovanje.
+      </p>
+      <p>
+        Primjer kako radim je <a href="/stranice/sidro.html">Sidro</a>: aplikaciju za
+        bazne cijene i cjenike razvio sam samostalno, od prve ideje do objave — povijest
+        cijena koja se ne može mijenjati, licence i računi, poslužitelj, upute i
+        podrška korisnicima.
+      </p>
+      <p>
+        Ako imate operativni problem koji vam troši sate svakog tjedna,
+        <strong>javite se.</strong> Kratak razgovor i kava ne koštaju ništa.
+      </p>
+    </div>
+  </div>
+</section>
+
+<aside class="cta-row" aria-label="Razgovor">
+  <div style="flex:1; min-width:220px;">
+    <p>Imate posao koji vam troši sate svaki tjedan?</p>
+    <p>Kratak razgovor i kava ne koštaju ništa.</p>
+  </div>
+  <div class="cta-actions">
+    <a class="btn-primary" href="/#kontakt">Javite se</a>
+    <a class="btn-ghost" href="/">Natrag na naslovnicu</a>
+  </div>
+</aside>
+
+</main>
+
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <nav class="footer-veze" aria-label="Ostale stranice">
+    <a href="/stranice/sidro.html">Sidro</a>
+    <a href="/stranice/smjena.html">Smjena</a>
+    <a href="/stranice/po-mjeri.html">Softver po mjeri</a>
+    <a href="/stranice/o-meni.html">O meni</a>
+    <a href="/stranice/privatnost.html">Politika privatnosti</a>
+    <a href="/knjige/prestani-tonuti/">Knjiga „Prestani tonuti”</a>
+  </nav>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385</span>
+  <p class="b2b-disclaimer">Usluge i softverska rješenja pružamo isključivo poslovnim subjektima (B2B — tvrtkama, obrtima, OPG-ovima, slobodnim zanimanjima i udrugama). Ne pružamo usluge fizičkim osobama / potrošačima.</p>
+</footer>
+
+<script>
+(function () {
+  // Datumi i tekst bannera žive u dopust-config.json - ne ovdje. Da se
+  // promijeni razdoblje ili poruka, uređuje se SAMO taj jedan fajl, ne
+  // ovaj kod, ni na jednoj stranici koja koristi ovaj mehanizam.
+  // XMLHttpRequest umjesto fetch() - podržano posvuda, uklj. jako stare
+  // preglednike (fetch je noviji API, nema ga svugdje).
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/dopust-config.json', true);
+  xhr.onload = function () {
+    if (xhr.status !== 200) return;
+    try {
+      var config = JSON.parse(xhr.responseText);
+      var pocetak = new Date(config.pocetak);
+      var kraj = new Date(config.kraj);
+      var danas = new Date();
+      if (danas < pocetak || danas > kraj) return;
+
+      var banner = document.createElement('div');
+      banner.style.cssText =
+        'background:#2A2420;color:#F8F6F2;text-align:center;' +
+        'padding:0.65rem 1.25rem;font-size:0.9rem;line-height:1.5;' +
+        'font-family:var(--font-body, sans-serif);';
+      banner.textContent = config.poruka;
+      document.body.insertBefore(banner, document.body.firstChild);
+    } catch (e) {
+      // Tiho - pokvaren config ne smije srušiti stranicu.
+    }
+  };
+  xhr.onerror = function () {
+    // Tiho - ako config nedostaje ili se ne učita (npr. file:// umjesto
+    // http://), stranica jednostavno nema banner. Nikad ne ruši ništa.
+  };
+  xhr.send();
+})();
+</script>
+</body>
+</html>

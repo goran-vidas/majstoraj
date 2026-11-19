@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Softver po mjeri — kako radim i cijene | MAJSTORAJ</title>
+<meta name="description" content="Desktop aplikacije i automatizacija po mjeri za tvrtke i obrte u Rijeci i na Kvarneru: problemi koje rješavam, kako radim i paketi s fiksnom cijenom.">
+<meta property="og:title" content="Softver po mjeri — kako radim i cijene">
+<meta property="og:description" content="Desktop aplikacije i automatizacija po mjeri za tvrtke i obrte u Rijeci i na Kvarneru: problemi koje rješavam, kako radim i paketi s fiksnom cijenom.">
+<meta property="og:url" content="https://majstoraj.hr/stranice/po-mjeri.html">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F8F6F2">
+<link rel="canonical" href="https://majstoraj.hr/stranice/po-mjeri.html">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preload" href="/assets/fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/majstoraj.css">
+
+<style>
+  /* ── PAKETI: podrška i manji poslovi ispod kartica ───────────── */
+  .paketi-dodatno { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
+  @media (min-width: 900px) { .paketi-dodatno { grid-template-columns: 1fr 1fr; } }
+  .dodatak .dodatak-cijene { display: flex; flex-wrap: wrap; gap: 0.35rem 1.5rem; margin-top: 0.85rem; color: var(--ink); }
+  .dodatak .btn-secondary { display: inline-block; margin-top: 0.85rem; }
+  .cijene-napomena { margin-top: 1.75rem; font-size: 0.9rem; color: var(--ink-soft); max-width: 46rem; }
+
+  /* ── PODSTRANICA (2026-11-19) ───────────────────────────────── */
+  .podstranica-uvod { padding-top: clamp(2.5rem, 5vw, 4rem); padding-bottom: 0; }
+  .podstranica-uvod .nav-back { display: inline-flex; margin-bottom: 1.25rem; }
+  .podstranica-uvod h1 { font-size: clamp(2.2rem, 3.6vw, 2.8rem); margin-bottom: 0.75rem; }
+  .podstranica-uvod .section-intro { margin-bottom: 0; }
+  .podstranica-uvod + section:not(.pojas) { padding-top: clamp(2.5rem, 5vw, 3.5rem); }
+</style>
+</head>
+<body>
+<a class="preskoci" href="#sadrzaj">Preskoči na sadržaj</a>
+
+<nav aria-label="Glavna navigacija">
+  <a class="logo" href="/" aria-label="MAJSTORAJ, naslovnica">MAJSTOR<span>AJ</span></a>
+  <div class="nav-links">
+    <a href="/stranice/sidro.html">Sidro</a>
+    <a href="/stranice/smjena.html">Smjena</a>
+    <a href="/stranice/po-mjeri.html" aria-current="page">Softver po mjeri</a>
+    <a href="/stranice/o-meni.html">O meni</a>
+    <a class="nav-cta" href="/#kontakt">Javite se</a>
+  </div>
+</nav>
+
+<main id="sadrzaj">
+
+<section class="podstranica-uvod">
+  <a class="nav-back" href="/"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Naslovnica</a>
+  <h1>Softver po mjeri</h1>
+  <p class="section-intro">Kad gotova aplikacija ne odgovara vašem poslu, izradim vašu: s fiksnom cijenom u pisanoj ponudi.</p>
+</section>
+
+<!-- PROBLEMI -->
+<section id="problemi">
+  <h2>Problemi koje rješavam</h2>
+  <p class="section-intro">
+    Ako vam je nešto od ovoga poznato, vjerojatno se može riješiti jednostavnije nego što mislite.
+  </p>
+  <div class="problemi">
+    <article class="problem">
+      <h3>Radni nalozi na papiru ili u Excelu</h3>
+      <p>Ručno prepisivanje, duple verzije, izgubljeni listovi — nitko ne zna tko što radi u ovom trenutku.</p>
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Digitalni nalog, odmah vidljiv svima</p>
+    </article>
+    <article class="problem">
+      <h3>Terenske ekipe bez uvida u ured</h3>
+      <p>Dispečer zove mobitelom, majstor ne zna adresu, šef ne zna status. Koordinacija troši pola radnog dana.</p>
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dodjela, status i pregled jednim klikom</p>
+    </article>
+    <article class="problem">
+      <h3>Izvještaji koji se rade sat vremena</h3>
+      <p>Copy-paste iz tablice u tablicu, ručno računanje sati, klijent čeka tjedan dana na fakturu.</p>
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF izvještaj nastaje automatski</p>
+    </article>
+    <article class="problem">
+      <h3>Skupi SaaS koji ne odgovara vašem procesu</h3>
+      <p>Platite pretplatu, utrošite tjedne na implementaciju, pa radite kao i prije — samo s novim problemima.</p>
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Softver po mjeri, plaćen jednom, bez pretplate</p>
+    </article>
+  </div>
+</section>
+
+<!-- KAKO RADIM -->
+<section id="kako" class="pojas pijesak">
+  <div class="omot">
+    <h2>Od razgovora do softvera za 3–4 tjedna</h2>
+    <p class="section-intro">Nema dugih specifikacija, nema iznenađenja na kraju, nema skrivenih troškova.</p>
+    <ol class="koraci">
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">1</span>
+        <h3>Razgovor na kavi</h3>
+        <p>Dolazim k vama. Slušam. Procjenjujem stanje bez tehničkog žargona. Bez obveze, bez naplate.</p>
+      </li>
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">2</span>
+        <h3>Ponuda s fiksnom cijenom</h3>
+        <p>Dobivate preciznu ponudu — što ću napraviti, za koliko i što se točno isporučuje.</p>
+      </li>
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">3</span>
+        <h3>Razvoj i predaja</h3>
+        <p>Razvijam lokalno, testiram s vama, instaliram na vaša računala. Obuka je uključena u cijenu.</p>
+      </li>
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">4</span>
+        <h3>Podrška na dugi rok</h3>
+        <p>Po želji mjesečni ugovor za podršku: odziv do 24 sata, popravci, dorade i mir na duže staze.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- PAKETI -->
+<section id="paketi">
+  <h2>Fiksna cijena, bez iznenađenja</h2>
+  <p class="section-intro">
+    Svaki projekt dobiva pisanu ponudu s točnom cijenom i rokom isporuke, prije nego što
+    potpišemo išta.
+  </p>
+
+  <div class="paketi">
+    <article class="paket">
+      <p class="paket-oznaka">Brz start</p>
+      <h3 class="paket-ime">Start</h3>
+      <p class="paket-cijena">1.500 €</p>
+      <p class="paket-opis">Rješavamo jedan konkretan problem.</p>
+      <ul class="paket-popis">
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatizacija ponavljajućih zadataka</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Povezivanje dva sustava koja trenutno nisu povezana</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mini-aplikacija ili skripta po mjeri</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Isporuka za 5–10 radnih dana</li>
+      </ul>
+    </article>
+    <article class="paket istaknut">
+      <p class="paket-oznaka">Najpopularnije</p>
+      <h3 class="paket-ime">Pro</h3>
+      <p class="paket-cijena">3.500–4.500 €</p>
+      <p class="paket-opis">Vaša vlastita aplikacija, bez pretplate.</p>
+      <ul class="paket-popis">
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Desktop aplikacija krojena točno prema vašim procesima</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Radi lokalno: nema clouda, ne treba internet</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Pratite naloge, materijal, troškove i sate</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF izvještaji jednim klikom</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Instalacija na vaša računala i obuka</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Isporuka za 3–4 tjedna</li>
+      </ul>
+    </article>
+    <article class="paket">
+      <p class="paket-oznaka">Više odjela</p>
+      <h3 class="paket-ime">Enterprise</h3>
+      <p class="paket-cijena">Od 6.000 €</p>
+      <p class="paket-opis">Kompletan digitalni sustav za cijelu tvrtku.</p>
+      <ul class="paket-popis">
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Arhitektura cijelog sustava od temelja</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Integracija više aplikacija i odjela</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatski protok podataka kroz tvrtku</li>
+        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cijena se utvrđuje nakon tehničke specifikacije</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="paketi-dodatno">
+    <div class="dodatak">
+      <h3>Održavanje i podrška</h3>
+      <p>Nakon isporuke brinem o softveru uz fiksni mjesečni paušal: odziv, popravci, backup i mir.</p>
+      <p class="dodatak-cijene"><span>Osnovna podrška <strong>250 €/mj.</strong></span><span>Napredna podrška <strong>450 €/mj.</strong></span></p>
+    </div>
+    <div class="dodatak">
+      <h3>Trebate nešto brže i jednostavnije?</h3>
+      <p>Za male obrte i uslužne djelatnosti: automatizacija rezervacija, jednostavna web stranica
+        ili mali alat po mjeri. Od <strong>300 €</strong>, isporuka u tjedan dana.</p>
+      <a class="btn-secondary" href="/#kontakt">Pitajte me</a>
+    </div>
+  </div>
+
+  <p class="cijene-napomena">Sve navedene cijene su informativne i odnose se na B2B suradnju. Točna cijena utvrđuje se pisanom ponudom nakon definiranja specifikacije.</p>
+</section>
+
+<aside class="cta-row" aria-label="Razgovor">
+  <div style="flex:1; min-width:220px;">
+    <p>Imate posao koji vam troši sate svaki tjedan?</p>
+    <p>Kratak razgovor i kava ne koštaju ništa.</p>
+  </div>
+  <div class="cta-actions">
+    <a class="btn-primary" href="/#kontakt">Javite se</a>
+    <a class="btn-ghost" href="/">Natrag na naslovnicu</a>
+  </div>
+</aside>
+
+</main>
+
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <nav class="footer-veze" aria-label="Ostale stranice">
+    <a href="/stranice/sidro.html">Sidro</a>
+    <a href="/stranice/smjena.html">Smjena</a>
+    <a href="/stranice/po-mjeri.html">Softver po mjeri</a>
+    <a href="/stranice/o-meni.html">O meni</a>
+    <a href="/stranice/privatnost.html">Politika privatnosti</a>
+    <a href="/knjige/prestani-tonuti/">Knjiga „Prestani tonuti”</a>
+  </nav>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385</span>
+  <p class="b2b-disclaimer">Usluge i softverska rješenja pružamo isključivo poslovnim subjektima (B2B — tvrtkama, obrtima, OPG-ovima, slobodnim zanimanjima i udrugama). Ne pružamo usluge fizičkim osobama / potrošačima.</p>
+</footer>
+
+<script>
+(function () {
+  // Datumi i tekst bannera žive u dopust-config.json - ne ovdje. Da se
+  // promijeni razdoblje ili poruka, uređuje se SAMO taj jedan fajl, ne
+  // ovaj kod, ni na jednoj stranici koja koristi ovaj mehanizam.
+  // XMLHttpRequest umjesto fetch() - podržano posvuda, uklj. jako stare
+  // preglednike (fetch je noviji API, nema ga svugdje).
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/dopust-config.json', true);
+  xhr.onload = function () {
+    if (xhr.status !== 200) return;
+    try {
+      var config = JSON.parse(xhr.responseText);
+      var pocetak = new Date(config.pocetak);
+      var kraj = new Date(config.kraj);
+      var danas = new Date();
+      if (danas < pocetak || danas > kraj) return;
+
+      var banner = document.createElement('div');
+      banner.style.cssText =
+        'background:#2A2420;color:#F8F6F2;text-align:center;' +
+        'padding:0.65rem 1.25rem;font-size:0.9rem;line-height:1.5;' +
+        'font-family:var(--font-body, sans-serif);';
+      banner.textContent = config.poruka;
+      document.body.insertBefore(banner, document.body.firstChild);
+    } catch (e) {
+      // Tiho - pokvaren config ne smije srušiti stranicu.
+    }
+  };
+  xhr.onerror = function () {
+    // Tiho - ako config nedostaje ili se ne učita (npr. file:// umjesto
+    // http://), stranica jednostavno nema banner. Nikad ne ruši ništa.
+  };
+  xhr.send();
+})();
+</script>
+</body>
+</html>

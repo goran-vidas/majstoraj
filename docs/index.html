@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAJSTORAJ — Softver po mjeri za vaše poslovanje · Rijeka</title>
-<meta name="description" content="Desktop aplikacije i automatizacija za male i srednje tvrtke u Rijeci i Kvarneru. Bez cloud pretplate, bez IT odjela. Fiksna cijena, isporuka 3–4 tjedna.">
-<meta name="keywords" content="razvoj softvera Rijeka, desktop aplikacije, automatizacija procesa, IT konzalting Kvarner, softver za obrtnike">
-<meta property="og:title" content="MAJSTORAJ — Softver po mjeri za vaše poslovanje">
-<meta property="og:description" content="Desktop aplikacije i automatizacija za tvrtke u Rijeci i Kvarneru. Bez clouda, bez pretplate, bez IT odjela.">
+<title>MAJSTORAJ — Sidro i softver po mjeri za obrtnike i male tvrtke · Rijeka</title>
+<meta name="description" content="Sidro: cjenik i bazna cijena po pravilniku NN 132/2026, besplatno do 10 artikala. Gotove aplikacije i softver po mjeri za obrte i male tvrtke, bez pretplate.">
+<meta property="og:title" content="MAJSTORAJ — Sidro i softver po mjeri">
+<meta property="og:description" content="Sidro: cjenik i bazna cijena po pravilniku NN 132/2026, besplatno do 10 artikala. Gotove aplikacije i softver po mjeri za obrte i male tvrtke, bez pretplate.">
 <meta property="og:url" content="https://majstoraj.hr/">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#F8F6F2">
@@ -18,7 +17,6 @@
 <link rel="preload" href="/assets/fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/majstoraj.css">
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,19 +36,19 @@
   "areaServed": ["Rijeka","Opatija","Kastav","Matulji","Kvarner"]
 }
 </script>
+<script>
+// Stari odjeljci naslovnice (prije podjele 19. 11. 2026.) su na podstranicama.
+(function () {
+  var mapa = {
+    paketi: '/stranice/po-mjeri.html#paketi', kako: '/stranice/po-mjeri.html#kako',
+    problemi: '/stranice/po-mjeri.html#problemi', omeni: '/stranice/o-meni.html'
+  };
+  var h = location.hash.slice(1);
+  if (mapa[h]) location.replace(mapa[h]);
+})();
+</script>
 
 <style>
-  /* Naslovnica. Zajednički izgled i dijelovi koji se ponavljaju (uvod, izlog,
-     problemi, koraci, paketi) su u /assets/css/majstoraj.css; ovdje je samo
-     ono što postoji samo na naslovnici. */
-
-  /* ── PAKETI: podrška i manji poslovi ispod kartica ───────────── */
-  .paketi-dodatno { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
-  @media (min-width: 900px) { .paketi-dodatno { grid-template-columns: 1fr 1fr; } }
-  .dodatak .dodatak-cijene { display: flex; flex-wrap: wrap; gap: 0.35rem 1.5rem; margin-top: 0.85rem; color: var(--ink); }
-  .dodatak .btn-secondary { display: inline-block; margin-top: 0.85rem; }
-  .cijene-napomena { margin-top: 1.75rem; font-size: 0.9rem; color: var(--ink-soft); max-width: 46rem; }
-
   /* ── GOTOVE APLIKACIJE ───────────────────────────────────────── */
   .sidro-blok {
     display: grid; gap: clamp(1.75rem, 4vw, 3.5rem); align-items: center;
@@ -76,33 +74,6 @@
   .aplikacija h3 { margin-bottom: 0.45rem; }
   .aplikacija p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 1rem; }
 
-  /* ── O MENI ──────────────────────────────────────────────────── */
-  .omeni { display: grid; gap: clamp(2.5rem, 5vw, 5rem); }
-  @media (min-width: 900px) { .omeni { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); } }
-  /* Fotografija (WebP, JPEG kao zamjena); topla podloga vidi se dok se ne učita.
-     .portret-monogram ostaje za slučaj bez fotografije. */
-  .portret {
-    position: relative; display: grid; place-items: center; overflow: hidden;
-    aspect-ratio: 4 / 5; max-width: 340px; margin-bottom: 2.25rem;
-    border-radius: var(--radius-xl);
-    background: radial-gradient(120% 90% at 30% 10%, #FCF6F1 0%, #F4E3D6 55%, #EAD3C2 100%);
-    box-shadow: inset 0 0 0 1px rgba(212,82,10,0.12);
-  }
-  .portret picture, .portret img { display: block; width: 100%; height: 100%; }
-  .portret img { object-fit: cover; }
-  .portret-monogram {
-    font-family: var(--font-head); font-weight: 800; letter-spacing: 0.02em;
-    font-size: clamp(4rem, 9vw, 6rem); color: rgba(180,68,10,0.26); user-select: none;
-  }
-  @media (max-width: 899px) { .portret { max-width: 260px; } }
-  .omeni-uloga { color: var(--ink-soft); font-size: 1.1rem; }
-  .omeni-cinjenice { list-style: none; margin-top: 2rem; display: grid; gap: 1.25rem; }
-  .omeni-cinjenice li { padding-left: 1.1rem; border-left: 2px solid var(--accent); }
-  .omeni-cinjenice strong { display: block; font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--ink); line-height: 1.25; }
-  .omeni-cinjenice span { color: var(--ink-soft); font-size: 0.98rem; }
-  .omeni-tekst p { margin-bottom: 1.2rem; max-width: 38rem; }
-  .omeni-tekst p:first-child { font-size: clamp(1.15rem, 1rem + 0.4vw, 1.3rem); line-height: 1.55; }
-
   /* ── KONTAKT ─────────────────────────────────────────────────── */
   .kontakt { display: grid; gap: clamp(2.5rem, 5vw, 4.5rem); }
   @media (min-width: 960px) { .kontakt { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
@@ -126,6 +97,9 @@
   .kanal-vrsta { display: block; font-size: 0.86rem; color: var(--night-soft); line-height: 1.4; }
   .kanal-vrijednost { display: block; font-family: var(--font-head); font-size: 1.15rem; font-weight: 600; color: var(--bg); line-height: 1.35; }
   .kanal-sitno { display: block; font-size: 0.86rem; color: var(--night-muted); line-height: 1.4; }
+  /* ── NASLOVNICA (2026-11-19) ───────────────────────────────── */
+  #aplikacije { padding-top: clamp(3rem, 6vw, 4.5rem); }
+  .po-mjeri .cinjenice { margin: 0 0 1.5rem; }
 </style>
 </head>
 <body>
@@ -134,12 +108,11 @@
 <nav aria-label="Glavna navigacija">
   <a class="logo" href="/" aria-label="MAJSTORAJ, naslovnica">MAJSTOR<span>AJ</span></a>
   <div class="nav-links">
-    <a href="#paketi">Cijene</a>
-    <a href="#kako">Kako radim</a>
     <a href="/stranice/sidro.html">Sidro</a>
     <a href="/stranice/smjena.html">Smjena</a>
-    <a href="#omeni">O meni</a>
-    <a class="nav-cta" href="#kontakt">Javite se</a>
+    <a href="/stranice/po-mjeri.html">Softver po mjeri</a>
+    <a href="/stranice/o-meni.html">O meni</a>
+    <a class="nav-cta" href="/#kontakt">Javite se</a>
   </div>
 </nav>
 
@@ -148,23 +121,19 @@
 <!-- UVOD -->
 <header class="omot uvod">
   <div>
-    <h1>Softver po mjeri vašeg posla.</h1>
+    <h1>Programi za obrte i male tvrtke — gotovi ili po mjeri.</h1>
     <p class="uvod-lead">
-      Ja sam <strong>Goran Vidas</strong>, programer iz Rijeke. Izrađujem desktop aplikacije
-      za male i srednje tvrtke i obrte — bez pretplate, bez IT odjela i bez ovisnosti
-      o internetu.
+      Aplikacije koje samo instalirate i softver izrađen za vaš posao. Bez pretplate,
+      a podaci ostaju na vašem računalu.
     </p>
     <div class="uvod-gumbi">
-      <a class="btn-primary" href="#kontakt">Dogovorimo razgovor</a>
-      <a class="btn-whatsapp" href="https://wa.me/385919546490" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
+      <a class="btn-primary" href="/stranice/sidro.html">Sidro: cjenik po pravilniku</a>
+      <a class="btn-ghost" href="#kontakt">Javite se</a>
     </div>
     <ul class="cinjenice">
-      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dolazim k vama, u Rijeci i na Kvarneru</li>
-      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prvi razgovor na kavi je besplatan</li>
-      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fiksna cijena u pisanoj ponudi</li>
+      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Hrvatski obrt iz Rijeke</li>
+      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Plaćate jednom, bez pretplate</li>
+      <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Uvijek razgovarate s osobom koja softver i izrađuje</li>
     </ul>
   </div>
 
@@ -173,141 +142,14 @@
       <span class="prozor"><img src="/stranice/slike/sidro-artikli.webp" width="1287" height="869" decoding="async" fetchpriority="high"
            alt="Sidro, stranica Artikli: popis proizvoda i usluga s primjerom podataka"></span>
     </a>
-    <figcaption>Primjer mog rada: <a href="/stranice/sidro.html">Sidro</a>, aplikacija za cjenike i bazne cijene.</figcaption>
+    <figcaption>Sidro, aplikacija za cjenike i bazne cijene.</figcaption>
   </figure>
 </header>
 
-<!-- PROBLEMI -->
-<section id="problemi">
-  <h2>Problemi koje rješavam</h2>
-  <p class="section-intro">
-    Ako vam je nešto od ovoga poznato, vjerojatno se može riješiti jednostavnije nego što mislite.
-  </p>
-  <div class="problemi">
-    <article class="problem">
-      <h3>Radni nalozi na papiru ili u Excelu</h3>
-      <p>Ručno prepisivanje, duple verzije, izgubljeni listovi — nitko ne zna tko što radi u ovom trenutku.</p>
-      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Digitalni nalog, odmah vidljiv svima</p>
-    </article>
-    <article class="problem">
-      <h3>Terenske ekipe bez uvida u ured</h3>
-      <p>Dispečer zove mobitelom, majstor ne zna adresu, šef ne zna status. Koordinacija troši pola radnog dana.</p>
-      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dodjela, status i pregled jednim klikom</p>
-    </article>
-    <article class="problem">
-      <h3>Izvještaji koji se rade sat vremena</h3>
-      <p>Copy-paste iz tablice u tablicu, ručno računanje sati, klijent čeka tjedan dana na fakturu.</p>
-      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF izvještaj nastaje automatski</p>
-    </article>
-    <article class="problem">
-      <h3>Skupi SaaS koji ne odgovara vašem procesu</h3>
-      <p>Platite pretplatu, utrošite tjedne na implementaciju, pa radite kao i prije — samo s novim problemima.</p>
-      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Softver po mjeri, plaćen jednom, bez pretplate</p>
-    </article>
-  </div>
-</section>
-
-<!-- KAKO RADIM -->
-<section id="kako" class="pojas pijesak">
-  <div class="omot">
-    <h2>Od razgovora do softvera za 3–4 tjedna</h2>
-    <p class="section-intro">Nema dugih specifikacija, nema iznenađenja na kraju, nema skrivenih troškova.</p>
-    <ol class="koraci">
-      <li class="korak">
-        <span class="korak-broj" aria-hidden="true">1</span>
-        <h3>Razgovor na kavi</h3>
-        <p>Dolazim k vama. Slušam. Procjenjujem stanje bez tehničkog žargona. Bez obveze, bez naplate.</p>
-      </li>
-      <li class="korak">
-        <span class="korak-broj" aria-hidden="true">2</span>
-        <h3>Ponuda s fiksnom cijenom</h3>
-        <p>Dobivate preciznu ponudu — što ću napraviti, za koliko i što se točno isporučuje.</p>
-      </li>
-      <li class="korak">
-        <span class="korak-broj" aria-hidden="true">3</span>
-        <h3>Razvoj i predaja</h3>
-        <p>Razvijam lokalno, testiram s vama, instaliram na vaša računala. Obuka je uključena u cijenu.</p>
-      </li>
-      <li class="korak">
-        <span class="korak-broj" aria-hidden="true">4</span>
-        <h3>Podrška na dugi rok</h3>
-        <p>Po želji mjesečni ugovor za podršku: odziv do 24 sata, popravci, dorade i mir na duže staze.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- PAKETI -->
-<section id="paketi">
-  <h2>Fiksna cijena, bez iznenađenja</h2>
-  <p class="section-intro">
-    Svaki projekt dobiva pisanu ponudu s točnom cijenom i rokom isporuke, prije nego što
-    potpišemo išta.
-  </p>
-
-  <div class="paketi">
-    <article class="paket">
-      <p class="paket-oznaka">Brz start</p>
-      <h3 class="paket-ime">Start</h3>
-      <p class="paket-cijena">1.500 €</p>
-      <p class="paket-opis">Rješavamo jedan konkretan problem.</p>
-      <ul class="paket-popis">
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatizacija ponavljajućih zadataka</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Povezivanje dva sustava koja trenutno nisu povezana</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mini-aplikacija ili skripta po mjeri</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Isporuka za 5–10 radnih dana</li>
-      </ul>
-    </article>
-    <article class="paket istaknut">
-      <p class="paket-oznaka">Najpopularnije</p>
-      <h3 class="paket-ime">Pro</h3>
-      <p class="paket-cijena">3.500–4.500 €</p>
-      <p class="paket-opis">Vaša vlastita aplikacija, bez pretplate.</p>
-      <ul class="paket-popis">
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Desktop aplikacija krojena točno prema vašim procesima</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Radi lokalno: nema clouda, ne treba internet</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Pratite naloge, materijal, troškove i sate</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF izvještaji jednim klikom</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Instalacija na vaša računala i obuka</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Isporuka za 3–4 tjedna</li>
-      </ul>
-    </article>
-    <article class="paket">
-      <p class="paket-oznaka">Više odjela</p>
-      <h3 class="paket-ime">Enterprise</h3>
-      <p class="paket-cijena">Od 6.000 €</p>
-      <p class="paket-opis">Kompletan digitalni sustav za cijelu tvrtku.</p>
-      <ul class="paket-popis">
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Arhitektura cijelog sustava od temelja</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Integracija više aplikacija i odjela</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatski protok podataka kroz tvrtku</li>
-        <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cijena se utvrđuje nakon tehničke specifikacije</li>
-      </ul>
-    </article>
-  </div>
-
-  <div class="paketi-dodatno">
-    <div class="dodatak">
-      <h3>Održavanje i podrška</h3>
-      <p>Nakon isporuke brinem o softveru uz fiksni mjesečni paušal: odziv, popravci, backup i mir.</p>
-      <p class="dodatak-cijene"><span>Osnovna podrška <strong>250 €/mj.</strong></span><span>Napredna podrška <strong>450 €/mj.</strong></span></p>
-    </div>
-    <div class="dodatak">
-      <h3>Trebate nešto brže i jednostavnije?</h3>
-      <p>Za male obrte i uslužne djelatnosti: automatizacija rezervacija, jednostavna web stranica
-        ili mali alat po mjeri. Od <strong>300 €</strong>, isporuka u tjedan dana.</p>
-      <a class="btn-secondary" href="#kontakt">Pitajte me</a>
-    </div>
-  </div>
-
-  <p class="cijene-napomena">Sve navedene cijene su informativne i odnose se na B2B suradnju. Točna cijena utvrđuje se pisanom ponudom nakon definiranja specifikacije.</p>
-</section>
-
-<!-- GOTOVE APLIKACIJE: Sidro (primjena od 17.11.2026., tekst neutralan prema Odlukama NN 101/2026 i pravilnicima po ZZP-u), Smjena i Gajba u pripremi -->
+<!-- GOTOVE APLIKACIJE -->
 <section id="aplikacije" class="pojas pijesak">
   <div class="omot">
     <h2>Gotove aplikacije</h2>
-    <p class="section-intro">Neke probleme ima puno tvrtki odjednom. Za njih radim gotove aplikacije koje samo instalirate.</p>
 
     <article class="sidro-blok" id="sidro-proizvod">
       <figure class="sidro-slika">
@@ -317,18 +159,11 @@
         </a>
       </figure>
       <div class="sidro-tekst">
-        <p class="section-label">Nova obveza od 17. studenoga 2026.</p>
-        <h3>Sidro: cjenik s baznim (sidrenim) cijenama</h3>
+        <p class="section-label">Obveza od 17. studenoga 2026.</p>
+        <h3>Sidro: cjenik s baznom cijenom</h3>
         <p>
-          Od 17. studenoga 2026. uz cijenu se ističe bazna (sidrena) cijena, a cjenik se
-          objavljuje na web stranici. Sidro vodi povijest cijena koja se ne može naknadno
-          mijenjati i izrađuje cjenik za prodajno mjesto (PDF) te CSV i XML datoteke za web.
-          Podaci ostaju na vašem računalu.
-        </p>
-        <p>
-          Besplatna verzija (do 10 artikala) već se može preuzeti, a trajna licenca plaća se
-          jednom. Imate puno artikala u blagajni ili web shopu? Prenesem ih u Sidro i postavim
-          slanje cjenika na vaš web, po dogovoru.
+          Pamti vaše cijene i jednim klikom izrađuje cjenik u obliku koji traži pravilnik
+          (NN 132/2026): CSV i XML za web, PDF za prodajno mjesto. Besplatno do 10 artikala.
         </p>
         <a class="btn-primary" href="/stranice/sidro.html">Više o Sidru i preuzimanje</a>
       </div>
@@ -338,69 +173,32 @@
       <article class="aplikacija" id="smjena-proizvod">
         <p class="status">U završnoj fazi razvoja</p>
         <h3>Smjena</h3>
-        <p>Automatski raspored smjena za ugostiteljstvo i male obrte. Provjerava zakonski odmor,
-          radi bez interneta i bez pretplate.</p>
+        <p>Raspored smjena za ugostiteljstvo i male obrte, s provjerom zakonskog odmora.</p>
         <a class="btn-secondary" href="/stranice/smjena.html">Prijavite interes</a>
       </article>
       <article class="aplikacija" id="opg-najava">
         <p class="status">U pripremi</p>
         <h3>Gajba, za OPG-ove</h3>
-        <p>Narudžbe i dostava za OPG-ove koji dostavljaju domaće proizvode po Rijeci i Kvarneru.
-          Jedina moja aplikacija koja svjesno radi na internetu (poslužitelj u Hrvatskoj), jer
-          narudžba mora stići vlasniku dok je na terenu.</p>
+        <p>Narudžbe i dostava za OPG-ove koji dostavljaju domaće proizvode po Rijeci i Kvarneru.</p>
         <a class="btn-secondary" href="#kontakt">Vodite OPG? Javite se</a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- O MENI -->
-<section id="omeni">
-  <div class="omeni">
-    <div>
-      <figure class="portret">
-        <picture>
-          <source srcset="/assets/img/goran-vidas.webp" type="image/webp">
-          <img src="/assets/img/goran-vidas.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Goran Vidas, programer i vlasnik obrta MAJSTORAJ">
-        </picture>
-      </figure>
-      <h2>Goran Vidas</h2>
-      <p class="omeni-uloga">Programer i vlasnik obrta MAJSTORAJ, Rijeka</p>
-      <ul class="omeni-cinjenice">
-        <li><strong>25+ godina</strong><span>programerskog iskustva</span></li>
-        <li><strong>Lokalno, bez clouda</strong><span>Python, PySide6 i SQLite na vašim računalima</span></li>
-        <li><strong>Moj obrt, ne agencija</strong><span>uvijek razgovarate sa mnom</span></li>
-      </ul>
-    </div>
-    <div class="omeni-tekst">
-      <p>
-        <strong>Nisam agencija.</strong> MAJSTORAJ je moj obrt, što znači da ćete uvijek
-        razgovarati sa mnom i da ću vaše rješenje osobno razviti ja.
-      </p>
-      <p>
-        Kad vodite vlastiti obrt ili tvrtku, vaš posao nije samo stavka na
-        fakturi. To je vaš trud i vaš rizik. Isti taj pristup unosim u
-        softver koji gradim: svako rješenje nosi moje ime i moram iza njega
-        stajati sto posto. Zato se najbolje razumijem s ljudima koji cijene
-        direktan kontakt, odgovornost i rad bez posrednika.
-      </p>
-      <p>
-        Radim s lokalnim poduzetnicima jer vjerujem da tvrtke u Rijeci i
-        okolici zaslužuju moderan, brz i pouzdan softver, po cijeni koja
-        ima smisla za njihovo poslovanje.
-      </p>
-      <p>
-        Primjer kako radim je <a href="/stranice/sidro.html">Sidro</a>: aplikaciju za
-        bazne cijene i cjenike razvio sam samostalno, od prve ideje do objave — povijest
-        cijena koja se ne može mijenjati, licence i računi, poslužitelj, upute i
-        podrška korisnicima.
-      </p>
-      <p>
-        Ako imate operativni problem koji vam troši sate svakog tjedna,
-        <strong>javite se.</strong> Kratak razgovor i kava ne koštaju ništa.
-      </p>
-    </div>
-  </div>
+<!-- SOFTVER PO MJERI -->
+<section id="po-mjeri" class="po-mjeri">
+  <h2>Softver po mjeri</h2>
+  <p class="section-intro">
+    Kad gotova aplikacija ne odgovara vašem poslu, izradim vašu: radne naloge, evidencije,
+    izvještaje ili povezivanje programa koje već koristite.
+  </p>
+  <ul class="cinjenice">
+    <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prvi razgovor na kavi je besplatan</li>
+    <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fiksna cijena u pisanoj ponudi</li>
+    <li><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Isporuka obično za 3–4 tjedna</li>
+  </ul>
+  <a class="btn-secondary" href="/stranice/po-mjeri.html">Kako radim i cijene →</a>
 </section>
 
 <!-- KONTAKT -->
@@ -410,11 +208,6 @@
       <h2>Razgovor ne košta ništa.</h2>
       <p class="section-intro">
         Javite se: u roku 24 sata dogovaramo kavu, dolazim k vama i vidimo ima li smisla surađivati.
-      </p>
-      <p class="kontakt-napomena">
-        Razgovor na kavi dogovaramo odmah, bez čekanja. Zbog trenutnog obujma posla početak
-        izrade novih projekata planiram unutar 1–2 tjedna od dogovora, pa se javite na vrijeme
-        da rezerviramo termin.
       </p>
     </div>
     <ul class="kanali">
@@ -453,6 +246,8 @@
   <nav class="footer-veze" aria-label="Ostale stranice">
     <a href="/stranice/sidro.html">Sidro</a>
     <a href="/stranice/smjena.html">Smjena</a>
+    <a href="/stranice/po-mjeri.html">Softver po mjeri</a>
+    <a href="/stranice/o-meni.html">O meni</a>
     <a href="/stranice/privatnost.html">Politika privatnosti</a>
     <a href="/knjige/prestani-tonuti/">Knjiga „Prestani tonuti”</a>
   </nav>
