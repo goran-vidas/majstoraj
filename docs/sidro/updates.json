@@ -1,5 +1,5 @@
 {
-  "latest_version": "0.3.0",
+  "latest_version": "0.3.1",
   "download_url": "https://preuzimanje.majstoraj.hr/nadogradnja/SidroSetup.exe",
-  "release_notes": "Usklađeno s pravilnicima NN 132/2026 (na snazi od 17. 11. 2026.): novi oblik CSV i XML cjenika, naziv datoteke s OIB-om ili matičnim brojem, rok objave do 11:00 na dan izmjene. Nakon nadogradnje u Postavkama odaberite vrstu subjekta i, za obrt, upišite matični broj."
+  "release_notes": "Sidro sada samo premješta prethodni cjenik u arhivu na webu (SFTP, FTPS, WebDAV) i briše ga nakon 15 dana, kako traži pravilnik. Uz to nova Izjava o privatnosti i manje izmjene."
 }
