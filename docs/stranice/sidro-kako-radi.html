@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kako Sidro radi — povijest cijena, izvoz i objava cjenika | MAJSTORAJ</title>
+<meta name="description" content="Što traže pravilnici NN 132/2026 i kako Sidro vodi povijest cijena, izrađuje CSV, XML i PDF cjenik i šalje ga na vaš web. Snimke aplikacije.">
+<link rel="canonical" href="https://majstoraj.hr/stranice/sidro-kako-radi.html">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kako Sidro radi">
+<meta property="og:description" content="Što traže pravilnici NN 132/2026 i kako Sidro vodi povijest cijena, izrađuje CSV, XML i PDF cjenik i šalje ga na vaš web. Snimke aplikacije.">
+<meta property="og:image" content="https://majstoraj.hr/stranice/slike/sidro-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sidro: popis artikala s primjerom podataka">
+<meta property="og:url" content="https://majstoraj.hr/stranice/sidro-kako-radi.html">
+<meta property="og:locale" content="hr_HR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kako Sidro radi">
+<meta name="twitter:description" content="Što traže pravilnici NN 132/2026 i kako Sidro vodi povijest cijena, izrađuje CSV, XML i PDF cjenik i šalje ga na vaš web. Snimke aplikacije.">
+<meta name="twitter:image" content="https://majstoraj.hr/stranice/slike/sidro-og.png">
+<meta name="theme-color" content="#F8F6F2">
+<link rel="preload" href="/assets/fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/majstoraj.css">
+<link rel="stylesheet" href="/assets/css/sidro.css">
+</head>
+<!--
+  FAZE OBJAVE (docs/PLAN_DO_17_STUDENOGA.md, faza 1 i 2)
+  data-faza="najava"  -> sada: opis, cijena, rok; nema preuzimanja ni obrasca za licencu
+  data-faza="prodaja" -> tek kad: backend radi (curl https://licenca.majstoraj.hr/licence/cijena),
+                         SidroSetup.exe je na https://preuzimanje.majstoraj.hr/ (VPS), probna kupnja prošla
+-->
+<body data-faza="prodaja">
+<a class="preskoci" href="#sadrzaj">Preskoči na sadržaj</a>
+
+<nav aria-label="Glavna navigacija">
+  <a class="logo" href="/" aria-label="MAJSTORAJ, naslovnica">MAJSTOR<span>AJ</span></a>
+  <div class="nav-links">
+    <a href="/stranice/sidro.html">Sidro</a>
+    <a href="/stranice/sidro-kako-radi.html" aria-current="page">Kako radi</a>
+    <a href="/stranice/sidro-primjeri.html">Primjeri</a>
+    <a href="/stranice/sidro-cijena.html">Cijena</a>
+    <a href="/stranice/sidro-pitanja.html">Pitanja</a>
+    <a class="nav-cta" href="/stranice/sidro.html#preuzmi">Preuzmi</a>
+  </div>
+</nav>
+
+<main id="sadrzaj">
+
+<section class="podstranica-uvod">
+  <a class="nav-back" href="/stranice/sidro.html"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sidro</a>
+  <h1>Kako Sidro radi</h1>
+  <p class="section-intro">Što traže pravilnici, koji posao Sidro preuzima i kako izgleda aplikacija.</p>
+</section>
+
+<!-- ŠTO SE MIJENJA -->
+<section id="propis" class="pojas pijesak">
+  <div class="omot">
+    <h2>Nova pravila za cijene od 17. studenoga 2026.</h2>
+    <div class="propis">
+      <div class="propis-tekst">
+        <p>
+          Od <strong>17. studenoga 2026.</strong> uz cijenu se ističe bazna (sidrena)
+          cijena, a tko ima web stranicu objavljuje cjenik u strojno čitljivom obliku.
+          Vlada je 14. 11. 2026. donijela odluke o prestanku važenja privremenih Odluka
+          (NN 101/2026), a od 17. 11. te obveze propisuju Pravilnik o isticanju bazne
+          cijene proizvoda i Pravilnik o načinu objave cjenika proizvoda, doneseni po
+          Zakonu o zaštiti potrošača. Pravilnici su objavljeni u Narodnim
+          novinama 16. 11. 2026. (NN 132/2026) i propisuju točan oblik datoteke: redoslijed
+          stupaca, razdjelnik „;” i naziv datoteke s OIB-om ili matičnim brojem
+          (<a href="objava-cjenika-na-webu.html">pregled</a>).
+        </p>
+        <p>
+          Sidro 0.3 izvozi cjenik u obliku iz pravilnika: stupci propisanim redom, UTF-8 i
+          „;”, naziv s OIB-om ili matičnim brojem i oznakom robe ili usluga, i jedna
+          datoteka za sva prodajna mjesta kad je cjenik isti. <strong>Prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača (bazna cijena i objava cjenika) uključena je u licencu</strong>: postojeći korisnici nadogradnju dobivaju besplatno.
+        </p>
+      </div>
+      <div class="propis-kartice">
+        <div class="propis-kartica">
+          <h3>Bazna (sidrena) cijena</h3>
+          <p>
+            Uz važeću cijenu ističe se cijena na referentni dan: u pravilu
+            <strong>10. 9. 2026.</strong>, za propisane skupine proizvoda (npr. hrana,
+            piće, kozmetika, sredstva za čišćenje) <strong>2. 5. 2025.</strong>, a za
+            artikle uvedene kasnije — dan stavljanja u ponudu. Kod robe stoji na istoj
+            oznaci kao maloprodajna cijena, kod usluga na cjeniku usluga.
+          </p>
+        </div>
+        <div class="propis-kartica">
+          <h3>Objava cjenika</h3>
+          <p>
+            Cjenik se objavljuje na webu u propisanom obliku (CSV ili XML, UTF-8,
+            stupci propisanim redom, odvojeni točkom-zarezom) i s propisanim nazivom
+            datoteke, zasebno za robu i usluge. Izmjena se objavljuje do 11:00 na dan
+            izmjene, a stari cjenik ostaje dostupan 15 dana. <a href="/stranice/objava-cjenika-na-webu.html">Kako izgleda datoteka i na što paziti</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="propis-napomena">
+      Sidro je alat za pripremu cjenika. Jesu li unesene cijene točne i odnosi li
+      se obveza na vaše poslovanje provjerite u samim propisima, pojašnjenjima Ministarstva gospodarstva ili kod svoje komore (HOK, HGK).
+    </p>
+  </div>
+</section>
+
+<!-- PROBLEMI -->
+<section id="problemi">
+  <h2>Zašto cjenik postaje posao</h2>
+  <p class="section-intro">
+    Nije problem promijeniti cijenu. Problem je znati i pokazati što je vrijedilo
+    kad, i objaviti to u točno propisanom obliku.
+  </p>
+  <div class="problemi">
+    <article class="problem">
+      <h3>Excel bez traga</h3>
+      <p>Nova cijena prepiše staru. Nakon mjesec dana nitko, uključujući vas, ne zna što je vrijedilo kad.</p>
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Povijest cijena, automatski</span></p>
+    </article>
+    <article class="problem">
+      <h3>Propisan oblik datoteke</h3>
+      <p>Redoslijed stupaca, točka-zarez, UTF-8, OIB ili matični broj i vremenska oznaka u nazivu — sitnice koje je lako promašiti ručno.</p>
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Isti, ispravan oblik svaki put</span></p>
+    </article>
+    <article class="problem">
+      <h3>Pretplata za par artikala</h3>
+      <p>Mjesečna ili godišnja pretplata za posao od pola sata tjedno — trošak koji se stalno vraća.</p>
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Platite jednom, koristite trajno</span></p>
+    </article>
+    <article class="problem">
+      <h3>Nemam vremena za kompliciran alat</h3>
+      <p>ERP i knjigovodstveni moduli traže uvođenje i predznanje koje nemate kad vam treba samo cjenik.</p>
+      <p class="rjesenje"><svg class="ikona" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Instalacija i prvi cjenik isti dan</span></p>
+    </article>
+  </div>
+</section>
+
+<!-- KAKO RADI -->
+<section id="kako" class="pojas pijesak">
+  <div class="omot">
+    <h2>Od praznog cjenika do objave u četiri koraka</h2>
+    <p class="section-intro">Uz aplikaciju dolaze kratke upute u PDF-u. Ako znate koristiti Excel, snaći ćete se i u Sidru.</p>
+    <ol class="koraci">
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">1</span>
+        <h3>Unesite artikle ili usluge</h3>
+        <p>Obrazac se prilagođava vrsti obveznika: trgovcu za robu, pružatelju usluga za usluge. Unosite jednom, poslije samo mijenjate cijene.</p>
+      </li>
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">2</span>
+        <h3>Sidro vodi povijest</h3>
+        <p>Svaka promjena cijene trajno se bilježi. Stari zapisi se ne prepisuju i ne brišu.</p>
+      </li>
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">3</span>
+        <h3>Izvezite CSV, XML i PDF</h3>
+        <p>Jednim klikom: datoteke za web u propisanom obliku i cjenik za prodajno mjesto u PDF-u.</p>
+      </li>
+      <li class="korak">
+        <span class="korak-broj" aria-hidden="true">4</span>
+        <h3>Objavite</h3>
+        <p>Pošaljite datoteke svom web-majstoru ili ih Sidro sam šalje na vaš poslužitelj (SFTP, FTPS, WebDAV, HTTP).</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- KAKO IZGLEDA -->
+<section id="izgled">
+  <h2>Pregledno, bez nepotrebnih izbornika</h2>
+  <p class="section-intro">Snimke stvarne aplikacije s izmišljenim podacima jedne male trgovine.</p>
+  <div class="snimke" id="snimke">
+    <div class="snimke-kartice" role="tablist" aria-label="Snimke zaslona" hidden>
+      <button type="button" role="tab" id="kartica-artikli" aria-controls="snimka-artikli" aria-selected="true">Artikli</button>
+      <button type="button" role="tab" id="kartica-povijest" aria-controls="snimka-povijest" aria-selected="false" tabindex="-1">Povijest cijena</button>
+      <button type="button" role="tab" id="kartica-izvoz" aria-controls="snimka-izvoz" aria-selected="false" tabindex="-1">Izvoz</button>
+      <button type="button" role="tab" id="kartica-cjenik" aria-controls="snimka-cjenik" aria-selected="false" tabindex="-1">PDF cjenik</button>
+    </div>
+    <figure class="snimka" id="snimka-artikli">
+      <a class="pozornica" href="slike/sidro-artikli.webp" target="_blank" rel="noopener">
+        <span class="prozor"><img src="slike/sidro-artikli.webp" width="1202" height="812" loading="lazy" decoding="async"
+             alt="Sidro, stranica Artikli: popis proizvoda i usluga s vrstom, jedinicom mjere, šifrom, markom, barkodom i statusom"></span>
+        <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
+      </a>
+      <figcaption><span class="snimka-ime">Artikli</span>Proizvodi i usluge na jednom mjestu, s poljima koja traže propisi.</figcaption>
+    </figure>
+    <figure class="snimka" id="snimka-povijest">
+      <a class="pozornica" href="slike/sidro-povijest.webp" target="_blank" rel="noopener">
+        <span class="prozor"><img src="slike/sidro-povijest.webp" width="1202" height="812" loading="lazy" decoding="async"
+             alt="Sidro, stranica Povijest cijena: bazna cijena s referentnim datumom i maloprodajna cijena po artiklu te povijest promjena za odabrani artikl"></span>
+        <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
+      </a>
+      <figcaption><span class="snimka-ime">Povijest cijena</span>Svaka promjena ostaje zapisana, s datumom od kad vrijedi.</figcaption>
+    </figure>
+    <figure class="snimka" id="snimka-izvoz">
+      <a class="pozornica" href="slike/sidro-izvoz.webp" target="_blank" rel="noopener">
+        <span class="prozor"><img src="slike/sidro-izvoz.webp" width="1200" height="811" loading="lazy" decoding="async"
+             alt="Sidro, stranica Izvoz cjenika: provjera prije izvoza i poruka s nazivima izrađenih CSV datoteka po propisanom obliku"></span>
+        <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
+      </a>
+      <figcaption><span class="snimka-ime">Izvoz</span>CSV, XML i PDF jednim klikom, s propisanim nazivom datoteke.</figcaption>
+    </figure>
+    <figure class="snimka" id="snimka-cjenik">
+      <a class="pozornica" href="slike/sidro-cjenik.webp" target="_blank" rel="noopener">
+        <span class="papir-hrpa">
+          <span class="papir-ispod" aria-hidden="true"></span>
+          <span class="papir"><img src="slike/sidro-cjenik.webp" width="1020" height="710" loading="lazy" decoding="async"
+               alt="PDF cjenik proizvoda iz Sidra 0.3: cijena za jedinicu mjere, maloprodajna cijena, poseban oblik prodaje i bazna cijena s datumom 2. 5. 2025. za hranu i toaletne potrepštine"></span>
+        </span>
+        <span class="povecaj"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.25 10.25 14 14M6.75 4.75v4M4.75 6.75h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="povecaj-tekst">Povećaj</span></span>
+      </a>
+      <figcaption><span class="snimka-ime">PDF cjenik</span>Za prodajno mjesto, uz CSV i XML za web.</figcaption>
+    </figure>
+  </div>
+  <dialog class="snimka-dijalog" id="snimkaDijalog" aria-label="Uvećana snimka zaslona">
+    <figure class="snimka-dijalog-sadrzaj">
+      <img alt="" decoding="async">
+      <figcaption class="snimka-dijalog-opis"></figcaption>
+    </figure>
+    <button type="button" class="snimka-zatvori" aria-label="Zatvori uvećanu snimku">×</button>
+  </dialog>
+</section>
+
+<!-- ZNAČAJKE -->
+<section id="znacajke" class="pojas pijesak">
+  <div class="omot podjela">
+    <div class="podjela-lijevo">
+      <h2>Napravljeno prema propisima, ne prema prezentaciji</h2>
+      <p class="section-intro">
+        Svaka značajka postoji jer je traže propisi ili jer štiti vaše podatke.
+      </p>
+    </div>
+    <ul class="znacajke jedan-stupac">
+      <li class="znacajka">
+        <span class="znacajka-ikona"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1L3.5 8.5"/><path d="M3.5 3.5v5h5"/><path d="M12 7.5V12l3 2"/></svg></span>
+        <div>
+          <h3>Povijest cijena koja se ne mijenja</h3>
+          <p>Svaka promjena se samo dodaje; stari zapisi ostaju kakvi su bili, pa uvijek znate što je vrijedilo kad.</p>
+        </div>
+      </li>
+      <li class="znacajka">
+        <span class="znacajka-ikona"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
+        <div>
+          <h3>CSV, XML i PDF</h3>
+          <p>Propisan naziv datoteke (OIB ili matični broj, prodajno mjesto s adresom i oznakom, roba ili usluge, broj pohrane, vrijeme objave), zasebne datoteke za robu i usluge. <a href="/stranice/sidro-primjeri.html">Primjeri datoteka</a></p>
+        </div>
+      </li>
+      <li class="znacajka">
+        <span class="znacajka-ikona"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6"/><path d="M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"/></svg></span>
+        <div>
+          <h3>Automatska sigurnosna kopija</h3>
+          <p>Kopija baze pri svakom pokretanju i izvoz cijele baze jednim klikom, za prijenos na novo računalo bez gubitka povijesti.</p>
+        </div>
+      </li>
+      <li class="znacajka">
+        <span class="znacajka-ikona"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></svg></span>
+        <div>
+          <h3>Slanje na vaš web</h3>
+          <p>SFTP, FTPS, WebDAV ili HTTP API. Datoteke idu izravno s vašeg računala na vaš poslužitelj.</p>
+        </div>
+      </li>
+      <li class="znacajka">
+        <span class="znacajka-ikona"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3"/><path d="M17 6l3 3"/><path d="M14.5 8.5l2 2"/></svg></span>
+        <div>
+          <h3>Licenca vezana uz OIB</h3>
+          <p>Ne uz računalo: licenca prelazi na novo računalo zajedno s bazom, a po potrebi je aktivirate istim OIB-om, bez ponovne kupnje.</p>
+        </div>
+      </li>
+      <li class="znacajka">
+        <span class="znacajka-ikona"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10 11V9.5a2 2 0 0 1 4 0V11"/></svg></span>
+        <div>
+          <h3>Vlasništvo i neovisnost</h3>
+          <p>Cjenik, povijest cijena i arhiva objava nalaze se samo na vašem računalu — mi im nemamo pristup. Sidro radi bez korisničkog računa, a za svakodnevni rad ne treba internet. Cjenik pripremate bez dijeljenja: dok ga sami ne objavite, vaše cijene ne napuštaju vaše računalo — i ako se obveza odgodi ili ukine. Kupljena licenca je trajna — i ako nam se sutra išta dogodi, vaši podaci i aplikacija ostaju vaši.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<script src="/assets/js/sidro.js" defer></script>
+
+<aside class="cta-row" aria-label="Razgovor">
+  <div style="flex:1; min-width:220px;">
+    <p>Niste sigurni odgovara li vam Sidro?</p>
+    <p>Kratak razgovor to razjasni brže od čitanja ove stranice.</p>
+  </div>
+  <div class="cta-actions">
+    <a class="btn-primary" href="/#kontakt">Razgovarajmo</a>
+    <a class="btn-ghost" href="/stranice/sidro.html">Natrag na Sidro</a>
+  </div>
+</aside>
+
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <nav class="footer-veze" aria-label="Pravne informacije">
+    <a href="/">Naslovnica</a>
+    <a href="/stranice/sidro-uvjeti.html">Uvjeti korištenja</a>
+    <a href="/stranice/sidro-privatnost.html">Izjava o privatnosti</a>
+  </nav>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385</span>
+</footer>
+
+<script>
+(function () {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/dopust-config.json', true);
+  xhr.onload = function () {
+    if (xhr.status !== 200) return;
+    try {
+      var config = JSON.parse(xhr.responseText);
+      var pocetak = new Date(config.pocetak);
+      var kraj = new Date(config.kraj);
+      var danas = new Date();
+      if (danas < pocetak || danas > kraj) return;
+
+      var banner = document.createElement('div');
+      banner.style.cssText =
+        'background:#2A2420;color:#F8F6F2;text-align:center;' +
+        'padding:0.65rem 1.25rem;font-size:0.9rem;line-height:1.5;' +
+        'font-family:var(--font-body, sans-serif);';
+      banner.textContent = config.poruka;
+      document.body.insertBefore(banner, document.body.firstChild);
+    } catch (e) {}
+  };
+  xhr.onerror = function () {};
+  xhr.send();
+})();
+</script>
+</body>
+</html>

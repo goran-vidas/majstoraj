@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidro — česta pitanja i sistemski zahtjevi | MAJSTORAJ</title>
+<meta name="description" content="Odnose li se nova pravila na vas, web samo za prezentaciju, matični broj u nazivu datoteke, plaćanje, podaci, instalacija i sistemski zahtjevi.">
+<link rel="canonical" href="https://majstoraj.hr/stranice/sidro-pitanja.html">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sidro — česta pitanja">
+<meta property="og:description" content="Odnose li se nova pravila na vas, web samo za prezentaciju, matični broj u nazivu datoteke, plaćanje, podaci, instalacija i sistemski zahtjevi.">
+<meta property="og:image" content="https://majstoraj.hr/stranice/slike/sidro-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sidro: popis artikala s primjerom podataka">
+<meta property="og:url" content="https://majstoraj.hr/stranice/sidro-pitanja.html">
+<meta property="og:locale" content="hr_HR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sidro — česta pitanja">
+<meta name="twitter:description" content="Odnose li se nova pravila na vas, web samo za prezentaciju, matični broj u nazivu datoteke, plaćanje, podaci, instalacija i sistemski zahtjevi.">
+<meta name="twitter:image" content="https://majstoraj.hr/stranice/slike/sidro-og.png">
+<meta name="theme-color" content="#F8F6F2">
+<link rel="preload" href="/assets/fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/DMSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/majstoraj.css">
+<link rel="stylesheet" href="/assets/css/sidro.css">
+</head>
+<!--
+  FAZE OBJAVE (docs/PLAN_DO_17_STUDENOGA.md, faza 1 i 2)
+  data-faza="najava"  -> sada: opis, cijena, rok; nema preuzimanja ni obrasca za licencu
+  data-faza="prodaja" -> tek kad: backend radi (curl https://licenca.majstoraj.hr/licence/cijena),
+                         SidroSetup.exe je na https://preuzimanje.majstoraj.hr/ (VPS), probna kupnja prošla
+-->
+<body data-faza="prodaja">
+<a class="preskoci" href="#sadrzaj">Preskoči na sadržaj</a>
+
+<nav aria-label="Glavna navigacija">
+  <a class="logo" href="/" aria-label="MAJSTORAJ, naslovnica">MAJSTOR<span>AJ</span></a>
+  <div class="nav-links">
+    <a href="/stranice/sidro.html">Sidro</a>
+    <a href="/stranice/sidro-kako-radi.html">Kako radi</a>
+    <a href="/stranice/sidro-primjeri.html">Primjeri</a>
+    <a href="/stranice/sidro-cijena.html">Cijena</a>
+    <a href="/stranice/sidro-pitanja.html" aria-current="page">Pitanja</a>
+    <a class="nav-cta" href="/stranice/sidro.html#preuzmi">Preuzmi</a>
+  </div>
+</nav>
+
+<main id="sadrzaj">
+
+<section class="podstranica-uvod">
+  <a class="nav-back" href="/stranice/sidro.html"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sidro</a>
+  <h1>Pitanja i odgovori</h1>
+  <p class="section-intro">Najčešća pitanja o pravilima, aplikaciji, plaćanju i instalaciji.</p>
+</section>
+
+<!-- PITANJA -->
+<section id="faq">
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Odnose li se nova pravila na moje poslovanje?</summary>
+      <div class="faq-body">Od 17. 11. 2026. to određuju Zakon o zaštiti potrošača (čl. 7.) i dva pravilnika (NN 132/2026); privremene Odluke Vlade prestale su važiti. Oba pravilnika (čl. 4.) izuzimaju robu i usluge s cijenom uređenom posebnim propisima, popuste za skupine kupaca ili oblike plaćanja, personalizirane i dinamički određene cijene, cijene na automatima te posredničke platforme. Ako niste sigurni, provjerite pojašnjenja Ministarstva gospodarstva ili pitajte svoju komoru (HOK, HGK) — Sidro vam pomaže izvršiti obvezu, ali ne odlučuje imate li je.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Imam web stranicu samo za prezentaciju, ili samo Facebook — moram li objavljivati cjenik?</summary>
+      <div class="faq-body">Da, i kad web služi samo za prezentaciju: Ministarstvo gospodarstva to je navelo uz ranije Odluke (<a href="https://mingo.gov.hr/vijesti/pojasnjenja-za-primjenu-dodatne-cijene-i-objavu-cjenika-od-1-listopada/10440" target="_blank" rel="noopener">pojašnjenje od 22. 9. 2026.</a>) i ponovilo u izvješću o savjetovanju o pravilniku, a izuzeće koje je tražio HOK pravilnik ne sadrži. Profil na društvenoj mreži (Facebook, Instagram) prema istom pojašnjenju nije mrežna stranica, pa tada CSV/XML datoteke ne objavljujete. Cijene i baznu cijenu u poslovnom prostoru ističete u svakom slučaju: za usluge na cjeniku usluga (za to služi PDF cjenik iz Sidra), a za robu na istoj oznaci na kojoj je maloprodajna cijena, npr. na polici. PDF cjenik je za robu dovoljan ako i maloprodajnu cijenu ističete na cjeniku.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Od kada vrijede nova pravila?</summary>
+      <div class="faq-body">Od 17. studenoga 2026. Referentni datumi za baznu (sidrenu) cijenu: u pravilu 10. 9. 2026., za hranu, piće, kozmetiku, sredstva za čišćenje, toaletne potrepštine i proizvode za kućanstvo 2. 5. 2025., a za robu i usluge ponuđene kasnije dan stavljanja u ponudu. Zato je dobro cijene s tih datuma unijeti odmah.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Kako izgleda datoteka i do kad je objavljujem?</summary>
+      <div class="faq-body">CSV ili XML, kodiranje UTF-8, stupci propisanim redom i odvojeni točkom-zarezom; roba i usluge u zasebnim datotekama. Izmijenjeni cjenik objavljuje se do 11:00 na dan izmjene, na istom mjestu na webu, a zamijenjeni ostaje dostupan kao arhivski još 15 dana. Sidro sastavlja datoteku i naziv, šalje je na web i na Početnoj pokazuje rok za neobjavljene promjene. Pri slanju preko SFTP-a, FTPS-a ili WebDAV-a Sidro prethodnu datoteku sam premješta u podmapu arhiva/ i briše je nakon 15 dana; kod drukčije objave to radite sami. Pojedinosti su u članku <a href="/stranice/objava-cjenika-na-webu.html">Objava cjenika na webu</a>, a primjeri u odjeljku <a href="/stranice/sidro-primjeri.html">Provjerite sami</a>.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Što je matični broj u nazivu datoteke i gdje ga nalazim?</summary>
+      <div class="faq-body">Pravilnik traži da naziv datoteke sadrži OIB ako je trgovac pravna osoba (npr. d.o.o.), odnosno matični broj ako je fizička osoba (npr. obrt). Koji matični broj, pravilnik ne kaže; za obrt je razumno upisati matični broj obrta (MBO) iz Obrtnog registra. U Sidru ga upisujete jednom: Postavke → Podaci o poslovnom subjektu, uz vrstu subjekta, a Sidro ga stavlja na početak naziva.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Što ako se pravila promijene?</summary>
+      <div class="faq-body">Prilagodba prvim pravilnicima po Zakonu o zaštiti potrošača (bazna cijena i objava cjenika) uključena je u licencu: to je Sidro 0.3, besplatna nadogradnja za postojeće korisnike. Ostale izmjene koje razrađuju iste obveze dolaze kao besplatne nadogradnje verzije 1. Ako propis bitno promijeni obvezne podatke, oblik ili način objave cjenika, izlazi nova glavna verzija (Sidro 2), koju postojeći kupci dobivaju po povlaštenoj cijeni. Detalji su u <a href="/stranice/sidro-uvjeti.html">Uvjetima korištenja</a>, točka 3.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Je li besplatna verzija stvarno besplatna?</summary>
+      <div class="faq-body">Da. Do 10 artikala i usluga, bez vremenskog ograničenja i bez unosa kartice. Sve mogućnosti rade i u besplatnoj verziji, uključujući izvoz CSV/XML/PDF i slanje na vaš web — ograničen je samo broj artikala.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Imam više od 10 artikala — što onda?</summary>
+      <div class="faq-body">Aplikacija vas upozori kad dođete do granice i ponudi trajnu licencu. Već unesene podatke ne gubite.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Imam stotine artikala u Excelu — mogu li ih uvesti?</summary>
+      <div class="faq-body">Artikle unosite ručno ili ih Sidro uvozi iz pripremljene datoteke (Artikli → „Uvoz iz datoteke…”). Ako ih već imate u blagajničkom programu ili Excelu, tu datoteku pripremamo kao uslugu: pošaljete izvoz, mi ga pretvorimo, a vi u Sidru prije upisa pregledate svaku stavku. Cijena ovisi o obimu i dogovara se unaprijed. Besplatnu verziju (do 10 artikala) možete isprobati odmah.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Web mi je na Wixu ili sličnom i nemam FTP pristup. Što onda?</summary>
+      <div class="faq-body">Sidro izrađuje CSV i XML datoteke na vašem računalu. Ako vaš hosting ima SFTP, FTPS ili WebDAV, Sidro ih sam šalje na web. Ako nema, datoteke postavite ručno ili to prepustite osobi koja vam održava stranicu.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Kako plaćam i dobivam li račun?</summary>
+      <div class="faq-body">Uplatom na poslovni račun (uplatnicom ili skeniranjem 2D bar-koda), ne karticom. Kad uplata stigne, e-poštom dobivate licencni ključ i račun u PDF-u. PDV nije obračunat na temelju čl. 90. st. 2. Zakona o PDV-u.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Trebam li internet za svakodnevni rad?</summary>
+      <div class="faq-body">Ne. Internet treba za aktivaciju licence, za slanje cjenika na vaš web (ako to koristite) i za provjeru nove verzije pri pokretanju. Unos i izvoz rade bez interneta.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Gdje su moji podaci?</summary>
+      <div class="faq-body">Samo na vašem računalu. Mi primamo samo podatke potrebne za licencu i račun (OIB, naziv, adresa, e-adresa). Ako naručite uslugu (npr. prijenos artikala), primamo i podatke koje nam za nju sami pošaljete — samo za taj posao, a brišemo ih najkasnije 30 dana nakon isporuke. Više u <a href="/stranice/sidro-privatnost.html">Izjavi o privatnosti</a>.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Mogu li Sidro prenijeti na novo računalo?</summary>
+      <div class="faq-body">Da. Izvezete bazu jednim klikom, instalirate Sidro na novom računalu i kopirate bazu na njezino mjesto (u aplikaciji je gumb s uputama korak po korak). Licenca je zapisana u bazi pa je obično ne treba ponovno aktivirati, a ako zatreba, aktivirate je istim OIB-om.</div>
+    </details>
+    <details class="faq-item" id="faq-upozorenje">
+      <summary>Preglednik ili Windows upozoravaju pri preuzimanju ili instalaciji. Je li to sigurno?</summary>
+      <div class="faq-body">To su uobičajena upozorenja za nove, manje aplikacije bez skupog certifikata za potpisivanje koda. <strong>Preglednik</strong> (Chrome, Edge i drugi) nakon preuzimanja može nekoliko sekundi provjeravati datoteku i javiti da je rijetko preuzimana ili da bi mogla biti opasna — odaberite da je zadržite (npr. u Chromeu „Zadrži” / „Download suspicious file”, u Edgeu izbornik „…” → „Zadrži”). <strong>Windows</strong> pri pokretanju može javiti „Nepoznat izdavač” — kliknite „Više informacija”, zatim „Ipak pokreni”. Upozorenja s vremenom nestaju kako aplikaciju preuzima više ljudi. Instalacijski program preuzimajte samo s majstoraj.hr.</div>
+    </details>
+  </div>
+</section>
+
+<!-- SISTEMSKI ZAHTJEVI -->
+<section id="zahtjevi" class="pojas pijesak">
+  <div class="omot">
+    <h2>Sistemski zahtjevi</h2>
+    <p class="section-intro">Sidro je lagana aplikacija i ne treba vam novo računalo.</p>
+    <dl class="zahtjevi">
+      <div><dt>Operacijski sustav</dt><dd>Windows 10 / 11 (64-bit)</dd></div>
+      <div><dt>Prostor na disku</dt><dd>~150 MB (instalirano)</dd></div>
+      <div><dt>Internet</dt><dd>Za aktivaciju, slanje na web i provjeru nove verzije</dd></div>
+      <div><dt>Instalacija</dt><dd>Klasični instalacijski program (.exe, ~40 MB)</dd></div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<script src="/assets/js/sidro.js" defer></script>
+
+<aside class="cta-row" aria-label="Razgovor">
+  <div style="flex:1; min-width:220px;">
+    <p>Niste sigurni odgovara li vam Sidro?</p>
+    <p>Kratak razgovor to razjasni brže od čitanja ove stranice.</p>
+  </div>
+  <div class="cta-actions">
+    <a class="btn-primary" href="/#kontakt">Razgovarajmo</a>
+    <a class="btn-ghost" href="/stranice/sidro.html">Natrag na Sidro</a>
+  </div>
+</aside>
+
+<footer>
+  <span class="footer-logo">MAJSTOR<span>AJ</span></span>
+  <nav class="footer-veze" aria-label="Pravne informacije">
+    <a href="/">Naslovnica</a>
+    <a href="/stranice/sidro-uvjeti.html">Uvjeti korištenja</a>
+    <a href="/stranice/sidro-privatnost.html">Izjava o privatnosti</a>
+  </nav>
+  <span class="footer-copy">© 2026 MAJSTORAJ, obrt za razvoj softvera i savjetovanje, vl. Goran Vidas · Rijeka · OIB: 73470282385</span>
+</footer>
+
+<script>
+(function () {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/dopust-config.json', true);
+  xhr.onload = function () {
+    if (xhr.status !== 200) return;
+    try {
+      var config = JSON.parse(xhr.responseText);
+      var pocetak = new Date(config.pocetak);
+      var kraj = new Date(config.kraj);
+      var danas = new Date();
+      if (danas < pocetak || danas > kraj) return;
+
+      var banner = document.createElement('div');
+      banner.style.cssText =
+        'background:#2A2420;color:#F8F6F2;text-align:center;' +
+        'padding:0.65rem 1.25rem;font-size:0.9rem;line-height:1.5;' +
+        'font-family:var(--font-body, sans-serif);';
+      banner.textContent = config.poruka;
+      document.body.insertBefore(banner, document.body.firstChild);
+    } catch (e) {}
+  };
+  xhr.onerror = function () {};
+  xhr.send();
+})();
+</script>
+</body>
+</html>
