@@ -1,5 +1,5 @@
 {
-  "latest_version": "0.3.1",
+  "latest_version": "0.4.0",
   "download_url": "https://preuzimanje.majstoraj.hr/nadogradnja/SidroSetup.exe",
-  "release_notes": "Sidro sada samo premješta prethodni cjenik u arhivu na webu (SFTP, FTPS, WebDAV) i briše ga nakon 15 dana, kako traži pravilnik. Uz to nova Izjava o privatnosti i manje izmjene."
+  "release_notes": "Sidro je sada i u Microsoft Storeu, a prodajno mjesto nudi vrste iz Pravilnika o klasifikaciji prodavaonica. Podaci, licenca i lozinke ostaju."
 }
