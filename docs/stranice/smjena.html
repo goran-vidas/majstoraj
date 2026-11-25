@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smjena — Automatski raspored radnih smjena | MAJSTORAJ</title>
-<meta name="description" content="Desktop aplikacija koja slaže raspored smjena za dvije minute — provjerava zakonski odmor, dijeli uloge po smjenama, radi 100% offline. Lansiranje jesen 2026, prijave za predbilježbu otvorene.">
+<meta name="description" content="Desktop aplikacija koja slaže raspored smjena za dvije minute — provjerava dnevni i tjedni odmor po Zakonu o radu, dijeli uloge po smjenama, radi 100% offline. Lansiranje odgođeno, prijave za predbilježbu otvorene.">
 <link rel="canonical" href="https://majstoraj.hr/stranice/smjena.html">
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -12,7 +12,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Smjena — Automatski raspored radnih smjena | MAJSTORAJ">
-<meta property="og:description" content="Desktop aplikacija koja slaže raspored smjena za dvije minute — provjerava zakonski odmor, dijeli uloge po smjenama, radi 100% offline. Lansiranje jesen 2026, prijave za predbilježbu otvorene.">
+<meta property="og:description" content="Desktop aplikacija koja slaže raspored smjena za dvije minute — provjerava dnevni i tjedni odmor po Zakonu o radu, dijeli uloge po smjenama, radi 100% offline. Lansiranje odgođeno, prijave za predbilježbu otvorene.">
 <meta property="og:image" content="https://majstoraj.hr/favicon.png">
 <meta property="og:url" content="https://majstoraj.hr/stranice/smjena.html">
 <meta property="og:locale" content="hr_HR">
@@ -63,8 +63,9 @@
     <h1>Raspored smjena.<br>Riješen za dvije minute.</h1>
     <p class="uvod-lead">
       Smjena je desktop aplikacija koja automatski slaže raspored radnih smjena —
-      poštuje zakonski odmor, uzima u obzir uloge i želje radnika, i sve to radi
-      lokalno na vašem računalu, bez interneta i bez mjesečne pretplate.
+      uzima u obzir uloge i želje radnika, provjerava dnevni i tjedni odmor po
+      Zakonu o radu i jasno označi svaku smjenu koja ga krši. Sve radi lokalno na
+      vašem računalu, bez interneta i bez mjesečne pretplate.
     </p>
     <div class="uvod-gumbi">
       <a class="btn-primary" href="#demo-forma">Prijavite se za predbilježbu</a>
@@ -73,7 +74,7 @@
         WhatsApp
       </a>
     </div>
-    <p class="uvod-napomena">Trenutno u završnoj fazi razvoja, lansiranje planirano za jesen 2026.</p>
+    <p class="uvod-napomena">Trenutno u završnoj fazi razvoja. Lansiranje je odgođeno — novi datum prvo javljam prijavljenima.</p>
   </div>
 
   <figure class="uvod-slika">
@@ -212,7 +213,7 @@
 <!-- PREDBILJEŽBA -->
 <section id="cijena" class="pojas pijesak">
   <div class="omot">
-    <p class="section-label">Lansiranje jesen 2026.</p>
+    <p class="section-label">Lansiranje odgođeno</p>
     <h2>Budite prvi koji saznaju kad Smjena bude spremna.</h2>
     <p class="section-intro">
       Aplikacija je u završnoj fazi razvoja. Prijavite interes sad — javljam se
@@ -240,7 +241,7 @@
           lansiranja — bez obveze kupnje.
         </p>
         <p class="paket-napomena" id="rok-odgovora-note">
-          Javljam se osobno na uneseni email čim krenem u jesen 2026.
+          Javljam se osobno na uneseni email čim odredim novi datum lansiranja.
         </p>
       </article>
 
@@ -258,8 +259,8 @@
   <div id="demo-forma" class="form-block">
     <h3>Prijavite se za predbilježbu</h3>
     <p>
-      Ostavite kontakt i javit ću se osobno čim Smjena bude spremna za
-      jesen 2026 — prijavljeni prvi dobivaju priliku za zatvoreno beta
+      Ostavite kontakt i javit ću se osobno čim odredim novi datum
+      lansiranja — prijavljeni prvi dobivaju priliku za zatvoreno beta
       testiranje, bez obveze kupnje.
     </p>
 
@@ -335,7 +336,7 @@
         if (!odgovor.ok) throw new Error('AJAX slanje nije uspjelo');
         if (statusBox) {
           statusBox.className = 'form-status success';
-          statusBox.textContent = 'Hvala! Zabilježio sam vaš interes — javljam se osobno čim Smjena bude spremna za jesen 2026.';
+          statusBox.textContent = 'Hvala! Zabilježio sam vaš interes — javljam se osobno čim odredim novi datum lansiranja.';
         }
         forma.reset();
         submitBtn.disabled = false;
